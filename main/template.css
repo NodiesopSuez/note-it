@@ -56,5 +56,10 @@ body {
     background-color: #f0eee3;
 }
 
+button {
+    outline: none;
+    border: none;
+}
+
 #ladybug-line { fill: var(--ladybug-line);}
 #ladybug-circle { fill: var(--ladybug-circle);}
