@@ -1,3 +1,10 @@
 .catch_logo > svg {
     width: 300px;
 }
+
+.sign_nav,
+.note_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

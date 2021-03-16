@@ -63,3 +63,12 @@ button {
 
 #ladybug-line { fill: var(--ladybug-line);}
 #ladybug-circle { fill: var(--ladybug-circle);}
+
+/* ノート */
+.note {
+    position: relative;
+    width: 150px;
+    height: 176px;
+    background: #ccc;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
