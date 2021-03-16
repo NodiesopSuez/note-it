@@ -57,7 +57,25 @@ $msg = 'ようこそ♪';
                 </div>
             <?php endfor; ?>
         </section>
-        
+        <section class="feature">
+            <img src="./img/header_feature.png">
+            <h1>3 FEATURES OF 'note IT'</h1>
+            <div class="feature_contents">
+                <div>
+                    <img src="./img/feature_sepalete.png">
+                    <p>ノートからさらにチャプターへ分けてページを保存できます。</p>
+                </div>
+                <div>
+                    <img src="./img/feature_color.png">
+                    <p>ラインナップから各ノートに好きなカラーを選んで保存できます。</p>
+                </div>
+                <div>
+                    <img src="./img/feature_type.png">
+                    <p>チャプターごとにページのタイプを選べます。<br/>
+                    Type A:単語帳タイプ<br/>Type B:フリータイプ</p>
+                </div>
+            </div>
+        </section>
         
     </div>
 
