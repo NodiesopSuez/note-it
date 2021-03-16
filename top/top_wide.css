@@ -1,14 +1,29 @@
 .catch_logo {
-    display: flex;
-    align-items: flex-end;
+    position: relative;
+    width: 480px;
+    height: 200px;
+    margin: 70px auto 38px auto;
+}
+
+.p_bold {
+    font-size: 18px;
+    font-weight: bold !important;
+}
+
+.catch_logo > .logo_mark,
+.catch_logo > .logo_type {
+    position: absolute;
+    bottom: 0;
 }
 
 .catch_logo > .logo_mark {
-    width: 255px;
+    left: 0;
+    width: 200px;
 }
 
 .catch_logo > .logo_type {
-    width: 353px;
+    left: 181px;
+    width: 298px;
 }
 
 

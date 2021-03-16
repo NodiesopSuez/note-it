@@ -30,7 +30,7 @@ $msg = 'ようこそ♪';
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Config::LOGO_MARK?></svg>
                 <svg class="logo_type" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Config::LOGO_TYPE?></svg>
             </div>
-            <p>紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
+            <p class="p_bold">紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
             
             <div class="sign_nav">
                 <button><p>sign in</p></button>
@@ -83,7 +83,7 @@ $msg = 'ようこそ♪';
                 <h1>DEVELOPER'S DESIRE</h1>
                 <h1>OF SELF-SOlVING</h1>
                 <h1>IS THE BEGINNING</h1>
-                <p>「抱えている問題を<br/>
+                <p class="p_bold">「抱えている問題を<br/>
                     自分のつくるプログラムで解決してみたい」<br/>
                     そんな私の挑戦心がnote ITのはじまり。</p>
             </div>  
@@ -122,7 +122,7 @@ $msg = 'ようこそ♪';
                 <img src="./img/story_4.png">
                 <h1>IMPROVING OF DEVELOPER'S SKILL<br/>
                     ADD MORE FEATURES OF 'note IT'</h1>
-                <p>私がプログラマーとして成長し続ける限り、note ITも成長し続けます。</p>
+                <p class="p_bold">私がプログラマーとして成長し続ける限り、note ITも成長し続けます。</p>
                 <p>初心者プログラマーがつくったクラウドノートなので<br/>
                     世に出ているノートアプリに比べて、昨日もデザインもまだまだ。<br/>
                     私のスキルが成長するとともに、note ITも成長します。<br/>

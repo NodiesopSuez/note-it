@@ -53,12 +53,20 @@ body {
 
 .container {
     width: 80%;
+    overflow: hidden;
     background-color: #f0eee3;
+    text-align: center;
 }
 
 button {
     outline: none;
     border: none;
+}
+
+p {
+    font-family: iroha-26tubaki-stdn, sans-serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 #ladybug-line { fill: var(--ladybug-line);}
