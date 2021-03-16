@@ -6,6 +6,12 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 
 $menus = ['news'=>'n_blue','story'=>'n_pink','feature'=>'n_yellow', 'Q & A'=>'n_green'];
+
+$news_content = [
+    'title' => 'New Color Lineup',
+    'detail' => 'ノートのカラーを追加！',
+    'date' => '2021.03.16'];
+
 $img = './img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
 ?>
@@ -40,6 +46,16 @@ $msg = 'ようこそ♪';
                 </div>
                 <?php endforeach?>
             </div>
+        </section>
+        <section class="news">
+            <img src="./img/header_news.png">
+            <?php for($i=0; $i<=5; $i++): ?>
+                <div class="news">
+                    <h1><?= $news_content['title'] ?></h1>
+                    <p><?= $news_content['detail'] ?><br/>
+                        <?=$news_content['date'] ?></p>
+                </div>
+            <?php endfor; ?>
         </section>
         
         
