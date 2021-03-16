@@ -76,6 +76,48 @@ $msg = 'ようこそ♪';
                 </div>
             </div>
         </section>
+        <section class="story">
+            <img src="./img/header_story.png">
+            <div class="first_contents">
+                <h1>DEVELOPER'S DESIRE</h1>
+                <h1>OF SELF-SOlVING</h1>
+                <h1>IS THE BEGINNING</h1>
+                <p>「抱えている問題を<br/>
+                    自分のつくるプログラムで解決してみたい」<br/>
+                    そんな私の挑戦心がnote ITのはじまり。</p>
+            </div>  
+            <div class="second_contents">
+                <img src="./img/story_1.png">
+                <p>プログラマーとして活躍するべく、学習を始めた私。<br/>
+                    学習した内容を忘れないためにも、<br/>
+                    都度その内容をノートに書き留めていました。</p>
+            </div> 
+            <div class="second_contents">
+                <p>学習を進めたい気持ちはありつつも<br/>
+                    「綺麗にノートを書きたい」という<br/>
+                    こだわりを諦められず…</p>
+                <p>一文字でも失敗したと感じたら<br/>
+                    新しいページへ書き直す…<br/>
+                    この繰り返しにより、<br/>
+                    私は紙も時間も無駄にしていました。</p>
+                <img src="./img/story_2.png">
+            </div> 
+            <div class="third_contnets">
+                <div class="balloon">
+                    <p>自分でクラウドノートを作れば<br/>
+                        プログラミングの勉強にもなるし、<br/>
+                        ほんの少しでも<br/>
+                        同じような悩みを抱える人の<br/>
+                        手助けになるかもしれない…</p>
+                    <img src="./img/bubble_lg.png">
+                    <img src="./img/bubble_md.png">
+                    <img src="./img/bubble_sm.png"> 
+                </div>
+                <img src="./img/story_3.png">
+                <p>この「ある日の思いつき」が<br/>
+                    note ITは生まれました。</p>
+            </img>
+        </section>
         
     </div>
 
