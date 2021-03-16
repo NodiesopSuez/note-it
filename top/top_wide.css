@@ -1,0 +1,20 @@
+.catch_logo {
+    display: flex;
+    align-items: flex-end;
+}
+
+.catch_logo > .logo_mark {
+    width: 255px;
+}
+
+.catch_logo > .logo_type {
+    width: 353px;
+}
+
+
+.sign_nav,
+.note_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

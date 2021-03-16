@@ -21,16 +21,17 @@ $msg = 'ようこそ♪';
 <head>
     <?php include('../head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
-    <link rel="stylesheet" type="text/css" href="./top.css">
+    <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">
 </head>
 <body>
     <div class="container">
         <section class="top">
             <div class="catch_logo">
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Config::LOGO_MARK?></svg>
-                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Config::LOGO_TYPE?></svg>
-                <p>紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
+                <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Config::LOGO_MARK?></svg>
+                <svg class="logo_type" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Config::LOGO_TYPE?></svg>
             </div>
+            <p>紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
+            
             <div class="sign_nav">
                 <button><p>sign in</p></button>
                 <div>
