@@ -116,9 +116,19 @@ $msg = 'ようこそ♪';
                 <img src="./img/story_3.png">
                 <p>この「ある日の思いつき」が<br/>
                     note ITは生まれました。</p>
-            </img>
+            </div>
+            <div class="forth_contents">
+                <img src="./img/story_4.png">
+                <h1>IMPROVING OF DEVELOPER'S SKILL<br/>
+                    ADD MORE FEATURES OF 'note IT'</h1>
+                <p>私がプログラマーとして成長し続ける限り、note ITも成長し続けます。</p>
+                <p>初心者プログラマーがつくったクラウドノートなので<br/>
+                    世に出ているノートアプリに比べて、昨日もデザインもまだまだ。<br/>
+                    私のスキルが成長するとともに、note ITも成長します。<br/>
+                    ご利用される方におきましてはご不便をかけるかもしれませんが、<br/>
+                    暖かく見守りながら使っていただけると幸いです。</p>
+            </div>
         </section>
-        
     </div>
 
 
