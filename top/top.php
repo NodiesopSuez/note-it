@@ -14,6 +14,7 @@ $news_content = [
 
 $img = './img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
+
 ?>
 
 <!DOCTYPE html>
@@ -33,12 +34,20 @@ $msg = 'ようこそ♪';
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
             
             <div class="sign_nav">
-                <button><p>sign in</p></button>
+                <button class="sign_in"> 
+                    <p>sign in</p>
+                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                </button>
                 <div>
                     <img src="<?= $img ?>">
                     <p><?= $msg ?></p>
                 </div>            
-                <button><p>sign up</p></button>
+                <button class="sign_up">
+                    <p>sign up</p>
+                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                </button>
             </div>
             <div class="note_nav">
                 <?php foreach($menus as $menu => $color): ?>

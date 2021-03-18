@@ -1,8 +1,8 @@
 .catch_logo {
     position: relative;
-    width: 480px;
-    height: 200px;
-    margin: 70px auto 38px auto;
+    width: 410px;
+    height: 170px;
+    margin: 70px auto 25px auto;
 }
 
 .p_bold {
@@ -18,12 +18,12 @@
 
 .catch_logo > .logo_mark {
     left: 0;
-    width: 200px;
+    width: 180px;
 }
 
 .catch_logo > .logo_type {
-    left: 181px;
-    width: 298px;
+    left: 160px;
+    width: 250px;
 }
 
 
@@ -33,3 +33,105 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.sign_nav {
+    margin: auto;
+    width: 500px;
+    height: 150px;
+}
+
+.sign_nav > div {
+    position: relative;
+    width: 300px;
+    height: 90%;
+}
+
+.sign_nav > div img,
+.sign_nav > div p {
+    position: absolute;
+}
+
+.sign_nav > div img {
+    bottom: 0;
+    left: 0;
+    width: 100px;
+}
+
+.sign_nav > div p,
+.sign_nav > div p::before{
+    top: 0;
+    right: 0;
+    line-height: 60px;
+    width: 120px;
+    height: 60px;
+    border-radius: 100px;
+    background: #ccc;
+}
+
+.sign_nav > div p::before {
+    position: absolute;
+    z-index: 1;
+    content: 'ようこそ♪';
+    width: 120px;
+    height: 60px;
+    border-radius: 100px;
+}  
+
+.sign_nav > div p::after {
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    content: '';
+    width: 40px;
+    height: 40px;
+    transform: matrix(1, -0.5, -0.4, 1, 0, 0);  
+}  
+
+.sign_nav > div p,
+.sign_nav > div p::before,
+.sign_nav > div p::after {
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+}
+
+.sign_nav > div p,
+.sign_nav > div p::after  {
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.sign_in,
+.sign_up {
+    position: relative;
+}
+
+.sign_in *,
+.sign_up * {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+
+.sign_in > .triangle_base,
+.sign_up > .triangle_base { 
+    width: 80px;
+    height: 90px;
+    fill: #ccc;  
+}
+
+.sign_in > .triangle,
+.sign_up > .triangle { 
+    width: 30px;
+    height: 40px;
+    fill: var(--gra-blue);  
+}
+
+.sign_in > svg {
+    transform: rotate(180deg);
+}
+
+.sign_in > p,
+.sign_up > p {
+    z-index: 3;
+    color: #fff;
+}
+
