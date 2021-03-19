@@ -1,3 +1,4 @@
+/* トップ部分 */
 .catch_logo {
     position: relative;
     width: 410px;
@@ -32,17 +33,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: auto;
 }
 
+
 .sign_nav {
-    margin: auto;
+    margin-bottom: 36px;
     width: 500px;
     height: 150px;
 }
 
 .sign_nav > div {
     position: relative;
-    width: 300px;
+    width: 196px;
     height: 90%;
 }
 
@@ -101,10 +104,15 @@
 .sign_in,
 .sign_up {
     position: relative;
+    width: 100px;
+    height: 110px;
+    background-color: transparent;
 }
 
 .sign_in *,
-.sign_up * {
+.sign_up *,
+.sign_in::after,
+.sign_up::after  {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -112,26 +120,81 @@
 }
 
 .sign_in > .triangle_base,
-.sign_up > .triangle_base { 
-    width: 80px;
-    height: 90px;
+.sign_up > .triangle_base {
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     fill: #ccc;  
 }
 
 .sign_in > .triangle,
 .sign_up > .triangle { 
-    width: 30px;
-    height: 40px;
+    width: 25px;
     fill: var(--gra-blue);  
+}
+
+.sign_in > .triangle {
+    left: 8px;
+}
+.sign_up > .triangle {
+    right: 8px;
 }
 
 .sign_in > svg {
     transform: rotate(180deg);
 }
 
-.sign_in > p,
-.sign_up > p {
-    z-index: 3;
-    color: #fff;
+.sign_in::after,
+.sign_up::after {
+    width: 60px;
+    line-height: 110px;
 }
 
+.sign_in::after{
+    content: 'sign in';
+    right: 6px;
+}
+
+.sign_up::after {
+    content: 'sign up';
+    left: 6px;
+}
+
+
+.note_nav {
+    width: 80%;
+}
+
+.note > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 各セクション共通 */
+section { 
+    padding-bottom: 64px;
+}
+
+section > img {
+    display: flex;
+    width: 200px;
+    margin-bottom: 50px;
+}
+
+/* news部分 */
+.news > ul {
+    display: flex;
+    margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.news_icon {
+    margin-bottom: 16px;
+    width: 320px;
+    height: 144px;
+    background-color: #ccc;
+    border-radius: 5px;
+}

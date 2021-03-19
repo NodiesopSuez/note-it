@@ -58,6 +58,10 @@ body {
     text-align: center;
 }
 
+li {
+    list-style: none;
+}
+
 button {
     outline: none;
     border: none;
@@ -75,8 +79,35 @@ p {
 /* ノート */
 .note {
     position: relative;
-    width: 150px;
-    height: 176px;
+    width: 140px;
+    height: 161px;
     background: #ccc;
+    border-radius: 0px 3px 3px 0px;
     box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.note::after,
+.note > p {
+    position: absolute;
+}
+
+.note::after {
+    top: 0;
+    left: 0;
+    content: '';
+    width: 16px;
+    height: 161px;
+    background: rgb(170, 133, 133);
+    border-radius: 3px 0px 0px 3px;
+    box-shadow: 1px 1px 3px var(--body-shadow);
+}
+
+.note > p {
+    top: 25px;
+    left: 30px;
+    width: 95px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 3px;
+    background:rgb(170, 133, 133);
 }

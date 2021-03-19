@@ -35,7 +35,6 @@ $msg = 'ようこそ♪';
             
             <div class="sign_nav">
                 <button class="sign_in"> 
-                    <p>sign in</p>
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
                 </button>
@@ -44,7 +43,6 @@ $msg = 'ようこそ♪';
                     <p><?= $msg ?></p>
                 </div>            
                 <button class="sign_up">
-                    <p>sign up</p>
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
                 </button>
@@ -59,13 +57,15 @@ $msg = 'ようこそ♪';
         </section>
         <section class="news">
             <img src="./img/header_news.png">
-            <?php for($i=0; $i<=5; $i++): ?>
-                <div class="news">
-                    <h1><?= $news_content['title'] ?></h1>
-                    <p><?= $news_content['detail'] ?><br/>
-                        <?=$news_content['date'] ?></p>
-                </div>
-            <?php endfor; ?>
+            <ul>
+                <?php for($i=0; $i<=5; $i++): ?>
+                    <li class="news_icon">
+                        <h1><?= $news_content['title'] ?></h1>
+                        <p><?= $news_content['detail'] ?><br/>
+                            <?=$news_content['date'] ?></p>
+                    </li>
+                <?php endfor; ?>
+            </ul>
         </section>
         <section class="feature">
             <img src="./img/header_feature.png">
