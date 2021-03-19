@@ -5,8 +5,8 @@
 
     /* 各ページ共通 */
     /* body背景 */
-    --body-base-dk: #f4f3ed;
-    --body-base-lt: #efecd5;
+    --body-base-lt: #f4f3ed;
+    --body-base-dk: #efecd5;
     /* body影 */
     --body-shadow: #dbd4b7;
     /* フォント */
@@ -54,7 +54,7 @@ body {
 .container {
     width: 80%;
     overflow: hidden;
-    background-color: #f0eee3;
+    background-color: var(--body-base-lt);
     text-align: center;
 }
 
