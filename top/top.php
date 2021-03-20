@@ -42,10 +42,10 @@ $msg = 'ようこそ♪';
                     <img src="<?= $img ?>">
                     <p><?= $msg ?></p>
                 </div>            
-                <button class="sign_up">
+                <a class="sign_up" href="../sign/sign_up.php">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
-                </button>
+                </a>
             </div>
             <div class="note_nav">
                 <?php foreach($menus as $menu => $color): ?>
@@ -73,16 +73,16 @@ $msg = 'ようこそ♪';
             <div class="feature_contents">
                 <div>
                     <img src="./img/feature_sepalete.png">
-                    <p>ノートからさらにチャプターへ分けてページを保存できます。</p>
+                    <p>ノートからさらに<br/>チャプターへ分けて<br/>ページを保存できます。</p>
                 </div>
                 <div>
                     <img src="./img/feature_color.png">
-                    <p>ラインナップから各ノートに好きなカラーを選んで保存できます。</p>
+                    <p>ラインナップから<br/>好きなカラーを選んで<br/>保存できます。</p>
                 </div>
                 <div>
                     <img src="./img/feature_type.png">
-                    <p>チャプターごとにページのタイプを選べます。<br/>
-                    Type A:単語帳タイプ<br/>Type B:フリータイプ</p>
+                    <p>チャプターごとに<br/>ページのタイプを選べます。</p>
+                    <p class="type">Type A:単語帳タイプ<br/>Type B:フリータイプ</p>
                 </div>
             </div>
         </section>
@@ -92,8 +92,7 @@ $msg = 'ようこそ♪';
                 <h1>DEVELOPER'S DESIRE</h1>
                 <h1>OF SELF-SOlVING</h1>
                 <h1>IS THE BEGINNING</h1>
-                <p class="p_bold">「抱えている問題を<br/>
-                    自分のつくるプログラムで解決してみたい」<br/>
+                <p class="p_bold">「抱えている問題を自分のつくるプログラムで解決してみたい」<br/>
                     そんな私の挑戦心がnote ITのはじまり。</p>
             </div>  
             <div class="second_contents">
@@ -102,7 +101,7 @@ $msg = 'ようこそ♪';
                     学習した内容を忘れないためにも、<br/>
                     都度その内容をノートに書き留めていました。</p>
             </div> 
-            <div class="second_contents">
+            <div class="third_contents">
                 <p>学習を進めたい気持ちはありつつも<br/>
                     「綺麗にノートを書きたい」という<br/>
                     こだわりを諦められず…</p>
@@ -112,7 +111,7 @@ $msg = 'ようこそ♪';
                     私は紙も時間も無駄にしていました。</p>
                 <img src="./img/story_2.png">
             </div> 
-            <div class="third_contnets">
+            <div class="forth_contents">
                 <div class="balloon">
                     <p>自分でクラウドノートを作れば<br/>
                         プログラミングの勉強にもなるし、<br/>
@@ -127,7 +126,7 @@ $msg = 'ようこそ♪';
                 <p>この「ある日の思いつき」が<br/>
                     note ITは生まれました。</p>
             </div>
-            <div class="forth_contents">
+            <div class="fifth_contents">
                 <img src="./img/story_4.png">
                 <h1>IMPROVING OF DEVELOPER'S SKILL<br/>
                     ADD MORE FEATURES OF 'note IT'</h1>

@@ -71,9 +71,16 @@ p {
     font-family: iroha-26tubaki-stdn, sans-serif;
     font-weight: 400;
     font-style: normal;
+    font-size: 15px;
+    letter-spacing: -0.5px;
 }
 
-#ladybug-line { fill: var(--ladybug-line);}
+a {
+    text-decoration: none;
+}
+
+.logo_mark,
+.logo_type { fill: var(--ladybug-line);}
 #ladybug-circle { fill: var(--ladybug-circle);}
 
 /* ノート */

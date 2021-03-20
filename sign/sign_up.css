@@ -1,0 +1,49 @@
+/* フォーム部分 */
+label { 
+    font-size: 20px;
+    margin-bottom: 0px;
+}
+
+.text > input {
+    position: relative;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    height: 40px;
+    line-height: 20px;
+    box-shadow: 5px 5px 7px var(--body-shadow) inset;
+}
+
+.text > input::after {
+    position: absolute;
+    content: '';
+    background-color: transparent;
+    box-shadow: 5px 5px 7px var(--body-shadow) inset;
+}
+
+.form-group {
+    margin: 16px auto;
+    width: 45%;
+    text-align: start;
+}
+
+.gender > ul {
+    display: flex;
+    flex-direction: row !important;
+    padding: 0;
+}
+.gender li {
+    margin: auto 10px;
+}
+
+input[name="email"],
+input[name="name"] {
+    width: 100%;
+}
+
+.send {
+    width: 142px;
+    height: 46px;
+    border-radius: 23px;
+}

@@ -1,32 +1,28 @@
-/* トップ部分 */
+/* top */
 .catch_logo {
     position: relative;
     width: 410px;
     height: 170px;
     margin: 70px auto 25px auto;
 }
-
-.p_bold {
-    font-size: 18px;
-    font-weight: bold !important;
-}
-
 .catch_logo > .logo_mark,
 .catch_logo > .logo_type {
     position: absolute;
     bottom: 0;
 }
-
 .catch_logo > .logo_mark {
     left: 0;
     width: 180px;
 }
-
 .catch_logo > .logo_type {
     left: 160px;
     width: 250px;
 }
 
+.p_bold {
+    font-size: 18px;
+    font-weight: bold !important;
+}
 
 .sign_nav,
 .note_nav {
@@ -35,31 +31,25 @@
     align-items: center;
     margin: auto;
 }
-
-
 .sign_nav {
     margin-bottom: 36px;
     width: 500px;
     height: 150px;
 }
-
 .sign_nav > div {
     position: relative;
     width: 196px;
     height: 90%;
 }
-
 .sign_nav > div img,
 .sign_nav > div p {
     position: absolute;
 }
-
 .sign_nav > div img {
     bottom: 0;
     left: 0;
     width: 100px;
 }
-
 .sign_nav > div p,
 .sign_nav > div p::before{
     top: 0;
@@ -70,7 +60,6 @@
     border-radius: 100px;
     background: #ccc;
 }
-
 .sign_nav > div p::before {
     position: absolute;
     z-index: 1;
@@ -79,7 +68,6 @@
     height: 60px;
     border-radius: 100px;
 }  
-
 .sign_nav > div p::after {
     position: absolute;
     bottom: 0;
@@ -89,18 +77,15 @@
     height: 40px;
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);  
 }  
-
 .sign_nav > div p,
 .sign_nav > div p::before,
 .sign_nav > div p::after {
     background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
 }
-
 .sign_nav > div p,
 .sign_nav > div p::after  {
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
-
 .sign_in,
 .sign_up {
     position: relative;
@@ -108,7 +93,6 @@
     height: 110px;
     background-color: transparent;
 }
-
 .sign_in *,
 .sign_up *,
 .sign_in::after,
@@ -118,7 +102,6 @@
     bottom: 0;
     margin: auto;
 }
-
 .sign_in > .triangle_base,
 .sign_up > .triangle_base {
     right: 0;
@@ -127,45 +110,37 @@
     height: 100%;
     fill: #ccc;  
 }
-
 .sign_in > .triangle,
 .sign_up > .triangle { 
     width: 25px;
     fill: var(--gra-blue);  
 }
-
 .sign_in > .triangle {
     left: 8px;
 }
 .sign_up > .triangle {
     right: 8px;
 }
-
 .sign_in > svg {
     transform: rotate(180deg);
 }
-
 .sign_in::after,
 .sign_up::after {
     width: 60px;
     line-height: 110px;
 }
-
 .sign_in::after{
     content: 'sign in';
     right: 6px;
 }
-
 .sign_up::after {
     content: 'sign up';
     left: 6px;
 }
 
-
 .note_nav {
     width: 80%;
 }
-
 .note > p {
     font-size: 20px;
     font-weight: bold;
@@ -173,19 +148,27 @@
 
 /* 各セクション共通 */
 section { 
-    padding-bottom: 64px;
+    margin-bottom: 110px;
 }
-
 section > img {
     display: flex;
     width: 200px;
-    margin-bottom: 50px;
 }
 
-/* news部分 */
+.feature h1,
+.story h1 {
+    margin-left: 10px;
+    text-align: start;
+    font-size: 80px;
+    font-family: HelveticaNeue-CondensedBold, sans-serif;
+    color: var(--main-font);
+}
+
+/* news */
 .news > ul {
     display: flex;
-    margin: auto;
+    margin: 16px auto auto auto;
+    padding: 0;
     flex-wrap: wrap;
     justify-content: space-between;
     width: 80%;
@@ -200,40 +183,194 @@ section > img {
     background-color: #ccc;
     border-radius: 5px;
 }
-
 .news_icon > h1,
 .news_icon > p {
     width: 98%;
     margin: auto;
 }
-
 .news_icon > h1 {
     text-align: start;
     line-height: 36px;
 }
-
 .news_icon > p {
     text-align: end;
     line-height: 26px;
 }
-
 .news_icon::before, 
 .news_icon::after {
     position: absolute;
     content: '';
     border-style: solid
 }
-
 .news_icon::before {
     top: -5px;
     right: -5px;
     border-width: 35px;
     border-color: var(--body-base-lt) var(--body-base-lt) transparent transparent;
 }
-
 .news_icon::after {
     top: 0;
     right: 0;
     border-width: 40px;
 
+}
+
+/* feature */
+.feature_contents {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feature_contents > div {
+    margin: auto 10px;
+    padding: 16px;
+    width: 260px;
+    height: 320px;
+    border-radius: 5px;
+    background: var(--body-base-dk);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.feature_contents img {
+    width: 228px;
+    margin-bottom: 10px;
+}
+
+.feature_contents p {
+    margin-bottom: 0;
+    padding: 8px;
+}
+
+.feature_contents .type {
+    padding: 0;
+    font-size: 12px;
+}
+
+/* story部分 */
+.story,
+.story > div {
+    position: relative;
+}
+
+.story h1 {
+    line-height: 60px;
+}
+
+.first_contents {
+    z-index: 10;
+    margin-top: 16px;
+}
+.first_contents > .p_bold {
+    text-align: start;
+    margin-left: 10px;
+    color: var(--main-font);
+}
+
+.second_contents *,
+.third_contents * ,
+.forth_contents * {
+    position: absolute;
+}
+
+.second_contents {
+    top: -230px;
+    height: 550px;
+}
+.second_contents img {
+    z-index: 1;
+    top: 0;
+    right: -100px;
+    width: 570px;
+}
+.second_contents p {
+    right: 335px;
+    bottom: 28px;
+    text-align: start;
+    border-radius: 7px;
+    background: #cff3c2;
+    padding: 24px 72px 24px 24px;
+    color: #4c6942;
+} 
+
+.third_contents {
+    height: 570px;
+    top: -260px;
+}
+.third_contents :first-child {
+    right: 196px;
+    padding: 100px 0px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #C5A5CB;
+}
+.third_contents :nth-child(2) {
+    right: 0;
+    padding: 100px 0px;
+    top: 120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #C5A5CB;
+}
+.third_contents img {
+    bottom: 0;
+    left: 0;
+    width: 690px;   
+}
+
+.forth_contents {
+    top: -280px;
+    height: 620px;
+}
+
+.balloon,
+.balloon > :nth-child(2) {
+    z-index: 1;
+    width: 400px;
+    height: 285px;
+}
+.balloon > p,
+.balloon > :nth-child(2) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.balloon > p {
+    z-index: 2;
+    height: 110px;
+}
+.balloon > :nth-child(3),
+.balloon > :nth-child(4) {
+    width: 130px;
+}
+
+.forth_contents > :nth-child(2) {
+    left: 180px;
+    right: 0;
+    margin: auto;
+    width: 600px;
+}
+.forth_contents > :nth-child(3) {
+    right: 0;
+    bottom: 0;
+    background: #FEF2A4;
+    padding: 24px;
+}
+
+.fifth_contents {
+    top: -200px;
+}
+
+.fifth_contents > img {
+    width: 800px;
+}
+
+.fifth_contents > h1 {
+    font-size: 60px;
+    text-align: center;
 }
