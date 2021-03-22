@@ -3,7 +3,7 @@ session_start();
 session_regenerate_id();
 
 //外部ファイル読込
-require_once('../class/config/Config.php');
+require_once('../class/config/Icons.php');
 
 $menus = ['news'=>'n_blue','story'=>'n_pink','feature'=>'n_yellow', 'Q & A'=>'n_green'];
 
@@ -28,23 +28,23 @@ $msg = 'ようこそ♪';
     <div class="container">
         <section class="top">
             <div class="catch_logo">
-                <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Config::LOGO_MARK?></svg>
-                <svg class="logo_type" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Config::LOGO_TYPE?></svg>
+                <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
+                <svg class="logo_type" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Icons::LOGO_TYPE?></svg>
             </div>
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
             
             <div class="sign_nav">
                 <button class="sign_in"> 
-                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
-                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
+                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </button>
                 <div>
                     <img src="<?= $img ?>">
                     <p><?= $msg ?></p>
                 </div>            
                 <a class="sign_up" href="../sign/sign_up.php">
-                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
-                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Config::TRIANGLE?></svg>
+                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
+                    <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
             </div>
             <div class="note_nav">
