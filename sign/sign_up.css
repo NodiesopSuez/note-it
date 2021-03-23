@@ -1,3 +1,45 @@
+/* てんとう虫 */
+.ladybug { 
+    position: relative;
+    margin: 50px auto auto auto;
+    width: 400px;
+    height: 200px;
+}
+
+.ladybug * {
+    position: absolute;
+}
+
+.ladybug > img {
+    bottom: 0;
+    left: 0;
+    width: 120px;
+}
+
+.ladybug > .balloon {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 16px;
+    border-radius: 50px;
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+    text-align: center;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+.ladybug > .balloon::after {
+    position: absolute;
+    bottom: -10px;
+    right: 14em;
+    content: '';
+    width: 40px;
+    height: 40px;
+    transform: matrix(1, -0.5, -0.4, 1, 0, 0);
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+
+}
+
+
 /* フォーム部分 */
 label { 
     color: var(--main-font);
@@ -24,6 +66,8 @@ label {
 }
 
 .form-group {
+    display: flex;
+    flex-direction: column;
     margin: 16px auto;
     width: 45%;
     text-align: start;
@@ -33,6 +77,7 @@ label {
     display: flex;
     flex-direction: row !important;
     padding: 0;
+    margin-bottom: 0;
 }
 .gender li {
     margin: auto 10px;
