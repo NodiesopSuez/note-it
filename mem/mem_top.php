@@ -14,7 +14,7 @@ require_once('../class/db/Searches.php');
 $_SESSION['error'] = array();
 $_SESSION['view_page'] = array();
 
-//ログインしてなければログイン画面に
+/* //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
     exit;
@@ -25,7 +25,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
-}
+} */
 
 //user_idからノート情報検索
 extract($_SESSION['user_info']);
@@ -39,7 +39,7 @@ $now_dt = getDate();
 extract($now_dt);
 
 if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
-	$ladybug_img = './img/ladubug_nm.php';
+	$ladybug_img = './img/ladybug_nm.png';
     if ($hours>=5 && $hours<12) {
 		$msg = array('おはようございます!　'.$nick_name.'さん!');
     } elseif ($hours>=12 && $hours<17) {
@@ -51,10 +51,12 @@ if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
 	$ladybug_img = './img/ladybug_sd.png';
 	$msg[] = $_SESSION['error'];
 }elseif(!empty($_SESSION['okmsg'])){
-	$ladybug_img = './img/ladubug_nm.php';
+	$ladybug_img = './img/ladybug_nm.png';
 	$msg[] = $_SESSION['okmsg'];
 	$_SESSION['okmsg'] = array();
 }
+
+$_SESSION['add_ok'] = array();
 ?>
 
 <!DOCTYPE html>
@@ -68,6 +70,16 @@ if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
 <body>
     <div class="container">
     <?php include('../inclusion/mem_header.php')?>
+        <div class="ladybug">
+            <img src="<?= $ladybug_img ?>">
+            <div class="balloon">
+                <?php foreach($msg as $m) :?>
+                    <?=  $m ?><br/>
+                <?php endforeach ?>
+            </div>
+        </div>
+
+        
     </div>
 </body>
 </html>

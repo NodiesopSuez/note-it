@@ -7,7 +7,6 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 require_once('../class/util/Utility.php');
 
-$_SESSION['add_ok'];
 $msg = [];
 $ladybug = './img/ladybug_nm.png';
 
@@ -24,7 +23,7 @@ if(!empty($_SESSION['error'])){
 }else{
     $msg = ['ログインしてください♪'];
 }
-
+$_SESSION['add_ok'] = array();
 ?>
 
 <!DOCTYPE html>
