@@ -47,9 +47,10 @@ try{
             exit;
     }
     if($email==$user_info['email'] && password_verify($pass, $user_info['pass'])==true){
-            $_SESSION['user_data'] = array('nick_name'=>$user_info['nick_name'], 'user_id'=>$user_info['user_id']);
+            $_SESSION['user_info'] = array('nick_name'=>$user_info['nick_name'], 'user_id'=>$user_info['user_id']);
             $_SESSION['error'] = array();
             $_SESSION['error_back_count'] = 0;
+            echo '<input type="hidden" name="token" value="'. SaftyUtil::generateToken() .'">';
             header('Location: ../mem/mem_top.php');
             exit;
         }

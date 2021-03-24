@@ -7,6 +7,7 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 require_once('../class/util/Utility.php');
 
+$_SESSION['add_ok'];
 $msg = [];
 $ladybug = './img/ladybug_nm.png';
 
@@ -20,7 +21,6 @@ if(!empty($_SESSION['error'])){
 	$error_back_count = $_SESSION['error_back_count'];
 }elseif($_SESSION['add_ok']==='ok'){
 	$msg = ['登録を完了しました!!<br/>ログインしてください'];
-    $_SESSION['add_ok'] = array();
 }else{
     $msg = ['ログインしてください♪'];
 }
