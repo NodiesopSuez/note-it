@@ -9,11 +9,11 @@ require_once('../class/db/Connect.php');
 require_once('../class/db/Users.php');
 
 //ワンタイムトークンチェック
-/* if(!SaftyUtil::validToken($_POST['token'])){
+if(!SaftyUtil::validToken($_POST['token'])){
     $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location:./sign_up.php');
     exit;
-} */
+}
 
 //エラー削除
 if(!empty($_SESSION['error'])){
@@ -77,6 +77,9 @@ if(
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
 	header('Location:../sign/sign_up.php');
+	exit;
+}else{
+	header('Location:../sign/sign_up_done.php');
 	exit;
 }
 

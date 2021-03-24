@@ -34,10 +34,10 @@ $msg = 'ようこそ♪';
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
             
             <div class="sign_nav">
-                <button class="sign_in"> 
+                <a class="sign_in" href="../sign/sign_in.php"> 
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
-                </button>
+                </a>
                 <div>
                     <img src="<?= $img ?>">
                     <p><?= $msg ?></p>
