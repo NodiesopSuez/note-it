@@ -55,7 +55,9 @@ $_SESSION['add_ok'] = array();
             <div class="note_nav">
                 <?php foreach($menus as $menu => $color): ?>
                 <div class="note <?= $color ?>">
-                    <p><?= $menu ?></p>
+                    <div>
+                        <p><?= $menu ?></p>
+                    </div>
                 </div>
                 <?php endforeach?>
             </div>

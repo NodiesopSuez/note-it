@@ -29,3 +29,50 @@
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);
     background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
 }
+.add_page,
+.add_btn {
+    bottom: 0;
+    right: 0;
+    width: 110px;
+    height: 40px;
+}
+.add_btn {
+    border-radius: 10px;
+    color: white;
+    background: var(--gra-blue);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+/* .edit,
+.delete {
+
+} */
+
+
+.note_list,
+.chapter_list,
+.page_list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    margin: auto;
+    width: 700px;
+}
+
+.note_list > .note {
+    margin: 16px 16px;
+}
+
+.chapter_list > .chapter {
+    margin: 10px 16px;
+}
+
+.page_list > .page {
+    margin: 10px 7px;
+}
+
+.chapter_list,
+.page_list {
+    margin: 200px auto;
+}

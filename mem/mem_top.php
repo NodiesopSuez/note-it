@@ -30,8 +30,10 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //user_idからノート情報検索
 extract($_SESSION['user_info']);
 $search = new Searches;
-$search->findNoteInfo($user_id);
+$note_list = $search->findNoteInfo( 4/* $user_id */);
 $search = null;
+
+print_r($note_list);
 
 //現在の日本時刻を取得 >> 変数に分割
 date_default_timezone_set('Asia/Tokyo');
@@ -70,15 +72,96 @@ $_SESSION['add_ok'] = array();
 <body>
     <div class="container">
     <?php include('../inclusion/mem_header.php')?>
-        <div class="ladybug">
+        <section class="ladybug">
             <img src="<?= $ladybug_img ?>">
             <div class="balloon">
                 <?php foreach($msg as $m) :?>
                     <?=  $m ?><br/>
                 <?php endforeach ?>
             </div>
-        </div>
-
+            <form class="add_page" method="post" action="">
+                <!--ワンタイムトークン発生-->
+                <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                <button class="add_btn">ADD PAGE</button>
+            </form>
+        </section>
+        <section class="note_list">
+            <?php foreach($note_list as $n_id => $n_info): ?>
+                <button class="note <?= $n_info['color'] ?>" value="<?= $n_id ?>">
+                    <div>
+                        <p><?= $n_info['n_title'] ?></p>
+                    </div>
+                </button>
+            <?php endforeach?>
+        </section>
+        <section class="selected_note">
+            <div class="note">
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="selected_menu">
+                <form class="edit" method="post" action="../note/edit_note.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <button class="edit_btn">EDIT</button>
+                </form>
+                <form class="delete" method="post" action="../note/delete_note.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <button class="delete_btn">DELETE</button>
+                </form>
+            </button>
+            
+        </selected> 
+        <section class="chapter_list">
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+            <button class="chapter">
+                <p>chapter</p>
+            </button>
+        </section>
+        <section class="page_list">
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+            <button class="page">
+                <div class="wrapback"></div>
+                <p>page's icon here's title</p>
+            </button>
+        </section>
         
     </div>
 </body>
