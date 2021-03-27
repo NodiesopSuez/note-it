@@ -29,6 +29,7 @@
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);
     background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
 }
+
 .add_page,
 .add_btn {
     bottom: 0;
@@ -43,36 +44,54 @@
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
 
-/* .edit,
-.delete {
-
-} */
-
-
 .note_list,
 .chapter_list,
-.page_list {
+.page_list,
+.selected,
+.selected_menu {
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: center;
-    margin: auto;
+    align-items: flex-end;
+}
+.note_list,
+.chapter_list,
+.page_list,
+.selected {
+    margin: 50px auto;
     width: 700px;
 }
+.selected > .chapter {
+    margin-left: -100px;
+}
+.selected_menu {
+    margin: 0;
+    justify-content: space-between !important;
+    width: 111px;
+}
 
-.note_list > .note {
+.selected_menu > form button {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    background: #ccc;
+    box-shadow:5px 5px 7px var(--body-shadow); 
+}
+
+.edit_btn > svg,
+.delete_btn > svg {
+    width: 32px;
+}
+
+.note {
     margin: 16px 16px;
 }
 
-.chapter_list > .chapter {
+.chapter {
     margin: 10px 16px;
 }
 
-.page_list > .page {
+.page {
     margin: 10px 7px;
 }
 
-.chapter_list,
-.page_list {
-    margin: 200px auto;
-}

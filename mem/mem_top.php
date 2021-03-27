@@ -94,7 +94,7 @@ $_SESSION['add_ok'] = array();
                 </button>
             <?php endforeach?>
         </section>
-        <section class="selected_note">
+        <section class="selected">
             <div class="note">
                 <div>
                     <p></p>
@@ -105,17 +105,20 @@ $_SESSION['add_ok'] = array();
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="set_note_id" value=" note_id ">
-                    <button class="edit_btn">EDIT</button>
+                    <button class="edit_btn">
+                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
+                    </button>
                 </form>
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="set_note_id" value=" note_id ">
-                    <button class="delete_btn">DELETE</button>
+                    <button class="delete_btn">
+                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
+                    </button>
                 </form>
-            </button>
-            
-        </selected> 
+            </button>   
+        </section> 
         <section class="chapter_list">
             <button class="chapter">
                 <p>chapter</p>
@@ -136,7 +139,38 @@ $_SESSION['add_ok'] = array();
                 <p>chapter</p>
             </button>
         </section>
-        <section class="page_list">
+        <section class="selected">
+            <div class="note">
+                <div>
+                    <p></p>
+                </div>
+            </div>
+            <div class="chapter">
+                <p></p>
+            </div>
+            <div class="selected_menu">
+                <form class="edit" method="post" action="../note/edit_note.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <button class="edit_btn">
+                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
+                    </button>
+                </form>
+                <form class="delete" method="post" action="../note/delete_note.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <button class="delete_btn">
+                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
+                    </button>
+                </form>
+            </button>
+        </section> 
+        <form class="page_list" method="post" action="">
+			<!--ワンタイムトークン発生-->
+			<input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+			<input class="set_note_color" type="hidden" name="color">
             <button class="page">
                 <div class="wrapback"></div>
                 <p>page's icon here's title</p>
@@ -161,8 +195,7 @@ $_SESSION['add_ok'] = array();
                 <div class="wrapback"></div>
                 <p>page's icon here's title</p>
             </button>
-        </section>
-        
+        </form>
     </div>
 </body>
 </html>
