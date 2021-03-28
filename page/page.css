@@ -124,15 +124,15 @@
     width: 100%;
 }
 
-.back {
+.back, .submit {
     position: absolute;
     top: 0;
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 10px;
-    color: white;
-    background: var(--gra-blue);
-    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+input[type="text"] {
+    width: 100%;
+    overflow: scroll;
+    background: transparent;
+    text-align: start !important;
 }
 

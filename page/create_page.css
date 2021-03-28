@@ -61,7 +61,8 @@ input[type="text"] {
 .new_note_form,
 .chapter_section > div,
 .new_chapter_form,
-.page_type {
+.page_type,
+.page_forms {
     display: flex;
     justify-content: center;
 }
@@ -157,15 +158,4 @@ input[type="text"] {
 .text {
     width: 100%;
 } 
-
-.submit {
-    width: 100px;
-    height: 30px;
-    line-height: 30px;
-    border-radius: 10px;
-    color: white;
-    background: var(--gra-blue);
-    box-shadow: 5px 5px 7px var(--body-shadow);
-}
-
 

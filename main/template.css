@@ -205,3 +205,24 @@ input[type="text"] {
     text-align: start;
 }
 
+/* 戻るボタン・送信ボタン */
+.back {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    color: white;
+    background: var(--gra-blue);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.submit {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    color: white;
+    background: var(--gra-blue);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+

@@ -149,37 +149,38 @@ $ladybug = '../page/img/ladybug_nm.png';
                     <p>Type B</p>
                 </button>
             </div>
-
-            <!-- TypeA:入力フォーム -->
-            <div class="page_base a">
-                <input type="text" name="page_title_a" class="page_title" placeholder="ページタイトル">
-                <input type="text" name="meaning" class="meaning" placeholder="意味">
-                <input type="text" name="syntax" class="syntax" placeholder="構文">
-                <textarea name="syn_memo" class="syn_memo">syn_memo</textarea>
-                <div class="example">
-                    <textarea name="ex" class="ex">
-                        exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample
-                    </textarea>
-                    <textarea name="ex_memo" class="ex_memo">example</textarea>
+            <div class="page_forms">
+                <!-- TypeA:入力フォーム -->
+                <div class="page_base a">
+                    <input type="text" name="page_title_a" class="page_title" placeholder="ページタイトル">
+                    <input type="text" name="meaning" class="meaning" placeholder="意味">
+                    <input type="text" name="syntax" class="syntax" placeholder="構文">
+                    <textarea name="syn_memo" class="syn_memo">syn_memo</textarea>
+                    <div class="example">
+                        <textarea name="example" class="ex">
+                            exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample
+                        </textarea>
+                        <textarea name="ex_memo" class="ex_memo">example</textarea>
+                    </div>
+                    <textarea name="memo" class="memo">memo</textarea>
                 </div>
-                <textarea name="memo" class="memo">memo</textarea>
-            </div>
 
-            <!-- TypeB:入力フォーム -->
-            <div class="page_base b">
-                <input type="text" name="page_title_b" class="page_title" placeholder="ページタイトル">
-                <div class="form_block" id="form_block_1">
-                    <div class="contents text" id="contents_1" contentEditable="true"></div>
-                    <input type="hidden" id="hid_contents_1" name="contents_1" value="">
-                </div>
-                <div class="buttons row">
-                    <!--テキスト追加ボタン-->
-                    <button id="add_text" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
-                    <!--画像追加ボタン-->
-                    <button id="add_img" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
-                    <!--コード追加ボタン-->
-                    <!--<button id="add_code" class="btn btn-secondary my-1" type="button">コードを追加する</button>
-                    <button id="add_quote" class="btn btn-secondary my-1" type="button">引用を追加する</button>-->
+                <!-- TypeB:入力フォーム -->
+                <div class="page_base b">
+                    <input type="text" name="page_title_b" class="page_title" placeholder="ページタイトル">
+                    <div class="form_block" id="form_block_1">
+                        <div class="contents text" id="contents_1" contentEditable="true"></div>
+                        <input type="hidden" id="hid_contents_1" name="contents_1" value="">
+                    </div>
+                    <div class="buttons row">
+                        <!--テキスト追加ボタン-->
+                        <button id="add_text" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
+                        <!--画像追加ボタン-->
+                        <button id="add_img" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
+                        <!--コード追加ボタン-->
+                        <!--<button id="add_code" class="btn btn-secondary my-1" type="button">コードを追加する</button>
+                        <button id="add_quote" class="btn btn-secondary my-1" type="button">引用を追加する</button>-->
+                    </div>
                 </div>
             </div>
             <button role="submit" class="submit">submit</button>
