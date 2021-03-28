@@ -24,7 +24,6 @@ require_once('../class/util/Utility.php');
 <body>
     <div class="container">
         <?php include('../inclusion/mem_header.php')?>
-        
             <div class="titles">
                 <div class="note">
                     <div>
@@ -52,19 +51,11 @@ require_once('../class/util/Utility.php');
                         </button>
                     </form>
                 </div>
-            </div>
-        
+            </div> 
             <div class="page_base">
                 <div class="wrapback"></div>
                 <div class="page_title">JavaScriptについて</div>
-                <div class="meaning">meaning</div>
-                <div class="syntax">syntax</div>
-                <div class="syn_memo">syn_memo</div>
-                <div class="example">
-                    <div class="ex">exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample</div>
-                    <div class="ex_memo">example</div>
-                </div>
-                <div class="memo">memo</div>
+                <div class="text">contents</div>
             </div>
             <a class="back" href="../mem/mem_top.php">    
                 back

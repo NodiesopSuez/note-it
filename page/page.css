@@ -47,7 +47,7 @@
     width: 32px;
 }
 
-.page_a {
+.page_base {
     position: absolute;
     top: 165px;
     left: 0;
@@ -119,3 +119,20 @@
     background: #acacac;
     border-radius: 8px;
 }
+
+.text {
+    width: 100%;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    color: white;
+    background: var(--gra-blue);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
