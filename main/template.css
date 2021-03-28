@@ -79,6 +79,11 @@ a {
     text-decoration: none;
 }
 
+input[type="text"] {
+    border: none;
+    outline: none;
+}
+
 .logo_mark,
 .logo_type { fill: var(--ladybug-line);}
 #ladybug-circle { fill: var(--ladybug-circle);}

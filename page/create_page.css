@@ -1,0 +1,171 @@
+.container {
+    overflow: visible!important;
+}
+
+/* てんとう虫 */
+.ladybug { 
+    position: relative;
+    margin: auto;
+    padding-top: 130px;
+    width: 400px;
+    height: 310px;
+}
+
+.ladybug * {
+    position: absolute;
+}
+
+.ladybug > img {
+    bottom: 0;
+    left: 0;
+    width: 120px;
+}
+
+.ladybug > .balloon {
+    position: relative;
+    top: 0;
+    right: 0;
+    padding: 16px;
+    border-radius: 50px;
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+    text-align: center;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+.ladybug > .balloon::after {
+    position: absolute;
+    bottom: -10px;
+    right: 14em;
+    content: '';
+    width: 40px;
+    height: 40px;
+    transform: matrix(1, -0.5, -0.4, 1, 0, 0);
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+
+}
+
+form {
+    margin-top: 30px;
+}
+
+input[type="text"] {
+    width: 100%;
+    overflow: scroll;
+    background: transparent;
+    text-align: center;
+}
+
+.note_section > div,
+.new_or_exist,
+.note_color,
+.new_note_form,
+.chapter_section > div,
+.new_chapter_form,
+.page_type {
+    display: flex;
+    justify-content: center;
+}
+
+.note,
+.page {
+    margin: 8px 16px;
+}
+.chapter {
+    margin: 8px;
+}
+.page {
+    width: 180px;
+    height: 70px;
+}
+
+.page_base {
+    margin: auto;
+    padding: 32px;
+    width: 750px;
+    border-radius: 10px;
+    background: rgb(216, 128, 128);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+    text-align: start;
+}
+
+.syntax,
+.syn_memo,
+.example > div,
+.memo {
+    overflow: scroll;
+}
+
+.page_title,
+.meaning,
+.syntax {
+    text-align: start !important;
+}
+
+.page_title {
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 42px;
+}
+
+.meaning { 
+    font-size: 30px;
+    line-height: 32px;
+}
+
+.syntax {
+    margin-top: 16px;
+    font-size: 24px;
+}
+
+.syn_memo {
+    padding: 3px 5px;
+    width: 100%;
+    background: #acacac;
+    border-radius: 8px;
+}
+
+.example {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;    
+    width: 100%;
+}
+
+.ex, .ex_memo {
+    padding: 3px 5px;
+    text-align: start;
+    background: #acacac;
+    width: 50%;
+}
+
+.ex {
+    border-radius: 8px 0 0 8px;
+}
+.ex_memo {
+    border-radius: 0 8px 8px 0 ;
+}
+
+.memo {
+    margin-top: 30px;
+    padding: 3px 5px;
+    width: 100%;
+    background: #acacac;
+    border-radius: 8px;
+}
+
+.text {
+    width: 100%;
+} 
+
+.submit {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 10px;
+    color: white;
+    background: var(--gra-blue);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+
