@@ -31,6 +31,22 @@ $(function(){
     hideNotes();
     showNotes();
 
+    //note_listのnoteがクリックされたら
+    $('.note_list .note').on('click', function(){
+        //selectedメニューのノートタイトルを、選ばれたノートタイトルに書き換え
+        let selected_note_title = $(this).text();
+        $('.selected .note_title > p').text(selected_note_title);
 
+        //選ばれたノートのidでチャプター情報検索
+        let selected_note_id = $(this).attr('value');
+        console.log(selected_note_id);
+
+        $.ajax({
+            url:'./get_chapter_list.php',
+            type:'post',
+            data: {'selected_note_id': $selected_note_val},
+            dataType:'json',
+        })
+    });
 
 })
