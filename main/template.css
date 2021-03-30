@@ -63,6 +63,7 @@ li {
 }
 
 button {
+    background: transparent;
     outline: none;
     border: none;
 }
@@ -93,15 +94,23 @@ input[type="text"] {
     position: relative;
     width: 140px;
     height: 161px;
-    background: #ccc;
-    border-radius: 0px 3px 3px 0px;
-    box-shadow: 5px 5px 7px var(--body-shadow);
 }
 .note::after,
 .note > div{
     position: absolute;
 }
-.note::after {
+
+.note > .note_base {
+    top: 0;
+    left: 0;
+    width: 140px;
+    height: 161px;
+    background: #ccc;
+    border-radius: 0px 3px 3px 0px;
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.note > .back_cover {
     top: 0;
     left: 0;
     content: '';
@@ -111,7 +120,7 @@ input[type="text"] {
     border-radius: 3px 0px 0px 3px;
     box-shadow: 1px 1px 3px var(--body-shadow);
 }
-.note > div {
+.note > .note_title {
     display:flex;
     align-items: center;
     top: 25px;

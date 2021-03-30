@@ -88,17 +88,21 @@ $_SESSION['add_ok'] = array();
         <section class="note_list">
             <?php foreach($note_list as $n_id => $n_info): ?>
                 <button class="note <?= $n_info['color'] ?>" value="<?= $n_id ?>">
-                    <div>
+                    <div class="note_base"></div>
+                    <div class="note_title">
                         <p><?= $n_info['n_title'] ?></p>
                     </div>
+                    <div class="back_cover"></div>
                 </button>
             <?php endforeach?>
         </section>
         <section class="selected">
             <div class="note">
-                <div>
+                <div class="note_base"></div>
+                <div class="note_title">
                     <p></p>
                 </div>
+                <div class="back_cover"></div>
             </div>
             <div class="selected_menu">
                 <form class="edit" method="post" action="../note/edit_note.php">
@@ -141,9 +145,11 @@ $_SESSION['add_ok'] = array();
         </section>
         <section class="selected">
             <div class="note">
-                <div>
+                <div class="note_base"></div>
+                <div class="note_title">
                     <p></p>
                 </div>
+                <div class="back_cover"></div>
             </div>
             <div class="chapter">
                 <p></p>
@@ -197,5 +203,7 @@ $_SESSION['add_ok'] = array();
             </button>
         </form>
     </div>
+    <!-- jQurery -->
+    <script src="./mem_top.js" type="text/javascript"></script>
 </body>
 </html>
