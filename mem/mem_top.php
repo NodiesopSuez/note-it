@@ -30,10 +30,22 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //user_idからノート情報検索
 extract($_SESSION['user_info']);
 $search = new Searches;
-$note_list = $search->findNoteInfo( 4/* $user_id */);
+$note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
+$note_test = $search->findNoteInfo('note_id', 63/* $user_id */);
 $search = null;
 
+
+
+if($note_list===null){
+    echo 'nulldatte';
+}elseif(empty($note_list)){
+    echo 'emptydatte';
+}
+
+
+
 print_r($note_list);
+print_r($note_test);
 
 //現在の日本時刻を取得 >> 変数に分割
 date_default_timezone_set('Asia/Tokyo');

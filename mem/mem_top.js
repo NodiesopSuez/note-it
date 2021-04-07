@@ -74,12 +74,13 @@ console.log(data);
         
         $('.selected .chapter > p').text(selected_chapter_title);
         
-
         $.ajax({
             url:'./get_page_list.php',
             type:'post',
             data:{ 'selected_chapter_id': selected_chapter_id },
             dataType:'json'
+        }).done(function(){
+            
         })
 
     })
