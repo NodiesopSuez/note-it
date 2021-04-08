@@ -28,23 +28,24 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 } */
 
 //user_idからノート情報検索
-extract($_SESSION['user_info']);
+/* extract($_SESSION['user_info']); */
 $search = new Searches;
-$note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
+$note_list = $search->findNoteInfo('user_id', 100/* $user_id */);
 $note_test = $search->findNoteInfo('note_id', 63/* $user_id */);
 $search = null;
 
 
 
 if($note_list===null){
-    echo 'nulldatte';
+    echo 'nulldatte<br/>';
 }elseif(empty($note_list)){
-    echo 'emptydatte';
+    echo 'emptydatte<br/>';
 }
 
 
 
 print_r($note_list);
+echo '<br/>';
 print_r($note_test);
 
 //現在の日本時刻を取得 >> 変数に分割
