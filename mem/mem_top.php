@@ -34,20 +34,6 @@ $note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
 $note_test = $search->findNoteInfo('note_id', 63/* $user_id */);
 $search = null;
 
-
-
-if($note_list===null){
-    echo 'nulldatte<br/>';
-}elseif(empty($note_list)){
-    echo 'emptydatte<br/>';
-}
-
-
-
-print_r($note_list);
-echo '<br/>';
-print_r($note_test);
-
 //現在の日本時刻を取得 >> 変数に分割
 date_default_timezone_set('Asia/Tokyo');
 $now_dt = getDate();

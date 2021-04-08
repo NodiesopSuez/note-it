@@ -10,9 +10,9 @@ try {
         $chapter_id = $_POST['selected_chapter_id'];
 
         $search = new Searches;
-        $page_list = $serach->findPageInfo($chapter_id);
+        $page_list = $search->findPageInfo($chapter_id);
 
-        echo json_encode($chapter_list);
+        echo json_encode($page_list);
 
         $search = null;
     }

@@ -31,13 +31,16 @@ $(function(){
     hideNotes();
     showNotes();
 
-    //note_listのnoteがクリックされたら
+    //note_listから選択されたら
     $('.note_list .note').on("click", function(){
+        //chapter_listとpage_listのボタン一旦削除
+        $('.chapter_list, .page_list').children('button').remove();
+
         //selectedメニューのノートタイトルを、選ばれたノートタイトルに書き換え
         let selected_note_title = $(this).find('p').text();
         $('.selected .note_title > p').text(selected_note_title);
 
-        //選ばれたノートのidでチャプター情報検索
+        //選ばれたnote_idでchapter_list取得
         let selected_note_id = $(this).attr('value');
         console.log(selected_note_id);
 
@@ -47,9 +50,11 @@ $(function(){
             data: { 'selected_note_id': selected_note_id },
             dataType:'json',
         }).done(function(chapter_list){
-console.log(chapter_list);
-            $('.chapter_list, .page_list').children('button').remove();
-            //chapter  key:chapter_id / val:chapter_title,page_type
+
+            //デバック用に出力
+            console.log(chapter_list);
+
+            //chapter_list  key:chapter_id / val:chapter_title,page_type
             $.each(chapter_list, function(key, val){
                 let chapter_btn = $('<button>').addClass('chapter').attr('value', key);
                 let chapter_p = $('<p>').text(val.chapter_title);
@@ -63,23 +68,42 @@ console.log(chapter_list);
         });
     });
 
-    //chapter_listのchapterがクリックされたら
+    //chapter_listから選択されたら
     $(document).on("click", '.chapter_list > .chapter', function(){
-        let selected_chapter_title = $(this).find('p').text();
-        let selected_chapter_id = $(this).attr('value');
-
+        //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();
-        
+
+        //selectedメニューのチャプタータイトルを。選ばれたチャプタータイトルに書き換え
+        let selected_chapter_title = $(this).find('p').text();
         $('.selected .chapter > p').text(selected_chapter_title);
+        
+        //選択されたchapter_idでpage_list取得
+        let selected_chapter_id = $(this).attr('value');
         
         $.ajax({
             url:'./get_page_list.php',
             type:'post',
             data:{ 'selected_chapter_id': selected_chapter_id },
             dataType:'json'
-        }).done(function(){
+        }).done(function(page_list){
             
-        })
+            //デバック用に出力
+            console.log(page_list);
+
+            //page_list key:page_id / val:page_title
+            $.each(page_list, function(key, val){
+                let page_btn = $('<button>').addClass('page').attr('value', key);
+                let wrapback = $('<div>').addClass('wrapback');
+                let page_title = $('<p>').text(val.page_title);
+                page_btn.prepend(wrapback, page_title);
+                $('.page_list').prepend(page_btn);
+            });
+
+
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(errorThrown);
+            changeMsgDanger().then(scrollToTop());
+        });
 
     })
 })
