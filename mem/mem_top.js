@@ -46,22 +46,20 @@ $(function(){
             type:'post',
             data: { 'selected_note_id': selected_note_id },
             dataType:'json',
-        }).done(function(data){
-            let chapter = data.chapter;
-            let get_data = data.get_data;
-console.log(data);
+        }).done(function(chapter_list){
+console.log(chapter_list);
             $('.chapter_list, .page_list').children('button').remove();
-            //chapter  key:chapter_id / val:chapter_title
-            $.each(chapter, function(key, val){
+            //chapter  key:chapter_id / val:chapter_title,page_type
+            $.each(chapter_list, function(key, val){
                 let chapter_btn = $('<button>').addClass('chapter').attr('value', key);
-                let chapter_p = $('<p>').text(val);
-                chapter_btn.prepend(chapter_p);
+                let chapter_p = $('<p>').text(val.chapter_title);
+                let page_type = $('<input>').attr({type: 'hidden', name: 'page_type', value: val.page_type})
+                chapter_btn.prepend(chapter_p, page_type);
                 $('.chapter_list').prepend(chapter_btn);
             });
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(errorThrown);
-            changeMsgDanger()
-            .then(scrollToTop());
+            changeMsgDanger().then(scrollToTop());
         });
     });
 

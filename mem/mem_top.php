@@ -30,7 +30,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //user_idからノート情報検索
 /* extract($_SESSION['user_info']); */
 $search = new Searches;
-$note_list = $search->findNoteInfo('user_id', 100/* $user_id */);
+$note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
 $note_test = $search->findNoteInfo('note_id', 63/* $user_id */);
 $search = null;
 
@@ -103,7 +103,7 @@ $_SESSION['add_ok'] = array();
                 <button class="note <?= $n_info['color'] ?>" value="<?= $n_id ?>">
                     <div class="note_base"></div>
                     <div class="note_title">
-                        <p><?= $n_info['n_title'] ?></p>
+                        <p><?= $n_info['note_title'] ?></p>
                     </div>
                     <div class="back_cover"></div>
                 </button>
