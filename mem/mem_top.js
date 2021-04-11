@@ -56,12 +56,23 @@ $(function(){
 
             //chapter_list  key:chapter_id / val:chapter_title,page_type
             $.each(chapter_list, function(key, val){
+                //<buttoon>:chapter_id / <p>:chapter_title / <input>:page_type
                 let chapter_btn = $('<button>').addClass('chapter').attr('value', key);
-                let chapter_p = $('<p>').text(val.chapter_title);
-                let page_type = $('<input>').attr({type: 'hidden', name: 'page_type', value: val.page_type})
+                let chapter_p = $('<p>');
+                let page_type = $('<input>').attr({type: 'hidden', name: 'page_type', value: val.page_type});
+
+                //width:0,padding:0にしておく
+                chapter_btn.add(chapter_p).css({width: '0px', padding: '0px'});
+                //chapter_list組み立て
                 chapter_btn.prepend(chapter_p, page_type);
                 $('.chapter_list').prepend(chapter_btn);
+
+                //chapter_list表示
+                chapter_btn.animate({width: '200px'}, 400, 'swing', function(){
+                    chapter_p.animate({width: '170px'}).text(val.chapter_title);
+                });
             });
+
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(errorThrown);
             changeMsgDanger().then(scrollToTop());

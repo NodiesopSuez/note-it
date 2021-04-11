@@ -124,22 +124,22 @@ $_SESSION['add_ok'] = array();
         </section> 
         <section class="chapter_list">
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
             <button class="chapter">
-                <p>chapter</p>
+                <p></p>
             </button>
         </section>
         <section class="selected">
