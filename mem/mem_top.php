@@ -125,6 +125,7 @@ $_SESSION['add_ok'] = array();
         <section class="chapter_list">
             <!-- <button class="chapter">
                 <p></p>
+                <input type="hidden" name="page_type" value="">
             </button> -->
         </section>
         <section class="selected selected_chapter">

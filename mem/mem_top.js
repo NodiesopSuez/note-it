@@ -97,8 +97,15 @@ $(function(){
         $('.page_list').css({'min-height': '400px'});
         scrollToObject('.selected_chapter');
 
-        //
-        
+        //選ばれたチャプターのpage_typeによって
+        //page_listのaction属性値を変更
+        let selected_page_type = $(this).find('[name="page_type"]').attr('value');
+        let action_to = 
+        (selected_page_type == 1) ? "../page/page_a.php" 
+        : (selected_page_type == 2) ? "../page/page_b.php" 
+        : '';
+        $('.page_list').attr('action', action_to);
+
         //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();
 
