@@ -96,6 +96,8 @@ $(function(){
         //スクロール
         $('.page_list').css({'min-height': '400px'});
         scrollToObject('.selected_chapter');
+
+        //
         
         //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();

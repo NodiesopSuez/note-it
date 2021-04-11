@@ -123,24 +123,9 @@ $_SESSION['add_ok'] = array();
             </button>   
         </section> 
         <section class="chapter_list">
-            <button class="chapter">
+            <!-- <button class="chapter">
                 <p></p>
-            </button>
-            <button class="chapter">
-                <p></p>
-            </button>
-            <button class="chapter">
-                <p></p>
-            </button>
-            <button class="chapter">
-                <p></p>
-            </button>
-            <button class="chapter">
-                <p></p>
-            </button>
-            <button class="chapter">
-                <p></p>
-            </button>
+            </button> -->
         </section>
         <section class="selected selected_chapter">
             <div class="note">
@@ -176,30 +161,10 @@ $_SESSION['add_ok'] = array();
 			<!--ワンタイムトークン発生-->
 			<input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
 			<input class="set_note_color" type="hidden" name="color">
-            <button class="page">
+            <!-- <button class="page">
                 <div class="wrapback"></div>
                 <p>page's icon here's title</p>
-            </button>
-            <button class="page">
-                <div class="wrapback"></div>
-                <p>page's icon here's title</p>
-            </button>
-            <button class="page">
-                <div class="wrapback"></div>
-                <p>page's icon here's title</p>
-            </button>
-            <button class="page">
-                <div class="wrapback"></div>
-                <p>page's icon here's title</p>
-            </button>
-            <button class="page">
-                <div class="wrapback"></div>
-                <p>page's icon here's title</p>
-            </button>
-            <button class="page">
-                <div class="wrapback"></div>
-                <p>page's icon here's title</p>
-            </button>
+            </button> -->
         </form>
     </div>
     <!-- jQurery -->
