@@ -95,7 +95,7 @@ $_SESSION['add_ok'] = array();
                 </button>
             <?php endforeach?>
         </section>
-        <section class="selected">
+        <section class="selected selected_note">
             <div class="note">
                 <div class="note_base"></div>
                 <div class="note_title">
@@ -142,7 +142,7 @@ $_SESSION['add_ok'] = array();
                 <p></p>
             </button>
         </section>
-        <section class="selected">
+        <section class="selected selected_chapter">
             <div class="note">
                 <div class="note_base"></div>
                 <div class="note_title">

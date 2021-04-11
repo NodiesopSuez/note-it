@@ -7,6 +7,13 @@ $(function(){
         return d.promise();
     };
 
+    //特定のオブジェクトにスクロール
+    function scrollToObject(object){
+        $(object).show();
+        let selected_obj_top = $(object).offset().top;
+        $('html, body').animate({scrollTop: selected_obj_top}, 500);
+    }
+
     //note_listを非表示にする
     function hideNotes(){
         $('.note_list > .note').each(function(){
@@ -27,12 +34,17 @@ $(function(){
         })
     };
 
-
+    $('.selected').hide();
     hideNotes();
     showNotes();
 
+
     //note_listから選択されたら
     $('.note_list .note').on("click", function(){
+        //スクロール
+        $('.chapter_list').css({'min-height': '400px'});
+        scrollToObject('.selected_note');
+
         //chapter_listとpage_listのボタン一旦削除
         $('.chapter_list, .page_list').children('button').remove();
 
@@ -81,6 +93,10 @@ $(function(){
 
     //chapter_listから選択されたら
     $(document).on("click", '.chapter_list > .chapter', function(){
+        //スクロール
+        $('.page_list').css({'min-height': '400px'});
+        scrollToObject('.selected_chapter');
+        
         //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();
 
@@ -103,18 +119,26 @@ $(function(){
 
             //page_list key:page_id / val:page_title
             $.each(page_list, function(key, val){
+                //<button>:page_id / .wrapback:折り返し / <p>:page_title
                 let page_btn = $('<button>').addClass('page').attr('value', key);
                 let wrapback = $('<div>').addClass('wrapback');
-                let page_title = $('<p>').text(val.page_title);
+                let page_title = $('<p>');
+
+                //width: 0にしておく
+                page_btn.add(page_title).css({width: '0px', padding: '0px'});
+
                 page_btn.prepend(wrapback, page_title);
                 $('.page_list').prepend(page_btn);
-            });
 
+                page_btn.animate({width: '218px'}, 500, 'swing', function(){
+                    page_title.css({width: 'auto',padding: '16px'}).text(val.page_title);
+                });
+                
+            });
 
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(errorThrown);
             changeMsgDanger().then(scrollToTop());
         });
-
-    })
+    });
 })

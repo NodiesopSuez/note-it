@@ -52,6 +52,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
+}
+.note_list,
+.chapter_list,
+.page_list {
+    align-items: flex-start;
+}
+.selected,
+.selected_menu {
     align-items: flex-end;
 }
 .note_list,
@@ -60,6 +68,9 @@
 .selected {
     margin: 50px auto;
     width: 700px;
+}
+.selected {
+    padding-top: 10px;
 }
 .selected > .chapter {
     margin-left: -100px;
