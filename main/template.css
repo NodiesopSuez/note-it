@@ -89,6 +89,41 @@ input[type="text"] {
 .logo_type { fill: var(--ladybug-line);}
 #ladybug-circle { fill: var(--ladybug-circle);}
 
+
+/* テントウのメッセージ */
+.ladybug {
+    position: relative;
+}
+
+.ladybug > img,
+.balloon,
+.balloon::before,
+.balloon::after {
+    position: absolute;
+}
+
+.balloon::before {
+    z-index: 20;
+    content: attr(msg);
+}
+
+.balloon::after {
+    z-index: 0;
+    content: '';
+}
+
+.balloon,
+.balloon::before,
+.balloon::after {
+    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
+}
+
+.balloon,
+.balloon::after {
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+
 /* ノート */
 .note {
     position: relative;

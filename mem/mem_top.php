@@ -46,7 +46,7 @@ if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
     } elseif ($hours>=12 && $hours<17) {
         $msg = array('こんにちは!　'.$nick_name.'さん!');
     } elseif (($hours>=17 && $hours<=23) || ($hours>=0 && $hours<5)) {
-        $msg = array('こんばんは!　'.$nick_name.'さん!');
+        $msg = array('ヤァこんばんは!　'.$nick_name.'さん!');
     }
 }elseif(!empty($_SESSION['error'])){
 	$ladybug_img = './img/ladybug_sd.png';
@@ -78,7 +78,7 @@ $_SESSION['add_ok'] = array();
                     <?=  $m ?><br/>
                 <?php endforeach ?>
             </div>
-            <form class="add_page" method="post" action="">
+            <form class="add_page" method="post" action="../page/add_page.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <button class="add_btn">ADD PAGE</button>

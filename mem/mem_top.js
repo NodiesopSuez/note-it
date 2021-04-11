@@ -1,6 +1,4 @@
 $(function(){
-    var d = new $.Deferred();
-
     //ページトップに自動スクロール
     function scrollToTop(){
         $('html,body').animate({scrollTop: 0}, {queue: false}); 
@@ -33,6 +31,10 @@ $(function(){
             })
         })
     };
+
+    let msg_text = $('.balloon').text();
+
+    $('.balloon').attr('msg', msg_text);
 
     $('.selected').hide();
     hideNotes();
