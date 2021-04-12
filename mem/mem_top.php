@@ -58,6 +58,7 @@ if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
 }
 
 $_SESSION['add_ok'] = array();
+$note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 ?>
 
 <!DOCTYPE html>
@@ -84,7 +85,7 @@ $_SESSION['add_ok'] = array();
                 <button class="add_btn">ADD PAGE</button>
             </form>
         </section>
-        <section class="note_list">
+        <section class="note_list exist_notes">
             <?php foreach($note_list as $n_id => $n_info): ?>
                 <button class="note <?= $n_info['color'] ?>" value="<?= $n_id ?>">
                     <div class="note_base"></div>
@@ -168,6 +169,41 @@ $_SESSION['add_ok'] = array();
             </button> -->
         </form>
     </div>
+
+    <section class="modal_section">
+        <!-- モーダル背景 -->
+        <div class="modal_back"></div>
+        <!-- note編集モーダル -->
+        <div class="note_modal card">
+            <button class="close_icon close_note_modal">×</button>
+            <form method="post" action="../note/edit_note_check.php">
+                <!--ワンタイムトークン発生-->
+                <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                <input class="set_note_id" type="hidden" name="note_id" value="">
+                <h3>Change Color?</h3>
+                <div class="note_list color_lineup">
+                    <?php foreach($note_colors as $color):?>
+                        <label for="<?= $color ?>" class="note_icon note_<?= $color ?>">
+                            <input type="radio" id="<?= $color ?>" name="color" value="<?= $color ?>">
+                            <div class="note <?= $color ?>">
+                                <div class="note_base"></div>
+                                <div class="note_title">
+                                    <p><?= $color ?></p>
+                                </div>
+                                <div class="back_cover"></div>
+                            </div>
+                        </label>
+                    <?php endforeach ?>
+                </div>
+                <h3>Edit Note Title</h3>
+                <textarea class="edit_note" name="note_title"></textarea></br>
+                <button type="submit" class="send">E D I T !</button>
+            </form>
+        </div>
+    </section>
+
+
+
     <!-- jQurery -->
     <script src="./mem_top.js" type="text/javascript"></script>
 </body>

@@ -41,8 +41,8 @@ $(function(){
     showNotes();
 
 
-    //note_listから選択されたら
-    $('.note_list .note').on("click", function(){
+    //exist_notesのnote_listから選択されたら
+    $('.exist_notes .note').on("click", function(){
         //スクロール
         $('.chapter_list').css({'min-height': '400px'});
         scrollToObject('.selected_note');
