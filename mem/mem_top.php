@@ -108,7 +108,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <form class="edit" method="post" action="../note/edit_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <input type="hidden" name="note_id" class="set_note_id" value="">
                     <button class="edit_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                     </button>
@@ -116,7 +116,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <input type="hidden" name="note_id" class="set_note_id" value="">
                     <button class="delete_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                     </button>
@@ -144,7 +144,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <form class="edit" method="post" action="../note/edit_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
                     <button class="edit_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                     </button>
@@ -152,7 +152,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_note_id" value=" note_id ">
+                    <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
                     <button class="delete_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                     </button>
@@ -179,7 +179,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
             <form method="post" action="../note/edit_note_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                <input class="set_note_id" type="hidden" name="note_id" value="">
+                <input type="hidden" name="note_id" class="set_note_id" value="">
                 <h3>Change Color?</h3>
                 <div class="note_list color_lineup">
                     <?php foreach($note_colors as $color):?>
@@ -196,8 +196,19 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                     <?php endforeach ?>
                 </div>
                 <h3>Edit Note Title</h3>
-                <textarea class="edit_note" name="note_title"></textarea></br>
-                <button type="submit" class="send">E D I T !</button>
+                <textarea class="edit_title" name="note_title"></textarea></br>
+                <button type="submit" class="send">EDIT</button>
+            </form>
+        </div>
+        <div class ="chapter_modal card">
+            <button class="close_icon close_chapter_modal">×</button>
+            <form method="post" action="../note/edit_chapter_check.php">
+                <!--ワンタイムトークン発生-->
+                <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
+                <h3>Edit Chapter Title</h3>
+                <textarea class="edit_title" name="chapter_title"></textarea>
+                <button type="submit" class="send">EDIT</button>
             </form>
         </div>
     </section>

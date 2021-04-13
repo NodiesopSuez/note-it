@@ -33,8 +33,9 @@ $(function(){
     };
 
     let msg_text = $('.balloon').text();
-
     $('.balloon').attr('msg', msg_text);
+
+    $('.modal_section').hide();
 
     $('.selected').hide();
     hideNotes();
@@ -50,14 +51,20 @@ $(function(){
         //chapter_listとpage_listのボタン一旦削除
         $('.chapter_list, .page_list').children('button').remove();
 
-        //selectedメニューのノートタイトルを、選ばれたノートタイトルに書き換え
+        //selectedメニューのノートタイトルと
+        //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
         let selected_note_title = $(this).find('p').text();
         $('.selected .note_title > p').text(selected_note_title);
+        $('textarea [name="note_title]').text(selected_note_title);
 
-        //選ばれたnote_idでchapter_list取得
+        //選ばれたnote_id
         let selected_note_id = $(this).attr('value');
         console.log(selected_note_id);
 
+        //selectedメニューにnote_id割り当て
+        $('.set_note_id').val(selected_note_id);
+        
+        //選ばれたnote_idでchapter_list取得
         $.ajax({
             url:'./get_chapter_list.php',
             type:'post',
@@ -111,12 +118,17 @@ $(function(){
         //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();
 
-        //selectedメニューのチャプタータイトルを。選ばれたチャプタータイトルに書き換え
+        //selectedメニューのチャプタータイトルと
+        //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
         let selected_chapter_title = $(this).find('p').text();
         $('.selected .chapter > p').text(selected_chapter_title);
+        $('textarea [name="chapter_title]').text(selected_chapter_title);
         
         //選択されたchapter_idでpage_list取得
         let selected_chapter_id = $(this).attr('value');
+
+        //selectedメニューにnote_id割り当て
+        $('.set_note_id').val(selected_note_id);
         
         $.ajax({
             url:'./get_page_list.php',
