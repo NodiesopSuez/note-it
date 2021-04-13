@@ -72,6 +72,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 <body>
     <div class="container">
     <?php include('../inclusion/mem_header.php')?>
+        <!-- テントウメッセージ -->
         <section class="ladybug">
             <img src="<?= $ladybug_img ?>">
             <div class="balloon">
@@ -79,12 +80,14 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                     <?=  $m ?><br/>
                 <?php endforeach ?>
             </div>
+            <!-- ページ追加ボタン -->
             <form class="add_page" method="post" action="../page/add_page.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <button class="add_btn">ADD PAGE</button>
             </form>
         </section>
+        <!-- 既存ノートリスト -->
         <section class="note_list exist_notes">
             <?php foreach($note_list as $n_id => $n_info): ?>
                 <button class="note <?= $n_info['color'] ?>" value="<?= $n_id ?>">
@@ -96,6 +99,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 </button>
             <?php endforeach?>
         </section>
+        <!-- 選択ノートメニュー -->
         <section class="selected selected_note">
             <div class="note">
                 <div class="note_base"></div>
@@ -105,14 +109,11 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <div class="back_cover"></div>
             </div>
             <div class="selected_menu">
-                <form class="edit" method="post" action="../note/edit_note.php">
-                    <!--ワンタイムトークン発生-->
-                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="note_id" class="set_note_id" value="">
-                    <button class="edit_btn">
+                <!-- ノート編集ボタン -->
+                <button class="edit_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
-                    </button>
-                </form>
+                </button>
+                <!-- ノート削除ボタン -->
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
@@ -123,12 +124,14 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 </form>
             </button>   
         </section> 
+        <!-- チャプターリスト -->
         <section class="chapter_list">
             <!-- <button class="chapter">
                 <p></p>
                 <input type="hidden" name="page_type" value="">
             </button> -->
         </section>
+        <!-- 選択チャプターメニュー -->
         <section class="selected selected_chapter">
             <div class="note">
                 <div class="note_base"></div>
@@ -141,14 +144,11 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <p></p>
             </div>
             <div class="selected_menu">
-                <form class="edit" method="post" action="../note/edit_note.php">
-                    <!--ワンタイムトークン発生-->
-                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
-                    <button class="edit_btn">
-                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
-                    </button>
-                </form>
+                <!-- チャプター編集ボタン -->
+                <button class="edit_btn">
+                    <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
+                </button>
+                <!-- チャプター削除ボタン -->
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
