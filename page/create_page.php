@@ -40,56 +40,74 @@ $ladybug = '../page/img/ladybug_nm.png';
                 <div>
                     <!-- 新規か既存か -->
                     <div class="new_or_exist">
-                        <button role="button" class="note new_note">
-                                <div>
-                                    <p>new</p>
-                                </div>
+                        <button class="note new_note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
+                                <p>new</p>
+                            </div>
+                            <div class="back_cover"></div>
                         </button>
-                        <button role="button" class="note ex_note">
-                                <div>
-                                    <p>exist</p>
-                                </div>
+                        <button class="note ex_note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
+                                <p>exist</p>
+                            </div>
+                            <div class="back_cover"></div>
                         </button>
                     </div>
                     <!-- 新規：カラー選択 -->
                     <div class="note_color">
-                        <button role="button" class="note">
-                            <div>
+                        <button class="note">
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <p>blue</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
-                        <button role="button" class="note">
-                            <div>
+                        <button class="note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <p>pink</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
-                        <button role="button" class="note">
-                            <div>
+                        <button class="note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <p>yellow</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
-                        <button role="button" class="note">
-                            <div>
+                        <button class="note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <p>green</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
-                        <button role="button" class="note">
-                            <div>
-                                <p>pruple</p>
+                        <button class="note" role="button">
+                            <div class="note_base"></div>
+                            <div class="note_title">
+                                <p>purple</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
                     </div>
                     <!-- 新規：ノート名入力フォーム -->
                     <div class="new_note_form">
-                        <div class="note">
-                            <div>
+                        <button role="button" class="note">
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <input type="text" name="new_note_title" placeholder="ノート名"></input>
                             </div>
-                        </div>
+                            <div class="back_cover"></div>
+                        </button>
                         <button role="button" class="note">
-                            <div>
+                            <div class="note_base"></div>
+                            <div class="note_title">
                                 <p>exist</p>
                             </div>
+                            <div class="back_cover"></div>
                         </button>
                     </div>
                 </div>
