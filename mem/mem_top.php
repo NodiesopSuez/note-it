@@ -81,7 +81,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                 <?php endforeach ?>
             </div>
             <!-- ページ追加ボタン -->
-            <form class="add_page" method="post" action="../page/add_page.php">
+            <form class="add_page" method="post" action="../page/create_page.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <button class="add_btn">ADD PAGE</button>

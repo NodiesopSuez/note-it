@@ -32,14 +32,12 @@ $(function(){
         })
     };
 
-    let msg_text = $('.balloon').text();
-    $('.balloon').attr('msg', msg_text);
-
-    $('.modal_section').hide();
-
-    $('.selected').hide();
+    $('.selected, .modal_section, .note_modal, .chapter_modal').hide();
     hideNotes();
     showNotes();
+
+    let msg_text = $('.balloon').text();
+    $('.balloon').attr('msg', msg_text);
 
 
     //exist_notesのnote_listから選択されたら
@@ -128,7 +126,7 @@ $(function(){
         let selected_chapter_id = $(this).attr('value');
 
         //selectedメニューにnote_id割り当て
-        $('.set_note_id').val(selected_note_id);
+        $('.set_note_id').val(selected_chapter_id);
         
         $.ajax({
             url:'./get_page_list.php',
@@ -165,5 +163,23 @@ $(function(){
         });
     });
 
-    
+    //ノート編集のモーダル表示
+    $('.selected_note .edit_btn').on("click", function(){
+        let selected_note_top = $('.selected_note').offset().top + 100;
+        $('.note_modal').css({top: selected_note_top });
+        $('.modal_section, .note_modal').slideDown();
+    });
+
+    //チャプター編集のモーダル表示
+    $('.selected_chapter .edit_btn').on("click", function(){
+        let selected_chapter_top = $('.selected_chapter').offset().top + 100;
+        $('.chapter_modal').css({top: selected_chapter_top });
+        $('.modal_section, .chapter_modal').slideDown();
+    });
+
+    //モーダル非表示
+    $('.close_icon').on("click", function(){
+        $('.modal_section, .note_modal, .chapter_modal').slideUp();
+    });
+
 })

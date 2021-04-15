@@ -76,10 +76,11 @@
 .selected_menu {
     margin: 0;
     justify-content: space-between !important;
+    align-items: baseline !important;
     width: 111px;
 }
 
-.selected_menu > form button {
+.selected_menu button {
     width: 50px;
     height: 50px;
     border-radius: 10px;
@@ -114,12 +115,16 @@ input[type="radio"] {
 }
 
 .modal_back,
-.note_modal {
+.note_modal,
+.chapter_modal,
+.chapter_modal > form {
     top: 0;
     right: 0;
-    bottom: 0;
     left: 0;
     margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal_back {
@@ -129,23 +134,32 @@ input[type="radio"] {
     height: 100%;
     background: #ccc;
     opacity: 0.5;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.note_modal {
+.note_modal,
+.chapter_modal,
+.chapter_modal > form {
+    flex-direction: column;
+}
+
+.note_modal,
+.chapter_modal {
     z-index: 30;
     position:absolute;
-    display: flex;
-    flex-direction: column;justify-content: center;
-    align-items: center;
     padding: 16px;
-    width: 500px;
-    height: 550px;
     text-align: center;
     border-radius: 15px;
     background: var(--body-base-lt);
+}
+
+.note_modal {
+    width: 500px;
+    height: 550px;
+}
+
+.chapter_modal {
+    width: 400px;
+    height: 200px;
 }
 
 .color_lineup {
