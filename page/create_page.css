@@ -1,5 +1,5 @@
 .container {
-    overflow: visible!important;
+    width: 90% !important;
 }
 
 input[type="radio"] {
@@ -8,8 +8,9 @@ input[type="radio"] {
 
 /* てんとう虫 */
 .ladybug { 
+    z-index: 20;
     position: fixed !important;
-    margin-top: 90px;
+    margin-top: 60px;
     width: 176px;
     height: 160px;
 }
@@ -37,14 +38,41 @@ input[type="radio"] {
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);
 }
 
+/* セクション幅・アイコンの並び */
 form {
-transform: translateY(700px);
+    float: right;
+}
+.note_section,
+.chapter_section,
+.chapter_section > div,
+.page_type {
+    display: flex;
+    float: right;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap; 
+}
+.page_type {
+    align-items: flex-end !important;
+}
+.note_section,
+.chapter_section,
+.page_type {
+    width: 85%;
+}
+.chapter_section > div:nth-child(2) {
+    width: 73%;
+    margin-top: 117px;
+}
+.chapter_cassette {
+    margin-left: -73px !important;
+    margin-bottom: 24px !important;
 }
 
+/* 入力フォーム */
 textarea[name="new_note_title"] {
     resize: none;
 }
-
 textarea[name="new_note_title"],
 input[type="text"] {
     width: 100%;
@@ -54,22 +82,25 @@ input[type="text"] {
     background: transparent;
     text-align: center;
 }
-
-.note_section > div,
-.new_or_exist,
-.note_color,
-.new_note_form,
-.chapter_section > div,
-.new_chapter_form,
-.page_type,
-.page_forms {
-    display: flex;
-    justify-content: center;
+.chapter input[name="new_chapter_title"] {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin :auto;
+    width: 170px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 20px;
+    background: #cc9292;
 }
+
+
 
 .note,
 .page {
-    margin: 8px 16px;
+    margin: 8px;
 }
 .chapter {
     margin: 8px;

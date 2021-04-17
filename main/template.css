@@ -52,8 +52,9 @@ body {
 }
 
 .container {
+    overflow-x: hidden;
     width: 80%;
-    overflow: hidden;
+    height: auto;
     background-color: var(--body-base-lt);
     text-align: center;
 }
@@ -155,8 +156,9 @@ textarea {
     box-shadow: 1px 1px 3px var(--body-shadow);
 }
 .note > .note_title {
-    display:flex;
+    display: flex;
     align-items: center;
+    overflow: scroll;
     top: 25px;
     left: 30px;
     width: 95px;

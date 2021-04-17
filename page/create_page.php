@@ -16,7 +16,6 @@ $_SESSION['error'] = array();
 //既存ノートリスト取得
 $searches = new Searches;
 $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
-print_r($note_list);
 
 $msg =['エラー！<br/>申し訳ございませんが<br/>最初からお進みください'];
 $msg = ['Which Note Type?'];
@@ -52,6 +51,7 @@ $ladybug = '../page/img/ladybug_nm.png';
             
             <!-- ノート -->
             <section class="note_section">
+
                 <!-- 新規ノート選択ボタン -->
                 <input name="note_existence" value="new" type="radio" id="new_note">
                 <label for="new_note">
@@ -63,6 +63,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                         <div class="back_cover"></div>
                     </div>
                 </label>
+
                 <!-- 新規ノートカラーリスト -->
                 <?php foreach($color_list as $color => $jp): ?>
                     <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
@@ -77,101 +78,130 @@ $ladybug = '../page/img/ladybug_nm.png';
                     </label>
                     <?php endforeach ?>
                     
-                    <!-- 新規ノートタイトル入力フォーム -->
+                <!-- 新規ノートタイトル入力フォーム -->
+                <div class="note">
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <textarea name="new_note_title"></textarea>
+                    </div>
+                    <div class="back_cover"></div>
+                </div>
+                    
+                <!-- 既存ノートリスト -->
+                <?php foreach($note_list as $note_id => $key): ?>
+                    <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
+                    <label for="note_<?= $note_id ?>">
+                        <div class="note <?= $key['color'] ?>">
+                            <div class="note_base"></div>
+                            <div class="note_title">
+                                <p><?= $key['note_title'] ?></p>
+                            </div>
+                            <div class="back_cover"></div>
+                        </div>
+                    </label>
+                <?php endforeach ?>
+                        
+                <!-- 既存ノート選択ボタン -->
+                <input name="note_existence" value="exist" type="radio" id="exist_note">
+                <label for="exist_note">
                     <div class="note">
                         <div class="note_base"></div>
                         <div class="note_title">
-                            <textarea name="new_note_title" type="text" ></textarea>
+                            <p>EXIST NOTENOTENOTENOTE</p>
                         </div>
                         <div class="back_cover"></div>
                     </div>
+                </label>
+            </section>
                     
-                    <!-- 既存ノートリスト -->
-                    <?php foreach($note_list as $note_id => $key): ?>
-                        <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
-                        <label for="note_<?= $note_id ?>">
-                            <div class="note <?= $key['color'] ?>">
-                                <div class="note_base"></div>
-                                <div class="note_title">
-                                    <p><?= $key['note_title'] ?></p>
-                                </div>
-                                <div class="back_cover"></div>
-                            </div>
-                        </label>
-                        <?php endforeach ?>
-                        
-                        <!-- 既存ノート選択ボタン -->
-                        <input name="note_existence" value="exist" type="radio" id="exist_note">
-                        <label for="exist_note">
-                            <div class="note">
-                                <div class="note_base"></div>
-                                <div class="note_title">
-                                    <p>EXIST NOTE</p>
-                                </div>
-                                <div class="back_cover"></div>
-                            </div>
-                        </label>
-                        
-                    </section>
-                    
-                    
-                    
-                    
-                    
-                    
-                    <!--チャプター -->
-                    <div class="chapter_section">
-                        <div>
-                            <!-- 新規か既存か -->
-                    <div class="new_or_exist">
-                        <button class="chapter">
-                            <p>new</p>
-                        </button>
-                        <button class="chapter">
-                            <p>exist</p>
-                        </button>
+            <!--チャプター -->
+            <section class="chapter_section">
+
+                <!-- ノートカセット -->
+                <div class="note cassette">
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <p></p>
                     </div>
-                    <!-- 新規：チャプター名入力フォーム -->
-                    <div class="new_chapter_form">
+                    <div class="back_cover"></div>
+                </div>
+                
+                <div>
+                    <!-- 新規チャプター選択ボタン -->
+                    <input name="chapter_existence" value="new" type="radio" id="new_chapter">
+                    <label for="new_chapter">
                         <div class="chapter">
-                            <input type="text" namge="new_chapter_title" placeholder="チャプター名">
+                            <p>NEW</p>
                         </div>
-                        <button class="chapter">
-                            <p>exist</p>
-                        </button>
+                    </label>
+                    
+                    <!-- 新規チャプタータイトル -->
+                    <div class="chapter">
+                        <input name="new_chapter_title" type="text">NEW
                     </div>
+                    
+                    <!-- 既存チャプターリスト -->
+                    <input name="chapter_id" value="" type="radio" id="">
+                    <label for="">
+                        <div class="chapter">
+                            <p></p>
+                        </div>
+                    </label>
+
+                    <!-- 既存チャプター選択ボタン -->
+                    <input name="chapter_existence" value="exist" type="radio" id="exist_chapter">
+                    <label for="exist_chapter">
+                        <div class="chapter">
+                            <p>EXIST</p>
+                        </div>
+                    </label> 
                 </div>
-                <div class="ex_chapter_list">
-                    <button class="chapter">
-                        <p>既存チャプター</p>
-                    </button>
-                    <button class="chapter">
-                        <p>new</p>
-                    </button>
-                </div>
-            </div>
-
-
-
-
-
-
-
+            </section>
 
             <!-- ページタイプ -->
-            <div class="page_type">
-                <button class="page type">
-                    <div class="wrapback"></div>
-                    <p>Type A</p>
-                </button>
-                <button class="page type">
-                    <div class="wrapback"></div>
-                    <p>Type B</p>
-                </button>
-            </div>
-            <div class="page_forms">
-                <!-- TypeA:入力フォーム -->
+            <section class="page_type">
+
+                <!-- ノートカセット -->
+                <div class="note cassette">
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <p></p>
+                    </div>
+                    <div class="back_cover"></div>
+                </div>
+
+                <!-- チャプターカセット -->
+                <div class="chapter chapter_cassette">
+                    <p>NEW</p>
+                </div>
+
+                <!-- ページタイプ -->
+                <input name="page_type" value="1" type="radio" id="page_a">
+                <label for="page_a">
+                    <div class="page">
+                        <div class="wrapback"></div>
+                        <p>Type A</p>
+                    </div>
+                </label>
+                <input name="page_type" value="2" type="radio" id="page_b">
+                <label for="page_b">
+                    <div class="page">
+                        <div class="wrapback"></div>
+                        <p>Type B</p>
+                    </div>
+                </label>
+            </section>
+
+            <!-- コンテンツ入力フォーム -->
+            <section class="contents">
+                <!-- TypeA -->
                 <div class="page_base a">
+                    <input class="page_title" type="text" name="page_title_a" placeholder="ページタイトル">
+                </div>
+            </section>
+            <!-- <div class="page_forms"> -->
+                <!-- TypeA:入力フォーム -->
+                <!-- <div class="page_base a">
                     <input type="text" name="page_title_a" class="page_title" placeholder="ページタイトル">
                     <input type="text" name="meaning" class="meaning" placeholder="意味">
                     <input type="text" name="syntax" class="syntax" placeholder="構文">
@@ -183,27 +213,27 @@ $ladybug = '../page/img/ladybug_nm.png';
                         <textarea name="ex_memo" class="ex_memo">example</textarea>
                     </div>
                     <textarea name="memo" class="memo">memo</textarea>
-                </div>
+                </div> -->
 
                 <!-- TypeB:入力フォーム -->
-                <div class="page_base b">
+                <!-- <div class="page_base b">
                     <input type="text" name="page_title_b" class="page_title" placeholder="ページタイトル">
                     <div class="form_block" id="form_block_1">
                         <div class="contents text" id="contents_1" contentEditable="true"></div>
                         <input type="hidden" id="hid_contents_1" name="contents_1" value="">
                     </div>
-                    <div class="buttons row">
+                    <div class="buttons row"> -->
                         <!--テキスト追加ボタン-->
-                        <button id="add_text" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
+                        <!-- <button id="add_text" class="btn m-0" type="button"><img src="" style="width:2rem"></button> -->
                         <!--画像追加ボタン-->
-                        <button id="add_img" class="btn m-0" type="button"><img src="" style="width:2rem"></button>
+                        <!-- <button id="add_img" class="btn m-0" type="button"><img src="" style="width:2rem"></button> -->
                         <!--コード追加ボタン-->
                         <!--<button id="add_code" class="btn btn-secondary my-1" type="button">コードを追加する</button>
                         <button id="add_quote" class="btn btn-secondary my-1" type="button">引用を追加する</button>-->
-                    </div>
+<!--                     </div>
                 </div>
-            </div>
-            <button role="submit" class="submit">submit</button>
+            </div> -->
+            <!-- <button role="submit" class="submit">submit</button> -->
         </form>
     </div>
 </body>
