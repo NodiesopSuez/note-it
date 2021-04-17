@@ -5,10 +5,23 @@ session_regenerate_id();
 
 //必要ファイル呼び出し
 require_once('../class/config/Config.php');
-require_once('../class/config/Icons.php');
 require_once('../class/util/Utility.php');
+require_once('../class/db/Connect.php');
+require_once('../class/db/Users.php');
+require_once('../class/db/Searches.php');
 
-$msg =['追加するノートを選んでください。'];
+//余計な情報を削除
+$_SESSION['error'] = array();
+
+//既存ノートリスト取得
+$searches = new Searches;
+$note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
+print_r($note_list);
+
+$msg =['エラー！<br/>申し訳ございませんが<br/>最初からお進みください'];
+$msg = ['Which Note Type?'];
+
+$color_list = ['blue' => 'ブルー', 'pink' => 'ピンク', 'yellow' => 'イエロー', 'green' => 'グリーン', 'purple' => 'パープル'];
 $ladybug = '../page/img/ladybug_nm.png';
 ?>
 
@@ -32,103 +45,84 @@ $ladybug = '../page/img/ladybug_nm.png';
                 <?php endforeach ?>
             </div>
         </div>
+
         <form method="post" action="./create_page_check.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">       
+            
             <!-- ノート -->
-            <div class="note_section">
-                <div>
-                    <!-- 新規か既存か -->
-                    <div class="new_or_exist">
-                        <button class="note new_note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>new</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button class="note ex_note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>exist</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                    </div>
-                    <!-- 新規：カラー選択 -->
-                    <div class="note_color">
-                        <button class="note">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>blue</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button class="note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>pink</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button class="note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>yellow</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button class="note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>green</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button class="note" role="button">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>purple</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                    </div>
-                    <!-- 新規：ノート名入力フォーム -->
-                    <div class="new_note_form">
-                        <button role="button" class="note">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <input type="text" name="new_note_title" placeholder="ノート名"></input>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                        <button role="button" class="note">
-                            <div class="note_base"></div>
-                            <div class="note_title">
-                                <p>exist</p>
-                            </div>
-                            <div class="back_cover"></div>
-                        </button>
-                    </div>
-                </div>
-                <!-- 既存：ノート選択 -->
-                <div class="ex_note_list">
-                    <button role="button" class="note">
-                        <div>
-                            <p>既存ノート</p>
+            <section class="note_section">
+                <!-- 新規ノート選択ボタン -->
+                <input name="note_existence" value="new" type="radio" id="new_note">
+                <label for="new_note">
+                    <div class="note">
+                        <div class="note_base"></div>
+                        <div class="note_title">
+                            <p>NEW NOTE</p>
                         </div>
-                    </button>
-                    <button role="button" class="note">
-                        <div>
-                            <p>new</p>
+                        <div class="back_cover"></div>
+                    </div>
+                </label>
+                <!-- 新規ノートカラーリスト -->
+                <?php foreach($color_list as $color => $jp): ?>
+                    <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
+                    <label for="new_<?= $color ?>">
+                        <div class="note">
+                            <div class="note_base"></div>
+                            <div class="note_title">
+                                <p><?= $jp ?></p>
+                            </div>
+                            <div class="back_cover"></div>
                         </div>
-                    </button>
-                </div>
-            </div>
-            <!--チャプター -->
-            <div class="chapter_section">
-                <div>
-                    <!-- 新規か既存か -->
+                    </label>
+                    <?php endforeach ?>
+                    
+                    <!-- 新規ノートタイトル入力フォーム -->
+                    <div class="note">
+                        <div class="note_base"></div>
+                        <div class="note_title">
+                            <textarea name="new_note_title" type="text" ></textarea>
+                        </div>
+                        <div class="back_cover"></div>
+                    </div>
+                    
+                    <!-- 既存ノートリスト -->
+                    <?php foreach($note_list as $note_id => $key): ?>
+                        <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
+                        <label for="note_<?= $note_id ?>">
+                            <div class="note <?= $key['color'] ?>">
+                                <div class="note_base"></div>
+                                <div class="note_title">
+                                    <p><?= $key['note_title'] ?></p>
+                                </div>
+                                <div class="back_cover"></div>
+                            </div>
+                        </label>
+                        <?php endforeach ?>
+                        
+                        <!-- 既存ノート選択ボタン -->
+                        <input name="note_existence" value="exist" type="radio" id="exist_note">
+                        <label for="exist_note">
+                            <div class="note">
+                                <div class="note_base"></div>
+                                <div class="note_title">
+                                    <p>EXIST NOTE</p>
+                                </div>
+                                <div class="back_cover"></div>
+                            </div>
+                        </label>
+                        
+                    </section>
+                    
+                    
+                    
+                    
+                    
+                    
+                    <!--チャプター -->
+                    <div class="chapter_section">
+                        <div>
+                            <!-- 新規か既存か -->
                     <div class="new_or_exist">
                         <button class="chapter">
                             <p>new</p>
@@ -156,6 +150,14 @@ $ladybug = '../page/img/ladybug_nm.png';
                     </button>
                 </div>
             </div>
+
+
+
+
+
+
+
+
             <!-- ページタイプ -->
             <div class="page_type">
                 <button class="page type">

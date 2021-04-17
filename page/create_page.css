@@ -2,54 +2,54 @@
     overflow: visible!important;
 }
 
+input[type="radio"] {
+    display: none;
+}
+
 /* てんとう虫 */
 .ladybug { 
-    position: relative;
-    margin: auto;
-    padding-top: 130px;
-    width: 400px;
-    height: 310px;
+    position: fixed !important;
+    margin-top: 90px;
+    width: 176px;
+    height: 160px;
 }
-
-.ladybug * {
-    position: absolute;
-}
-
 .ladybug > img {
     bottom: 0;
     left: 0;
-    width: 120px;
+    width: 90px;
 }
-
 .ladybug > .balloon {
-    position: relative;
     top: 0;
     right: 0;
-    padding: 16px;
-    border-radius: 50px;
-    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
-    text-align: center;
-    box-shadow: 5px 5px 7px var(--body-shadow);
+    margin: 0;
+    padding: 16px 8px;
+    border-radius: 20px;
 }
 .ladybug > .balloon::after {
     position: absolute;
     bottom: -10px;
-    right: 14em;
+    right: 0;
+    left: 0;
+    margin: auto;
     content: '';
     width: 40px;
     height: 40px;
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);
-    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
-    box-shadow: 5px 5px 7px var(--body-shadow);
-
 }
 
 form {
-    margin-top: 30px;
+transform: translateY(700px);
 }
 
+textarea[name="new_note_title"] {
+    resize: none;
+}
+
+textarea[name="new_note_title"],
 input[type="text"] {
     width: 100%;
+    height: 100%;
+    padding: 5px;
     overflow: scroll;
     background: transparent;
     text-align: center;
