@@ -1,3 +1,5 @@
+'use strict';
+
 $(function(){
     //ページトップに自動スクロール
     function scrollToTop(){
