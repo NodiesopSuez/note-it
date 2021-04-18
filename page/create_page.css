@@ -3,7 +3,7 @@
 }
 
 form {
-    transform: translateY(126px);
+    padding-top: 126px;
 }
 
 input[type="radio"] {
@@ -43,16 +43,14 @@ input[type="radio"] {
 }
 
 /* セクション幅・アイコンの並び */
-.note_section,
-.chapter_section,
-.chapter_section > div,
-.page_type,
-.contents_section {
+section,
+.chapter_section > div {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap; 
 }
+
 .note_section,
 .chapter_section,
 .chapter_section > div,
@@ -67,10 +65,7 @@ input[type="radio"] {
     margin: auto;
     transform: translateY(-40px);
 }
-.note_section,
-.chapter_section,
-.page_type,
-.contents_section {
+section {
     width: 85%;
 }
 .chapter_section > div:nth-child(2) {
@@ -82,7 +77,17 @@ input[type="radio"] {
     margin-bottom: -38px !important;
 }
 
-
+/* アイコンのアニメーション */
+.note_section .note,
+.chapter_section .chapter,
+.page_type .page { 
+    transition: all 0.3s; 
+}
+.note_section .note:hover,
+.chapter_section .chapter:hover,
+.page_type .page:hover { 
+    transform: scale(1.05); 
+}
 
 /* 入力フォーム */
 textarea[name="new_note_title"] {
@@ -121,8 +126,24 @@ input[type="text"] {
     margin: 8px;
 }
 .page {
-    width: 180px;
-    height: 70px;
+    width: 120px;
+    height: 49px;
+}
+.wrapback {
+    width: 26px;
+    height: 26px;
+}
+.wrapback::before {
+    top: -3px;
+    right: -13px;
+    border-width: 21px;
+}
+.wrapback::after {
+    top: -8px;
+    right: 15px;
+    width: 10px;
+    height: 45px;
+    box-shadow: 6px 11px 7px var(--body-shadow);
 }
 
 .page_base {
