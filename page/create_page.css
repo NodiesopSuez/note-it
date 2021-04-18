@@ -39,25 +39,34 @@ input[type="radio"] {
 }
 
 /* セクション幅・アイコンの並び */
-form {
-    float: right;
+.note_section,
+.chapter_section,
+.chapter_section > div,
+.page_type,
+.contents_section {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap; 
 }
 .note_section,
 .chapter_section,
 .chapter_section > div,
 .page_type {
-    display: flex;
     float: right;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-wrap: wrap; 
 }
 .page_type {
-    align-items: flex-end !important;
+    align-items: center !important;
+}
+.contents_section {
+    flex-direction: column;
+    margin: auto;
+    transform: translateY(-40px);
 }
 .note_section,
 .chapter_section,
-.page_type {
+.page_type,
+.contents_section {
     width: 85%;
 }
 .chapter_section > div:nth-child(2) {
@@ -65,8 +74,8 @@ form {
     margin-top: 117px;
 }
 .chapter_cassette {
-    margin-left: -73px !important;
-    margin-bottom: 24px !important;
+    margin-left: -50px !important;
+    margin-bottom: -38px !important;
 }
 
 /* 入力フォーム */

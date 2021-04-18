@@ -193,27 +193,28 @@ $ladybug = '../page/img/ladybug_nm.png';
             </section>
 
             <!-- コンテンツ入力フォーム -->
-            <section class="contents">
+            <section class="contents_section">
+
                 <!-- TypeA -->
                 <div class="page_base a">
-                    <input class="page_title" type="text" name="page_title_a" placeholder="ページタイトル">
-                </div>
-            </section>
-            <!-- <div class="page_forms"> -->
-                <!-- TypeA:入力フォーム -->
-                <!-- <div class="page_base a">
-                    <input type="text" name="page_title_a" class="page_title" placeholder="ページタイトル">
-                    <input type="text" name="meaning" class="meaning" placeholder="意味">
-                    <input type="text" name="syntax" class="syntax" placeholder="構文">
-                    <textarea name="syn_memo" class="syn_memo">syn_memo</textarea>
+                    <input class="page_title_a" type="text" name="page_title_a" placeholder="ページタイトル">
+                    <input class="meaning" type="text" name="meaning" placeholder="意味">
+                    <input class="syntax" type="text" name="syntax" placeholder="構文">
+                    <textarea class="syn_memo" name="syn_memo" placeholder="構文メモ"></textarea>
                     <div class="example">
-                        <textarea name="example" class="ex">
-                            exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample
-                        </textarea>
-                        <textarea name="ex_memo" class="ex_memo">example</textarea>
+                        <textarea class="ex" name="example" placeholder="例文"></textarea>
+                        <textarea class="ex_memo" name="ex_memo" placeholder="例文メモ"></textarea>
                     </div>
-                    <textarea name="memo" class="memo">memo</textarea>
-                </div> -->
+                    <textarea class="memo" name="memo" placeholder="メモ"></textarea>
+                </div>
+
+                <!-- TypeB -->
+                <div class="page_base b">
+                    <input class="">
+                </div>
+
+            </section>
+            
 
                 <!-- TypeB:入力フォーム -->
                 <!-- <div class="page_base b">
