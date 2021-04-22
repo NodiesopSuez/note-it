@@ -16,23 +16,27 @@ $(function(){
 
     //note_listを非表示にする
     function hideNotes(){
-        $('.note_list > .note').each(function(){
+        $('.note_section .note').each(function(){
             $(this).children('.back_cover').height('0px');
             $(this).children('.note_base').width('0px');
             $(this).find('.note_title').hide();
-            $(this).hide();
         });
     }
 
+    var deffered = new $.Deferred();
+
     //note_listを表示する
     function showNotes(){
-        $('.note_list > .note').show();
-        $('.note_list .back_cover').animate({height: '161px'}, 500, 'swing', function(){
-            $('.note_list .note_base').animate({width: '140px'}, 500, 'swing', function(){
-                $('.note_list .note_title').show();
+        $('.note_section .note').find('.back_cover').animate({height: '161px'}, 500, 'swing', function(){
+            $('.note_section .note').find('.note_base').animate({width: '140px'}, 500, 'swing', function(){
+                $('.note_section .note').find('.note_title').show();
             })
         })
     };
-
+    
+    //新規ノート選択ボタンと既存ノートリストを表示
+    hideNotes();
+    showNotes();
+    
 
 });

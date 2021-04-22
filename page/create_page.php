@@ -65,9 +65,9 @@ $ladybug = '../page/img/ladybug_nm.png';
                 </label>
 
                 <!-- 新規ノートカラーリスト -->
-                <?php foreach($color_list as $color => $jp): ?>
+                <!-- <?php foreach($color_list as $color => $jp): ?>
                     <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
-                    <label for="new_<?= $color ?>">
+                    <label for="new_<?= $color ?>" class="color_label">
                         <div class="note">
                             <div class="note_base"></div>
                             <div class="note_title">
@@ -76,21 +76,21 @@ $ladybug = '../page/img/ladybug_nm.png';
                             <div class="back_cover"></div>
                         </div>
                     </label>
-                    <?php endforeach ?>
+                <?php endforeach ?> -->
                     
                 <!-- 新規ノートタイトル入力フォーム -->
-                <div class="note">
+                <!-- <div class="note note_title_form">
                     <div class="note_base"></div>
                     <div class="note_title">
                         <textarea name="new_note_title"></textarea>
                     </div>
                     <div class="back_cover"></div>
-                </div>
+                </div> -->
                     
                 <!-- 既存ノートリスト -->
                 <?php foreach($note_list as $note_id => $key): ?>
                     <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
-                    <label for="note_<?= $note_id ?>">
+                    <label for="note_<?= $note_id ?>" class="exist_note_list">
                         <div class="note <?= $key['color'] ?>">
                             <div class="note_base"></div>
                             <div class="note_title">
@@ -102,7 +102,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                 <?php endforeach ?>
                         
                 <!-- 既存ノート選択ボタン -->
-                <input name="note_existence" value="exist" type="radio" id="exist_note">
+                <!-- <input name="note_existence" value="exist" type="radio" id="exist_note">
                 <label for="exist_note">
                     <div class="note">
                         <div class="note_base"></div>
@@ -111,7 +111,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                         </div>
                         <div class="back_cover"></div>
                     </div>
-                </label>
+                </label> -->
             </section>
                     
             <!--チャプター -->
@@ -234,5 +234,7 @@ $ladybug = '../page/img/ladybug_nm.png';
             </section>
         </form>
     </div>
+    <!-- jQurery -->
+    <script src="./create_page.js" type="text/javascript"></script>
 </body>
 </html>
