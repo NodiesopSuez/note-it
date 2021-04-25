@@ -66,6 +66,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 <head>
     <?php include('../head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
+    <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./mem_top.css" media="screen and (min-width:1024px)">
     <link rel="stylesheet" type="text/css" href="../inclusion/mem_header.css" media="screen and (min-width:1024px)">
 </head>

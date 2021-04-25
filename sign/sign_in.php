@@ -31,6 +31,7 @@ $_SESSION['add_ok'] = array();
 <head>
     <?php include('../head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
+    <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./sign_up.css" media="screen and (min-width:1024px)">
 </head>
 <body>

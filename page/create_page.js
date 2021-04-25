@@ -2,11 +2,12 @@
 
 $(function(){
     let defer = new $.Deferred;
+    let note_icon;
 
     //ページトップに自動スクロール
     function scrollToTop(){
         $('html,body').animate({scrollTop: 0}, {queue: false}); 
-        return d.promise();
+        return defer.promise();
     };
 
     //特定のオブジェクトにスクロール
@@ -37,26 +38,47 @@ $(function(){
         return defer.promise();
     };
 
+    //radioボタンとlabel要素を作成して繋ぐ
+    function labelConnectRadio(set_name, set_value, set_id, set_class, set_icon){
+        //radioボタン作成
+        let radio = $('<input>').attr({
+            name  : set_name,
+            value : set_value,
+            type  : 'radio',
+            id    : set_id,
+        });
+        //label要素作成
+        let label = $('<label>').attr({ for : set_id }).addClass(set_class);
+        //labelに各種アイコンを挿入する(note_icon, chapter_icon)
+        label = $(label).append(set_icon);
+
+        let label_radio_set = [radio, label];
+
+        return label_radio_set;
+    }
+
     //noteアイコンを作る
-    function createNoteIcon(en_color,jp_color){
-        let note = $('<div>').addClass('note ' + en_color);
+    function createNoteIcon(class_name,title_p){
+        let note = $('<div>').addClass('note ' + class_name);
         let note_base = $('<div>').addClass('note_base');
         let note_title = $('<div>').addClass('note_title');
-        let note_title_p = $('<p>').text(jp_color);
+        let note_title_p = $('<p>').text(title_p);
         $(note_title).append(note_title_p);
         let back_cover = $('<div>').addClass('back_cover');
         $(note).append(note_base, note_title, back_cover);
+         
         return note;
     }
+
+
+/* ------------------------------------------------------------------------------ */    
     
     //新規ノート選択ボタンと既存ノートリストを表示
         hideNotes()
         .then(showNotes());
 
-    
-
     //新規ノート選択ボタンをクリックしたら
-    $(document).on("click", 'label[for="new_note"]',function(){
+    $(document).on("click", 'label[for="new_note"], .change_color',function(){
         //note_section内の要素全削除
         $('.note_section').children().remove();
 
@@ -69,20 +91,23 @@ $(function(){
             'purple' : 'パープル',
         };
 
-        //color_listでノートアイコンを作成
+        //color_listでノートアイコンを作成 class_name:配色クラス title_p:表示カラー名
         function createColorList(){
-            $.each(color_list, function(key, val){
-                let color_radio = $('<input>').attr({
-                    name  : 'note_color',
-                    value : key,
-                    type  : 'radio',
-                    id    : 'new_'+key,
-                });
-                let color_label = $('<labal>').addClass('color_label').attr({ for : 'new_'+key });
-                let note_icon = createNoteIcon(key,val);
-                color_label = $(color_label).append(note_icon);
-                $('.note_section').append(color_radio, color_label);
+            $.each(color_list, function(class_name, title_p){
+                //note_iconを作成
+                note_icon = createNoteIcon(class_name,title_p);
+
+                //radioボタンとlabel要素作成
+                let color_choices = labelConnectRadio('note_color', class_name, 'new_'+class_name, 'color_label', note_icon);
+                $('.note_section').append(color_choices);
             });
+
+            //既存ノートの選択ボタンを作成
+            note_icon = createNoteIcon('', 'EXIST NOTE');
+            let exist_note_choice = labelConnectRadio('note_existence', 'exist', 'exist_note', '', note_icon);
+
+            $('.note_section').append(exist_note_choice); //カラーリスト・既存ノート選択ボタンの順に挿入
+
             return defer.promise();
         }
 
@@ -90,6 +115,27 @@ $(function(){
         createColorList()
         .then(hideNotes())
         .then(showNotes());
+    });
+
+    //ノートのカラーが選択されたら、タイトル入力フォームを表示
+    $(document).on("click", '.color_label', function(){
+        let selected_id = $(this).attr('for');
+        $(`#${selected_id}`).prop('checked', true);
+
+        //選択カラー・既存ノート選択以外のボタンを削除
+        let leave_obj = $(`#${selected_id}, [for="${selected_id}"], #exist_note, [for="exist_note"]`); 
+        let the_other_notes = $('.note_section').children().not(leave_obj);
+        $(the_other_notes).remove();
+
+        //選択されたノートアイコンの<p>要素を<textarea>に変更
+        let note_title_form = $('<textarea>').attr({name: "new_note_title"});
+        $(this).find('.note_title > p').replaceWith(note_title_form);
+        $(this).children('.note').addClass('note_title_form');
+        $(this).children().unwrap();
+
+        //カラー変更ボタン追加
+        let change_color = createNoteIcon('change_color', 'CHANGE COLOR');
+        $(change_color).insertBefore('[for="exist_note"]');
     });
 
     
