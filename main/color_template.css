@@ -15,6 +15,12 @@
     --contents-back: #f7f6f3;
 
     /* グラデーション用 */
+    /* ベーシック */
+    --gra-basic: #cbc98c;
+    --gra-basic-lt: #f2f1ca;
+    --gra-basic-base: #d9d3b8;
+    --gra-basic-base-lt: #fffef0;
+
     /* ブルー */
     --gra-blue: #101080;
     --gra-blue-lt: #34d5d5;
@@ -45,4 +51,69 @@
     --gra-green-base: #d3efd5;
     --gra-green-base-lt: #f7f6de;
 
+}
+
+
+.basic .note_title > p {
+    color: #7e7e7e;
+    opacity: 0.7;
+}
+
+.basic .note_title,
+.basic .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-basic), var(--gra-basic-lt));
+}
+
+.basic .note_base {
+    background: linear-gradient(-45deg, var(--gra-basic-base), var(--gra-basic-base-lt));
+}
+
+
+.blue .note_title,
+.blue .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-blue), var(--gra-blue-lt));
+}
+
+.blue .note_base {
+    background: linear-gradient(-45deg, var(--gra-blue-base), var(--gra-blue-base-lt));
+}
+
+
+.yellow .note_title,
+.yellow .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-yellow), var(--gra-yellow-lt));
+}
+
+.yellow .note_base {
+    background: linear-gradient(-45deg, var(--gra-yellow-base), var(--gra-yellow-base-lt));
+}
+
+
+.pink .note_title,
+.pink .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-pink), var(--gra-pink-lt));
+}
+
+.pink .note_base {
+    background: linear-gradient(-45deg, var(--gra-pink-base), var(--gra-pink-base-lt));
+}
+
+
+.green .note_title,
+.green .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-green), var(--gra-green-lt));
+}
+
+.green .note_base {
+    background: linear-gradient(-45deg, var(--gra-green-base), var(--gra-green-base-lt));
+}
+
+
+.purple .note_title,
+.purple .back_cover {
+    background: linear-gradient(-45deg,  var(--gra-purple), var(--gra-purple-lt));
+}
+
+.purple .note_base {
+    background: linear-gradient(-45deg, var(--gra-purple-base), var(--gra-purple-base-lt));
 }

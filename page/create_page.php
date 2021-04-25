@@ -56,7 +56,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                 <!-- 新規ノート選択ボタン -->
                 <input name="note_existence" value="new" type="radio" id="new_note">
                 <label for="new_note">
-                    <div class="note">
+                    <div class="note basic">
                         <div class="note_base"></div>
                         <div class="note_title">
                             <p>NEW NOTE</p>

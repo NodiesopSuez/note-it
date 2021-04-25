@@ -91,7 +91,6 @@ textarea {
     left: 0;
     width: 140px;
     height: 161px;
-    background: #ccc;
     border-radius: 0px 3px 3px 0px;
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
@@ -102,7 +101,6 @@ textarea {
     content: '';
     width: 16px;
     height: 161px;
-    background: rgb(170, 133, 133);
     border-radius: 3px 0px 0px 3px;
     box-shadow: 1px 1px 3px var(--body-shadow);
 }
@@ -115,12 +113,13 @@ textarea {
     width: 95px;
     height: 60px;
     border-radius: 3px;
-    background:rgb(170, 133, 133);
 }
 .note p {
     width: 95px;
     margin: 0;
     line-height: 15px;
+    color: #fff;
+    opacity: 0.7;
 }
 
 /* チャプター */

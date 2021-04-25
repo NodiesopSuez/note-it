@@ -104,7 +104,7 @@ $(function(){
 
             //既存ノートの選択ボタンを作成
             note_icon = createNoteIcon('', 'EXIST NOTE');
-            let exist_note_choice = labelConnectRadio('note_existence', 'exist', 'exist_note', '', note_icon);
+            let exist_note_choice = labelConnectRadio('note_existence', 'exist', 'exist_note', 'basic', note_icon);
 
             $('.note_section').append(exist_note_choice); //カラーリスト・既存ノート選択ボタンの順に挿入
 
@@ -136,6 +136,7 @@ $(function(){
         //カラー変更ボタン追加
         let change_color = createNoteIcon('change_color', 'CHANGE COLOR');
         $(change_color).insertBefore('[for="exist_note"]');
+        $('.change_color').addClass('basic');
     });
 
     
