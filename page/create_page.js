@@ -3,6 +3,7 @@
 $(function(){
     let defer = new $.Deferred;
     let note_icon;
+    
 
     //ページトップに自動スクロール
     function scrollToTop(){
@@ -95,7 +96,7 @@ $(function(){
         function createColorList(){
             $.each(color_list, function(class_name, title_p){
                 //note_iconを作成
-                note_icon = createNoteIcon(class_name,title_p);
+                note_icon = createNoteIcon(class_name, title_p);
 
                 //radioボタンとlabel要素作成
                 let color_choices = labelConnectRadio('note_color', class_name, 'new_'+class_name, 'color_label', note_icon);
@@ -103,7 +104,7 @@ $(function(){
             });
 
             //既存ノートの選択ボタンを作成
-            note_icon = createNoteIcon('', 'EXIST NOTE');
+            note_icon = createNoteIcon('basic', 'EXIST NOTE');
             let exist_note_choice = labelConnectRadio('note_existence', 'exist', 'exist_note', 'basic', note_icon);
 
             $('.note_section').append(exist_note_choice); //カラーリスト・既存ノート選択ボタンの順に挿入
@@ -139,5 +140,48 @@ $(function(){
         $('.change_color').addClass('basic');
     });
 
+    //既存ノート選択ボタンがクリックされたら
+    $(document).on("click", '[for="exist_note"]', function(){
+        //phpからuser_idを取得
+        var user_id = php.user_id;
+        
+        //note_section内の要素全削除
+        $('.note_section').children().remove();
+
+        //新規ノートの選択ボタンを作成
+        note_icon = createNoteIcon('basic', 'NEW NOTE');
+        let exist_note_choice = labelConnectRadio('note_existence', 'new', 'new_note', 'basic', note_icon);
+
+        
+        //ユーザーIDからノート一覧取得
+        $.ajax({
+            url : './get_note_list.php',
+            type: 'post',
+            data: { 'user_id': user_id },
+            dataType: 'json',
+        }).done(function(note_list){
+            console.log(note_list);
+            //既存ノートのアイコン作成
+            $.each(note_list, function(key,val){
+                console.log(key)
+                console.log(val)
+                note_icon = createNoteIcon(val.color, val.note_title);
+
+                
+                labelConnectRadio(set_name, set_value, set_id, set_class, set_icon)    
+
+            })
+
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(errorThrown);
+            changeMsgDanger().then(scrollToTop());
+        });
+        
+
+        $('.note_section').append(exist_note_choice); //カラーリスト・既存ノート選択ボタンの順に挿入
+
+        return defer.promise();
+
+    });
     
 });

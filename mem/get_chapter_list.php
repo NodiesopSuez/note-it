@@ -21,5 +21,4 @@ try {
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
 	header('Location:../mem/sign_in.php');
 }
-
 ?>

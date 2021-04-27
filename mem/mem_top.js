@@ -66,10 +66,10 @@ $(function(){
         
         //選ばれたnote_idでchapter_list取得
         $.ajax({
-            url:'./get_chapter_list.php',
-            type:'post',
+            url : './get_chapter_list.php',
+            type: 'post',
             data: { 'selected_note_id': selected_note_id },
-            dataType:'json',
+            dataType: 'json',
         }).done(function(chapter_list){
 
             //デバック用に出力

@@ -14,6 +14,7 @@ require_once('../class/db/Searches.php');
 $_SESSION['error'] = array();
 
 //既存ノートリスト取得
+$user_id = 4;
 $searches = new Searches;
 $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 
@@ -236,6 +237,7 @@ $ladybug = '../page/img/ladybug_nm.png';
         </form>
     </div>
     <!-- jQurery -->
+    <script>var php = { user_id : "<?php echo $user_id; ?>"}; </script>
     <script src="./create_page.js" type="text/javascript"></script>
 </body>
 </html>
