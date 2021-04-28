@@ -95,6 +95,8 @@ $(function(){
             });
 
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
             console.log(errorThrown);
             changeMsgDanger().then(scrollToTop());
         });
@@ -160,6 +162,8 @@ $(function(){
             });
 
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
+            console.log(XMLHttpRequest);
+            console.log(textStatus);
             console.log(errorThrown);
             changeMsgDanger().then(scrollToTop());
         });
