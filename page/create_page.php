@@ -138,7 +138,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                     </label>
                     
                     <!-- 新規チャプタータイトル -->
-                    <div class="chapter">
+                    <div class="chapter　new_chapter_title">
                         <input name="new_chapter_title" type="text">NEW
                     </div>
                     
