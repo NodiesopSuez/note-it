@@ -39,24 +39,23 @@ $(function(){
         return defer.promise();
     };
 
-    //radioボタンとlabel要素を作成して繋ぐ
+    //radioボタンをlabel要素に挿入
     function labelConnectRadio(set_name, set_value, set_id, set_class, set_icon){
         //radioボタン作成
         let radio = $('<input>')
                             .attr({
-                                name  : set_name,
-                                value : set_value,
-                                type  : 'radio',
-                                id    : set_id,
-                            });
+                                name   : set_name,
+                                value  : set_value,
+                                type   : 'radio',
+                                id     : set_id,
+                            })
+                            .prop('checked', false);
         //label要素作成
         let label = $('<label>').attr({ for : set_id }).addClass(set_class);
         //labelに各種アイコンを挿入する(note_icon, chapter_icon)
-        label = $(label).append(set_icon);
+        label = $(label).append(radio, set_icon);
 
-        let label_radio_set = [radio, label];
-
-        return label_radio_set;
+        return label;
     }
 
     //noteアイコンを作る
@@ -89,9 +88,13 @@ $(function(){
         .then(showNotes());
 
     //新規ノート選択ボタンをクリックしたら
-    $(document).on("click", 'label[for="new_note"], .change_color',function(){
-        //note_section内の全要素削除
-        $('.note_section').children().remove();
+    $(document).on("click", 'label[for="new_note"], .change_color',function(){ 
+        //新規ノート選択ボタンのinput(radio)以外削除
+        $(this).children().unwrap();
+        $('.note_section').children().not('#new_note').remove();
+        //note_existence = new をcheckedにする
+        $('#new_note').prop('checked', true);
+
         //カラーリスト
         let color_list = {
             'blue'   : 'ブルー',
@@ -128,33 +131,29 @@ $(function(){
 
     //ノートのカラーが選択されたら、タイトル入力フォームを表示
     $(document).on("click", '.color_label', function(){
-        function createElementsForSelectedColor(){
+        function createElementsForSelectedColor(clicked){
             //選択カラーのradioをcheckedにしておく
-            let selected_id = $(this).attr('for');
-            $(`#new_note, #${selected_id}`).prop('checked', true);
-            let selected_color = $(`#${selected_id}`).val();
+            $(clicked).children('input').prop('checked', true);
+            let selected_color = $(clicked).children('input').val();
+            console.log(selected_color);
 
-
-            /* #exist_note, [for="exist_note"] */
-            //new_noteのradio・選択カラー・既存ノート選択以外のボタンを削除
-            let leave_obj = $(`#new_note, #${selected_id}, [for="${selected_id}"]`); 
-            let the_other_notes = $('.note_section').children().not(leave_obj);
-            $(the_other_notes).remove();
+            //new_noteのradio・選択カラー以外のボタンを削除
+            let leave_obj = $(clicked).add('#new_note');
+            $('.note_section').children().not(leave_obj).remove();
 
             //既存ノートの選択ボタンを作成
-            note_icon = createNoteIcon('basic', 'EXIST NOTE');
-            let exist_note_set = labelConnectRadio('note_existence', 'exist', 'exist_note', 'basic', note_icon);
-            $('.note_section').append(exist_note_set);
+            let ex_note_icon = createNoteIcon('basic', 'EXIST NOTE');
+            let exist_note_set = labelConnectRadio('note_existence', 'exist', 'exist_note', 'basic', ex_note_icon);
             
             //カラー変更ボタン追加
-            let change_color = createNoteIcon('change_color', 'CHANGE COLOR');
-            $(change_color).addClass('basic').insertBefore('[for="exist_note"]');
+            let change_color = createNoteIcon('change_color', 'CHANGE COLOR').addClass('basic');
+
+            $('.note_section').append(change_color, exist_note_set);
 
             //選択されたノートアイコンの<p>要素を<textarea>に変更
             let note_title_form = $('<textarea>').attr({name: "new_note_title", placeholder: "enter the note title"});
-            $(this).find('.note_title > p').replaceWith(note_title_form);
-            let note_title_form_icon = $(this).children().unwrap().addClass('note_title_form cassette');
-
+            $(clicked).find('.note_title > p').replaceWith(note_title_form);
+            let note_title_form_icon = $(clicked).children().unwrap().addClass('note_title_form cassette');
             
             //チャプタータイトルの入力フォームを作成
             let new_chapter_radio = $('<input>')
@@ -171,15 +170,12 @@ $(function(){
 
             //.chapter_sectionの全要素削除して、作成した要素を挿入
             $('.chapter_section').children().remove();
-            $('.chapter_section').prepend(new_chapter_radio, note_title_form_icon, chapter_icon);
+            $('.chapter_section').prepend(note_title_form_icon, new_chapter_radio, chapter_icon);
             
-
             return defer.promise();
         }
 
-
-
-        createElementsForSelectedColor().then(hideNotes()).then(showNotes());
+        createElementsForSelectedColor(this).then(hideNotes()).then(showNotes());
     });
 
     //既存ノート選択ボタンがクリックされたら
@@ -209,8 +205,8 @@ $(function(){
                 let exist_note_listset = labelConnectRadio('note_id', key, `note_${key}`, "exist_note_list", note_icon);
                 $('.note_section').append(exist_note_listset);
             })
-
             hideNotes().then(showNotes());
+
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(XMLHttpRequest);
             console.log(textStatus);
@@ -219,6 +215,5 @@ $(function(){
         });
     });
 
-    $(document).on("")
     
 });

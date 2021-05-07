@@ -10,6 +10,11 @@ input[type="radio"] {
     display: none;
 }
 
+.note_section .note,
+.chapter_section .chapter:not(.new_chapter_title) {
+    cursor: pointer !important;
+}
+
 /* てんとう虫 */
 .ladybug { 
     z-index: 20;
@@ -47,8 +52,13 @@ section,
 .chapter_section > div {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
     flex-wrap: wrap; 
+}
+section {
+    align-items: flex-start;
+}
+.chapter_section {
+    align-items: flex-end;
 }
 
 .note_section,
@@ -79,12 +89,12 @@ section {
 
 /* アイコンのアニメーション */
 .note_section .note,
-.chapter_section .chapter,
+.chapter_section .chapter:not(.new_chapter_title),
 .page_type .page { 
     transition: all 0.3s; 
 }
 .note_section .note:hover,
-.chapter_section .chapter:hover,
+.chapter_section .chapter:not(.new_chapter_title):hover,
 .page_type .page:hover { 
     transform: scale(1.05); 
 }
