@@ -128,10 +128,10 @@ textarea {
     width: 200px;
     height: 45px;
     border-radius: 5px 23px 5px 23px;
-    background: #ccc;
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
-.chapter p {
+.chapter p,
+.chapter input[name="new_chapter_title"] {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -142,7 +142,7 @@ textarea {
     height: 40px;
     line-height: 40px;
     border-radius: 20px;
-    background: #cc9292;
+    background: linear-gradient(-11deg, #E8D8B7 0%, #F7F6F3 60%);
 }
 
 /* ページ */

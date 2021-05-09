@@ -78,9 +78,8 @@ section {
 section {
     width: 85%;
 }
-.chapter_section > div:nth-child(3) {
-    /* width: 73%; */
-    margin-top: 117px;
+.new_chapter_title {
+    margin-left: -48px !important;
 }
 .chapter_cassette {
     margin-left: -50px !important;
@@ -112,20 +111,7 @@ input[type="text"] {
     background: transparent;
     text-align: center;
 }
-.chapter input[name="new_chapter_title"] {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    margin :auto;
-    width: 170px;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
-    background: #cc9292;
-}
-
+/* .chapter input[name="new_chapter_title"]はtemplate.css */
 
 
 .note,

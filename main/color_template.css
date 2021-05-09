@@ -53,14 +53,15 @@
 
 }
 
-
+/* ベーシック */
 .basic .note_title > p {
     color: #7e7e7e;
     opacity: 0.7;
 }
 
 .basic .note_title,
-.basic .back_cover {
+.basic .back_cover,
+.basic.chapter {
     background: linear-gradient(-45deg,  var(--gra-basic), var(--gra-basic-lt));
 }
 
@@ -68,9 +69,10 @@
     background: linear-gradient(-45deg, var(--gra-basic-base), var(--gra-basic-base-lt));
 }
 
-
+/* ブルー */
 .blue .note_title,
-.blue .back_cover {
+.blue .back_cover,
+.blue.chapter {
     background: linear-gradient(-45deg,  var(--gra-blue), var(--gra-blue-lt));
 }
 
@@ -78,9 +80,10 @@
     background: linear-gradient(-45deg, var(--gra-blue-base), var(--gra-blue-base-lt));
 }
 
-
+/* イエロー */
 .yellow .note_title,
-.yellow .back_cover {
+.yellow .back_cover,
+.yellow.chapter{
     background: linear-gradient(-45deg,  var(--gra-yellow), var(--gra-yellow-lt));
 }
 
@@ -88,9 +91,10 @@
     background: linear-gradient(-45deg, var(--gra-yellow-base), var(--gra-yellow-base-lt));
 }
 
-
+/* ピンク */
 .pink .note_title,
-.pink .back_cover {
+.pink .back_cover,
+.pink.chapter  {
     background: linear-gradient(-45deg,  var(--gra-pink), var(--gra-pink-lt));
 }
 
@@ -98,9 +102,10 @@
     background: linear-gradient(-45deg, var(--gra-pink-base), var(--gra-pink-base-lt));
 }
 
-
+/* グリーン */
 .green .note_title,
-.green .back_cover {
+.green .back_cover,
+.green.chapter  {
     background: linear-gradient(-45deg,  var(--gra-green), var(--gra-green-lt));
 }
 
@@ -108,9 +113,10 @@
     background: linear-gradient(-45deg, var(--gra-green-base), var(--gra-green-base-lt));
 }
 
-
+/* パープル */
 .purple .note_title,
-.purple .back_cover {
+.purple .back_cover,
+.purple.chapter  {
     background: linear-gradient(-45deg,  var(--gra-purple), var(--gra-purple-lt));
 }
 
