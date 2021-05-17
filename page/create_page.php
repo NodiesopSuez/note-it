@@ -21,7 +21,7 @@ $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 $msg =['エラー！<br/>申し訳ございませんが<br/>最初からお進みください'];
 $msg = ['Which Note Type?'];
 
-$color_list = ['blue' => 'ブルー', 'pink' => 'ピンク', 'yellow' => 'イエロー', 'green' => 'グリーン', 'purple' => 'パープル'];
+$color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 $ladybug = '../page/img/ladybug_nm.png';
 ?>
 
@@ -55,7 +55,7 @@ $ladybug = '../page/img/ladybug_nm.png';
             <section class="note_section">
 
                 <!-- 新規ノート選択ボタン -->
-                <label for="new_note">
+                <!-- <label for="new_note">
                     <input name="note_existence" value="new" type="radio" id="new_note">
                     <div class="note basic">
                         <div class="note_base"></div>
@@ -64,21 +64,21 @@ $ladybug = '../page/img/ladybug_nm.png';
                         </div>
                         <div class="back_cover"></div>
                     </div>
-                </label>
+                </label> -->
 
                 <!-- 新規ノートカラーリスト -->
-                <!-- <?php foreach($color_list as $color => $jp): ?>
+                <!-- <?php foreach($color_list as $color): ?>
                     <label for="new_<?= $color ?>" class="color_label">
                         <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
-                        <div class="note">
+                        <div class="note <?= $color ?>">
                             <div class="note_base"></div>
                             <div class="note_title">
-                                <p><?= $jp ?></p>
+                                <p><?= $color ?></p>
                             </div>
                             <div class="back_cover"></div>
                         </div>
                     </label>
-                <?php endforeach ?> -->
+                <?php endforeach ?>  -->
                     
                 <!-- 新規ノートタイトル入力フォーム -->
                 <!-- <div class="note note_title_form">
@@ -90,9 +90,9 @@ $ladybug = '../page/img/ladybug_nm.png';
                 </div> -->
                     
                 <!-- 既存ノートリスト -->
-                <?php foreach($note_list as $note_id => $key): ?>
+                <!-- <?php foreach($note_list as $note_id => $key): ?>
                     <label for="note_<?= $note_id ?>" class="exist_note_list">
-                    <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
+                        <input name="note_id" value="<?= $note_id ?>" type="radio" id="note_<?= $note_id ?>">
                         <div class="note <?= $key['color'] ?>">
                             <div class="note_base"></div>
                             <div class="note_title">
@@ -101,7 +101,7 @@ $ladybug = '../page/img/ladybug_nm.png';
                             <div class="back_cover"></div>
                         </div>
                     </label>
-                <?php endforeach ?>
+                <?php endforeach ?> -->
                         
                 <!-- 既存ノート選択ボタン -->
                 <!-- <input name="note_existence" value="exist" type="radio" id="exist_note">
@@ -131,7 +131,6 @@ $ladybug = '../page/img/ladybug_nm.png';
                 <div>
                     <!-- 新規チャプター選択ボタン -->
                     <label for="new_chapter">
-                        <input name="chapter_existence" value="new" type="radio" id="new_chapter">
                         <div class="chapter">
                             <p>NEW</p>
                         </div>
@@ -152,7 +151,6 @@ $ladybug = '../page/img/ladybug_nm.png';
 
                     <!-- 既存チャプター選択ボタン -->
                     <label for="exist_chapter">
-                        <input name="chapter_existence" value="exist" type="radio" id="exist_chapter">
                         <div class="chapter">
                             <p>EXIST</p>
                         </div>
@@ -164,34 +162,50 @@ $ladybug = '../page/img/ladybug_nm.png';
             <section class="page_type">
 
                 <!-- ノートカセット -->
-                <div class="note cassette">
+                <!-- <div class="note cassette">
                     <div class="note_base"></div>
                     <div class="note_title">
                         <p></p>
                     </div>
                     <div class="back_cover"></div>
-                </div>
+                </div> -->
 
                 <!-- チャプターカセット -->
-                <div class="chapter chapter_cassette">
+                <!-- <div class="chapter chapter_cassette">
                     <p>NEW</p>
-                </div>
+                </div> -->
 
                 <!-- ページタイプ -->
-                <label for="page_a">
-                    <input name="page_type" value="1" type="radio" id="page_a">
+                <!-- <label for="page_a">
                     <div class="page">
                         <div class="wrapback"></div>
                         <p>Type A</p>
                     </div>
                 </label>
                 <label for="page_b">
-                    <input name="page_type" value="2" type="radio" id="page_b">
                     <div class="page">
                         <div class="wrapback"></div>
                         <p>Type B</p>
                     </div>
-                </label>
+                </label> -->
+            </section>
+            
+            <!-- radioボタン集約 -->
+            <section class="radio_section">
+                <!-- 既存ノートリストと既存チャプターリストはjsで生成 -->
+                <!-- ノート：新規/既存 -->
+                <input name="note_existence" value="new"   type="radio" id="new_note">
+                <input name="note_existence" value="exist" type="radio" id="exist_note" checked>
+                <!-- ノート：カラー -->
+                <?php foreach($color_list as $color): ?>
+                    <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
+                <?php endforeach ?>
+                <!-- チャプター：新規/既存 -->
+                <input name="chapter_existence" value="new"   type="radio" id="new_chapter">
+                <input name="chapter_existence" value="exist" type="radio" id="exist_chapter">
+                <!-- ページタイプ -->
+                <input name="page_type" value="1" type="radio" id="page_a">
+                <input name="page_type" value="2" type="radio" id="page_b">
             </section>
 
             <!-- コンテンツ入力フォーム -->
@@ -231,9 +245,9 @@ $ladybug = '../page/img/ladybug_nm.png';
                     </div>
                 </div>
 
-                <!-- 送信ボタン -->
-                <button role="submit" class="submit">submit</button>
             </section>
+            <!-- 送信ボタン -->
+            <button role="submit" class="submit">submit</button>
         </form>
     </div>
     <!-- jQurery -->
