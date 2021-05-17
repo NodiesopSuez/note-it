@@ -57,6 +57,20 @@ $(function(){
     let a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
     let page_a_form = $('<div>').addClass('page_base a')
                                 .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
+    //typeB
+    let page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title_b', placeholder : 'ページタイトル'});
+    let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true });
+    let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''});
+    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'});
+
+    let add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
+    let add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
+    let add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
+    let add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
+    let buttons_row      = $('<div>').addClass('buttons row')
+                                    .prepend(add_text_btn, add_img_btn, add_code_btn, add_quote_btn);
+    let page_b_form = $('<div>').addClass('page_base b')
+                                .prepend(page_b_title, contents, hid_content, form_block, buttons_row);
 
 
     //ページトップに自動スクロール
@@ -136,6 +150,7 @@ $(function(){
     //新規ノート選択ボタンと既存ノートリストを表示
     createExistNoteList();
 
+    
 /* 新規ノート選択------------------------------------------------------------------- */ 
 
     //新規ノート選択ボタン・カラー変更ボタンをクリックしたら
@@ -155,7 +170,7 @@ $(function(){
         //color_listでノートアイコン・既存ノート選択ボタンを作成,note_sectionに挿入
         function createColorList(){
             //各セクションの子要素全削除
-            $('.note_section, .chapter_section, .page_type').children().remove();
+            $('.note_section, .chapter_section, .page_type, .contents_section').children().remove();
             $('.note_section').append(exist_note_icon);
             
             $.each(color_list, function(class_name, title_p){   
@@ -208,7 +223,6 @@ $(function(){
     });
 
 
-
 /* 既存ノート選択時----------------------------------------------------------------- */ 
 
     //既存ノート選択ボタンがクリックされたら
@@ -244,8 +258,8 @@ $(function(){
             let new_chapter_icon = createChapterIcon(selected_note_color, 'NEW');
             new_chapter_icon = $(new_chapter_icon).wrapAll('<label>').parent().attr({ for : 'new_chapter'});
 
-            //chapter_sectionを空にする
-            $('.chapter_section').children().remove();
+            //chapter_section,apge_type,contents_sectionの子要素全削除
+            $('.chapter_section, .page_type, .contents_section').children().remove();
             $('.chapter_section').prepend(note_cassette, new_chapter_icon,);
 
             //既存チャプターのアイコン作成して.chapter_sectionに挿入
@@ -277,6 +291,7 @@ $(function(){
 
     });
 
+
 /* チャプター選択時-------------------------------------------------------------- */ 
     //新規チャプター選択ボタンがクリックされたら
     $(document).on("click", '[for="new_chapter"]', function(){
@@ -285,7 +300,7 @@ $(function(){
         $(this).hide();
 
         //page_typeに選択済みノートアイコン・チャプタータイトルの入力フォームを挿入
-        $('.page_type').children().remove();
+        $('.page_type, .contents_section').children().remove();
         $('.chapter_section').find('.note.cassette').clone(false).prependTo('.page_type');
 
         selected_color = $(this).children().attr('class').replace("chapter", "");
@@ -301,18 +316,34 @@ $(function(){
 
     //既存チャプターリストのアイコンがクリックされたら
     $(document).on("click", '.exist_chapter_list', function(){
+        //chapter_existence=exist をcheckedにする
+        $('#exist_chapter').prop('checked', true);
+
         //選択したボタンだけ非表示
         $('.chapter_section').children().show();
         $(this).hide();
 
         //note_cassetteとchapter_cassetteをpage_typeに挿入
-        $('.page_type').children().remove();
+        $('.page_type, .contents_section').children().remove();
         $('.chapter_section').find('.note.cassette').clone(false).prependTo('.page_type');
-        $(this).children().unwrap().clone(false).addClass('chapter_cassette').appendTo('.page_type');
+        $(this).clone(false).children().unwrap().addClass('chapter_cassette').appendTo('.page_type');
 
-        //contents_sectionの子要素全削除
-        
+        let selected_chapter = $(this).attr('for');
+        let page_type = localStorage.getItem(selected_chapter);
 
-    })
+        //page_typeにより表示するフォームを分岐
+        if(page_type == 1) {
+            $('#page_a').prop('checked', true);
+            $('.contents_section').prepend(page_a_form);
+        }else{
+            $('#page_b').prop('checked', true);
+            $('.contents_section').prepend(page_b_form);
+        }
+
+    });
+
+
+/* page_type_bのコンテンツ追加--------------------------------------------------- */ 
+
     
 });
