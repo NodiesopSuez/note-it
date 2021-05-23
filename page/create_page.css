@@ -103,7 +103,7 @@ textarea[name="new_note_title"] {
     resize: none;
 }
 textarea[name="new_note_title"],
-input[type="text"]:not(.page_title) {
+input[type="text"]:not(.new_chapter_title > input) {
     width: 100%;
     height: 100%;
     padding: 5px;
@@ -234,6 +234,10 @@ input[type="text"]:not(.page_title) {
 .text {
     width: 100%;
 } 
+
+.form_block > img { 
+    width: 100%;
+}
 
 .submit {
     margin: 50px auto;
