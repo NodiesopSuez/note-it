@@ -152,19 +152,24 @@ input[type="text"]:not(.new_chapter_title > input) {
     background: linear-gradient(-5deg, #e8e4da 0%, #F9F5EB 50%);
 }
 
-.page_base.blue textarea:not(.ex_memo) {
+.page_base.blue textarea:not(.ex_memo), 
+.page_base.blue .text{
     background: var(--gra-blue-base);
 }
-.page_base.yellow textarea:not(.ex_memo) {
+.page_base.yellow textarea:not(.ex_memo),
+.page_base.yellow .text {
     background: var(--gra-yellow-base);
 }
-.page_base.pink textarea:not(.ex_memo) {
+.page_base.pink textarea:not(.ex_memo),
+.page_base.pink .text {
     background: var(--gra-pink-base);
 }
-.page_base.green textarea:not(.ex_memo) {
+.page_base.green textarea:not(.ex_memo),
+.page_base.green .text {
     background: var(--gra-green-base);
 }
-.page_base.purple textarea:not(.ex_memo) {
+.page_base.purple textarea:not(.ex_memo),
+.page_base.purple .text {
     background: var(--gra-purple-base);
 }
 
@@ -232,7 +237,9 @@ input[type="text"]:not(.new_chapter_title > input) {
 }
 
 .text {
+    padding: 8px;
     width: 100%;
+    border-radius: 8px;
 } 
 
 .form_block > img { 
