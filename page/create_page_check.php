@@ -11,6 +11,7 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 
 print_r($_POST);
+print_r($_FILES);
 
 
 ?>

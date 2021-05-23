@@ -1,6 +1,8 @@
 'use strict';
 
 $(function(){
+    localStorage.clear();
+
     let defer = new $.Deferred;
     let selected_color;
     
@@ -53,7 +55,7 @@ $(function(){
     let a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
     let a_ex             = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
     let a_ex_memo        = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
-    let a_example        = $('<div>').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
+    let a_example        = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
     let a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
     let page_a_form = $('<div>').addClass('page_base a')
                                 .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
@@ -61,7 +63,7 @@ $(function(){
     let page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title_b', placeholder : 'ページタイトル'});
     let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true });
     let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''});
-    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'});
+    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents, hid_content);
 
     let add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
     let add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
@@ -70,7 +72,7 @@ $(function(){
     let buttons_row      = $('<div>').addClass('buttons row')
                                     .prepend(add_text_btn, add_img_btn, add_code_btn, add_quote_btn);
     let page_b_form = $('<div>').addClass('page_base b')
-                                .prepend(page_b_title, contents, hid_content, form_block, buttons_row);
+                                .prepend(page_b_title, form_block, buttons_row);
 
 
     //ページトップに自動スクロール
@@ -135,7 +137,6 @@ $(function(){
                                         });
                 $('.note_section').append(ex_note_label, ex_note_radio);
             })
-            hideNotes().then(showNotes());
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(XMLHttpRequest);
             console.log(textStatus);
@@ -150,7 +151,7 @@ $(function(){
     //新規ノート選択ボタンと既存ノートリストを表示
     createExistNoteList();
 
-    
+
 /* 新規ノート選択------------------------------------------------------------------- */ 
 
     //新規ノート選択ボタン・カラー変更ボタンをクリックしたら
@@ -182,7 +183,7 @@ $(function(){
         }
 
         //一旦隠して表示
-        createColorList().then(hideNotes()).then(showNotes());
+        createColorList();
     });
 
 
@@ -198,10 +199,10 @@ $(function(){
         //カラー変更ボタン作成
         let change_color = createNoteIcon('change_color', 'CHANGE COLOR').addClass('basic');
 
-        //選択されたノートアイコンの<p>要素を<textarea>に変更
+        //ノートタイトルの入力フォーム
         let note_title_form = $('<textarea>').attr({name: "new_note_title", placeholder: "enter the note title"});
-        $(this).find('.note_title > p').replaceWith(note_title_form);
-        let note_title_form_icon = $(this).children().unwrap().addClass('note_title_form note cassette');
+        let note_title_form_icon = $(this).children().unwrap();
+        note_title_form_icon = $(note_title_form_icon).addClass('note_title_form note cassette');
 
         //チャプタータイトルの入力フォームを作成
         let chapter_icon = createChapterIcon(`new_chapter_title chapter_cassette ${selected_color}`, '');
@@ -211,6 +212,8 @@ $(function(){
         //page_typeにノートタイトル・チャプタータイトルの入力フォームを挿入
         $('.page_type').children().remove();
         $('.page_type').prepend(note_title_form_icon, chapter_icon, page_type_a, page_type_b);
+        $('.page_type').find('.note_title > p').replaceWith(note_title_form); //挿入したノートアイコンのpをtextareaに差し替え
+        $('.page_type').find('.wrapback').addClass(selected_color);
 
         //contents_sectionに一旦page_a_formを挿入
         $('.contents_section').prepend(page_a_form);
@@ -219,7 +222,7 @@ $(function(){
         $('.note_section').children().remove();
         $('.note_section').append(change_color, exist_note_icon);
 
-        hideNotes().then(showNotes());
+        //hideNotes().then(showNotes());
     });
 
 
@@ -246,14 +249,12 @@ $(function(){
 
         //ノートIDからチャプター一覧取得
         let selected_note_id = $(this).attr('for').replace("note_", "");
-        console.log(`idは${selected_note_id}`);
         $.ajax({
             url : '../get_lists/get_chapter_list.php',
             type: 'post',
             data: { 'selected_note_id': selected_note_id },
             dataType: 'json',
         }).done(function(chapter_list){
-            console.log(chapter_list);
             //新規チャプター選択ボタン
             let new_chapter_icon = createChapterIcon(selected_note_color, 'NEW');
             new_chapter_icon = $(new_chapter_icon).wrapAll('<label>').parent().attr({ for : 'new_chapter'});
@@ -309,9 +310,11 @@ $(function(){
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
         
         $('.page_type').append(chapter_icon, page_type_a, page_type_b);
+        $('.page_type').find('.wrapback').addClass(selected_color);
 
         //contents_sectionに一旦page_a_formを挿入
         $('.contents_section').prepend(page_a_form);
+        $('.page_base').attr({ class : `page_base a ${selected_color}` })
     });
 
     //既存チャプターリストのアイコンがクリックされたら
@@ -322,28 +325,130 @@ $(function(){
         //選択したボタンだけ非表示
         $('.chapter_section').children().show();
         $(this).hide();
+        
+        let selected_chapter = $(this).attr('for');
+        let page_type = localStorage.getItem(selected_chapter);
+        selected_color = $('.chapter_section').find('.note.cassette').attr('class').replace('note cassette', '');
 
         //note_cassetteとchapter_cassetteをpage_typeに挿入
         $('.page_type, .contents_section').children().remove();
         $('.chapter_section').find('.note.cassette').clone(false).prependTo('.page_type');
         $(this).clone(false).children().unwrap().addClass('chapter_cassette').appendTo('.page_type');
 
-        let selected_chapter = $(this).attr('for');
-        let page_type = localStorage.getItem(selected_chapter);
-
         //page_typeにより表示するフォームを分岐
         if(page_type == 1) {
             $('#page_a').prop('checked', true);
-            $('.contents_section').prepend(page_a_form);
+            $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
         }else{
             $('#page_b').prop('checked', true);
-            $('.contents_section').prepend(page_b_form);
+            $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
         }
 
     });
 
 
-/* page_type_bのコンテンツ追加--------------------------------------------------- */ 
+/* page_type選択時------------------------------------------------------------- */ 
+    //page_type aを選択したら
+    $(document).on("click", '[for="page_a"]', function(){
+        selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
+        $('#page_a').prop('checked', true);
+        $('.contents_section').children().remove();
+        $('.contents_section').prepend(page_a_form)
+        $('.page_base').attr({ class : `page_base a ${selected_color}`});
+    });
 
+    //page_type bを選択したら
+    $(document).on("click", '[for="page_b"]', function(){
+        selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
+        $('#page_b').prop('checked', true);
+        $('.contents_section').children().remove();
+        $('.contents_section').prepend(page_b_form);
+        $('.page_base').attr({ class : `page_base b ${selected_color}`});
+    });
+
+
+/* contents_section　textarea, div.text の高さを自動調整------------------------------------ */ 
+    $(document).on("keyup", $('.page_base textarea, .page_base .text'), function(element){
+        let line_height = parseInt($(element.target).css('line-height'));
+        let lines = ($(element.target).val() + '\n').match(/\n/g).length;
+        $(element.target).css({ height : `${line_height * lines}px`});
+    });
+
+/* page_type_bのコンテンツ追加--------------------------------------------------- */ 
+    //add_text_btnをクリック → textフォーム追加
+    $(document).on("click", '#add_text', function(){
+        let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
+
+        //1個目のフォームブロックを複製して後ろに挿入
+        let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.buttons.row'); 
+
+        //フォームブロック内の要素のidとテキストを書き換え
+        $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`}).text('');
+        $(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`});
+    });
+
+    //add_img_btnをクリック → 画像選択ウィンドウ表示
+    $(document).on("click", '#add_img', function(){
+        let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
+
+        //画像選択input
+        let img_input = $('<input>').addClass('contents img').attr({
+            name  : `contents_${new_form_count}`,
+            type  : "file",
+            id    : `contents_${new_form_count}`,
+            accept: "image/*",
+            style : 'display:none',   
+        });
+
+        //表示サムネイル
+        let img_thumb = $('<img>').attr({ id : `thumb_contents_${new_form_count}` });
+        //画像変更ボタン(画像選択inputのlabel)
+        let change_img_btn = $('<label>').addClass('btn btn-secondary').text('画像を変更する')
+        .attr({
+            for : `contents_${new_form_count}`,
+            id  : `label_for_${new_form_count}`,
+        });
+        
+        //新しいフォームブロック
+        $('<div>').addClass('form_block').attr({ id : `form_block_${new_form_count}`})
+                .prepend(img_input, img_thumb, change_img_btn).insertBefore('.buttons.row');
+
+        //画像選択ウィンドウ表示
+        $(`#contents_${new_form_count}`).trigger("click");
+
+        //選択する画像が切り替わったら
+        $(document).on("change", '.img', function(){
+            let selected_file = $(this).prop('files')[0]; //選ばれたファイル
     
+            //ファイルサイズが１MB以下か
+            if(selected_file.size > 1028576){
+                alert('1MB以下のファイルを選んでください');
+                return;
+            }
+    
+            let set_thumb = $( `#thumb_${$(this).attr('id')}` );
+    
+            //FileReadeerに対応しているか
+            if(window.FileReader){
+                let fileReader = new FileReader();
+                fileReader.onload = function(){
+                    //表示画像を選択した画像に切替
+                    $(set_thumb).attr({ src : fileReader.result });
+                }
+                fileReader.readAsDataURL(selected_file);
+            }else{
+                alert('アップロードエラー');
+                return false;
+            }
+        });
+    });
+
+    //送信ボタンをクリックしたら
+    //contenteditableの入力内容をinputに代入
+    $(document).on("keyup", '.text', function(){
+        let set_id   = $(this).attr('id');
+        let set_text = $(this).html();
+
+        $(`#hid_${set_id}`).attr({ value : set_text });
+    });
 });

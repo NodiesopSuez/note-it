@@ -212,7 +212,7 @@ $ladybug = '../page/img/ladybug_nm.png';
             <section class="contents_section">
 
                 <!-- TypeA -->
-                <div class="page_base a">
+                <!-- <div class="page_base a">
                     <input class="page_title_a" type="text" name="page_title_a" placeholder="ページタイトル">
                     <input class="meaning" type="text" name="meaning" placeholder="意味">
                     <input class="syntax" type="text" name="syntax" placeholder="構文">
@@ -222,28 +222,28 @@ $ladybug = '../page/img/ladybug_nm.png';
                         <textarea class="ex_memo" name="ex_memo" placeholder="例文メモ"></textarea>
                     </div>
                     <textarea class="memo" name="memo" placeholder="メモ"></textarea>
-                </div>
+                </div> -->
 
                 <!-- TypeB -->
-                <div class="page_base b">
+                <!-- <div class="page_base b">
                     <input class="page_title" type="text" name="page_title_b" placeholder="ページタイトル">
                     <div class="form_block" id="form_block_1">
                         <div class="contents text" id="contents_1" contentEditable="true"></div>
                         <input id="hid_contents_1" type="hidden" name="contents_1" value="">
-                    </div>
+                    </div> -->
 
                     <!-- ボタンリスト -->
-                    <div class="buttons row">
+                    <!-- <div class="buttons row"> -->
                         <!-- テキスト追加ボタン -->
-                        <button id="add_text" class="btn" type="button">テキストを追加する</button>
+                        <!-- <button id="add_text" class="btn" type="button">テキストを追加する</button>-->
                         <!-- 画像追加ボタン -->
-                        <button id="add_img" class="btn" type="button">画像を追加する</button>
+                        <!-- <button id="add_img" class="btn" type="button">画像を追加する</button> -->
                         <!-- コード追加ボタン -->
-                        <button id="add_code" class="btn" type="button">コードを追加する</button>
+                        <!-- <button id="add_code" class="btn" type="button">コードを追加する</button> -->
                         <!-- 引用追加ボタン -->
-                        <button id="add_quote" class="btn" type="button">引用を追加する</button>
-                    </div>
-                </div>
+                        <!-- <button id="add_quote" class="btn" type="button">引用を追加する</button> -->
+                    <!-- </div>
+                </div> -->
 
             </section>
             <!-- 送信ボタン -->

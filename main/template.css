@@ -168,7 +168,6 @@ textarea {
     width: 40px;
     height: 40px;
     border-radius: 0 0 0 8px;
-    background: linear-gradient(to right bottom, var(--gra-blue), var(--gra-blue-lt));
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
 
