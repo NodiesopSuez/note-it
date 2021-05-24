@@ -222,6 +222,9 @@ $(function(){
         $('.note_section').children().remove();
         $('.note_section').append(change_color, exist_note_icon);
 
+        //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
+        $('#new_chapter, #page_a').prop('checked', true);
+
         //hideNotes().then(showNotes());
     });
 
