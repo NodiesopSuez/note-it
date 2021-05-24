@@ -49,7 +49,7 @@ $(function(){
 
     //ページコンテンツ入力フォーム
     //typeA
-    let page_a_title     = $('<input>').addClass('page_title_a').attr({ type : 'text', name : 'page_title_a', placeholder : 'ページタイトル'});
+    let page_a_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
     let a_meaning        = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
     let a_syntax         = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
     let a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
@@ -60,7 +60,7 @@ $(function(){
     let page_a_form = $('<div>').attr({ class : 'page_base a' })
                                 .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
     //typeB
-    let page_b_title     = $('<input>').addClass('page_title_b').attr({ type : 'text', name : 'page_title_b', placeholder : 'ページタイトル'});
+    let page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
     let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true });
     let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''});
     let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents, hid_content);

@@ -184,8 +184,7 @@ input[type="text"]:not(.new_chapter_title > input) {
     text-align: start !important;
 }
 
-.page_title_a,
-.page_title_b {
+.page_title {
     font-size: 40px;
     font-weight: bolder;
     line-height: 42px;
