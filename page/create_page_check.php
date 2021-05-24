@@ -78,7 +78,13 @@ try {
     }
 
     //page_titleが入力されているか
+    if(empty($page_title) || ctype_space($page_title)){
+        $_SESSION['error'][''] = 'ページタイトルを入力してください';
+    }
     
+print_r($_POST);
+
+
      
 
 }catch(Exception $e){
