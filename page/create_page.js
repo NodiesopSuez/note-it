@@ -399,45 +399,45 @@ $(function(){
         //新しいフォームブロック
         $('<div>').addClass('form_block').attr({ id : `form_block_${new_form_count}`})
         .prepend(img_input).insertBefore('.buttons.row');
-        
+         
         //画像選択ウィンドウ表示
         $(`#contents_${new_form_count}`).trigger("click");
-        
-        //選択する画像が切り替わったら
-        $(document).on("change", '.img', function(){
-            let selected_file = $(this).prop('files')[0]; //選ばれたファイル
-            
-            //ファイルサイズが１MB以下か
-            if(selected_file.size > 1028576){
-                alert('1MB以下のファイルを選んでください');
-                return;
-            }
-            
-            let set_id       = $(this).attr('id');
-            let set_form_num = $(this).attr('id').replace('contents_', '');
-            
-            //FileReadeerに対応しているか
-            if(window.FileReader){
-                let fileReader = new FileReader();
-                fileReader.onload = function(){
-                    //表示サムネイル,表示画像を選択した画像に切替
-                    let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
-                    //画像変更ボタン(画像選択inputのlabel)
-                    let change_img_btn = $('<label>').addClass('btn btn-secondary').text('画像を変更する')
-                    .attr({
-                        for : `${set_id}`,
-                        id  : `label_for_${set_form_num}`,
-                    });
-                    
-                    $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn);
-                }
-                fileReader.readAsDataURL(selected_file);
-            }else{
-                alert('アップロードエラー');
-                return false;
-            }
-        }); 
     });
+
+    //選択する画像が切り替わったら
+    $(document).on("change", '.img', function(){
+        let selected_file = $(this).prop('files')[0]; //選ばれたファイル
+        
+        //ファイルサイズが１MB以下か
+        if(selected_file.size > 1028576){
+            alert('1MB以下のファイルを選んでください');
+            return;
+        }
+        
+        let set_id       = $(this).attr('id');
+        let set_form_num = $(this).attr('id').replace('contents_', '');
+        
+        //FileReadeerに対応しているか
+        if(window.FileReader){
+            let fileReader = new FileReader();
+            fileReader.onload = function(){
+                //表示サムネイル,表示画像を選択した画像に切替
+                let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
+                //画像変更ボタン(画像選択inputのlabel)
+                let change_img_btn = $('<label>').addClass('btn btn-secondary').text('画像を変更する')
+                .attr({
+                    for : `${set_id}`,
+                    id  : `label_for_${set_form_num}`,
+                });
+                
+                $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn);
+            }
+            fileReader.readAsDataURL(selected_file);
+        }else{
+            alert('アップロードエラー');
+            return false;
+        }
+    }); 
     
     //page_base　b contenteditableの入力内容をinputに代入
     $(document).on("keyup", '.text', function(){

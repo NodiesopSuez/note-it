@@ -61,13 +61,13 @@ try {
     
     //新規チャプター作成の場合
     if($chapter_existence === 'new'){   
-        if ($page_type !== 1 && $page_type !== 2) {
+        if ($page_type !== '1' && $page_type !== '2') {
             $_SESSION['error'][] = 'ページのタイプを選択してください';
         }
         if (empty($new_chapter_title) || ctype_space($new_chapter_title)) {
             $_SESSION['error'][] = 'チャプターのタイトルを入力してください';
         }
-        if (in_array($new_chapter_title, $chapter_list)){
+        if ($note_existence === 'exist' &&in_array($new_chapter_title, $chapter_list)){
             $_SESSION['error'][] = '既にそのチャプターは作成されています';
         }
     }
@@ -82,8 +82,49 @@ try {
         $_SESSION['error'][''] = 'ページタイトルを入力してください';
     }
     
-print_r($_POST);
+    //page type B のコンテンツを一旦格納する配列を宣言
+    $page_b_contents;
 
+    if($page_type === '1'){       //page_type Aの場合、
+        //入力内容を$_SESSIONに格納
+        $_SESSION['add_contents'] = $_POST;
+    }elseif($page_type === '2'){  //page_type Bの場合、
+        //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
+        foreach($_POST as $key => $val){
+            if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
+                $page_b_contents[$key]['file_type'] = 'text';
+                $page_b_contents[$key]['data']      = $val;
+            }
+        }
+        //imgファイルを
+        $imgs = $_FILES;
+        foreach($imgs as $key => $img){
+            var_dump($img);
+            if($img['error'] === 0){
+                //ファイルの拡張子を求める
+                $type      = strstr($img['type'], '/');
+                $file_type = str_replace('/', '', $type);
+                //ランダムな文字列でファイル名生成
+                $img['name'] = uniqid(bin2hex(random_bytes(1))).'.'.$file_type;
+                $img_path    = '../page/contents_img/'.$img['name'];
+                //tmp_fileをディレクトリに格納
+                move_uploaded_file($img['tmp_name'], $img_path);
+                //ファイルパスとfile_type=imgを格納
+                $page_b_contents[$key]['file_type'] = 'img';
+                $page_b_contents[$key]['data']      = $img_path;
+            }
+        }
+
+    }
+    $search = null;
+
+    if($page_type === '2' && !empty($page_b_contents)){
+        ksort($page_b_contents);
+        echo '<br/><br/>';
+        var_dump(($page_b_contents));
+    }
+
+    
 
      
 
