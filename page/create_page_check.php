@@ -85,10 +85,13 @@ try {
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents;
 
-    if($page_type === '1'){       //page_type Aの場合、
+    if($page_type === '1'){  //page_type Aの場合、
+
         //入力内容を$_SESSIONに格納
         $_SESSION['add_contents'] = $_POST;
+
     }elseif($page_type === '2'){  //page_type Bの場合、
+
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         foreach($_POST as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
@@ -96,6 +99,7 @@ try {
                 $page_b_contents[$key]['data']      = $val;
             }
         }
+
         //imgファイルを
         $imgs = $_FILES;
         foreach($imgs as $key => $img){
@@ -115,18 +119,23 @@ try {
             }
         }
 
+        if(!empty($page_b_contents)){
+            ksort($page_b_contents); //コンテンツを昇順に並べ替え
+        }else{
+            $_SESSION['error'][] = '本文を入力してください';
+        }
+
+        //入力内容を$_SESSIONに格納
+        $_SESSION['add_contents'] = $page_b_contents;
     }
+    
     $search = null;
 
-    if($page_type === '2' && !empty($page_b_contents)){
-        ksort($page_b_contents);
-        echo '<br/><br/>';
-        var_dump(($page_b_contents));
+    if(!empty($_SESSION['error'])){
+        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+    }else{
+        header('Location:../page/create_page_done.php');
     }
-
-    
-
-     
 
 }catch(Exception $e){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
