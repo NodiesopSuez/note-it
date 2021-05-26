@@ -10,8 +10,8 @@ require_once('../class/db/Connect.php');
 require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 
-print_r($_POST);
-print_r($_FILES);
+//print_r($_POST);
+//print_r($_FILES);
 
 //$user_id = $_SESSION['user_data']['user_id'];
 $user_id = 4;
@@ -26,7 +26,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['error'])){
     $_SESSION['error']       = array();
-    $_SESSION['create_page'] = array();
+    $_SESSION['add_contents'] = array();
 }
 
 try {
@@ -81,6 +81,17 @@ try {
     if(empty($page_title) || ctype_space($page_title)){
         $_SESSION['error'][''] = 'ページタイトルを入力してください';
     }
+
+    //
+    $_SESSION['page']['note_existence']    = $note_existence;
+    $_SESSION['page']['note_title']        = $note_existence === 'new' ? $new_note_title : null;
+    $_SESSION['page']['note_color']        = $note_existence === 'new' ? $note_color : null;
+    $_SESSION['page']['note_id']           = $note_existence === 'exist' ? $note_id : null;
+        
+    $_SESSION['page']['chapter_existence'] = $chapter_existence;
+    $_SESSION['page']['chapter_title']     = $chapter_existence === 'new' ? $new_chapter_title : null ;
+    $_SESSION['page']['page_type']         = $chapter_existence === 'new' ? $page_type : null ;
+    $_SESSION['page']['chapter_id']        = $chapter_existence === 'exist' ? $chapter_id : null;
     
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents;
@@ -88,7 +99,7 @@ try {
     if($page_type === '1'){  //page_type Aの場合、
 
         //入力内容を$_SESSIONに格納
-        $_SESSION['add_contents'] = $_POST;
+        $_SESSION['page']['add_contents'] = $_POST;
 
     }elseif($page_type === '2'){  //page_type Bの場合、
 
@@ -103,7 +114,6 @@ try {
         //imgファイルを
         $imgs = $_FILES;
         foreach($imgs as $key => $img){
-            var_dump($img);
             if($img['error'] === 0){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
@@ -126,15 +136,16 @@ try {
         }
 
         //入力内容を$_SESSIONに格納
-        $_SESSION['add_contents'] = $page_b_contents;
+        $_SESSION['page']['add_contents'] = $page_b_contents;
     }
     
     $search = null;
 
     if(!empty($_SESSION['error'])){
-        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/create_page_done.php');
+        
+        //header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
