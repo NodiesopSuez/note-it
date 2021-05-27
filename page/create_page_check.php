@@ -30,6 +30,10 @@ if(!empty($_SESSION['error'])){
 }
 
 try {
+    //存在を宣言しておく変数
+    $chapter_existence = null;
+    $note_id = null;
+
     extract($_POST); //POSTで受け取った配列を変数にする
 
     $search = new Searches;
@@ -44,18 +48,18 @@ try {
         if (in_array($new_note_title, $note_list)) {
             $_SESSION['error'][] = '既にそのノートは作成されています';
         }
-        if (empty($note_color)){
+        if (!isset($note_color) || empty($note_color)){
             $_SESSION['error'][] = 'ノートのカラーを選択してください';
         }
     }
 
     //既存ノートに作成する場合
     if($note_existence === 'exist'){
-        if(!isset($note_id) || $note_id = ''){
-            $_SESSION['error'][] = 'ノートのタイトルを選択してください';    
-        }else{
+        if(isset($note_id)){
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo($note_id);
+        }elseif(!isset($note_id) || $note_id = ''){
+            $_SESSION['error'][] = 'ノートのタイトルを選択してください';    
         }
     }
     
@@ -73,7 +77,9 @@ try {
     }
 
     //既存チャプターに作成する場合
-    if(($chapter_existence === 'exist') && (!isset($chapter_id) || $chapter_id === '')){
+    if((!isset($chapter_existence))
+        ||($chapter_existence === 'exist' 
+            && (!isset($chapter_id) || $chapter_id === ''))){
         $_SESSION['error'][] = 'チャプターを選択してください';
     }
 
@@ -82,26 +88,28 @@ try {
         $_SESSION['error'][''] = 'ページタイトルを入力してください';
     }
 
-    //
-    $_SESSION['page']['note_existence']    = $note_existence;
-    $_SESSION['page']['note_title']        = $note_existence === 'new' ? $new_note_title : null;
-    $_SESSION['page']['note_color']        = $note_existence === 'new' ? $note_color : null;
-    $_SESSION['page']['note_id']           = $note_existence === 'exist' ? $note_id : null;
+    //$_SESSONにノート・チャプター情報を代入
+    $_SESSION['page'][] = array(
+        'note_existence'    => $note_existence,
+        'note_title'        => $note_existence === 'new' ? $new_note_title : null,
+        'note_color'        => $note_existence === 'new' ? $note_color : null,
+        'note_id'           => $note_existence === 'exist' ? $note_id : null,
         
-    $_SESSION['page']['chapter_existence'] = $chapter_existence;
-    $_SESSION['page']['chapter_title']     = $chapter_existence === 'new' ? $new_chapter_title : null ;
-    $_SESSION['page']['page_type']         = $chapter_existence === 'new' ? $page_type : null ;
-    $_SESSION['page']['chapter_id']        = $chapter_existence === 'exist' ? $chapter_id : null;
-    
-    //page type B のコンテンツを一旦格納する配列を宣言
-    $page_b_contents;
+        'chapter_existence' => $chapter_existence,
+        'chapter_title'     => $chapter_existence === 'new' ? $new_chapter_title : null ,
+        'page_type'         => $chapter_existence === 'new' ? $page_type : null ,
+        'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
+    );
 
-    if($page_type === '1'){  //page_type Aの場合、
+    //page type B のコンテンツを一旦格納する配列を宣言
+    $page_b_contents = array();
+
+    if(isset($page_type) && $page_type === '1'){  //page_type Aの場合、
 
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['add_contents'] = $_POST;
 
-    }elseif($page_type === '2'){  //page_type Bの場合、
+    }elseif(isset($page_type) && $page_type === '2'){  //page_type Bの場合、
 
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         foreach($_POST as $key => $val){
@@ -134,14 +142,16 @@ try {
         }else{
             $_SESSION['error'][] = '本文を入力してください';
         }
-
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['add_contents'] = $page_b_contents;
+        var_dump($_SESSION['page']['add_contents']);
     }
     
     $search = null;
 
     if(!empty($_SESSION['error'])){
+        var_dump($_POST);
+        var_dump($_SESSION['error']);
         //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
         
