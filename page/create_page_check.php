@@ -25,9 +25,13 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['error'])){
-    $_SESSION['error']       = array();
-    $_SESSION['add_contents'] = array();
+    $_SESSION['error'] = array();
 }
+
+
+$_SESSION['page']  = array();
+
+
 
 try {
     //存在を宣言しておく変数
@@ -89,7 +93,7 @@ try {
     }
 
     //$_SESSONにノート・チャプター情報を代入
-    $_SESSION['page'][] = array(
+    $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
         'note_title'        => $note_existence === 'new' ? $new_note_title : null,
         'note_color'        => $note_existence === 'new' ? $note_color : null,
@@ -99,6 +103,8 @@ try {
         'chapter_title'     => $chapter_existence === 'new' ? $new_chapter_title : null ,
         'page_type'         => $chapter_existence === 'new' ? $page_type : null ,
         'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
+
+        'page_title'        => $page_title,
     );
 
     //page type B のコンテンツを一旦格納する配列を宣言
@@ -107,7 +113,14 @@ try {
     if(isset($page_type) && $page_type === '1'){  //page_type Aの場合、
 
         //入力内容を$_SESSIONに格納
-        $_SESSION['page']['add_contents'] = $_POST;
+        $_SESSION['page']['register_contents'] = [
+            'meaning'  => $meaning,
+            'syntax'   => $syntax, 
+            'syn_memo' => $syn_memo, 
+            'example'  => $example, 
+            'ex_memo'  => $ex_memo, 
+            'memo'     => $memo, 
+        ];
 
     }elseif(isset($page_type) && $page_type === '2'){  //page_type Bの場合、
 
@@ -143,19 +156,16 @@ try {
             $_SESSION['error'][] = '本文を入力してください';
         }
         //入力内容を$_SESSIONに格納
-        $_SESSION['page']['add_contents'] = $page_b_contents;
-        var_dump($_SESSION['page']['add_contents']);
+        $_SESSION['page']['register_contents'] = $page_b_contents;
+        var_dump($_SESSION['page']['register_contents']);
     }
     
     $search = null;
 
     if(!empty($_SESSION['error'])){
-        var_dump($_POST);
-        var_dump($_SESSION['error']);
-        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        
-        //header('Location:../page/create_page_done.php');
+        header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
