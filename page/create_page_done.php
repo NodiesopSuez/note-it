@@ -18,9 +18,7 @@ require_once('../class/db/Additions.php');
 //ユーザー情報
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 
-
 print_r($_SESSION['page']);
-
 
 //登録情報をサニタイズ
 //ノート・チャプター情報
@@ -62,8 +60,21 @@ try{
         );
     } 
 
-}catch(Exception $e){
+    echo $register_contents;
 
+    if($register_contents === false){
+        $_SESSION['error'][] = Config::MSG_EXCEPTION;
+        header('Location:../page/create_page.php');
+        exit;
+    }elseif($register_contents === true){
+        header('Location:../mem/mem_top.php');
+        exit;
+    }
+
+}catch(Exception $e){
+    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    header('Location:../page/create_page.php');    
+    exit;
 }
 
 ?>
