@@ -13,6 +13,11 @@ require_once('../class/db/Searches.php');
 //print_r($_POST);
 //print_r($_FILES);
 
+//ログインしてなければログイン画面へ
+/* if(empty($_SESSION['user_data'])){
+    header('Location:../sign/sign_in.php');
+} */
+
 //$user_id = $_SESSION['user_data']['user_id'];
 $user_id = 4;
 
@@ -69,7 +74,7 @@ try {
     
     //新規チャプター作成の場合
     if($chapter_existence === 'new'){   
-        if ($page_type !== '1' && $page_type !== '2') {
+        if (!isset($page_type) || ($page_type != 1 && $page_type != 2)) {
             $_SESSION['error'][] = 'ページのタイプを選択してください';
         }
         if (empty($new_chapter_title) || ctype_space($new_chapter_title)) {
@@ -110,7 +115,7 @@ try {
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents = array();
 
-    if(isset($page_type) && $page_type === '1'){  //page_type Aの場合、
+    if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
 
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
@@ -122,7 +127,7 @@ try {
             'memo'     => $memo, 
         ];
 
-    }elseif(isset($page_type) && $page_type === '2'){  //page_type Bの場合、
+    }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
 
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         foreach($_POST as $key => $val){
