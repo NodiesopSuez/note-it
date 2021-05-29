@@ -315,9 +315,11 @@ $(function(){
         $('.page_type').append(chapter_icon, page_type_a, page_type_b);
         $('.page_type').find('.wrapback').addClass(selected_color);
 
-        //contents_sectionに一旦page_a_formを挿入
+        //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
         $('.contents_section').prepend(page_a_form);
-        $('.page_base').attr({ class : `page_base a ${selected_color}` })
+        $('.page_base').attr({ class : `page_base a ${selected_color}` });
+        $('#page_a').prop('checked', true);
+        
     });
 
     //既存チャプターリストのアイコンがクリックされたら
