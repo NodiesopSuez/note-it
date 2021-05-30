@@ -15,16 +15,10 @@ require_once('../class/db/Searches.php');
     header('Location:../sign/sign_in.php');
 } */
 
-//余計な情報を削除
-//$_SESSION['error'] = array();
-//print_r($_SESSION['error']);
-
 //既存ノートリスト取得
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 $searches = new Searches;
 $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
-
-print_r($_SESSION['error']);
 
 //エラーの有無によってテントウの表示を分岐
 if(!empty($_SESSION['error'])){
@@ -40,7 +34,6 @@ if(!empty($_SESSION['error'])){
 }
 
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
-$ladybug = '../page/img/ladybug_nm.png';
 ?>
 
 <!DOCTYPE html>
