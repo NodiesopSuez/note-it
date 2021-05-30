@@ -58,6 +58,7 @@ section,
     flex-wrap: wrap; 
 }
 section {
+    margin-bottom: 48px;
     align-items: flex-start;
 }
 .chapter_section {
