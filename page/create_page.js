@@ -74,6 +74,16 @@ $(function(){
     let page_b_form = $('<div>').attr({ class : 'page_base b' })
                                 .prepend(page_b_title, form_block, buttons_row);
 
+                                
+    /* メソッド ----------------------------------------------------------------------- */ 
+    
+    //テントウのメッセージ数によって、.ladybugの高さを調整
+    function changeLadyBug(){
+        let message_count  = $('.balloon').text();
+        message_count = message_count.match(/\r?\n/g).length - 1;
+
+        $('.ladybug').height(`${140 + (message_count * 16)}px`);
+    }
 
     //ページトップに自動スクロール
     function scrollToTop(){
@@ -154,6 +164,7 @@ $(function(){
 /* ページに入ったら----------------------------------------------------------------- */    
     
     //新規ノート選択ボタンと既存ノートリストを表示
+    changeLadyBug();
     createExistNoteList();
     scrollToTop();
 
@@ -188,7 +199,7 @@ $(function(){
             return defer.promise();
         }
 
-        //一旦隠して表示
+        changeLadyBug();
         createColorList();
         scrollToTop();
     });
@@ -232,6 +243,7 @@ $(function(){
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
         $('#new_chapter, #page_a').prop('checked', true);
 
+        changeLadyBug();
         scrollToObject($('.page_type'));
 
         //hideNotes().then(showNotes());
@@ -245,6 +257,7 @@ $(function(){
         //note_existence = exist をcheckedにする
         $('#exist_note').prop('checked', true);
         //新規ノート選択ボタンと既存ノートリストを表示
+        changeLadyBug();
         createExistNoteList();
         scrollToTop();
     });
@@ -290,7 +303,7 @@ $(function(){
                 //ローカルストレージに各チャプターidとpage_tyepを格納
                 localStorage.setItem(`chapter_${key}`, val.page_type);
             })
-
+            changeLadyBug();
             scrollToObject($('.chapter_section'));
             //exist_chapter_set.find('div, p').css({width: '0px', padding: '0px'});
             //chapter_list表示
@@ -330,7 +343,8 @@ $(function(){
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
         $('#page_a').prop('checked', true);
-
+        
+        changeLadyBug();
         scrollToObject($('.page_type'));
     });
 
@@ -360,7 +374,7 @@ $(function(){
             $('#page_b').prop('checked', true);
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
         }
-
+        changeLadyBug();
         scrollToObject($('.page_type'));
     });
 
