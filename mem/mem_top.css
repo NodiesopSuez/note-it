@@ -111,20 +111,22 @@ input[type="radio"] {
 }
 
 .close_icon {
-    margin-left: auto;
+    float: right;
+}
+
+.note_modal > form,
+.chapter_modal > form {
+    margin: 32px auto auto auto;
 }
 
 .modal_back,
 .note_modal,
-.chapter_modal,
-.chapter_modal > form {
+.chapter_modal {
     top: 0;
     right: 0;
     left: 0;
     margin: auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: none;
 }
 
 .modal_back {
@@ -134,12 +136,6 @@ input[type="radio"] {
     height: 100%;
     background: #ccc;
     opacity: 0.5;
-}
-
-.note_modal,
-.chapter_modal,
-.chapter_modal > form {
-    flex-direction: column;
 }
 
 .note_modal,
@@ -154,16 +150,17 @@ input[type="radio"] {
 
 .note_modal {
     width: 500px;
-    height: 550px;
+    height: 560px;
 }
 
 .chapter_modal {
     width: 400px;
-    height: 200px;
+    height: 230px;
 }
 
 .color_lineup {
-    margin: auto auto 20px auto;
+    display: flex;
+    margin: auto auto 30px auto;
     width: 400px;
     justify-content: center;
 }
@@ -176,12 +173,15 @@ input[type="radio"] {
 }
 
 .edit_title {
+    display: inline-block;
     text-align: center;
     resize: none;
-    margin-bottom: 20px;
+    margin: 0 auto 16px auto;
 }
 
 .send { 
+    display: block;
+    margin: auto auto 16px auto;
     width: 80px;
     height: 30px;
     border-radius: 10px;

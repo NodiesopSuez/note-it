@@ -171,20 +171,25 @@ $(function(){
 
     //ノート編集のモーダル表示
     $('.selected_note .edit_btn').on("click", function(){
+        $('.modal_back').show();//.css({ display : 'flex' });
+
         let selected_note_top = $('.selected_note').offset().top + 100;
-        $('.note_modal').css({top: selected_note_top });
+        $('.note_modal').css({ top: selected_note_top });
         $('.modal_section, .note_modal').slideDown();
     });
 
     //チャプター編集のモーダル表示
     $('.selected_chapter .edit_btn').on("click", function(){
+        $('.modal_back').show();//.css({ display : 'flex' });
+
         let selected_chapter_top = $('.selected_chapter').offset().top + 100;
-        $('.chapter_modal').css({top: selected_chapter_top });
+        $('.chapter_modal').css({ top: selected_chapter_top });
         $('.modal_section, .chapter_modal').slideDown();
     });
 
     //モーダル非表示
     $('.close_icon').on("click", function(){
+        $('.modal_back').hide();
         $('.modal_section, .note_modal, .chapter_modal').slideUp();
     });
 
