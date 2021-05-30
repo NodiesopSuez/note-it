@@ -29,14 +29,14 @@ print_r($_SESSION['error']);
 //エラーの有無によってテントウの表示を分岐
 if(!empty($_SESSION['error'])){
     $ladybug_img = './img/ladybug_sd.png';
-	$msg[] = $_SESSION['error'];
+	$msg = $_SESSION['error'];
 }elseif(!empty($_SESSION['okmsg'])){
     $ladybug_img = './img/ladybug_nm.png';
-    $msg[] = $_SESSION['okmsg'];
+    $msg = $_SESSION['okmsg'];
     $_SESSION['okmsg'] = array();
 }else{
     $ladybug_img = './img/ladybug_nm.png';
-    $msg[] = 'どのノートに追加しますか？';
+    $msg = 'どのノートに追加しますか？';
 }
 
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
