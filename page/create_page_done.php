@@ -59,14 +59,13 @@ try{
             $page_id, $register_contents
         );
     } 
-
-    echo $register_contents;
-
+    
     if($register_contents === false){
         $_SESSION['error'][] = Config::MSG_EXCEPTION;
         header('Location:../page/create_page.php');
         exit;
     }elseif($register_contents === true){
+        $_SESSION['okmsg'][] = '新しいページを追加できました！';
         header('Location:../mem/mem_top.php');
         exit;
     }
