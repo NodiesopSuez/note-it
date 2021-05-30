@@ -30,7 +30,7 @@ if(!empty($_SESSION['error'])){
     $_SESSION['okmsg'] = array();
 }else{
     $ladybug_img = './img/ladybug_nm.png';
-    $msg = 'どのノートに追加しますか？';
+    $msg =  ['どのノートに追加しますか？'];
 }
 
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
