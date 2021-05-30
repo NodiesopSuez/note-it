@@ -3,7 +3,8 @@ body {
 }
 
 .container {
-    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: visible;
     width: 80%;
     height: auto;
     background-color: var(--body-base-lt);
