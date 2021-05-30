@@ -58,8 +58,10 @@ section,
     flex-wrap: wrap; 
 }
 section {
-    margin-bottom: 48px;
     align-items: flex-start;
+}
+section:not(.page_type, .radio_section){
+    margin-bottom: 48px;
 }
 .chapter_section {
     align-items: flex-end;
