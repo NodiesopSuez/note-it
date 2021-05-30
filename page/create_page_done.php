@@ -18,7 +18,7 @@ require_once('../class/db/Additions.php');
 //ユーザー情報
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 
-print_r($_SESSION['page']);
+//print_r($_SESSION);
 
 //登録情報をサニタイズ
 //ノート・チャプター情報
