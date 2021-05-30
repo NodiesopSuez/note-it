@@ -1,5 +1,11 @@
 .container {
     width: 90% !important;
+    -ms-overflow-style: none im !important;
+    scrollbar-width: none !important;
+}
+
+.container::-webkit-scrollbar { 
+    display: none !important;
 }
 
 form {
