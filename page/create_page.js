@@ -84,9 +84,9 @@ $(function(){
     //特定のオブジェクトにスクロール
     function scrollToObject(object){
         $(object).show();
-        let selected_obj_top = $(object).offset().top;
+        let selected_obj_top = $(object).offset().top - 80;
         $('html, body').animate({ scrollTop: selected_obj_top }, 500);
-        return defer.promise();
+        //return defer.promise();
     }
 
     //note_listを非表示にする
@@ -150,6 +150,7 @@ $(function(){
     
     //新規ノート選択ボタンと既存ノートリストを表示
     createExistNoteList();
+    scrollToTop();
 
 
 /* 新規ノート選択------------------------------------------------------------------- */ 
@@ -184,6 +185,7 @@ $(function(){
 
         //一旦隠して表示
         createColorList();
+        scrollToTop();
     });
 
 
@@ -225,6 +227,8 @@ $(function(){
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
         $('#new_chapter, #page_a').prop('checked', true);
 
+        scrollToObject($('.page_type'));
+
         //hideNotes().then(showNotes());
     });
 
@@ -237,6 +241,7 @@ $(function(){
         $('#exist_note').prop('checked', true);
         //新規ノート選択ボタンと既存ノートリストを表示
         createExistNoteList();
+        scrollToTop();
     });
 
     //既存ノートリストのアイコンが選択されたら
@@ -280,12 +285,13 @@ $(function(){
                 //ローカルストレージに各チャプターidとpage_tyepを格納
                 localStorage.setItem(`chapter_${key}`, val.page_type);
             })
+
+            scrollToObject($('.chapter_section'));
             //exist_chapter_set.find('div, p').css({width: '0px', padding: '0px'});
             //chapter_list表示
             /* exist_chapter_set.find('div').animate({width: '200px'}, 400, 'swing', function(){
                 exist_chapter_set.find('p').animate({width: '170px'}).text(val.chapter_title);
             }); */
-            return defer.promise();
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(XMLHttpRequest);
             console.log(textStatus);
@@ -313,13 +319,14 @@ $(function(){
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
         
         $('.page_type').append(chapter_icon, page_type_a, page_type_b);
-        $('.page_type').find('.wrapback').addClass(selected_color);
+        $('.page_type').find('.wrapback').attr({ class : `wrapback ${selected_color}` });
 
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
         $('#page_a').prop('checked', true);
-        
+
+        scrollToObject($('.page_type'));
     });
 
     //既存チャプターリストのアイコンがクリックされたら
@@ -349,6 +356,7 @@ $(function(){
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
         }
 
+        scrollToObject($('.page_type'));
     });
 
 
@@ -360,6 +368,8 @@ $(function(){
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_a_form)
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
+
+        scrollToObject($('.page_type'));
     });
 
     //page_type bを選択したら
@@ -369,6 +379,8 @@ $(function(){
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_b_form);
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
+
+        scrollToObject($('.page_type'));
     });
 
     
