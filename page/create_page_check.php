@@ -94,7 +94,7 @@ try {
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
-        $_SESSION['error'][''] = 'ページタイトルを入力してください';
+        $_SESSION['error'][] = 'ページタイトルを入力してください';
     }
 
     //$_SESSONにノート・チャプター情報を代入
