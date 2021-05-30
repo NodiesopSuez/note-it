@@ -96,10 +96,10 @@ $(function(){
         let container_height = $('.container').height();
         let note_chapter_section_height = $('.note_section, .chapter_section').height();
         let height_differ = container_height - note_chapter_section_height;
-        if(height_differ <= 500){
-            $('.container').height(container_height + 500);
+        if(height_differ <= 800){
+            $('.container').height(container_height + 550);
         }
-        let selected_obj_top = $(object).offset().top - 80;
+        let selected_obj_top = $(object).offset().top - 110;
         $('html, body').animate({ scrollTop: selected_obj_top }, 500);
         //return defer.promise();
     }
