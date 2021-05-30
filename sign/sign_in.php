@@ -18,12 +18,12 @@ if(!empty($_SESSION['error'])){
     $ladybug = './img/ladybug_sd.png';
 	$msg = $_SESSION['error'];
 	$error_back_count = $_SESSION['error_back_count'];
-}elseif($_SESSION['add_ok']==='ok'){
-	$msg = ['登録を完了しました!!<br/>ログインしてください'];
+}elseif($_SESSION['okmsg']==='ok'){
+	$msg = $_SESSION['okmsg'];
 }else{
     $msg = ['ログインしてください♪'];
 }
-$_SESSION['add_ok'] = array();
+$_SESSION['okmsg'] = array();
 ?>
 
 <!DOCTYPE html>

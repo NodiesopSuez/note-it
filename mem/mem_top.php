@@ -31,8 +31,10 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 /* extract($_SESSION['user_info']); */
 $search = new Searches;
 $note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
-$note_test = $search->findNoteInfo('note_id', 63/* $user_id */);
 $search = null;
+
+$user_id   = 4; //$_SESSION['user_info']['user_id'];
+$nick_name = 'あやか'; //$_SESSION['user_info']['nick_name'];
 
 //現在の日本時刻を取得 >> 変数に分割
 date_default_timezone_set('Asia/Tokyo');
@@ -50,14 +52,14 @@ if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
     }
 }elseif(!empty($_SESSION['error'])){
 	$ladybug_img = './img/ladybug_sd.png';
-	$msg[] = $_SESSION['error'];
+	$msg = $_SESSION['error'];
 }elseif(!empty($_SESSION['okmsg'])){
 	$ladybug_img = './img/ladybug_nm.png';
-	$msg[] = $_SESSION['okmsg'];
+	$msg = $_SESSION['okmsg'];
 	$_SESSION['okmsg'] = array();
 }
 
-$_SESSION['add_ok'] = array();
+$_SESSION['okmsg'] = array();
 $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 ?>
 
@@ -197,7 +199,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                     <?php endforeach ?>
                 </div>
                 <h3>Edit Note Title</h3>
-                <textarea class="edit_title" name="note_title"></textarea></br>
+                <textarea class="edit_title" name="note_title"></textarea>
                 <button type="submit" class="send">EDIT</button>
             </form>
         </div>

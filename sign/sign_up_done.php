@@ -30,7 +30,7 @@ try{
 	if($register==true){
 		$_SESSION['error'] = array();
 		$_SESSION['data'] = array();
-		$_SESSION['add_ok'] = 'ok'; 
+		$_SESSION['okmsg'] = '登録を完了しました!!<br/>ログインしてください'; 
 		header('Location:../sign/sign_in.php');
 	}
 }catch(Exception $e){

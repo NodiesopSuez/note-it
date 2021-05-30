@@ -16,7 +16,7 @@ $img = './img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
 
 //sign_in用
-$_SESSION['add_ok'] = array();
+$_SESSION['okmsg'] = array();
 
 ?>
 
