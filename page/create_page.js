@@ -83,7 +83,12 @@ $(function(){
 
     //特定のオブジェクトにスクロール
     function scrollToObject(object){
-        $(object).show();
+        let container_height = $('.container').height();
+        let note_chapter_section_height = $('.note_section, .chapter_section').height();
+        let height_differ = container_height - note_chapter_section_height;
+        if(height_differ <= 500){
+            $('.container').height(container_height + 500);
+        }
         let selected_obj_top = $(object).offset().top - 80;
         $('html, body').animate({ scrollTop: selected_obj_top }, 500);
         //return defer.promise();
@@ -109,7 +114,7 @@ $(function(){
 
     //新規ノート選択ボタンと既存ノートリストを表示
     function createExistNoteList(){
-        var user_id = php.user_id;
+        let user_id = php.user_id;
 
         //note_existence=exist をcheckedにする
         $('#exist_note').prop({ checked: true });
