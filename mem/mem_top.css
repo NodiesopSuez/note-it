@@ -177,6 +177,7 @@ input[type="radio"] {
     text-align: center;
     resize: none;
     margin: 0 auto 16px auto;
+    border-radius: 10px;
 }
 
 .send { 
