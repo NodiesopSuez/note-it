@@ -3,7 +3,7 @@
 $(function(){
     //ページトップに自動スクロール
     function scrollToTop(){
-        $('html,body').animate({scrollTop: 0}, {queue: false}); 
+        $('html,body').animate({ scrollTop : 0 }, { queue : false }); 
         return d.promise();
     };
 
@@ -11,7 +11,7 @@ $(function(){
     function scrollToObject(object){
         $(object).show();
         let selected_obj_top = $(object).offset().top;
-        $('html, body').animate({scrollTop: selected_obj_top}, 500);
+        $('html, body').animate({ scrollTop : selected_obj_top }, 500);
     }
 
     //note_listを非表示にする
@@ -27,48 +27,48 @@ $(function(){
     //note_listを表示する
     function showNotes(){
         $('.note_list > .note').show();
-        $('.note_list .back_cover').animate({height: '161px'}, 500, 'swing', function(){
-            $('.note_list .note_base').animate({width: '140px'}, 500, 'swing', function(){
+        $('.note_list .back_cover').animate({ height: '161px' }, 500, 'swing', function(){
+            $('.note_list .note_base').animate({ width: '140px' }, 500, 'swing', function(){
                 $('.note_list .note_title').show();
             })
         })
     };
 
+/* ----------------------------------------------------------------------------- */
+    
+    //ノートリストを表示
     $('.selected, .modal_section, .note_modal, .chapter_modal').hide();
     hideNotes();
     showNotes();
-
-    let msg_text = $('.balloon').text();
-    $('.balloon').attr('msg', msg_text);
-
+    
+/* ----------------------------------------------------------------------------- */
 
     //exist_notesのnote_listから選択されたら
-    $('.exist_notes .note').on("click", function(){
+    $(document).on("click", '.exist_notes .note', function(){
         //スクロール
-        $('.chapter_list').css({'min-height': '400px'});
+        $('.chapter_list').css({ 'min-height' : '400px' });
         scrollToObject('.selected_note');
 
         //chapter_listとpage_listのボタン一旦削除
         $('.chapter_list, .page_list').children('button').remove();
 
-        //selectedメニューのノートタイトルと
-        //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
-        let selected_note_title = $(this).find('p').text();
-        $('.selected .note_title > p').text(selected_note_title);
-        $('textarea [name="note_title]').text(selected_note_title);
+        //選択されたノート
+        let selected_note_id = $(this).attr('value'); //ノートID
+        let selected_note_title = $(this).find('p').text(); //ノートタイトル
+        let selected_note_color = $(this).attr('class').replace('note', ''); //ノートカラー
 
-        //選ばれたnote_id
-        let selected_note_id = $(this).attr('value');
-        console.log(selected_note_id);
-
-        //selectedメニューにnote_id割り当て
+        //selectedメニューに値をセット
         $('.set_note_id').val(selected_note_id);
+        $('.selected').children('.note').attr({ class : `note ${selected_note_color}`});
+        $('.selected').children('.chapter').attr({ class : `chapter ${selected_note_color}`});
+        $('.selected .note_title > p').text(selected_note_title);
+        $('.edit_title').text(selected_note_title);
         
         //選ばれたnote_idでchapter_list取得
         $.ajax({
-            url : './get_chapter_list.php',
+            url : '../get_lists/get_chapter_list.php',
             type: 'post',
-            data: { 'selected_note_id': selected_note_id },
+            data: { 'selected_note_id' : selected_note_id },
             dataType: 'json',
         }).done(function(chapter_list){
 
@@ -78,13 +78,12 @@ $(function(){
             //chapter_list  key:chapter_id / val:chapter_title,page_type
             $.each(chapter_list, function(key, val){
                 //<buttoon>:chapter_id / <p>:chapter_title / <input>:page_type
-                let chapter_btn = $('<button>').addClass('chapter').attr('value', key);
+                let chapter_btn = $('<button>').addClass(`chapter ${selected_note_color}`).attr('value', key);
                 let chapter_p = $('<p>');
-                let page_type = $('<input>').attr({type: 'hidden', name: 'page_type', value: val.page_type});
+                let page_type = $('<input>').attr({ type : 'hidden', name : 'page_type', value : val.page_type });
 
-                //width:0,padding:0にしておく
-                chapter_btn.add(chapter_p).css({width: '0px', padding: '0px'});
-                //chapter_list組み立て
+                //非表示にしたチャプターボタンをchapter_listに挿入
+                chapter_btn.add(chapter_p).css({ width : '0px', padding : '0px'});
                 chapter_btn.prepend(chapter_p, page_type);
                 $('.chapter_list').prepend(chapter_btn);
 
