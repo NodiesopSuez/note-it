@@ -61,6 +61,7 @@ $(function(){
         $('.set_note_id').val(selected_note_id);
         $('.selected').children('.note').attr({ class : `note ${selected_note_color}`});
         $('.selected').children('.chapter').attr({ class : `chapter ${selected_note_color}`});
+        $('.page_list').attr({ class : `page_list ${selected_note_color}`});
         $('.selected .note_title > p').text(selected_note_title);
         $('.edit_title').text(selected_note_title);
         
