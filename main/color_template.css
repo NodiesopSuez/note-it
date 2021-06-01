@@ -80,7 +80,7 @@
     background: linear-gradient(-45deg, var(--gra-blue-base), var(--gra-blue-base-lt));
 }
 
-.blue.wrapback{
+.blue .wrapback{
     background: linear-gradient(to right bottom, var(--gra-blue), var(--gra-blue-lt));
 }
 
@@ -95,7 +95,7 @@
     background: linear-gradient(-45deg, var(--gra-yellow-base), var(--gra-yellow-base-lt));
 }
 
-.yellow.wrapback{
+.yellow .wrapback{
     background: linear-gradient(to right bottom, var(--gra-yellow), var(--gra-yellow-lt));
 }
 
@@ -111,7 +111,7 @@
     background: linear-gradient(-45deg, var(--gra-pink-base), var(--gra-pink-base-lt));
 }
 
-.pink.wrapback{
+.pink .wrapback{
     background: linear-gradient(to right bottom, var(--gra-pink), var(--gra-pink-lt));
 }
 
@@ -126,7 +126,7 @@
     background: linear-gradient(-45deg, var(--gra-green-base), var(--gra-green-base-lt));
 }
 
-.green.wrapback{
+.green .wrapback{
     background: linear-gradient(to right bottom, var(--gra-green), var(--gra-green-lt));
 }
 
@@ -141,6 +141,6 @@
     background: linear-gradient(-45deg, var(--gra-purple-base), var(--gra-purple-base-lt));
 }
 
-.purple.wrapback{
+.purple .wrapback{
     background: linear-gradient(to right bottom, var(--gra-purple), var(--gra-purple-lt));
 }
