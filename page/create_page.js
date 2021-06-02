@@ -231,7 +231,7 @@ $(function(){
         $('.page_type').children().remove();
         $('.page_type').prepend(note_title_form_icon, chapter_icon, page_type_a, page_type_b);
         $('.page_type').find('.note_title > p').replaceWith(note_title_form); //挿入したノートアイコンのpをtextareaに差し替え
-        $('.page_type').find('.wrapback').addClass(selected_color);
+        $('.page_type').find('.page').attr({ class : `page ${selected_color}`});
 
         //contents_sectionに一旦page_a_formを挿入
         $('.contents_section').prepend(page_a_form);
