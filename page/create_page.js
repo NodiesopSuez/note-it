@@ -369,21 +369,22 @@ $(function(){
         $(this).hide();
         
         let selected_chapter = $(this).attr('for');
-        let page_type = localStorage.getItem(selected_chapter);
         selected_color = $('.chapter_section').find('.note.cassette').attr('class').replace('note cassette', '');
-
+        
         //note_cassetteとchapter_cassetteをpage_typeに挿入
         $('.page_type, .contents_section').children().remove();
         $('.chapter_section').find('.note.cassette').clone(false).prependTo('.page_type');
         $(this).clone(false).children().unwrap().addClass('chapter_cassette').appendTo('.page_type');
-
+        
         //page_typeにより表示するフォームを分岐
+        let page_type = localStorage.getItem(selected_chapter);
+        console.log(page_type);
         if(page_type == 1) {
-            $('#page_a').prop('checked', true);
             $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
+            $('#page_a').prop('checked', true);
         }else{
-            $('#page_b').prop('checked', true);
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
+            $('#page_b').prop('checked', true);
         }
         changeLadyBug();
         scrollToObject($('.page_type'));
