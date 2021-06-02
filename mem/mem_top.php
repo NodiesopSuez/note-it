@@ -117,7 +117,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- ノート削除ボタン -->
-                <form class="delete" method="post" action="../note/delete_note.php">
+                <form class="delete" method="post" action="../note_chapter/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -152,7 +152,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                     <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- チャプター削除ボタン -->
-                <form class="delete" method="post" action="../note/delete_note.php">
+                <form class="delete" method="post" action="../note_chapter/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
@@ -179,7 +179,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
         <!-- note編集モーダル -->
         <div class="note_modal card">
             <button class="close_icon close_note_modal">×</button>
-            <form method="post" action="../note/edit_note_check.php">
+            <form method="post" action="../note_chapter/edit_note_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -205,7 +205,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
         </div>
         <div class ="chapter_modal card">
             <button class="close_icon close_chapter_modal">×</button>
-            <form method="post" action="../note/edit_chapter_check.php">
+            <form method="post" action="../note_chapter/edit_chapter_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
