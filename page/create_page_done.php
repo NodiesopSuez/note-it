@@ -18,29 +18,30 @@ require_once('../class/db/Additions.php');
 //ユーザー情報
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 
-//print_r($_SESSION);
-
-//登録情報をサニタイズ
-//ノート・チャプター情報
-$register_info = $_SESSION['page']['register_info'];
-foreach($register_info as $key => $val){
-    $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
-}
-extract($register_info);
-//ページの内容
-$register_contents = $_SESSION['page']['register_contents'];
-print_r($register_contents);
-foreach($register_contents as $key => $val){
-    if ($page_type === '1') {
-        $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
-    }elseif($page_type === '2'){
-        $register_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, "UTF-8");
-        $register_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, "UTF-8");
-    }
-}
-extract($register_contents);
+var_dump($_SESSION);
 
 try{
+    //登録情報をサニタイズ
+    //ノート・チャプター情報
+    $register_info = $_SESSION['page']['register_info'];
+    foreach($register_info as $key => $val){
+        $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+    }
+    extract($register_info);
+    //ページの内容
+    $register_contents = $_SESSION['page']['register_contents'];
+    print_r($register_contents);
+    foreach($register_contents as $key => $val){
+        if ($page_type === '1') {
+            $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+        }elseif($page_type === '2'){
+            $register_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, "UTF-8");
+            $register_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, "UTF-8");
+        }
+    }
+    extract($register_contents);
+
+
     $addition = new Addition;
 
     //現在日時
@@ -58,19 +59,22 @@ try{
     $page_id = $addition->createNewPage($page_title, $addition_dt, $chapter_id);
     
     if($page_type === '1'){
-        $register_contents = $addition->registerContentsA(
+        $register_contents_done = $addition->registerContentsA(
             $meaning, $syntax, $syn_memo, $example, $ex_memo, $memo, $page_id);
     }elseif($page_type === '2'){
-        $register_contents = $addition->registerContentsB(
+        $register_contents_done = $addition->registerContentsB(
             $page_id, $register_contents
         );
     } 
+
+    var_dump($register_contents_done);
+    echo $register_contents_done;
     
-    if($register_contents === false){
+    if($register_contents_done === false){
         $_SESSION['error'][] = Config::MSG_EXCEPTION;
         header('Location:../page/create_page.php');
         exit;
-    }elseif($register_contents === true){
+    }elseif($register_contents_done === true){
         $_SESSION['okmsg'][] = '新しいページを追加できました！';
         header('Location:../mem/mem_top.php');
         exit;
