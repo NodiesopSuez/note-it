@@ -106,7 +106,7 @@ try {
         
         'chapter_existence' => $chapter_existence,
         'chapter_title'     => $chapter_existence === 'new' ? $new_chapter_title : null ,
-        'page_type'         => $chapter_existence === 'new' ? $page_type : null ,
+        'page_type'         => $page_type,
         'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
 
         'page_title'        => $page_title,
