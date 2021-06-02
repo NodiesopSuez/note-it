@@ -44,21 +44,31 @@ try{
 
     //SQLへ渡す用にstring型へ
     if(!empty($page_a) && count($page_a) > 1){
-        $page_a = implode(',', $page_a);
+        $page_a_str = implode(',', $page_a);
     }elseif(!empty($page_a) && count($page_a) === 1) {
-        $page_a = implode($page_a);
+        $page_a_str = implode($page_a);
     }
     if(!empty($page_b) && count($page_b) > 1){
-        $page_b = implode(',', $page_b);
+        $page_b_str = implode(',', $page_b);
     }elseif(!empty($page_b) && count($page_b) === 1) {
-        $page_b = implode($page_b);
+        $page_b_str = implode($page_b);
     }
-
 
     echo '<br/><br/>page_a<br/>';
     var_dump($page_a);
+    echo $page_a_str;
     echo '<br/><br/>page_b<br/>';
-    var_dump($page_b);
+    if (isset($page_b)) {
+        var_dump($page_b);
+        echo $page_b_str;
+    }
+
+    //typeBの画像ファイルを削除
+    if(isset($page_b) && count($page_b) >=1){
+        $remove_files = $delete->removeFiles('note_chapter', $page_b_str);
+        var_dump($remove_files);
+    }
+
 
 }catch(Exception $e){
 

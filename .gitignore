@@ -1,2 +1,6 @@
-class/*
+class/config/*
+class/db/Connect.php
+class/config/Searches.php
+class/config/Users.php
+class/config/Utility.php
 page/contents_img/*
