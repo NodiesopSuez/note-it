@@ -187,9 +187,13 @@ $(function(){
 
         //color_listでノートアイコン・既存ノート選択ボタンを作成,note_sectionに挿入
         function createColorList(){
+            let exist_note_count = $('.exist_note_list').length;
+
             //各セクションの子要素全削除
             $('.note_section, .chapter_section, .page_type, .contents_section').children().remove();
-            $('.note_section').append(exist_note_icon);
+            
+            if(exist_note_count > 0){
+                $('.note_section').append(exist_note_icon);}
             
             $.each(color_list, function(class_name, title_p){   
                 let color_icon = createNoteIcon(class_name, title_p);　//class_name:配色クラス title_p:表示カラー名
@@ -237,8 +241,15 @@ $(function(){
         $('.contents_section').prepend(page_a_form);
 
         //note_sectionにカラー変更ボタン、既存ノート選択ボタンを挿入
+        let exist_note_count = $('.exist_note_list').length;
+
         $('.note_section').children().remove();
-        $('.note_section').append(change_color, exist_note_icon);
+
+        if(exist_note_count > 0){
+            $('.note_section').append(change_color, exist_note_icon);
+        }else{
+            $('.note_section').append(change_color);
+        }
 
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
         $('#new_chapter, #page_a').prop('checked', true);
