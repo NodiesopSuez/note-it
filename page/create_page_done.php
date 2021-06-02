@@ -29,8 +29,14 @@ foreach($register_info as $key => $val){
 extract($register_info);
 //ページの内容
 $register_contents = $_SESSION['page']['register_contents'];
+print_r($register_contents);
 foreach($register_contents as $key => $val){
-    $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+    if ($page_type === '1') {
+        $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+    }elseif($page_type === '2'){
+        $register_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, "UTF-8");
+        $register_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, "UTF-8");
+    }
 }
 extract($register_contents);
 
