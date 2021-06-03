@@ -348,7 +348,8 @@ $(function(){
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
         
         $('.page_type').append(chapter_icon, page_type_a, page_type_b);
-        $('.page_type').find('.wrapback').attr({ class : `wrapback ${selected_color}` });
+        console.log(selected_color);
+        $('.page_type').find('.page').attr({ class : `page ${selected_color}` });
 
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
         $('.contents_section').prepend(page_a_form);
