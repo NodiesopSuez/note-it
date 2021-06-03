@@ -152,7 +152,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
                     <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- チャプター削除ボタン -->
-                <form class="delete" method="post" action="../note_chapter/delete_note.php">
+                <form class="delete" method="post" action="../note_chapter/delete_chapter.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
