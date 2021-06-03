@@ -45,19 +45,6 @@ try{
         $val['page_type'] == 2 ? $page_b[] = $chapter_id : null; //typeBのチャプター
     }
 
-    //SQLへ渡す用にstring型へ
-/*     if(!empty($page_a) && count($page_a) > 1){
-        $page_a_str = implode(',', $page_a);
-    }elseif(!empty($page_a) && count($page_a) === 1) {
-        $page_a_str = implode($page_a);
-    }
-    if(!empty($page_b) && count($page_b) > 1){
-        $page_b_str = implode(',', $page_b);
-    }elseif(!empty($page_b) && count($page_b) === 1) {
-        $page_b_str = implode($page_b);
-    }
- */
-
     //chapter_idをString型にしてページとコンテンツ削除
     if(!empty($page_a)){
         if(count($page_a) > 1){
@@ -84,26 +71,13 @@ try{
     //ノートを削除
     $delete_bool['note'] = $delete->deleteNote($note_id);
 
-    echo '<br/><br/>page_a<br/>';
-    if (isset($page_a) && !empty($page_a)) {
-        var_dump($page_a);
-        echo $page_a_str;
-    }
-    echo '<br/><br/>page_b<br/>';
-    if (isset($page_b) && !empty($page_b)) {
-        var_dump($page_b);
-        echo $page_b_str;
-    }
-
-    print_r($delete_bool);
-
     if(in_array(0, $delete_bool)){
         $_SESSION['error'][] = Config::MSG_EXCEPTION;
-        header('Location:../page/create_page.php');
+        header('Location:../mem/mem_top.php');
         exit;
     }else{
         $_SESSION['okmsg'][] = 'ノートを削除できました！';
-        header('Location:../page/create_page.php');
+        header('Location:../mem/mem_top.php');
         exit;
         
     }
@@ -111,7 +85,7 @@ try{
 }catch(Exception $e){
     echo $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../page/create_page.php');
+    header('Location:../mem/mem_top.php');
     exit;
 }
 
