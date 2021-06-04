@@ -66,7 +66,7 @@ try {
     if($note_existence === 'exist'){
         if(isset($note_id)){
             //チャプターリストを取得しておく
-            $chapter_list = $search->findChapterInfo($note_id);
+            $chapter_list = $search->findChapterInfo('note_id', $note_id);
         }elseif(!isset($note_id) || $note_id = ''){
             $_SESSION['error'][] = 'ノートのタイトルを選択してください';    
         }

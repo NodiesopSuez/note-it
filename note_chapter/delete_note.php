@@ -36,7 +36,7 @@ try{
     $search = new Searches;
     $delete = new Deletes;
 
-    $chapter_list = $search->findChapterInfo($note_id); //チャプターリスト
+    $chapter_list = $search->findChapterInfo('note_id', $note_id); //チャプターリスト
     var_dump($chapter_list);
     $page_a = array();
     $page_b = array();

@@ -11,7 +11,7 @@ try {
 		$note_id = $_POST["selected_note_id"];
     
 		$search = new Searches;
-		$chapter_list = $search->findChapterInfo($note_id);
+		$chapter_list = $search->findChapterInfo('note_id', $note_id);
 		
 		echo json_encode($chapter_list);
 
