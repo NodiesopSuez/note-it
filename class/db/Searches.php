@@ -26,11 +26,11 @@ class Searches extends Connect {
 		return $note_list;
 	}
 
-	//note_idからchapter情報を検索($column:カラム,$id:ID) 'note_id','chapter_id'
-	public function findChapterInfo(string $column, int $id):array{
-		$sql = "SELECT * FROM chapter_info WHERE ". $column ."= :id";
+	//chapter情報を検索($column:カラム,$id:ID) 'note_id','chapter_id'
+	public function findChapterInfo(string $column, $id):array{
+		$sql = "SELECT * FROM chapter_info WHERE ". $column ." = :id";
 		$stmt = $this -> dbh -> prepare($sql);
-		$stmt -> bindValue(':note_id', $id, PDO::PARAM_INT);
+		$stmt -> bindValue(':id', $id);
 		$stmt -> execute();
 		$fetch_data = $stmt -> fetchAll(PDO::FETCH_ASSOC);
 
