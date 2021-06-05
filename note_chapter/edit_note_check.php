@@ -25,8 +25,10 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //エラーが入ってたら削除
 $_SESSION['error'] = array();
 
-$user_id   = 4; //$_SESSION['user_info']['user_id'];
-extract($_POST); //[token, note_id, color, note_title];
+$user_id    = 4; //$_SESSION['user_info']['user_id'];
+$note_id    = $_POST['note_id'];
+$color      = $_POST['color'];
+$note_title = $_POST['note_title'];
 
 try {
     $search = new Searches;
