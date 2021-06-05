@@ -55,7 +55,7 @@ try{
         header('Location:../mem/mem_top.php');
         exit;
     }else{
-        $_SESSION['okmsg'][] = 'ノートを削除できました！';
+        $_SESSION['okmsg'][] = 'チャプターを削除できました！';
         header('Location:../mem/mem_top.php');
         exit;
     }
