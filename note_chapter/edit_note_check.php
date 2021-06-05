@@ -39,9 +39,9 @@ try {
         $_SESSION['error'][] = 'ノートタイトルを入力してください';
     }
 
-    $applicable_note = $search->findOtherNoteInfo($user_id, 'note_id', $note_id);
+    $the_other_note = $search->findOtherNoteInfo($user_id, 'note_id', $note_id);
 
-    foreach($applicable_note as $key => $val){
+    foreach($the_other_note as $key => $val){
         if($note_title ===  $val['note_title'] && $color === $val['color']){
             $_SESSION['error'][] = '既に同じタイトル・カラーのノートがあります';
         }
