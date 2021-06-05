@@ -54,7 +54,7 @@ try {
         header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
         exit;
     }else{
-        header('Location:../note_chapter/edit_chapter_done.php');
+        header('Location:../note_chapter/edit_note_done.php');
         exit;
     }
 }catch(Exception $e){
