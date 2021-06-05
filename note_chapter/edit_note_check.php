@@ -7,9 +7,7 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 require_once('../class/util/Utility.php');
 require_once('../class/db/Connect.php');
-require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
-require_once('../class/db/Updates.php');
 
 /* //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
