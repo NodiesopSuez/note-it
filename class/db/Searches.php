@@ -20,7 +20,7 @@ class Searches extends Connect {
  		foreach($fetch_data as $data){
 			$note_list[$data['note_id']] = [
 				'note_title' => $data['note_title'],
-				'color' => $data['color'],
+				'color'      => $data['color'],
 			];
 		}
 		return $note_list;
@@ -42,7 +42,7 @@ class Searches extends Connect {
  		foreach($fetch_data as $data){
 			$note_list[$data['note_id']] = [
 				'note_title' => $data['note_title'],
-				'color' => $data['color'],
+				'color'      => $data['color'],
 			];
 		}
 		return $note_list;
@@ -63,7 +63,8 @@ class Searches extends Connect {
         foreach($fetch_data as $data) {
             $chapter_list[$data['chapter_id']] = [
 				'chapter_title' => $data['chapter_title'],
-				'page_type' => $data['page_type'],
+				'page_type'     => $data['page_type'],
+				'note_id'       => $data['note_id']
 			];
         }
 		return $chapter_list;
