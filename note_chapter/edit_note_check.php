@@ -39,7 +39,7 @@ try {
         $_SESSION['error'][] = 'ノートタイトルを入力してください';
     }
 
-    $applicable_note = $search->findOthterNoteInfo($user_id, 'note_id', $note_id);
+    $applicable_note = $search->findOtherNoteInfo($user_id, 'note_id', $note_id);
 
     foreach($applicable_note as $key => $val){
         if($note_title ===  $val['note_title'] && $color === $val['color']){
