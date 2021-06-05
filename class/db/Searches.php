@@ -27,7 +27,7 @@ class Searches extends Connect {
 	}
 
     //該当id以外のノートリストを取得
-	public function findOthterNoteInfo(int $user_id, string $column, int $note_id):array{
+	public function findOthterInfo(int $user_id, string $column, int $note_id):array{
 		$sql = "SELECT * FROM note_info WHERE user_id = :user_id　NOT ". $column ." = :note_id ";
 		$stmt = $this -> dbh -> prepare($sql);
 		$stmt -> bindValue(':user_id', $user_id, PDO::PARAM_INT);
