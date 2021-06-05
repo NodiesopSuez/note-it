@@ -172,6 +172,10 @@ input[type="radio"] {
     transform: scale(0.7);
 }
 
+.color_lineup label{
+    opacity: 0.5;
+}
+
 .edit_title {
     display: inline-block;
     text-align: center;

@@ -63,7 +63,7 @@ $(function(){
         $('.selected').children('.chapter').attr({ class : `chapter ${selected_note_color}`});
         $('.page_list').attr({ class : `page_list ${selected_note_color}` });
         $('.selected .note_title > p').text(selected_note_title);
-        $(`#${selected_note_color}`).prop({ checked : true });
+        $(`#${selected_note_color}`).prop({ checked : true }).parent().css({ opacity : 1 });
         $('.edit_title').text(selected_note_title);
         
         //選ばれたnote_idでchapter_list取得
