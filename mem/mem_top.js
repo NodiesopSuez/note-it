@@ -61,25 +61,21 @@ $(function(){
         $('.set_note_id').val(selected_note_id);
         $('.selected').children('.note').attr({ class : `note ${selected_note_color}`});
         $('.selected').children('.chapter').attr({ class : `chapter ${selected_note_color}`});
-        $('.page_list').attr({ class : `page_list ${selected_note_color}`});
+        $('.page_list').attr({ class : `page_list ${selected_note_color}` });
         $('.selected .note_title > p').text(selected_note_title);
         $('.edit_title').text(selected_note_title);
         
         //選ばれたnote_idでchapter_list取得
         $.ajax({
-            url : '../get_lists/get_chapter_list.php',
-            type: 'post',
-            data: { 'selected_note_id' : selected_note_id },
-            dataType: 'json',
+            url  : '../get_lists/get_chapter_list.php',
+            type : 'post',
+            data : { 'selected_note_id' : selected_note_id },
+            dataType : 'json',
         }).done(function(chapter_list){
-
-            //デバック用に出力
-            console.log(chapter_list);
-
             //chapter_list  key:chapter_id / val:chapter_title,page_type
             $.each(chapter_list, function(key, val){
                 //<buttoon>:chapter_id / <p>:chapter_title / <input>:page_type
-                let chapter_btn = $('<button>').addClass(`chapter ${selected_note_color}`).attr('value', key);
+                let chapter_btn = $('<button>').addClass(`chapter ${selected_note_color}`).attr({ value : key });
                 let chapter_p = $('<p>');
                 let page_type = $('<input>').attr({ type : 'hidden', name : 'page_type', value : val.page_type });
 
@@ -112,10 +108,10 @@ $(function(){
         //page_listのaction属性値を変更
         let selected_page_type = $(this).find('[name="page_type"]').attr('value');
         let action_to = 
-        (selected_page_type == 1) ? "../page/page_a.php" 
-        : (selected_page_type == 2) ? "../page/page_b.php" 
-        : '';
-        $('.page_list').attr('action', action_to);
+            (selected_page_type == 1) ? "../page/page_a.php" 
+            : (selected_page_type == 2) ? "../page/page_b.php" 
+            : '';
+        $('.page_list').attr({ action : action_to });
 
         //page_listからボタンを一旦削除
         $('.page_list').children('button').remove();
@@ -128,6 +124,7 @@ $(function(){
         
         //選択されたchapter_idでpage_list取得
         let selected_chapter_id = $(this).attr('value');
+        $('.set_chapter_id').attr({ value : selected_chapter_id });
 
         //selectedメニューにnote_id割り当て
         $('.set_note_id').val(selected_chapter_id);
@@ -138,14 +135,10 @@ $(function(){
             data:{ 'selected_chapter_id': selected_chapter_id },
             dataType:'json'
         }).done(function(page_list){
-            
-            //デバック用に出力
-            console.log(page_list);
-
             //page_list key:page_id / val:page_title
             $.each(page_list, function(key, val){
                 //<button>:page_id / .wrapback:折り返し / <p>:page_title
-                let page_btn = $('<button>').addClass('page').attr('value', key);
+                let page_btn = $('<button>').addClass('page').attr({ value : key });
                 let wrapback = $('<div>').addClass('wrapback');
                 let page_title = $('<p>');
 
