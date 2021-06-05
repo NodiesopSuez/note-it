@@ -26,6 +26,28 @@ class Searches extends Connect {
 		return $note_list;
 	}
 
+    //該当id以外のノートリストを取得
+	public function findOthterNoteInfo(int $user_id, string $column, int $note_id):array{
+		$sql = "SELECT * FROM note_info WHERE user_id = :user_id　NOT ". $column ." = :note_id ";
+		$stmt = $this -> dbh -> prepare($sql);
+		$stmt -> bindValue(':user_id', $user_id, PDO::PARAM_INT);
+		$stmt -> bindValue(':note_id', $note_id, PDO::PARAM_INT);
+		$stmt -> execute();
+		$fetch_data = $stmt -> fetchall(PDO::FETCH_ASSOC);
+
+		//falseならば空を返す
+		$fetch_data ? : $note_list = [];
+
+		//取得した情報をオブジェクトに格納
+ 		foreach($fetch_data as $data){
+			$note_list[$data['note_id']] = [
+				'note_title' => $data['note_title'],
+				'color' => $data['color'],
+			];
+		}
+		return $note_list;
+	}
+
 	//chapter情報を検索($column:カラム,$id:ID) 'note_id','chapter_id'
 	public function findChapterInfo(string $column, $id):array{
 		$sql = "SELECT * FROM chapter_info WHERE ". $column ." = :id";
