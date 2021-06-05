@@ -64,7 +64,7 @@ $(function(){
         $('.page_list').attr({ class : `page_list ${selected_note_color}` });
         $('.selected .note_title > p').text(selected_note_title);
         $(`#${selected_note_color}`).prop({ checked : true }).parent().css({ opacity : 1 });
-        $('.edit_title').text(selected_note_title);
+        $('.note_modal').find('.edit_title').text(selected_note_title);
         
         //選ばれたnote_idでchapter_list取得
         $.ajax({
@@ -121,7 +121,7 @@ $(function(){
         //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
         let selected_chapter_title = $(this).find('p').text();
         $('.selected .chapter > p').text(selected_chapter_title);
-        $('textarea [name="chapter_title]').text(selected_chapter_title);
+        $('.chapter_modal').find('.edit_title').text(selected_chapter_title);
         
         //選択されたchapter_idでpage_list取得
         let selected_chapter_id = $(this).attr('value');
