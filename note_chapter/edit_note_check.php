@@ -54,6 +54,7 @@ try {
         header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
         exit;
     }else{
+        $_SESSION['note_chapter'] = ['note_id' => $note_id, 'color' => $color, 'note_title' => $note_title];
         header('Location:../note_chapter/edit_note_done.php');
         exit;
     }
