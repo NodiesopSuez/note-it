@@ -55,7 +55,7 @@ $(function(){
         //選択されたノート
         let selected_note_id = $(this).attr('value'); //ノートID
         let selected_note_title = $(this).find('p').text(); //ノートタイトル
-        let selected_note_color = $(this).attr('class').replace('note', ''); //ノートカラー
+        let selected_note_color = $(this).attr('class').replace('note ', ''); //ノートカラー
 
         //selectedメニューに値をセット
         $('.set_note_id').val(selected_note_id);
@@ -63,6 +63,7 @@ $(function(){
         $('.selected').children('.chapter').attr({ class : `chapter ${selected_note_color}`});
         $('.page_list').attr({ class : `page_list ${selected_note_color}` });
         $('.selected .note_title > p').text(selected_note_title);
+        $(`#${selected_note_color}`).prop({ checked : true });
         $('.edit_title').text(selected_note_title);
         
         //選ばれたnote_idでchapter_list取得
