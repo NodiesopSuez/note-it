@@ -172,6 +172,13 @@ $(function(){
         $('.modal_section, .note_modal').slideDown();
     });
 
+    //異なるノートカラーが選択された時
+    $('.color_lineup .note_icon').on("click", function(){
+        $('.color_lineup .note_icon').css({ opacity : 0.5 });
+        $(this).css({ opacity : 1 });
+    })
+
+
     //チャプター編集のモーダル表示
     $('.selected_chapter .edit_btn').on("click", function(){
         $('.modal_back').show();//.css({ display : 'flex' });
