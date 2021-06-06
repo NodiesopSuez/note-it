@@ -54,7 +54,7 @@ try {
         exit;
     }else{
         $_SESSION['note_chapter'] = ['chapter_id' => $chapter_id, 'chapter_title' => $chapter_title];
-        header('Location:../note_chapter/edit_note_done.php');
+        header('Location:../note_chapter/edit_chapter_done.php');
         exit;
     }
 }catch(Exception $e){
