@@ -98,7 +98,7 @@ try{
                 </div>
             </div>
         
-            <div class="page_base">
+            <div class="page_base  <?= $color ?>">
                 <div class="wrapback"></div>
                 <div class="page_title"><?= $page_title ?></div>
                 <?php if(!$meaning  == '') :?><div class="meaning"><?= $meaning ?></div><?php endif ?>
