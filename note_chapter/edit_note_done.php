@@ -40,6 +40,7 @@ try {
         exit;
     }else{
         $_SESSION['okmsg'][] = 'ノートの更新ができました！';
+        $_SESSION['note_chapter'] = array();
         header('Location:../mem/mem_top.php'); 
         exit;
     }
