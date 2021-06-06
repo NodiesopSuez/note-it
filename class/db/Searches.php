@@ -27,7 +27,7 @@ class Searches extends Connect {
 	}
 
     //該当id以外のノートリストを取得
-	public function findOthterInfo(int $user_id, string $column, int $note_id):array{
+	public function findOtherNoteInfo(int $user_id, string $column, int $note_id):array{
 		$sql = "SELECT * FROM note_info WHERE user_id = :user_id AND NOT ". $column ." = :note_id ";
 		$stmt = $this -> dbh -> prepare($sql);
 		$stmt -> bindValue(':user_id', $user_id, PDO::PARAM_INT);
@@ -67,6 +67,27 @@ class Searches extends Connect {
 				'note_id'       => $data['note_id']
 			];
         }
+		return $chapter_list;
+	}
+
+	//該当id以外のチャプターリストを取得
+	public function findOtherChapterInfo(int $note_id, int $chapter_id):array{
+		$sql = "SELECT * FROM chapter_info WHERE note_id = :note_id AND NOT chapter_id = :chapter_id ";
+		$stmt = $this -> dbh -> prepare($sql);
+		$stmt -> bindValue(':note_id', $note_id, PDO::PARAM_INT);
+		$stmt -> bindValue(':chapter_id', $chapter_id, PDO::PARAM_INT);
+		$stmt -> execute();
+		$fetch_data = $stmt -> fetchall(PDO::FETCH_ASSOC);
+
+		//falseならば空を返す
+		$fetch_data ? : $chapter_list = [];
+
+		//取得した情報をオブジェクトに格納
+ 		foreach($fetch_data as $data){
+			$chapter_list[$data['chapter_id']] = [
+				'chapter_title' => $data['chapter_title']
+			];
+		}
 		return $chapter_list;
 	}
 
