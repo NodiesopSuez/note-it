@@ -32,16 +32,17 @@ extract($_POST);
 try{
     $search = new Searches;
 
-    $page_contents = $search->findPageContentsA($page_id);
+    $get_page_contents = $search->findPageContentsA($page_id);
     
     //print_r($page_contents);
-    extract($page_contents[0]);
-
+    foreach($get_page_contents[0] as $key => $val){
+        $page_contents[$key] = nl2br($val);
+    }
+    extract($page_contents);
+    $chapter_id = $get_page_contents[0]['chapter_id'];
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
     extract($chapter_info[$chapter_id]);
-    //print_r($chapter_info);
     $note_info    = $search->findNoteInfo('note_id', $note_id);
-    //var_dump($note_info);
     extract($note_info[$note_id]);
 
 }catch(Exception $e){
@@ -78,18 +79,18 @@ try{
                     <p><?= $chapter_title ?></p>
                 </div>
                 <div class="page_menu">
-                    <form class="edit" method="post" action="../note/edit_note.php">
+                    <form class="edit" method="post" action="../page/edit_page_a.php">
                         <!--ワンタイムトークン発生-->
                         <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_note_id" value=" note_id ">
+                        <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
                         <button class="edit_btn">
                             <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                         </button>
                     </form>
-                    <form class="delete" method="post" action="../note/delete_note.php">
+                    <form class="delete" method="post" action="../page/delete_page.php">
                         <!--ワンタイムトークン発生-->
                         <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_note_id" value=" note_id ">
+                        <input type="hidden" name="set_page_id" value="<?= $paeg_id ?>">
                         <button class="delete_btn">
                             <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                         </button>
@@ -100,14 +101,16 @@ try{
             <div class="page_base">
                 <div class="wrapback"></div>
                 <div class="page_title"><?= $page_title ?></div>
-                <div class="meaning"><?= $meaning ?></div>
-                <div class="syntax"><?= $syntax ?></div>
-                <div class="syn_memo"><?= $syn_memo ?></div>
-                <div class="example">
-                    <div class="ex"><?= $example ?></div>
-                    <div class="ex_memo"><?= $ex_memo ?></div>
-                </div>
-                <div class="memo"><?= $memo ?></div>
+                <?php if(!$meaning  == '') :?><div class="meaning"><?= $meaning ?></div><?php endif ?>
+                <?php if(!$syntax   == '') :?><div class="syntax"><?= $syntax ?></div><?php endif ?>
+                <?php if(!$syn_memo == ''):?><div class="syn_memo"><?= $syn_memo ?></div><?php endif ?>
+                <?php if(!$example == '' && !$ex_memo == ''):?>
+                    <div class="example">
+                        <div class="ex"><?= $example ?></div>
+                        <div class="ex_memo"><?= $ex_memo ?></div>
+                    </div>
+                <?php endif ?>
+                <?php if(!$memo == '') :?><div class="memo"><?= $memo ?></div><?php endif ?>
             </div>
             <a class="back" href="../mem/mem_top.php">    
                 back
