@@ -96,7 +96,7 @@ class Searches extends Connect {
 		if(!is_array($chapter_id)){}
 		$sql = "SELECT * FROM page_info WHERE chapter_id = :chapter_id";
 		$stmt = $this->dbh->prepare($sql);
-		$stmt->bindValue('chapter_id', $chapter_id, PDO::PARAM_INT);
+		$stmt->bindValue(':chapter_id', $chapter_id, PDO::PARAM_INT);
 		$stmt->execute();
 		$fetch_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -110,6 +110,16 @@ class Searches extends Connect {
 			];
 		}
 		return $page_list;
+	}
+
+	public function findPageContentsA($page_id){
+		$sql = "SELECT * FROM page_a_contents  INNER JOIN page_info USING(page_id) WHERE page_a_contents.page_id = :page_id ";
+		$stmt = $this->dbh->prepare($sql);
+		$stmt->bindValue(':page_id', $page_id, PDO::PARAM_STR);
+		$stmt->execute();
+		$page_contents = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+		return $page_contents;
 	}
 
 }
