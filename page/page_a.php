@@ -7,8 +7,48 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 require_once('../class/config/Icons.php');
 require_once('../class/util/Utility.php');
+require_once('../class/db/Connect.php');
+require_once('../class/db/Users.php');
+require_once('../class/db/Searches.php');
 
+//余計な情報を削除
+$_SESSION['error'] = array();
 
+/* //ログインしてなければログイン画面に
+if(empty($_SESSION['user_info'])){
+    header('Location: ../sign/sign_in.php');
+    exit;
+}
+
+//ワンタイムトークンチェック
+if(!SaftyUtil::validToken($_SESSION['token'])){
+	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	header('Location: ../sign/sign_in.php');
+	exit;
+} */
+
+extract($_POST);
+
+try{
+    $search = new Searches;
+
+    $page_contents = $search->findPageContentsA($page_id);
+    
+    //print_r($page_contents);
+    extract($page_contents[0]);
+
+    $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
+    extract($chapter_info[$chapter_id]);
+    //print_r($chapter_info);
+    $note_info    = $search->findNoteInfo('note_id', $note_id);
+    //var_dump($note_info);
+    extract($note_info[$note_id]);
+
+}catch(Exception $e){
+    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    header('Location:../mem/mem_top.php');
+    exit;
+}
 
 ?>
 
@@ -27,13 +67,15 @@ require_once('../class/util/Utility.php');
         <?php include('../inclusion/mem_header.php')?>
         
             <div class="titles">
-                <div class="note">
-                    <div>
-                        <p></p>
+                <div class="note <?= $color ?>">
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <p><?= $note_title ?></p>
                     </div>
+                    <div class="back_cover"></div>
                 </div>
-                <div class="chapter">
-                    <p></p>
+                <div class="chapter <?= $color ?>">
+                    <p><?= $chapter_title ?></p>
                 </div>
                 <div class="page_menu">
                     <form class="edit" method="post" action="../note/edit_note.php">
@@ -57,15 +99,15 @@ require_once('../class/util/Utility.php');
         
             <div class="page_base">
                 <div class="wrapback"></div>
-                <div class="page_title">JavaScriptについて</div>
-                <div class="meaning">meaning</div>
-                <div class="syntax">syntax</div>
-                <div class="syn_memo">syn_memo</div>
+                <div class="page_title"><?= $page_title ?></div>
+                <div class="meaning"><?= $meaning ?></div>
+                <div class="syntax"><?= $syntax ?></div>
+                <div class="syn_memo"><?= $syn_memo ?></div>
                 <div class="example">
-                    <div class="ex">exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample</div>
-                    <div class="ex_memo">example</div>
+                    <div class="ex"><?= $example ?></div>
+                    <div class="ex_memo"><?= $ex_memo ?></div>
                 </div>
-                <div class="memo">memo</div>
+                <div class="memo"><?= $memo ?></div>
             </div>
             <a class="back" href="../mem/mem_top.php">    
                 back
