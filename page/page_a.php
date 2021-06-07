@@ -34,11 +34,11 @@ try{
     $get_page_contents = $search->findPageContentsA($page_id);
     
     //print_r($page_contents);
-    foreach($get_page_contents[0] as $key => $val){
+    foreach($get_page_contents as $key => $val){
         $page_contents[$key] = nl2br($val);
     }
     extract($page_contents);
-    $chapter_id = $get_page_contents[0]['chapter_id'];
+    $chapter_id = $get_page_contents['chapter_id'];
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
     extract($chapter_info[$chapter_id]);
     $note_info    = $search->findNoteInfo('note_id', $note_id);
