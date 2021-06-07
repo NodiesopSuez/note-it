@@ -8,7 +8,6 @@ require_once('../class/config/Config.php');
 require_once('../class/config/Icons.php');
 require_once('../class/util/Utility.php');
 require_once('../class/db/Connect.php');
-require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 
 //余計な情報を削除
