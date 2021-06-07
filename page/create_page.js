@@ -486,7 +486,7 @@ $(function(){
     }); 
     
     //page_base　b contenteditableの入力内容をinputに代入
-    $(document).on("keyup", '.text', function(){
+    $(document).on("click", '.submit', function(){
         let set_id   = $(this).attr('id');
         let set_text = $(this).html();
         $(`#hid_${set_id}`).attr({ value : set_text });
