@@ -7,6 +7,62 @@ session_regenerate_id();
 require_once('../class/config/Config.php');
 require_once('../class/config/Icons.php');
 require_once('../class/util/Utility.php');
+require_once('../class/db/Connect.php');
+require_once('../class/db/Searches.php');
+
+//余計な情報を削除
+$_SESSION['error'] = array();
+
+/* //ログインしてなければログイン画面に
+if(empty($_SESSION['user_info'])){
+    header('Location: ../sign/sign_in.php');
+    exit;
+}
+
+//ワンタイムトークンチェック
+if(!SaftyUtil::validToken($_SESSION['token'])){
+	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	header('Location: ../sign/sign_in.php');
+	exit;
+} */
+
+extract($_POST);
+
+try{
+    $search = new Searches;
+
+    $get_page_contents = $search->findPageContentsB($page_id);
+    extract($get_page_contents['page']);
+
+    $contents = $get_page_contents['contents'];
+    //print_r($contents);
+
+    for ($i=0; $i<count($contents); $i++) {
+        if($contents[$i]['file_type'] === 'text'){
+            $contents[$i]['data'] = str_replace('<div>', '', $contents[$i]['data']);
+        }
+    }
+
+    $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
+    extract($chapter_info[$chapter_id]);
+    $note_info    = $search->findNoteInfo('note_id', $note_id);
+    extract($note_info[$note_id]);
+    
+    /*foreach($get_page_contents[0] as $key => $val){
+        $page_contents[$key] = nl2br($val);
+    }
+    extract($page_contents);
+    $chapter_id = $get_page_contents[0]['chapter_id'];
+    $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
+    extract($chapter_info[$chapter_id]);
+    $note_info    = $search->findNoteInfo('note_id', $note_id);
+    extract($note_info[$note_id]); */
+
+}catch(Exception $e){
+    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    header('Location:../mem/mem_top.php');
+    exit;
+}
 
 
 
@@ -26,19 +82,21 @@ require_once('../class/util/Utility.php');
     <div class="container">
         <?php include('../inclusion/mem_header.php')?>
             <div class="titles">
-                <div class="note">
-                    <div>
-                        <p></p>
+                <div class="note <?= $color ?>">
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <p><?= $note_title ?></p>
                     </div>
+                    <div class="back_cover"></div>
                 </div>
-                <div class="chapter">
-                    <p></p>
+                <div class="chapter <?= $color ?>">
+                    <p><?= $chapter_title ?></p>
                 </div>
                 <div class="page_menu">
                     <form class="edit" method="post" action="../note/edit_note.php">
                         <!--ワンタイムトークン発生-->
                         <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_note_id" value=" note_id ">
+                        <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
                         <button class="edit_btn">
                             <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                         </button>
@@ -46,17 +104,21 @@ require_once('../class/util/Utility.php');
                     <form class="delete" method="post" action="../note/delete_note.php">
                         <!--ワンタイムトークン発生-->
                         <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_note_id" value=" note_id ">
+                        <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
                         <button class="delete_btn">
                             <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                         </button>
                     </form>
                 </div>
             </div> 
-            <div class="page_base">
+            <div class="page_base <?= $color ?>">
                 <div class="wrapback"></div>
-                <div class="page_title">JavaScriptについて</div>
-                <div class="text">contents</div>
+                <div class="page_title"><?= $page_title ?></div>
+                <?php for($i=0; $i<count($contents); $i++):?>
+                    <?php if($contents[$i]['file_type'] === 'text'):?>
+                        <div class="text"><?= $contents[$i]['data'] ?></div>
+                    <?php endif ?>
+                <?php endfor ?>
             </div>
             <a class="back" href="../mem/mem_top.php">    
                 back
