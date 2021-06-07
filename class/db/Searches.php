@@ -113,11 +113,31 @@ class Searches extends Connect {
 	}
 
 	public function findPageContentsA($page_id){
-		$sql = "SELECT * FROM page_a_contents  INNER JOIN page_info USING(page_id) WHERE page_a_contents.page_id = :page_id ";
+		//ページ情報とコンテンツ内容をまとめて取得
+		$sql = "SELECT * FROM page_a_contents  INNER JOIN page_info USING(page_id) WHERE page_a_contents.page_id = :page_id";
 		$stmt = $this->dbh->prepare($sql);
 		$stmt->bindValue(':page_id', $page_id, PDO::PARAM_STR);
 		$stmt->execute();
-		$page_contents = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+		$page_contents = $stmt->fetchAll(PDO::FETCH_ASSOC)[0]; 
+
+		return $page_contents;
+	}
+
+	public function findPageContentsB($page_id){
+		//ページ情報取得
+		$pageinfo_sql = "SELECT * FROM page_info WHERE page_id = :page_id";
+		$get_pageinfo = $this->dbh->prepare($pageinfo_sql);
+		$get_pageinfo->bindValue(':page_id', $page_id, PDO::PARAM_STR);
+		$get_pageinfo->execute();
+		$page_contents['page'] = $get_pageinfo->fetchAll(PDO::FETCH_ASSOC)[0];
+
+
+		//コンテンツ情報だけ取得
+		$contents_sql = "SELECT * FROM page_b_contents WHERE page_id = :page_id ORDER BY contents_id ASC";
+		$get_contents = $this->dbh->prepare($contents_sql);
+		$get_contents->bindValue(':page_id', $page_id, PDO::PARAM_STR);
+		$get_contents->execute();
+		$page_contents['contents'] = $get_contents->fetchAll(PDO::FETCH_ASSOC);
 
 		return $page_contents;
 	}
