@@ -97,6 +97,12 @@ try {
         $_SESSION['error'][] = 'ページタイトルを入力してください';
     }
 
+    //サニタイズ
+    foreach ($_POST as $key => $val) {
+        $sanitized[$key] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+    }
+    extract($sanitized);
+
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
@@ -116,17 +122,16 @@ try {
     $page_b_contents = array();
 
     if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
-
-        //入力内容を$_SESSIONに格納
+        //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
             'meaning'  => $meaning,
             'syntax'   => $syntax, 
-            'syn_memo' => $syn_memo, 
+            'syn_memo' => $syn_memo,
             'example'  => $example, 
             'ex_memo'  => $ex_memo, 
             'memo'     => $memo, 
         ];
-
+        
     }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
 
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
@@ -162,7 +167,6 @@ try {
         }
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
-        var_dump($_SESSION['page']['register_contents']);
     }
     
     $search = null;
