@@ -99,7 +99,8 @@ try {
 
     //サニタイズ
     foreach ($_POST as $key => $val) {
-        $sanitized[$key] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+        //$sanitized[$key] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+        $sanitized[$key] = pg_escape_string($val);
     }
     extract($sanitized);
 

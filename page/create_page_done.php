@@ -20,25 +20,27 @@ $user_id = 4;//$_SESSION['user_info']['user_id'];
 
 var_dump($_SESSION);
 
+//サニタイズできているか判別いれる？
+
 try{
-    //登録情報をサニタイズ
     //ノート・チャプター情報
     $register_info = $_SESSION['page']['register_info'];
-    foreach($register_info as $key => $val){
-        $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
-    }
+    /* foreach($register_info as $key => $val){
+        $sanitized_info[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+    } */
     extract($register_info);
+
     //ページの内容
     $register_contents = $_SESSION['page']['register_contents'];
-    print_r($register_contents);
-    foreach($register_contents as $key => $val){
+
+    /* foreach($register_contents as $key => $val){
         if ($page_type === '1') {
-            $register_contents[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
+            $sanitized_contents[$key] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
         }elseif($page_type === '2'){
-            $register_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, "UTF-8");
-            $register_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, "UTF-8");
+            $sanitized_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, 'UTF-8');
+            $sanitized_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, 'UTF-8');
         }
-    }
+    } */
     extract($register_contents);
 
 
@@ -66,23 +68,21 @@ try{
             $page_id, $register_contents
         );
     } 
-
-    var_dump($register_contents_done);
-    echo $register_contents_done;
     
     if($register_contents_done === false){
         $_SESSION['error'][] = Config::MSG_EXCEPTION;
-        header('Location:../page/create_page.php');
+        //header('Location:../page/create_page.php');
         exit;
     }elseif($register_contents_done === true){
         $_SESSION['okmsg'][] = '新しいページを追加できました！';
-        header('Location:../mem/mem_top.php');
+        //header('Location:../mem/mem_top.php');
         exit;
     }
 
 }catch(Exception $e){
+    echo $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../page/create_page.php');    
+    //header('Location:../page/create_page.php');    
     exit;
 }
 
