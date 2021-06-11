@@ -1,0 +1,7 @@
+page/contents_img/*
+class/config/*
+class/db/Connect.php
+class/db/Searches.php
+class/db/Users.php
+class/util/Utility.php
+
