@@ -61,8 +61,9 @@ $(function(){
                                 .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
     //typeB
     let page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
-    let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true });
-    let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''});
+    /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
+    let contents         = $('<textarea>').addClass('contents text').attr({ id : 'contents_1', name : 'contents_1'});
+    /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
     let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents, hid_content);
 
     let add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
@@ -425,8 +426,8 @@ $(function(){
         let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.buttons.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
-        $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`}).text('');
-        $(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`});
+        $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
+        /* ¥¥$(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`}); */
     });
     
     //add_img_btnをクリック → 画像選択ウィンドウ表示
@@ -486,11 +487,13 @@ $(function(){
     }); 
     
     //page_base　b contenteditableの入力内容をinputに代入
-    $(document).on("click", '.submit', function(){
+    /* $(document).on("keyup", '.text', function(){
+        console.log(this)
         let set_id   = $(this).attr('id');
         let set_text = $(this).html();
+        console.log(set_text);
         $(`#hid_${set_id}`).attr({ value : set_text });
-    });
+    });  */
 
 /* contents_sectionの高さを自動調整------------------------------------ */ 
     //page_base a の場合
