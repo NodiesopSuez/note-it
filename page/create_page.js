@@ -64,7 +64,7 @@ $(function(){
     /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
     let contents         = $('<textarea>').addClass('contents text').attr({ id : 'contents_1', name : 'contents_1'});
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
-    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents, hid_content);
+    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents/* , hid_content */);
 
     let add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
     let add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
