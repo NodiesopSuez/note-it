@@ -27,36 +27,46 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 } */
 
-//user_idからノート情報検索
-/* extract($_SESSION['user_info']); */
-$search = new Searches;
-$note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
-$search = null;
 
-$user_id   = 4; //$_SESSION['user_info']['user_id'];
-$nick_name = 'あやか'; //$_SESSION['user_info']['nick_name'];
+try {
+    //user_idからノート情報検索
+    /* extract($_SESSION['user_info']); */
+    $search = new Searches;
+    $note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
 
-//現在の日本時刻を取得 >> 変数に分割
-date_default_timezone_set('Asia/Tokyo');
-$now_dt = getDate();
-extract($now_dt);
-
-if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
-	$ladybug_img = './img/ladybug_nm.png';
-    if ($hours>=5 && $hours<12) {
-		$msg = array('おはようございます!　'.$nick_name.'さん!');
-    } elseif ($hours>=12 && $hours<17) {
-        $msg = array('こんにちは!　'.$nick_name.'さん!');
-    } elseif (($hours>=17 && $hours<=23) || ($hours>=0 && $hours<5)) {
-        $msg = array('ヤァこんばんは!　'.$nick_name.'さん!');
+    $utility = new SaftyUtil;
+    foreach ($note_list as $key => $val) {
+        $note_list[$key] = $utility->sanitize(2, $val);
     }
-}elseif(!empty($_SESSION['error'])){
-	$ladybug_img = './img/ladybug_sd.png';
-	$msg = $_SESSION['error'];
-}elseif(!empty($_SESSION['okmsg'])){
-	$ladybug_img = './img/ladybug_nm.png';
-	$msg = $_SESSION['okmsg'];
-	$_SESSION['okmsg'] = array();
+    $search = null;
+
+    $user_id   = 4; //$_SESSION['user_info']['user_id'];
+    $nick_name = 'あやか'; //$_SESSION['user_info']['nick_name'];
+
+    //現在の日本時刻を取得 >> 変数に分割
+    date_default_timezone_set('Asia/Tokyo');
+    $now_dt = getDate();
+    extract($now_dt);
+
+    if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
+        $ladybug_img = './img/ladybug_nm.png';
+        if ($hours>=5 && $hours<12) {
+            $msg = array('おはようございます!　'.$nick_name.'さん!');
+        } elseif ($hours>=12 && $hours<17) {
+            $msg = array('こんにちは!　'.$nick_name.'さん!');
+        } elseif (($hours>=17 && $hours<=23) || ($hours>=0 && $hours<5)) {
+            $msg = array('ヤァこんばんは!　'.$nick_name.'さん!');
+        }
+    } elseif (!empty($_SESSION['error'])) {
+        $ladybug_img = './img/ladybug_sd.png';
+        $msg = $_SESSION['error'];
+    } elseif (!empty($_SESSION['okmsg'])) {
+        $ladybug_img = './img/ladybug_nm.png';
+        $msg = $_SESSION['okmsg'];
+        $_SESSION['okmsg'] = array();
+    }
+}catch(Exception $e){
+    echo $e->getMessage();
 }
 
 $_SESSION['okmsg'] = array();
