@@ -98,7 +98,8 @@ try {
     }
 
     //サニタイズ
-    
+    $utility = new SaftyUtil;
+    $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);
 
     //$_SESSONにノート・チャプター情報を代入
