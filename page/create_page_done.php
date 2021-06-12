@@ -25,24 +25,11 @@ var_dump($_SESSION);
 try{
     //ノート・チャプター情報
     $register_info = $_SESSION['page']['register_info'];
-    /* foreach($register_info as $key => $val){
-        $sanitized_info[$key] = htmlspecialchars($val, ENT_QUOTES, "UTF-8");
-    } */
     extract($register_info);
 
     //ページの内容
     $register_contents = $_SESSION['page']['register_contents'];
-
-    /* foreach($register_contents as $key => $val){
-        if ($page_type === '1') {
-            $sanitized_contents[$key] = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
-        }elseif($page_type === '2'){
-            $sanitized_contents[$key]['file_type'] = htmlspecialchars($val['file_type'], ENT_QUOTES, 'UTF-8');
-            $sanitized_contents[$key]['data'] = htmlspecialchars($val['data'], ENT_QUOTES, 'UTF-8');
-        }
-    } */
     extract($register_contents);
-
 
     $addition = new Addition;
 
