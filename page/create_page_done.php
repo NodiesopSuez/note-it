@@ -20,8 +20,6 @@ $user_id = 4;//$_SESSION['user_info']['user_id'];
 
 var_dump($_SESSION);
 
-//サニタイズできているか判別いれる？
-
 try{
     //ノート・チャプター情報
     $register_info = $_SESSION['page']['register_info'];
