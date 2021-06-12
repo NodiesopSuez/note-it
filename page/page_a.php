@@ -30,19 +30,23 @@ extract($_POST);
 
 try{
     $search = new Searches;
+    $utility = new SaftyUtil;
 
     $get_page_contents = $search->findPageContentsA($page_id);
-    
-    //print_r($page_contents);
+    $get_page_contents = $utility->sanitize(2, $get_page_contents);
     foreach($get_page_contents as $key => $val){
         $page_contents[$key] = nl2br($val);
     }
     extract($page_contents);
-    $chapter_id = $get_page_contents['chapter_id'];
+
+    $chapter_id   = $get_page_contents['chapter_id'];
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
-    extract($chapter_info[$chapter_id]);
+    $chapter_info = $utility->sanitize(2, $chapter_info[$chapter_id]);
+    extract($chapter_info);
+
     $note_info    = $search->findNoteInfo('note_id', $note_id);
-    extract($note_info[$note_id]);
+    $note_info    = $utility->sanitize(2, $note_info[$note_id]);
+    extract($note_info);
 
 }catch(Exception $e){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
