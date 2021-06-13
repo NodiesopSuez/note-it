@@ -30,23 +30,28 @@ extract($_POST);
 
 try{
     $search = new Searches;
+    $utility = new SaftyUtil;
 
     $get_page_contents = $search->findPageContentsB($page_id);
+
+    $get_page_contents['page'] = $utility->sanitize(2, $get_page_contents['page']);
     extract($get_page_contents['page']);
-
+    
     $contents = $get_page_contents['contents'];
-    //print_r($contents);
-
     for ($i=0; $i<count($contents); $i++) {
+        $contents[$i] = $utility->sanitize(2, $contents[$i]);
         if($contents[$i]['file_type'] === 'text'){
-            $contents[$i]['data'] = str_replace('<div>', '', $contents[$i]['data']);
+            //$contents[$i]['data'] = str_replace('<div>', '', $contents[$i]['data']);
+            $contents[$i]['data'] = nl2br($contents[$i]['data']);
         }
     }
 
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
-    extract($chapter_info[$chapter_id]);
+    $chapter_info = $utility->sanitize(2, $chapter_info[$chapter_id]);
+    extract($chapter_info);
     $note_info    = $search->findNoteInfo('note_id', $note_id);
-    extract($note_info[$note_id]);
+    $note_info    = $utility->sanitize(2, $note_info[$note_id]);
+    extract($note_info);
     
     /*foreach($get_page_contents[0] as $key => $val){
         $page_contents[$key] = nl2br($val);
@@ -59,6 +64,7 @@ try{
     extract($note_info[$note_id]); */
 
 }catch(Exception $e){
+    echo $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
@@ -117,9 +123,11 @@ try{
                 <?php for($i=0; $i<count($contents); $i++):?>
                     <?php if($contents[$i]['file_type'] === 'text'):?>
                         <div class="text"><?= $contents[$i]['data'] ?></div>
+                    <?php elseif($contents[$i]['file_type']=== 'img'):?>
+                        <img class="img" src="<?= $contents[$i]['data']?>">
                     <?php endif ?>
                 <?php endfor ?>
-            </div>
+            </い>
             <a class="back" href="../mem/mem_top.php">    
                 back
             </a>

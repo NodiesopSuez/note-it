@@ -41,7 +41,21 @@ $_SESSION['okmsg'] = array();
             
             <div class="sign_nav">
                 <a class="sign_in" href="../sign/sign_in.php"> 
-                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
+                    <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90">
+                        <defs>
+                            <linearGradient id="sign_in_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
+                                <stop  offset="0%" style="stop-color:#34d5d5"/>
+                                <stop  offset="70%" style="stop-color:#3869a9"/>
+                                <stop  offset="100%" style="stop-color:#101080"/>
+                            </linearGradient>
+                            <linearGradient id="sign_up_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
+                                <stop  offset="0%" style="stop-color:#101080"/>
+                                <stop  offset="50%" style="stop-color:#3869a9"/>
+                                <stop  offset="100%" style="stop-color:#34d5d5"/>
+                            </linearGradient>
+                        </defs>
+                        <?=Icons::TRIANGLE?>
+                    </svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
                 <div>
