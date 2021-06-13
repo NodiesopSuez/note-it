@@ -59,7 +59,10 @@
     opacity: 0.7;
 }
 
-.basic .top,
+.basic .top {
+    background: linear-gradient(-45deg,  #020126, #8595ee);
+}
+
 .basic .note_title,
 .basic .back_cover,
 .basic.chapter,
