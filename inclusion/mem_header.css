@@ -16,10 +16,10 @@ header > nav {
 }
 
 header button {
+    display: block;
     margin: auto 8px;
     padding: 8px 10px;
     background: #fff;
-    color: var(--main-font);
     border-radius: 20px;
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
@@ -27,7 +27,6 @@ header button {
 header .top {
     width: 60px;
     height: 60px;
-    background: var(--gra-blue);
     border-radius: 50%;
 }
 

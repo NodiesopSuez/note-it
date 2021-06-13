@@ -27,7 +27,6 @@ header button {
 header .top {
     width: 60px;
     height: 60px;
-    background: var(--gra-blue);
     border-radius: 50%;
 }
 

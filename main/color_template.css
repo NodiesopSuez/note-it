@@ -59,6 +59,7 @@
     opacity: 0.7;
 }
 
+.basic .top,
 .basic .note_title,
 .basic .back_cover,
 .basic.chapter,
@@ -71,7 +72,13 @@
     background: linear-gradient(-45deg, var(--gra-basic-base), var(--gra-basic-base-lt));
 }
 
+header.basic button {
+    color: var(--main-font);
+}
+
+
 /* ブルー */
+.blue .top,
 .blue .note_title,
 .blue .back_cover,
 .blue.chapter,
@@ -88,7 +95,12 @@
     background: linear-gradient(to right bottom, var(--gra-blue), var(--gra-blue-lt));
 }
 
+header.blue button {
+    color: var(--gra-blue);
+}
+
 /* イエロー */
+.yellow .top,
 .yellow .note_title,
 .yellow .back_cover,
 .yellow.chapter,
@@ -105,8 +117,13 @@
     background: linear-gradient(to right bottom, var(--gra-yellow), var(--gra-yellow-lt));
 }
 
+header.yellow button {
+    color: var(--gra-yellow);
+}
+
 
 /* ピンク */
+.pink .top,
 .pink .note_title,
 .pink .back_cover,
 .pink.chapter,
@@ -123,7 +140,12 @@
     background: linear-gradient(to right bottom, var(--gra-pink), var(--gra-pink-lt));
 }
 
+header.pink button {
+    color: var(--gra-pink);
+}
+
 /* グリーン */
+.green .top,
 .green .note_title,
 .green .back_cover,
 .green.chapter,
@@ -140,7 +162,12 @@
     background: linear-gradient(to right bottom, var(--gra-green), var(--gra-green-lt));
 }
 
+header.green button {
+    color: var(--gra-green);
+}
+
 /* パープル */
+.purple .top,
 .purple .note_title,
 .purple .back_cover,
 .purple.chapter,
@@ -156,3 +183,8 @@
 .purple .wrapback{
     background: linear-gradient(to right bottom, var(--gra-purple), var(--gra-purple-lt));
 }
+
+header.purple button {
+    color: var(--gra-purple);
+}
+
