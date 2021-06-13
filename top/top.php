@@ -5,7 +5,7 @@ session_regenerate_id();
 //外部ファイル読込
 require_once('../class/config/Icons.php');
 
-$menus = ['news'=>'n_blue','story'=>'n_pink','feature'=>'n_yellow', 'Q & A'=>'n_green'];
+$menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
 $news_content = [
     'title' => 'New Color Lineup',
@@ -14,6 +14,7 @@ $news_content = [
 
 $img = './img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
+
 
 //sign_in用
 $_SESSION['okmsg'] = array();
@@ -44,14 +45,14 @@ $_SESSION['okmsg'] = array();
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90">
                         <defs>
                             <linearGradient id="sign_in_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
-                                <stop  offset="0%" style="stop-color:#34d5d5"/>
-                                <stop  offset="70%" style="stop-color:#3869a9"/>
-                                <stop  offset="100%" style="stop-color:#101080"/>
+                                <stop  offset="0%" style="stop-color:#8595ee"/>
+                                <stop  offset="40%" style="stop-color:#292749"/>
+                                <stop  offset="100%" style="stop-color:#020126"/>
                             </linearGradient>
                             <linearGradient id="sign_up_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
-                                <stop  offset="0%" style="stop-color:#101080"/>
-                                <stop  offset="50%" style="stop-color:#3869a9"/>
-                                <stop  offset="100%" style="stop-color:#34d5d5"/>
+                                <stop  offset="10%" style="stop-color:#020126"/>
+                                <stop  offset="60%" style="stop-color:#292749"/>
+                                <stop  offset="100%" style="stop-color:#8595ee"/>
                             </linearGradient>
                         </defs>
                         <?=Icons::TRIANGLE?>
