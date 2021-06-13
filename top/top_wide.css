@@ -91,8 +91,17 @@
     position: relative;
     width: 100px;
     height: 110px;
-    background-color: transparent;
+    filter: drop-shadow(5px 5px 5px var(--body-shadow));
+    color: var(--body-base-lt);
+    transition: all 0.1s;
 }
+.sign_in:active,
+.sign_up:active {
+    transform: translate(0, 5px);
+    filter: drop-shadow(0px 0px 1px var(--body-shadow));
+    transition: all 0.1s;
+}
+
 .sign_in *,
 .sign_up *,
 .sign_in::after,
@@ -107,13 +116,18 @@
     right: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    fill: #ccc;  
+    height: 100%; 
+}
+.sign_in > .triangle_base{
+    fill: url(#sign_in_gra); 
+}
+.sign_up > .triangle_base{
+    fill: url(#sign_up_gra); 
 }
 .sign_in > .triangle,
 .sign_up > .triangle { 
     width: 25px;
-    fill: var(--gra-blue);  
+    fill: var(--body-base-lt);  
 }
 .sign_in > .triangle {
     left: 8px;
