@@ -200,33 +200,17 @@ section > img {
 .news_icon > h1,
 .news_icon > p {
     width: 98%;
-    margin: auto;
 }
 .news_icon > h1 {
     text-align: start;
     line-height: 36px;
 }
 .news_icon > p {
+    top: auto;
+    left: auto;
     text-align: end;
+    vertical-align: text-bottom;
     line-height: 26px;
-}
-.news_icon::before, 
-.news_icon::after {
-    position: absolute;
-    content: '';
-    border-style: solid
-}
-.news_icon::before {
-    top: -5px;
-    right: -5px;
-    border-width: 35px;
-    border-color: var(--body-base-lt) var(--body-base-lt) transparent transparent;
-}
-.news_icon::after {
-    top: 0;
-    right: 0;
-    border-width: 40px;
-
 }
 
 /* feature */
