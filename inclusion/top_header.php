@@ -3,7 +3,7 @@
 ?>
 
 
-<header class="blue">
+<header class="basic">
     <nav>
 <!--     <button>news</button>
     <button>story</button>
