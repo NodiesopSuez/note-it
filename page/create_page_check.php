@@ -22,30 +22,29 @@ require_once('../class/db/Searches.php');
 $user_id = 4;
 
 //ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
+/* if(!SaftyUtil::validToken($_SESSION['token'])){
     $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location:../mem/mem_top.php');
     exit;
-}
+} */
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['error'])){
     $_SESSION['error'] = array();
 }
 
-
 $_SESSION['page']  = array();
-
-
 
 try {
     //存在を宣言しておく変数
     $chapter_existence = null;
     $note_id = null;
 
-    extract($_POST); //POSTで受け取った配列を変数にする
-
     $search = new Searches;
+    $utility = new SaftyUtil;
+
+    $sanitized = $utility->sanitize(1, $_POST);
+    extract($sanitized);  //POSTで受け取った配列を変数にする
 
     //新規ノート作成の場合
     if($note_existence === 'new'){
@@ -97,11 +96,6 @@ try {
         $_SESSION['error'][] = 'ページタイトルを入力してください';
     }
 
-    //サニタイズ
-    $utility = new SaftyUtil;
-    $sanitized = $utility->sanitize(1, $_POST);
-    extract($sanitized);
-
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
@@ -132,7 +126,6 @@ try {
         ];
         
     }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
-
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         foreach($_POST as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
@@ -143,8 +136,9 @@ try {
 
         //imgファイルを
         $imgs = $_FILES;
+        
         foreach($imgs as $key => $img){
-            if($img['error'] === 0){
+            if($img['error'] === '0'){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
@@ -154,8 +148,8 @@ try {
                 //tmp_fileをディレクトリに格納
                 move_uploaded_file($img['tmp_name'], $img_path);
                 //ファイルパスとfile_type=imgを格納
-                $page_b_contents[$key]['file_type'] = 'img';
-                $page_b_contents[$key]['data']      = $img_path;
+                $page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
+                $page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
             }
         }
 
@@ -166,6 +160,7 @@ try {
         }
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
+
     }
     
     $search = null;

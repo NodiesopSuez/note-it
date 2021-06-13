@@ -18,8 +18,6 @@ require_once('../class/db/Additions.php');
 //ユーザー情報
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 
-var_dump($_SESSION);
-
 try{
     //ノート・チャプター情報
     $register_info = $_SESSION['page']['register_info'];
