@@ -63,14 +63,14 @@ textarea {
     content: '';
 }
 
-.balloon,
+/* .balloon, */
 .balloon::before,
 .balloon::after {
     text-align: center;
     background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
 }
 
-.balloon,
+/* .balloon, */
 .balloon::after {
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
