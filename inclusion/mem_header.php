@@ -3,7 +3,7 @@
 ?>
 
 
-<header>
+<header class="<?= $color ?>">
     <nav>
     <button>news</button>
     <button>Q&A</button>
