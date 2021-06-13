@@ -61,7 +61,9 @@
 
 .basic .note_title,
 .basic .back_cover,
-.basic.chapter {
+.basic.chapter,
+.basic .submit,
+.basic .back  {
     background: linear-gradient(-45deg,  var(--gra-basic), var(--gra-basic-lt));
 }
 
@@ -72,7 +74,9 @@
 /* ブルー */
 .blue .note_title,
 .blue .back_cover,
-.blue.chapter {
+.blue.chapter,
+.blue .submit,
+.blue .back {
     background: linear-gradient(-45deg,  var(--gra-blue), var(--gra-blue-lt));
 }
 
@@ -87,7 +91,9 @@
 /* イエロー */
 .yellow .note_title,
 .yellow .back_cover,
-.yellow.chapter{
+.yellow.chapter,
+.yellow .submit,
+.yellow .back {
     background: linear-gradient(-45deg,  var(--gra-yellow), var(--gra-yellow-lt));
 }
 
@@ -103,7 +109,9 @@
 /* ピンク */
 .pink .note_title,
 .pink .back_cover,
-.pink.chapter  {
+.pink.chapter,
+.pink .submit,
+.pink .back  {
     background: linear-gradient(-45deg,  var(--gra-pink), var(--gra-pink-lt));
 }
 
@@ -118,7 +126,9 @@
 /* グリーン */
 .green .note_title,
 .green .back_cover,
-.green.chapter  {
+.green.chapter,
+.green .submit,
+.green .back   {
     background: linear-gradient(-45deg,  var(--gra-green), var(--gra-green-lt));
 }
 
@@ -133,7 +143,9 @@
 /* パープル */
 .purple .note_title,
 .purple .back_cover,
-.purple.chapter  {
+.purple.chapter,
+.purple .submit,
+.purple .back {
     background: linear-gradient(-45deg,  var(--gra-purple), var(--gra-purple-lt));
 }
 

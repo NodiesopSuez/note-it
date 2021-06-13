@@ -101,6 +101,10 @@
 }
 
 
+.page_base > img { 
+    width: 100%;
+}
+
 .page_base textarea {
     resize: none;
 }
@@ -172,15 +176,12 @@
     width: 100%;
 }
 
-.back, .submit {
-    display: inline-block;
-    margin: auto auto 30px auto;
-}
-
 input[type="text"] {
     width: 100%;
     overflow: scroll;
     background: transparent;
     text-align: start !important;
 }
+
+
 

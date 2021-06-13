@@ -247,11 +247,5 @@ input[type="text"]:not(.new_chapter_title > input) {
     border-radius: 8px;
 } 
 
-.form_block > img { 
-    width: 100%;
-}
 
-.submit {
-    margin: 50px auto;
-}
 
