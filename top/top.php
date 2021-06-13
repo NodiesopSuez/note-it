@@ -84,7 +84,8 @@ $_SESSION['okmsg'] = array();
             <img src="./img/header_news.png">
             <ul>
                 <?php for($i=0; $i<=5; $i++): ?>
-                    <li class="news_icon">
+                    <li class="page news_icon blue">
+                        <div class="wrapback"></div>
                         <h1><?= $news_content['title'] ?></h1>
                         <p><?= $news_content['detail'] ?><br/>
                             <?=$news_content['date'] ?></p>
