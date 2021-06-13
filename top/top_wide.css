@@ -102,6 +102,11 @@
     transition: all 0.1s;
 }
 
+.sign_in:link, .sign_in:visited, .sign_in:hover,
+.sign_up:link, .sign_up:visited, .sign_up:hover {
+    color: var(--body-base-lt);
+}
+
 .sign_in *,
 .sign_up *,
 .sign_in::after,
@@ -184,14 +189,14 @@ section > img {
     margin: 16px auto auto auto;
     padding: 0;
     flex-wrap: wrap;
-    justify-content: space-between;
-    width: 80%;
+    justify-content: space-around;
+    width: 95%;
 }
 
 .news_icon {
     position: relative;
-    margin-bottom: 16px;
-    padding: 8px;
+    margin: 12px 28px;
+    padding: 12px;
     width: 320px;
     height: 144px;
     border-radius: 5px;
@@ -214,40 +219,51 @@ section > img {
 
 /* feature */
 .feature_contents {
+    margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 90%;
 }
 
 .feature_contents > div {
     margin: auto 10px;
     padding: 16px;
-    width: 260px;
-    height: 320px;
+    width: 250px;
+    height: 288px;
     border-radius: 5px;
     background: var(--body-base-dk);
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
 
 .feature_contents img {
-    width: 228px;
+    width: 196px;
     margin-bottom: 10px;
 }
 
 .feature_contents p {
-    margin-bottom: 0;
-    padding: 8px;
+    margin: auto auto 0 auto;
+    width: 100%;
 }
 
 .feature_contents .type {
-    padding: 0;
+    padding: 8px;
     font-size: 12px;
 }
 
 /* story部分 */
-.story,
-.story > div {
+.story_frame,
+.story_frame > div {
     position: relative;
+    width: 789px;
+}
+.story_frame {
+    margin: auto;
+}
+
+.story_frame > div {
+    left: 0;
+    right: 0;
 }
 
 .story h1 {
@@ -256,7 +272,7 @@ section > img {
 
 .first_contents {
     z-index: 10;
-    margin-top: 16px;
+    margin: 16px auto auto auto;
 }
 .first_contents > .p_bold {
     text-align: start;
@@ -271,8 +287,9 @@ section > img {
 }
 
 .second_contents {
-    top: -230px;
-    height: 550px;
+    margin: auto;
+    top: -200px;
+    height: 520px;
 }
 .second_contents img {
     z-index: 1;
@@ -291,12 +308,13 @@ section > img {
 } 
 
 .third_contents {
-    height: 570px;
-    top: -260px;
+    margin: auto;
+    height: 684px;
+    top: -170px;
 }
 .third_contents :first-child {
-    right: 196px;
-    padding: 100px 0px;
+    right: 216px;
+    padding: 110px 0px;
     width: 280px;
     height: 280px;
     border-radius: 50%;
@@ -304,7 +322,7 @@ section > img {
 }
 .third_contents :nth-child(2) {
     right: 0;
-    padding: 100px 0px;
+    padding: 114px 0px;
     top: 120px;
     width: 300px;
     height: 300px;
@@ -318,7 +336,8 @@ section > img {
 }
 
 .forth_contents {
-    top: -280px;
+    margin: auto;
+    top: -155px;
     height: 620px;
 }
 
@@ -360,14 +379,20 @@ section > img {
 }
 
 .fifth_contents {
-    top: -200px;
+    margin: auto;
+    top: -100px;
 }
 
 .fifth_contents > img {
+    margin: auto auto -24px auto;
     width: 800px;
 }
 
 .fifth_contents > h1 {
-    font-size: 60px;
+    font-size: 55px;
     text-align: center;
+}
+
+.lets_signin {
+    display: inline-block;
 }
