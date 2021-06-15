@@ -218,6 +218,10 @@ section > img {
 }
 
 /* feature */
+.feature h1 {
+    margin: 25px auto !important;
+}
+
 .feature_contents {
     margin: auto;
     display: flex;
@@ -384,7 +388,7 @@ section > img {
 }
 
 .fifth_contents > img {
-    margin: auto auto -24px auto;
+    margin: auto auto -21px auto;
     width: 800px;
 }
 
