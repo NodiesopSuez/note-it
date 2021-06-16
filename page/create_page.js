@@ -47,32 +47,34 @@ $(function(){
     let page_type_b = $('<div>').addClass('page').prepend(page_wrapback.clone(), page_type_text_b).wrapAll('<label>').parent().attr({ for : 'page_b'});
     $('.page_type').prepend(page_type_b,page_type_a);
 
+    const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
+    
     //ページコンテンツ入力フォーム
     //typeA
-    let page_a_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
-    let a_meaning        = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
-    let a_syntax         = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
-    let a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
-    let a_ex             = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
-    let a_ex_memo        = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
-    let a_example        = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
-    let a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
-    let page_a_form = $('<div>').attr({ class : 'page_base a' })
+    const page_a_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+    const a_meaning        = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
+    const a_syntax         = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
+    const a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
+    const a_ex             = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
+    const a_ex_memo        = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
+    const a_example        = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
+    const a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
+    const page_a_form = $('<div>').attr({ class : 'page_base a' })
                                 .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
     //typeB
-    let page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+    const page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
     /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
-    let contents         = $('<textarea>').addClass('contents text').attr({ id : 'contents_1', name : 'contents_1'});
+    const contents         = $('<textarea>').addClass('contents text').attr({ id : 'contents_1', name : 'contents_1'});
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
-    let form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents/* , hid_content */);
+    const form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents/* , hid_content */);
 
-    let add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
-    let add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
-    let add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
-    let add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
-    let buttons_row      = $('<div>').addClass('buttons row')
+    const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
+    const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
+    const add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
+    const add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
+    const buttons_row      = $('<div>').addClass('buttons row')
                                     .prepend(add_text_btn, add_img_btn, add_code_btn, add_quote_btn);
-    let page_b_form = $('<div>').attr({ class : 'page_base b' })
+    const page_b_form = $('<div>').attr({ class : 'page_base b' })
                                 .prepend(page_b_title, form_block, buttons_row);
 
                                 
@@ -239,7 +241,9 @@ $(function(){
         $('.page_type').find('.page').attr({ class : `page ${selected_color}`});
 
         //contents_sectionに一旦page_a_formを挿入
-        $('.contents_section').prepend(page_a_form);
+        $(page_a_form).addClass(selected_color).prependTo('.contents_section');
+        $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
+        //$('.contents_section').prepend(page_a_form);
 
         //note_sectionにカラー変更ボタン、既存ノート選択ボタンを挿入
         let exist_note_count = $('.exist_note_list').length;
@@ -355,6 +359,7 @@ $(function(){
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
+        $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
         $('#page_a').prop('checked', true);
         
         changeLadyBug();
@@ -383,9 +388,11 @@ $(function(){
         console.log(page_type);
         if(page_type == 1) {
             $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
+            $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_a').prop('checked', true);
         }else{
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
+            $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_b').prop('checked', true);
         }
         changeLadyBug();
@@ -399,8 +406,9 @@ $(function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
         $('#page_a').prop('checked', true);
         $('.contents_section').children().remove();
-        $('.contents_section').prepend(page_a_form)
+        $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
+        $(submit_btn).insertAfter('.page_base').addClass(selected_color);
 
         scrollToObject($('.page_type'));
     });
@@ -412,6 +420,7 @@ $(function(){
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_b_form);
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
+        $(submit_btn).insertAfter('.page_base').addClass(selected_color);
 
         scrollToObject($('.page_type'));
     });

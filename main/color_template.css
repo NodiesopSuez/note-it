@@ -85,7 +85,7 @@ header.basic button {
 .blue .note_title,
 .blue .back_cover,
 .blue.chapter,
-.blue .submit,
+.blue.submit,
 .blue .back {
     background: linear-gradient(-45deg,  var(--gra-blue), var(--gra-blue-lt));
 }
@@ -107,7 +107,7 @@ header.blue button {
 .yellow .note_title,
 .yellow .back_cover,
 .yellow.chapter,
-.yellow .submit,
+.yellow.submit,
 .yellow .back {
     background: linear-gradient(-45deg,  var(--gra-yellow), var(--gra-yellow-lt));
 }
@@ -130,7 +130,7 @@ header.yellow button {
 .pink .note_title,
 .pink .back_cover,
 .pink.chapter,
-.pink .submit,
+.pink.submit,
 .pink .back  {
     background: linear-gradient(-45deg,  var(--gra-pink), var(--gra-pink-lt));
 }
@@ -152,7 +152,7 @@ header.pink button {
 .green .note_title,
 .green .back_cover,
 .green.chapter,
-.green .submit,
+.green.submit,
 .green .back   {
     background: linear-gradient(-45deg,  var(--gra-green), var(--gra-green-lt));
 }
@@ -174,7 +174,7 @@ header.green button {
 .purple .note_title,
 .purple .back_cover,
 .purple.chapter,
-.purple .submit,
+.purple.submit,
 .purple .back {
     background: linear-gradient(-45deg,  var(--gra-purple), var(--gra-purple-lt));
 }

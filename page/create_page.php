@@ -259,7 +259,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 
             </section>
             <!-- 送信ボタン -->
-            <button role="submit" class="submit">submit</button>
+            <!-- <button role="submit" class="submit">submit</button> -->
         </form>
     </div>
     <!-- jQurery -->
