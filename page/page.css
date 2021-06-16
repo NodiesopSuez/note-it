@@ -60,17 +60,17 @@
     text-align: start;
 }
 .wrapback {
-    width: 70px !important;
-    height: 70px !important;
+    width: 70px;
+    height: 70px;
 }
 .wrapback::before {
-    border-color: #f3f1e7 #f3f1e7 transparent transparent !important;
-    border-width: 45px !important;
+    border-color: #f3f1e7 #f3f1e7 transparent transparent;
+    border-width: 45px;
 }
 .wrapback::after {
-    top: -10px !important;
-    right: 30px !important;
-    height: 108px !important;
+    top: -10px;
+    right: 30px;
+    height: 108px;
     box-shadow: 10px 0px 7px var(--body-shadow) !important;
 }
 

@@ -114,10 +114,14 @@ textarea {
     width: 95px;
     height: 60px;
     border-radius: 3px;
+}
+.note_title,
+textarea[name="new_note_title"] {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
-.note .note_title::-webkit-scrollbar {  /* スクロールバー非表示 safari,chrome 対応 */
+.note_title::-webkit-scrollbar,
+textarea[name="new_note_title"]::-webkit-scrollbar {
     display: none;
 }
 .note p {

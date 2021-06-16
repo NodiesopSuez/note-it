@@ -131,16 +131,16 @@ input[type="text"]:not(.new_chapter_title > input) {
     width: 120px;
     height: 49px;
 }
-.wrapback {
+.page_type .wrapback {
     width: 26px;
     height: 26px;
 }
-.wrapback::before {
+.page_type .wrapback::before {
     top: -3px;
     right: -13px;
     border-width: 21px;
 }
-.wrapback::after {
+.page_type .wrapback::after {
     top: -8px;
     right: 15px;
     width: 10px;
