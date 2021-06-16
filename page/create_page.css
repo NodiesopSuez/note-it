@@ -105,6 +105,13 @@ section {
 }
 
 /* 入力フォーム */
+textarea[name="new_note_title"]{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+textarea[name="new_note_title"]::-webkit-scrollbar{
+    display: none;
+}
 textarea[name="new_note_title"] {
     resize: none;
 }
@@ -112,8 +119,8 @@ textarea[name="new_note_title"],
 input[type="text"]:not(.new_chapter_title > input) {
     width: 100%;
     height: 100%;
-    padding: 5px;
     overflow: scroll;
+    padding: 5px;
     background: transparent;
     text-align: center;
 }
@@ -181,6 +188,7 @@ input[type="text"]:not(.new_chapter_title > input) {
 
 
 .page_base textarea {
+    overflow: hidden;
     resize: none;
 }
 
