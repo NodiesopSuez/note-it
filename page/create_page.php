@@ -15,6 +15,8 @@ require_once('../class/db/Searches.php');
     header('Location:../sign/sign_in.php');
 } */
 
+$color = 'basic';
+
 //既存ノートリスト取得
 $user_id = 4;//$_SESSION['user_info']['user_id'];
 $searches = new Searches;
