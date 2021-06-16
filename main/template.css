@@ -116,12 +116,12 @@ textarea {
     border-radius: 3px;
 }
 .note_title,
-textarea[name="new_note_title"] {
+textarea {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
 .note_title::-webkit-scrollbar,
-textarea[name="new_note_title"]::-webkit-scrollbar {
+textarea {
     display: none;
 }
 .note p {
