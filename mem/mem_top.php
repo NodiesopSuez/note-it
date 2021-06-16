@@ -14,6 +14,8 @@ require_once('../class/db/Searches.php');
 $_SESSION['error'] = array();
 $_SESSION['view_page'] = array();
 
+$color = 'basic'; //ヘッダーメニューのカラークラス
+
 /* //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
