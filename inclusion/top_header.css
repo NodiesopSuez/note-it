@@ -11,13 +11,14 @@ header {
 header > nav {
     margin: 20px;
     display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    flex-direction: column-reverse;
+    align-items: flex-end;
 }
 
 header button {
-    margin: auto 8px;
+    display: none;
     padding: 8px 10px;
+    margin: 0.3rem 0;
     background: #fff;
     color: var(--main-font);
     border-radius: 20px;

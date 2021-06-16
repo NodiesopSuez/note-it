@@ -1,7 +1,8 @@
 'use strict';
 
 $(function(){
-    $('.top').on("hover", function(){
-        console.log('hover')
+    $(document).on("hover", '.top', function(){
+        console.log('hover_dekiteiru');
+        //$('header button').slideDown();
     })
 })
