@@ -114,6 +114,11 @@ textarea {
     width: 95px;
     height: 60px;
     border-radius: 3px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.note .note_title::-webkit-scrollbar {  /* スクロールバー非表示 safari,chrome 対応 */
+    display: none;
 }
 .note p {
     width: 95px;
@@ -122,6 +127,7 @@ textarea {
     color: #fff;
     opacity: 0.7;
 }
+
 
 /* チャプター */
 .chapter { 
