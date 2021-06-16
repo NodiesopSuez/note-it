@@ -1,5 +1,7 @@
 'use strict';
 
+document.write("<script src=\"../inclusion/inclusion.js\"></script>");
+
 $(function(){
     localStorage.clear();
 
