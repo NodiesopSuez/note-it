@@ -2,6 +2,10 @@ body {
     background: linear-gradient(-45deg, var(--body-base-lt), var(--body-base-dk));
 }
 
+body * { 
+    color: var(--main-font);
+}
+
 .container {
     overflow-x: hidden;
     overflow-y: visible;

@@ -174,13 +174,14 @@ section > img {
     width: 200px;
 }
 
+.news h1,
 .feature h1,
 .story h1 {
     margin-left: 10px;
     text-align: start;
     font-size: 80px;
     font-family: HelveticaNeue-CondensedBold, sans-serif;
-    color: var(--main-font);
+    color: var(--main-font-lt);
 }
 
 /* news */
@@ -208,6 +209,7 @@ section > img {
 .news_icon > h1 {
     text-align: start;
     line-height: 36px;
+    color: var(--main-font-lt);
 }
 .news_icon > p {
     top: auto;
@@ -281,7 +283,7 @@ section > img {
 .first_contents > .p_bold {
     text-align: start;
     margin-left: 10px;
-    color: var(--main-font);
+    color: var(--main-font-lt);
 }
 
 .second_contents *,

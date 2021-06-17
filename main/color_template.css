@@ -10,7 +10,8 @@
     /* body影 */
     --body-shadow: #dbd4b7;
     /* フォント */
-    --main-font: #464480;
+    --main-font: #2e2d4c;
+    --main-font-lt: #464480;
     /*コンテンツ背景*/
     --contents-back: #f7f6f3;
 
@@ -76,7 +77,7 @@
 }
 
 header.basic button {
-    color: var(--main-font);
+    color: var(--main-font-lt);
 }
 
 

@@ -42,7 +42,7 @@
 
 /* フォーム部分 */
 label { 
-    color: var(--main-font);
+    color: var(--main-font-lt);
     font-size: 18px;
     margin-bottom: 0px;
 }
