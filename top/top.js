@@ -1,17 +1,16 @@
 'use strict';
 
-document.write("<script src=\"../inclusion/inclusion.js\"></script>");
-
 $(function(){
+
     //ページトップに自動スクロール
     function scrollToTop(){
         $('html,body').animate({ scrollTop : 0 }, { queue : false }); 
     };
 
     //各セクションのトップ位置
-    let news_top    = $('.news').offset().top;
-    let story_top   = $('.story').offset().top;
-    let feature_top = $('.feature').offset().top;
+    const news_top    = $('.news').offset().top;
+    const story_top   = $('.story').offset().top;
+    const feature_top = $('.feature').offset().top;
 
     //特定のオブジェクトにスクロール
     function scrollToObject(object){
@@ -35,11 +34,6 @@ $(function(){
 
     $(window).scroll(function(){
         let scroll_top = $(this).scrollTop();
-
-        console.log(`scrollTOP${scroll_top}`)
-        console.log(`newslTOP${news_top}`)
-        console.log(`featureTOP${feature_top}`)
-        console.log(`sstoryTOP${story_top}`)
 
         if(scroll_top < news_top - 25){
             $('header').attr({ class : 'basic' });
