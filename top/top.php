@@ -176,7 +176,7 @@ $_SESSION['okmsg'] = array();
         </section>
     </div>
 
-
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./top.js" type="text/javascript"></script>
 </body>
 </html>

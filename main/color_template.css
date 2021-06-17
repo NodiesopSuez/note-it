@@ -59,7 +59,7 @@
     opacity: 0.7;
 }
 
-.basic .top {
+.basic .to_top {
     background: linear-gradient(-45deg,  #020126, #8595ee);
 }
 
@@ -81,7 +81,7 @@ header.basic button {
 
 
 /* ブルー */
-.blue .top,
+.blue .to_top,
 .blue .note_title,
 .blue .back_cover,
 .blue.chapter,
@@ -103,7 +103,7 @@ header.blue button {
 }
 
 /* イエロー */
-.yellow .top,
+.yellow .to_top,
 .yellow .note_title,
 .yellow .back_cover,
 .yellow.chapter,
@@ -126,7 +126,7 @@ header.yellow button {
 
 
 /* ピンク */
-.pink .top,
+.pink .to_top,
 .pink .note_title,
 .pink .back_cover,
 .pink.chapter,
@@ -148,7 +148,7 @@ header.pink button {
 }
 
 /* グリーン */
-.green .top,
+.green .to_top,
 .green .note_title,
 .green .back_cover,
 .green.chapter,
@@ -170,7 +170,7 @@ header.green button {
 }
 
 /* パープル */
-.purple .top,
+.purple .to_top,
 .purple .note_title,
 .purple .back_cover,
 .purple.chapter,

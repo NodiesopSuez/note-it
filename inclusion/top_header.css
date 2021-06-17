@@ -25,7 +25,7 @@ header button {
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
 
-header .top {
+header .to_top {
     width: 60px;
     height: 60px;
     border-radius: 50%;
