@@ -348,14 +348,14 @@ section > img {
     height: 620px;
 }
 
-.balloon,
-.balloon > :nth-child(2) {
+.forth_contents .balloon,
+.forth_contents .balloon > :nth-child(2) {
     z-index: 1;
     width: 400px;
     height: 285px;
 }
-.balloon > p,
-.balloon > :nth-child(2) {
+.forth_contents .balloon > p,
+.forth_contents .balloon > :nth-child(2) {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -363,12 +363,12 @@ section > img {
     left: 0;
     margin: auto;
 }
-.balloon > p {
+.forth_contents .balloon > p {
     z-index: 2;
     height: 110px;
 }
-.balloon > :nth-child(3),
-.balloon > :nth-child(4) {
+.forth_contents .balloon > :nth-child(3),
+.forth_contents .balloon > :nth-child(4) {
     width: 130px;
 }
 
