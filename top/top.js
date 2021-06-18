@@ -20,15 +20,15 @@ $(function(){
     scrollToTop();
 
     //newsをクリックしたら
-    $(document).on("click", '.note_nav > .blue', function(){
+    $(document).on("click", '.note_nav > .blue, .nav_news', function(){
         $('html, body').animate({ scrollTop : news_top - 20}, 500);
     });
     //storyをクリックしたら
-    $(document).on("click", '.note_nav > .pink', function(){
+    $(document).on("click", '.note_nav > .pink, .nav_story', function(){
         $('html, body').animate({ scrollTop : story_top - 20}, 500);
     });
     //featureをクリックしたら
-    $(document).on("click", '.note_nav > .yellow', function(){
+    $(document).on("click", '.note_nav > .yellow, .nav_feature', function(){
         $('html, body').animate({ scrollTop : feature_top - 20}, 500);
     });
 
