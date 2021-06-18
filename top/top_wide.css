@@ -195,23 +195,24 @@ section > img {
 }
 
 .news_icon {
+    display: block;
     position: relative;
     margin: 12px 28px;
     padding: 12px;
-    width: 320px;
-    height: 144px;
+    width: 280px;
+    height: 280px;
     border-radius: 5px;
 }
-.news_icon > h1,
-.news_icon > p {
+.news_icon h1,
+.news_icon p {
     width: 98%;
 }
-.news_icon > h1 {
+.news_icon h1 {
     text-align: start;
-    line-height: 36px;
+    line-height: 60px;
     color: var(--main-font-lt);
 }
-.news_icon > p {
+.news_icon p {
     top: auto;
     left: auto;
     text-align: end;

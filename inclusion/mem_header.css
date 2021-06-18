@@ -19,10 +19,13 @@ header button {
     display: none;
     margin: 0.3rem 0;
     padding: 8px 10px;
-    outline: none;
     background: #fff;
     border-radius: 20px;
     box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+header button:focus {
+    outline: none;
 }
 
 header .to_top {
