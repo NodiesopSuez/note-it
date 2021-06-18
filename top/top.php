@@ -82,18 +82,20 @@ $_SESSION['okmsg'] = array();
         </section>
         <section class="news">
             <img src="./img/header_news.png">
-            <ul>
-                <?php for($i=0; $i<=5; $i++): ?>
-                    <li>
-                        <a class="page news_icon blue">
-                            <div class="wrapback"></div>
-                            <h1><?= $news_content['title'] ?></h1>
-                            <p><?= $news_content['detail'] ?><br/>
-                                <?=$news_content['date'] ?></p>
-                        </a>
-                    </li>
-                <?php endfor; ?>
-            </ul>
+            <form action=".///news.php">
+                <ul>
+                    <?php for($i=0; $i<=5; $i++): ?>
+                        <li>
+                            <button class="page news_icon blue" value="">
+                                <div class="wrapback"></div>
+                                <h1><?= $news_content['title'] ?></h1>
+                                <p><?= $news_content['detail'] ?><br/>
+                                    <?=$news_content['date'] ?></p>
+                            </button>
+                        </li>
+                    <?php endfor; ?>
+                </ul>
+            </form>
         </section>
         <section class="feature">
             <img src="./img/header_feature.png">

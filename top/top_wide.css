@@ -185,7 +185,7 @@ section > img {
 }
 
 /* news */
-.news > ul {
+.news ul {
     display: flex;
     margin: 16px auto auto auto;
     padding: 0;
@@ -195,7 +195,6 @@ section > img {
 }
 
 .news_icon {
-    display: block;
     position: relative;
     margin: 12px 28px;
     padding: 12px;
@@ -208,6 +207,7 @@ section > img {
     width: 98%;
 }
 .news_icon h1 {
+    margin: -70px auto auto 0;
     text-align: start;
     line-height: 60px;
     color: var(--main-font-lt);
