@@ -3,8 +3,8 @@
 $(function(){
     $('nav').on({
         "mouseenter" : function(){
-            $('header').find('button').slideDown();},
+            $('header').find('button').slideDown(200);},
         "mouseleave"  : function(){
-            $('header').find('button').slideUp();}
+            $('header').find('button').slideUp(200);}
     })
 })
