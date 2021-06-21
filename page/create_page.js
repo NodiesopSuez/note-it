@@ -175,11 +175,11 @@ $(function(){
         
         //カラーリスト
         let color_list = {
-            'blue'   : 'ブルー',
-            'pink'   : 'ピンク',
-            'yellow' : 'イエロー',
-            'green'  : 'グリーン',
             'purple' : 'パープル',
+            'green'  : 'グリーン',
+            'yellow' : 'イエロー',
+            'pink'   : 'ピンク',
+            'blue'   : 'ブルー',
         };
 
         //color_listでノートアイコン・既存ノート選択ボタンを作成,note_sectionに挿入
@@ -196,6 +196,7 @@ $(function(){
                 let color_icon = createNoteIcon(class_name, title_p);　//class_name:配色クラス title_p:表示カラー名
                 color_icon = $(color_icon).wrapAll('<label>').parent().addClass('color_label').attr({ for : `new_${class_name}` });
                 $('.note_section').prepend(color_icon);
+                $('.note_section').append(exist_note_icon);
             });
             return defer.promise();
         }
@@ -234,9 +235,9 @@ $(function(){
         $('.page_type').find('.page').attr({ class : `page ${selected_color}`});
 
         //contents_sectionに一旦page_a_formを挿入
-        $(page_a_form).addClass(selected_color).prependTo('.contents_section');
-        $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
-        //$('.contents_section').prepend(page_a_form);
+        $(page_a_form).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
+        $(submit_btn).insertAfter('.page_base').attr({ class : `submit ${selected_color}`}); 
+        
 
         //note_sectionにカラー変更ボタン、既存ノート選択ボタンを挿入
         let exist_note_count = $('.exist_note_list').length;
