@@ -25,8 +25,7 @@ input[type="radio"] {
 .ladybug { 
     z-index: 20;
     position: fixed !important;
-    margin-top: 16px;
-    min-width: 280px;
+    min-width: 194px;
     max-width: 333px;
 }
 .ladybug > img {
@@ -133,6 +132,9 @@ input[type="text"]:not(.new_chapter_title > input) {
 .page {
     width: 120px;
     height: 49px;
+}
+.page p {
+    padding: 12px 16px !important;
 }
 .page_type .wrapback {
     width: 26px;

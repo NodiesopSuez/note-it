@@ -81,14 +81,6 @@ $(function(){
 
                                 
     /* メソッド ----------------------------------------------------------------------- */ 
-    
-    //テントウのメッセージ数によって、.ladybugの高さを調整
-    /* function changeLadyBug(){
-        let message_count  = $('.balloon').text();
-        message_count = message_count.match(/\r?\n/g).length - 1;
-
-        $('.ladybug').height(`${140 + (message_count * 16)}px`);
-    } */
 
     //ページトップに自動スクロール
     function scrollToTop(){
@@ -207,9 +199,8 @@ $(function(){
             });
             return defer.promise();
         }
-
-         
         createColorList();
+        $('.balloon').children('.msg').text('ノートカラーはどれにしますか?');
         scrollToTop();
     });
 
@@ -261,7 +252,7 @@ $(function(){
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
         $('#new_chapter, #page_a').prop('checked', true);
 
-         
+        $('.balloon').children('.msg').html('ノートとチャプターのタイトルを<br/>入力してください');
         scrollToObject($('.page_type'));
 
         //hideNotes().then(showNotes());
@@ -277,6 +268,7 @@ $(function(){
         //新規ノート選択ボタンと既存ノートリストを表示
          
         createExistNoteList();
+        $('.balloon').children('.msg').text('どのノートに追加しますか?');
         scrollToTop();
     });
 
@@ -321,7 +313,8 @@ $(function(){
                 //ローカルストレージに各チャプターidとpage_tyepを格納
                 localStorage.setItem(`chapter_${key}`, val.page_type);
             })
-             
+            
+            $('.balloon').children('.msg').text('どのチャプターに追加しますか?');
             scrollToObject($('.chapter_section'));
             //exist_chapter_set.find('div, p').css({width: '0px', padding: '0px'});
             //chapter_list表示
@@ -364,9 +357,14 @@ $(function(){
         $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
         $('#page_a').prop('checked', true);
         
-         
+        $('.balloon').children('.msg').text('チャプタータイトルを入力してください');
         scrollToObject($('.page_type'));
     });
+
+    //新規チャプターのタイトルが入力されたら
+    $(document).on("keyup", 'input[name="new_chapter_title"]', function(){
+        $('.balloon').children('.msg').html('好きなタイプのページに<br/>コンテンツを追加しましょう！');
+    })
 
     //既存チャプターリストのアイコンがクリックされたら
     $(document).on("click", '.exist_chapter_list', function(){
@@ -397,7 +395,7 @@ $(function(){
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_b').prop('checked', true);
         }
-         
+        $('.balloon').children('.msg').text('ページの内容を入力しましょう！');
         scrollToObject($('.page_type'));
     });
 
@@ -412,9 +410,10 @@ $(function(){
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').addClass(selected_color);
 
+        $('.balloon').children('.msg').text('こちらはAタイプ');
         scrollToObject($('.page_type'));
     });
-
+    
     //page_type bを選択したら
     $(document).on("click", '[for="page_b"]', function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
@@ -423,7 +422,8 @@ $(function(){
         $('.contents_section').prepend(page_b_form);
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').addClass(selected_color);
-
+        
+        $('.balloon').children('.msg').text('こちらはBタイプ');
         scrollToObject($('.page_type'));
     });
 
