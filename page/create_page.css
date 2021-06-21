@@ -119,6 +119,10 @@ input[type="text"]:not(.new_chapter_title > input) {
     background: transparent;
     text-align: center;
 }
+textarea[name="new_note_title"]::placeholder {
+    color: #fff;
+    opacity: 0.5;
+  }
 /* .chapter input[name="new_chapter_title"]はtemplate.css */
 
 
