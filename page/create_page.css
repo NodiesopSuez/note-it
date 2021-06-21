@@ -26,8 +26,8 @@ input[type="radio"] {
     z-index: 20;
     position: fixed !important;
     margin-top: 16px;
-    width: 333px;
-    height: 140px;
+    min-width: 280px;
+    max-width: 333px;
 }
 .ladybug > img {
     bottom: 0;
@@ -35,19 +35,15 @@ input[type="radio"] {
     width: 90px;
 }
 .ladybug > .balloon {
-    top: 0;
-    left: 0;
+    margin: auto 0 auto auto;
     padding: 16px;
     border-radius: 20px;
 }
-.ladybug > .balloon::after {
-    position: absolute;
-    bottom: -10px;
-    left: 90px;
-    content: '';
-    width: 40px;
-    height: 40px;
-    transform: matrix(1, -0.5, -0.4, 1, 0, 0);
+.ladybug .msg {
+    padding: 16px;
+}
+.ladybug .tail {
+    margin: -6px auto auto 60px;
 }
 
 /* セクション幅・アイコンの並び */

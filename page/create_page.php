@@ -34,7 +34,7 @@ if(!empty($_SESSION['error'])){
     $ladybug_img = './img/ladybug_nm.png';
     $msg =  ['どのノートに追加しますか？'];
 }
-
+$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 ?>
 
@@ -53,12 +53,13 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
         <?php include('../inclusion/mem_header.php')?>
 
         <div class="ladybug">
-            <img src="<?= $ladybug_img ?>">
             <div class="balloon">
-                <?php foreach($msg as $m): ?>
-                <?= $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?= $show_msg ?>
+                </div>
+                <div class="tail"></div>
             </div>
+            <img src="<?= $ladybug_img ?>">
         </div>
 
         <form method="post" action="./create_page_check.php" enctype="multipart/form-data">
