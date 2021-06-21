@@ -27,6 +27,8 @@ button {
 
 p,
 .balloon > .msg {
+    overflow-wrap: break-word;
+    overflow: scroll;
     font-family: iroha-26tubaki-stdn, sans-serif;
     font-weight: 400;
     font-style: normal;
@@ -55,7 +57,7 @@ textarea {
     flex-direction: column;
 }
 
-.ladybug > img {
+.ladybug img {
     margin: auto auto 0 0;
 }
 
@@ -208,8 +210,7 @@ textarea {
     bottom: 0;
     right: 0;
     left: 0;
-    margin :auto;
-    padding: 16px;
+    margin: auto;
     text-align: start;
 }
 
