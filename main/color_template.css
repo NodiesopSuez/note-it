@@ -76,7 +76,8 @@
     background: linear-gradient(-45deg, var(--gra-basic-base), var(--gra-basic-base-lt));
 }
 
-header.basic button {
+header.basic button,
+.basic .btn {
     color: var(--main-font-lt);
 }
 
@@ -99,8 +100,13 @@ header.basic button {
     background: linear-gradient(to right bottom, var(--gra-blue), var(--gra-blue-lt));
 }
 
-header.blue button {
+header.blue button,
+.blue .btn {
     color: var(--gra-blue);
+}
+
+.blue .btn {
+    border-color: var(--gra-blue);
 }
 
 /* イエロー */
@@ -121,10 +127,14 @@ header.blue button {
     background: linear-gradient(to right bottom, var(--gra-yellow), var(--gra-yellow-lt));
 }
 
-header.yellow button {
+header.yellow button,
+.yellow .btn {
     color: var(--gra-yellow);
 }
 
+.yellow .btn {
+    border-color: var(--gra-yellow);
+}
 
 /* ピンク */
 .pink .to_top,
@@ -144,8 +154,13 @@ header.yellow button {
     background: linear-gradient(to right bottom, var(--gra-pink), var(--gra-pink-lt));
 }
 
-header.pink button {
+header.pink button,
+.pink .btn {
     color: var(--gra-pink);
+}
+
+.pink .btn {
+    border-color: var(--gra-pink);
 }
 
 /* グリーン */
@@ -166,8 +181,13 @@ header.pink button {
     background: linear-gradient(to right bottom, var(--gra-green), var(--gra-green-lt));
 }
 
-header.green button {
+header.green button,
+.green .btn {
     color: var(--gra-green);
+}
+
+.green .btn {
+    border-color: var(--gra-green);
 }
 
 /* パープル */
@@ -188,7 +208,11 @@ header.green button {
     background: linear-gradient(to right bottom, var(--gra-purple), var(--gra-purple-lt));
 }
 
-header.purple button {
+header.purple button,
+.purple .btn{
     color: var(--gra-purple);
 }
 
+.purple .btn {
+    border-color: var(--gra-purple);
+}
