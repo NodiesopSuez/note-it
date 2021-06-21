@@ -70,8 +70,8 @@ $(function(){
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
     const form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents/* , hid_content */);
 
-    const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('テキストを追加する');
-    const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('画像を追加する');
+    const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
+    const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
     //const add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
     //const add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
     const buttons_row      = $('<div>').addClass('buttons row')
@@ -482,7 +482,7 @@ $(function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
                 //画像変更ボタン(画像選択inputのlabel)
-                let change_img_btn = $('<label>').addClass('btn btn-secondary').text('画像を変更する')
+                let change_img_btn = $('<label>').addClass('btn btn-secondary').text('change image')
                 .attr({
                     for : `${set_id}`,
                     id  : `label_for_${set_form_num}`,
