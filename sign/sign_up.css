@@ -16,15 +16,14 @@
     width: 120px;
 }
 
-.ladybug > .balloon {
-    position: relative;
+.ladybug > .balloon,
+.ladybug > .balloon::before {
     top: 0;
     right: 0;
     padding: 16px;
+    min-width: 340px;
     border-radius: 50px;
-    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
     text-align: center;
-    box-shadow: 5px 5px 7px var(--body-shadow);
 }
 .ladybug > .balloon::after {
     position: absolute;

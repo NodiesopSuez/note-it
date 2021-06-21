@@ -57,14 +57,25 @@ textarea {
     position: absolute;
 }
 
-.balloon {
+.balloon,
+.balloon > p {
     position: absolute;
+}
+
+.balloon > p {
+    z-index: 20;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .balloon,
 .balloon::after {
     box-shadow: 5px 5px 7px var(--body-shadow);
 }
+
 .balloon::before {
     z-index: 20;
     content: attr(msg);
