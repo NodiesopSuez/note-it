@@ -20,7 +20,7 @@ require_once('../class/util/Utility.php');
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
@@ -58,5 +58,6 @@ require_once('../class/util/Utility.php');
                 <button role="submit" class="submit">submit</button>
             </form>
     </div>
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
 </body>
 </html>

@@ -34,7 +34,7 @@ if(!empty($_SESSION['error'])){
     $ladybug_img = './img/ladybug_nm.png';
     $msg =  ['どのノートに追加しますか？'];
 }
-
+$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 ?>
 
@@ -46,19 +46,20 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
     <link rel="stylesheet" type="text/css" href="./create_page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
         <?php include('../inclusion/mem_header.php')?>
 
         <div class="ladybug">
-            <img src="<?= $ladybug_img ?>">
             <div class="balloon">
-                <?php foreach($msg as $m): ?>
-                <?= $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?= $show_msg ?>
+                </div>
+                <div class="tail"></div>
             </div>
+            <img src="<?= $ladybug_img ?>">
         </div>
 
         <form method="post" action="./create_page_check.php" enctype="multipart/form-data">
@@ -266,6 +267,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
     </div>
     <!-- jQurery -->
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./create_page.js" type="text/javascript"></script>
 </body>
 </html>

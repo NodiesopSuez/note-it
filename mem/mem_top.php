@@ -67,6 +67,7 @@ try {
         $msg = $_SESSION['okmsg'];
         $_SESSION['okmsg'] = array();
     }
+    $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 }catch(Exception $e){
     echo $e->getMessage();
 }
@@ -82,25 +83,28 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./mem_top.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
     <?php include('../inclusion/mem_header.php')?>
         <!-- テントウメッセージ -->
         <section class="ladybug">
-            <img src="<?= $ladybug_img ?>">
             <div class="balloon">
-                <?php foreach($msg as $m) :?>
-                    <?=  $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?= $show_msg ?>
+                </div>
+                <div class="tail"></div>
             </div>
+            <div>
+            <img src="<?= $ladybug_img ?>">
             <!-- ページ追加ボタン -->
-            <form class="add_page" method="post" action="../page/create_page.php">
+            <form class="add_page basic" method="post" action="../page/create_page.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                <button class="add_btn">ADD PAGE</button>
+                <button class="submit">ADD PAGE</button>
             </form>
+            </div>
         </section>
         <!-- 既存ノートリスト -->
         <section class="note_list exist_notes">
@@ -228,9 +232,8 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
         </div>
     </section>
 
-
-
     <!-- jQurery -->
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./mem_top.js" type="text/javascript"></script>
 </body>
 </html>

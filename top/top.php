@@ -28,7 +28,7 @@ $_SESSION['okmsg'] = array();
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
@@ -60,8 +60,13 @@ $_SESSION['okmsg'] = array();
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
                 <div>
+                    <div class="balloon">
+                        <div class="msg">
+                            ようこそ♪
+                        </div>
+                        <div class="tail"></div>
+                    </div>
                     <img src="<?= $img ?>">
-                    <div class="balloon"><p><?= $msg ?></p></div>
                 </div>            
                 <a class="sign_up" href="../sign/sign_up.php">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
