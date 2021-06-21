@@ -49,22 +49,18 @@
     left: 0;
     width: 100px;
 }
-.sign_nav > div .balloon,
-.sign_nav > div .balloon::before{
-    top: 0;
-    right: 0;
+.sign_nav .balloon{
     line-height: 60px;
     width: 120px;
     height: 60px;
     border-radius: 100px;
 }
-.sign_nav > div .balloon::after {
-    bottom: 0;
-    left: 20px;
-    width: 40px;
-    height: 40px;
-    transform: matrix(1, -0.5, -0.4, 1, 0, 0);  
-}  
+.sign_nav .balloon > .msg {
+    margin: auto auto -5px auto;
+} 
+.sign_nav .balloon > .tail {
+    margin: auto;
+} 
 .sign_in,
 .sign_up {
     position: relative;

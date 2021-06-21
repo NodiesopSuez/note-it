@@ -91,9 +91,10 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
         <section class="ladybug">
             <img src="<?= $ladybug_img ?>">
             <div class="balloon">
-                <?php foreach($msg as $m) :?>
-                    <?=  $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?= $show_msg ?>
+                </div>
+                <div class="tail"></div>
             </div>
             <!-- ページ追加ボタン -->
             <form class="add_page" method="post" action="../page/create_page.php">

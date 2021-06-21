@@ -16,10 +16,14 @@
 }
 
 .ladybug > .balloon .msg {
+    margin: auto 0 -5px auto;
     padding: 16px;
     min-width: 300px;
     max-width: 380px;
-    border-radius: 50px;
+}
+
+.balloon .tail {
+    margin: auto auto -50px 120px;
 }
 
 

@@ -23,6 +23,7 @@ if(!empty($_SESSION['error'])){
 }else{
     $msg = ['ログインしてください♪'];
 }
+$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 $_SESSION['okmsg'] = array();
 ?>
 
@@ -40,9 +41,7 @@ $_SESSION['okmsg'] = array();
             <img src="<?= $ladybug ?>">
             <div class="balloon">
                 <div class="msg">
-                    <?php foreach($msg as $m): ?>
-                        <?= $m ?>
-                    <?php endforeach ?>
+                    <?= $show_msg ?>
                 </div>
                 <div class="tail"></div>
             </div>
