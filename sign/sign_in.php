@@ -38,13 +38,13 @@ $_SESSION['okmsg'] = array();
 <body>
     <div class="container">
         <div class="ladybug">
-            <img src="<?= $ladybug ?>">
             <div class="balloon">
                 <div class="msg">
                     <?= $show_msg ?>
                 </div>
                 <div class="tail"></div>
             </div>
+            <img src="<?= $ladybug ?>">
         </div>
         <form method="post" action="sign_in_check.php">
             <!-- ワンタイムトークン発生 -->
