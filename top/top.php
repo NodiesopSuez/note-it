@@ -61,7 +61,7 @@ $_SESSION['okmsg'] = array();
                 </a>
                 <div>
                     <img src="<?= $img ?>">
-                    <p class="balloon"><?= $msg ?></p>
+                    <div class="balloon"><p><?= $msg ?></p></div>
                 </div>            
                 <a class="sign_up" href="../sign/sign_up.php">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
