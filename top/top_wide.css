@@ -337,6 +337,11 @@ section > img {
     height: 620px;
 }
 
+.forth_contents .balloon {
+    background: transparent;
+    box-shadow: none;
+}
+
 .forth_contents .balloon,
 .forth_contents .balloon > :nth-child(2) {
     z-index: 1;
