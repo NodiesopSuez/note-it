@@ -253,5 +253,14 @@ input[type="text"]:not(.new_chapter_title > input) {
     border-radius: 8px;
 } 
 
+.page_base.b .buttons {
+    margin: auto;
+    justify-content: start;
+}
 
-
+.page_base.b .btn {
+    margin: auto 5px;
+    border: solid 2.5px;
+    border-radius: 9px;
+    opacity: 0.7;
+}
