@@ -58,18 +58,9 @@
     height: 60px;
     border-radius: 100px;
 }
-.sign_nav > div .balloon::before {
-    position: absolute;
-    z-index: 1;
-    width: 120px;
-    height: 60px;
-    border-radius: 100px;
-}  
 .sign_nav > div .balloon::after {
-    position: absolute;
     bottom: 0;
     left: 20px;
-    content: '';
     width: 40px;
     height: 40px;
     transform: matrix(1, -0.5, -0.4, 1, 0, 0);  

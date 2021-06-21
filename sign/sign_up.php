@@ -12,6 +12,7 @@ $birth = '';
 $gender= '';
 $ladybug = './img/ladybug_nm.png';
 $msg = ['情報を入力してください。'];
+$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 
 //エラーあるか
 if(!empty($_SESSION['error'])){
@@ -46,12 +47,13 @@ function showPrevChoice($choice){
 <body>
     <div class="container">
         <div class="ladybug">
-            <img src="<?= $ladybug ?>">
             <div class="balloon">
-                <?php foreach($msg as $m): ?>
-                <?= $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?= $show_msg ?>
+                </div>
+                <div class="tail"></div>
             </div>
+            <img src="<?= $ladybug ?>">
         </div>
         <form method="post" action="sign_up_check.php">
             <!-- ワンタイムトークン発生 -->

@@ -1,41 +1,25 @@
 /* てんとう虫 */
 .ladybug { 
-    position: relative;
     margin: 50px auto auto auto;
     width: 400px;
-    height: 200px;
-}
-
-.ladybug * {
-    position: absolute;
+    min-height: 200px;
 }
 
 .ladybug > img {
-    bottom: 0;
-    left: 0;
     width: 120px;
+    height: fit-content; 
 }
 
-.ladybug > .balloon,
-.ladybug > .balloon::before {
-    top: 0;
-    right: 0;
+.ladybug > .balloon {
+    width: 100%;
+    height: auto;
+}
+
+.ladybug > .balloon .msg {
     padding: 16px;
-    min-width: 340px;
+    min-width: 300px;
+    max-width: 380px;
     border-radius: 50px;
-    text-align: center;
-}
-.ladybug > .balloon::after {
-    position: absolute;
-    bottom: -10px;
-    right: 14em;
-    content: '';
-    width: 40px;
-    height: 40px;
-    transform: matrix(1, -0.5, -0.4, 1, 0, 0);
-    background: transparent linear-gradient(180deg, #EDF3F5 0%, #DBE9ED 100%) 0% 0%;
-    box-shadow: 5px 5px 7px var(--body-shadow);
-
 }
 
 

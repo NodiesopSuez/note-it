@@ -39,9 +39,12 @@ $_SESSION['okmsg'] = array();
         <div class="ladybug">
             <img src="<?= $ladybug ?>">
             <div class="balloon">
-                <?php foreach($msg as $m): ?>
-                <?= $m ?><br/>
-                <?php endforeach ?>
+                <div class="msg">
+                    <?php foreach($msg as $m): ?>
+                        <?= $m ?>
+                    <?php endforeach ?>
+                </div>
+                <div class="tail"></div>
             </div>
         </div>
         <form method="post" action="sign_in_check.php">
