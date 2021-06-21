@@ -58,5 +58,6 @@ require_once('../class/util/Utility.php');
                 <button role="submit" class="submit">submit</button>
             </form>
     </div>
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
 </body>
 </html>

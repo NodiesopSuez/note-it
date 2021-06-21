@@ -119,5 +119,6 @@ try{
                 back
             </a>
     </div>
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
 </body>
 </html>

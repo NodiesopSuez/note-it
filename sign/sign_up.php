@@ -92,6 +92,7 @@ function showPrevChoice($choice){
             <button type="submit" class="send">confirm</button>
         </form>
     </div>
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
 </body>
 </html>
 

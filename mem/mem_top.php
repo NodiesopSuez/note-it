@@ -229,9 +229,8 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
         </div>
     </section>
 
-
-
     <!-- jQurery -->
+    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./mem_top.js" type="text/javascript"></script>
 </body>
 </html>
