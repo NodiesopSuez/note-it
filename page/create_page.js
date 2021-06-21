@@ -83,12 +83,12 @@ $(function(){
     /* メソッド ----------------------------------------------------------------------- */ 
     
     //テントウのメッセージ数によって、.ladybugの高さを調整
-    function changeLadyBug(){
+    /* function changeLadyBug(){
         let message_count  = $('.balloon').text();
         message_count = message_count.match(/\r?\n/g).length - 1;
 
         $('.ladybug').height(`${140 + (message_count * 16)}px`);
-    }
+    } */
 
     //ページトップに自動スクロール
     function scrollToTop(){
@@ -169,7 +169,7 @@ $(function(){
 /* ページに入ったら----------------------------------------------------------------- */    
     
     //新規ノート選択ボタンと既存ノートリストを表示
-    changeLadyBug();
+    //changeLadyBug();
     createExistNoteList();
     scrollToTop();
 
@@ -208,7 +208,7 @@ $(function(){
             return defer.promise();
         }
 
-        changeLadyBug();
+        //changeLadyBug();
         createColorList();
         scrollToTop();
     });
@@ -261,7 +261,7 @@ $(function(){
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
         $('#new_chapter, #page_a').prop('checked', true);
 
-        changeLadyBug();
+        //changeLadyBug();
         scrollToObject($('.page_type'));
 
         //hideNotes().then(showNotes());
@@ -275,7 +275,7 @@ $(function(){
         //note_existence = exist をcheckedにする
         $('#exist_note').prop('checked', true);
         //新規ノート選択ボタンと既存ノートリストを表示
-        changeLadyBug();
+        //changeLadyBug();
         createExistNoteList();
         scrollToTop();
     });
@@ -321,7 +321,7 @@ $(function(){
                 //ローカルストレージに各チャプターidとpage_tyepを格納
                 localStorage.setItem(`chapter_${key}`, val.page_type);
             })
-            changeLadyBug();
+            //changeLadyBug();
             scrollToObject($('.chapter_section'));
             //exist_chapter_set.find('div, p').css({width: '0px', padding: '0px'});
             //chapter_list表示
@@ -364,7 +364,7 @@ $(function(){
         $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
         $('#page_a').prop('checked', true);
         
-        changeLadyBug();
+        //changeLadyBug();
         scrollToObject($('.page_type'));
     });
 
@@ -397,7 +397,7 @@ $(function(){
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_b').prop('checked', true);
         }
-        changeLadyBug();
+        //changeLadyBug();
         scrollToObject($('.page_type'));
     });
 
