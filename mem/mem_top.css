@@ -24,10 +24,12 @@
 }
 
 
-.add_page {
+.add_page,
+.add_page .submit {
     display: inline-block;
     width: 110px;
     height: 30px;
+    margin: auto auto 0 22px;
 }
 
 /* リスト・ボタンの並び */
