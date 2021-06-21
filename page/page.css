@@ -3,8 +3,8 @@
 }
 
 .titles {
-    z-index: -10;
-    position: absolute;
+/*     z-index: -10;
+    position: absolute; */
     margin-top: 88px;
     width: 600px;
     height: 160px;
@@ -50,7 +50,7 @@
 }
 
 .page_base {
-    position: relative;
+    /* position: relative; */
     margin: 214px auto 30px auto;
     padding: 32px;
     width: 100%;

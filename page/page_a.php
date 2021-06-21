@@ -81,24 +81,24 @@ try{
                 <div class="chapter <?= $color ?>">
                     <p><?= $chapter_title ?></p>
                 </div>
-                <div class="page_menu">
-                    <form class="edit" method="post" action="../page/edit_page_a.php">
-                        <!--ワンタイムトークン発生-->
-                        <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
-                        <button class="edit_btn">
-                            <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
-                        </button>
-                    </form>
-                    <form class="delete" method="post" action="../page/delete_page.php">
-                        <!--ワンタイムトークン発生-->
-                        <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                        <input type="hidden" name="set_page_id" value="<?= $paeg_id ?>">
-                        <button class="delete_btn">
-                            <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
-                        </button>
-                    </form>
-                </div>
+            </div>
+            <div class="page_menu">
+                <form class="edit" method="post" action="../page/edit_page_a.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
+                    <button class="edit_btn">
+                        <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
+                    </button>
+                </form>
+                <form class="delete" method="post" action="../page/delete_page.php">
+                    <!--ワンタイムトークン発生-->
+                    <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                    <input type="hidden" name="set_page_id" value="<?= $paeg_id ?>">
+                    <button class="delete_btn">
+                        <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
+                    </button>
+                </form>
             </div>
         
             <div class="page_base  <?= $color ?>">
