@@ -43,9 +43,11 @@ function showPrevChoice($choice){
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./sign_up.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
+    <?php include('../inclusion/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">

@@ -46,7 +46,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
     <link rel="stylesheet" type="text/css" href="./create_page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
     <div class="container">
