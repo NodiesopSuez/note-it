@@ -6,9 +6,49 @@ session_regenerate_id();
 //必要ファイル呼び出し
 require_once('../class/config/Config.php');
 require_once('../class/config/Icons.php');
+require_once('../class/db/Connect.php');
+require_once('../class/db/Searches.php');
 require_once('../class/util/Utility.php');
 
+/* //ログインしてなければログイン画面に
+if(empty($_SESSION['user_info'])){
+    header('Location: ../sign/sign_in.php');
+    exit;
+}
 
+//ワンタイムトークンチェック
+if(!SaftyUtil::validToken($_SESSION['token'])){
+	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	header('Location: ../sign/sign_in.php');
+	exit;
+} */
+$page_id = $_POST['set_page_id'];
+
+try {
+    $search  = new Searches;
+    $utility = new SaftyUtil;
+
+    //ページとコンテンツ情報
+    $get_page_info = $search->findPageContentsA($page_id);
+    $page_info     = $utility->sanitize(2, $get_page_info);
+    //チャプター情報
+    $chapter_id   = $page_info['chapter_id'];
+    $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
+    //ノート情報
+    $note_id   = $chapter_info[$chapter_id]['note_id'];
+    $note_info = $search->findNoteInfo('note_id', $note_id);
+
+    $note_title = $utility->sanitize(4, $note_info[$note_id]['note_title']);
+    $color      = $utility->sanitize(4, $note_info[$note_id]['color']);
+    $chapter_title = $utility->sanitize(4, $chapter_info[$chapter_id]['chapter_title']);
+
+    $search = null;
+
+}catch(Exception $e){
+    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    header('Location:../mem/mem_top.php');
+    exit;
+}
 
 ?>
 
@@ -23,41 +63,48 @@ require_once('../class/util/Utility.php');
     <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container <?= $color ?>">
         <?php include('../inclusion/mem_header.php')?>
         
-            <div class="titles">
+            <div class="titles edit_page">
                 <div class="note">
-                    <div>
-                        <p></p>
+                    <div class="note_base"></div>
+                    <div class="note_title">
+                        <p><?= $note_title ?></p>
                     </div>
+                    <div class="back_cover"></div>
                 </div>
-                <div class="chapter">
-                    <p></p>
+                <div class="chapter <?= $color ?>">
+                    <p><?= $chapter_title?></p>
                 </div>
             </div>
 
-            <form class="edit" method="post" action="../page/edit_page_a_check.php">
+            <form class="edit" method="post" action="../page/edit_page_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
+                <input type="hidden" name="page_id" value="<?= $page_id ?>">
+                <input type="hidden" name="page_type" value="1">
                 <div class="page_base">
                     <div class="wrapback"></div>
-                    <input type="text" name="page_title_a" class="page_title" placeholder="Title">
-                    <input type="text" name="meaning" class="meaning" placeholder="Meaning">
-                    <input type="text" name="syntax" class="syntax" placeholder="Syntax">
-                    <textarea name="syn_memo" class="syn_memo">syn_memo</textarea>
+                    <input type="text" name="page_title" class="page_title" value="<?= $page_info['page_title'] ?>">
+                    <input type="text" name="meaning" class="meaning" value="<?= $page_info['meaning'] ?>">
+                    <input type="text" name="syntax" class="syntax" value="<?= $page_info['syntax'] ?>">
+                    <textarea name="syn_memo" class="syn_memo"><?= $page_info['syn_memo'] ?></textarea>
                     <div class="example">
-                        <textarea name="example" class="ex">exampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexampleexample</textarea>
-                        <textarea name="ex_memo" class="ex_memo">example</textarea>
+                        <textarea name="example" class="ex"><?= $page_info['example'] ?></textarea>
+                        <textarea name="ex_memo" class="ex_memo"><?= $page_info['ex_memo'] ?></textarea>
                     </div>
-                    <textarea name="memo" class="memo">memo</textarea>
+                    <textarea name="memo" class="memo"><?= $page_info['memo'] ?></textarea>
                 </div>
-                <a class="back" href="../mem/mem_top.php">    
-                    back
-                </a>
-                <button role="submit" class="submit">submit</button>
+                <div class="buttons row">
+                    <a class="back" href="../mem/mem_top.php">    
+                        back
+                    </a>
+                    <button role="submit" class="submit">submit</button>
+                </div>
             </form>
     </div>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
+    <script src="../page/edit_page.js" type="text/javascript"></script>
 </body>
 </html>
