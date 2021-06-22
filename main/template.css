@@ -34,6 +34,12 @@ p,
     font-style: normal;
     font-size: 15px;
     letter-spacing: -0.5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+p::-webkit-scrollbar,
+.balloon > .msg::-webkit-scrollbar {
+    display: none;
 }
 
 a {
