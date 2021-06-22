@@ -26,7 +26,7 @@ if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
 }
 
 //入力内容をサニタイズ
-$entered_data = saftyUtil::sanitize($_POST);
+$entered_data = saftyUtil::sanitize(2,$_POST);
 $email = $entered_data['email'];
 $pass = $entered_data['pass'];
 

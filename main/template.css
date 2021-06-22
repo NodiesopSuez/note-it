@@ -13,6 +13,8 @@ body * {
     height: 100%;
     background-color: var(--body-base-lt);
     text-align: center;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 li {
@@ -26,6 +28,8 @@ button {
 }
 
 p,
+input,
+textarea,
 .balloon > .msg {
     overflow-wrap: break-word;
     overflow: scroll;
@@ -34,6 +38,16 @@ p,
     font-style: normal;
     font-size: 15px;
     letter-spacing: -0.5px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.container::-webkit-scrollbar,
+p::-webkit-scrollbar,
+input::-webkit-scrollbar,
+textarea::-webkit-scrollbar,
+.balloon > .msg::-webkit-scrollbar {
+    display: none;
 }
 
 a {

@@ -48,7 +48,7 @@ $_SESSION['okmsg'] = array();
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="sign_in_check.php">
+        <form method="post" action="sign_in_check.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">
@@ -59,7 +59,7 @@ $_SESSION['okmsg'] = array();
                 <label>password</label>
                 <input type="password" name="pass" class="form-controll">
             </div>
-            <button type="submit" class="send">confirm</button>
+            <button type="submit" class="submit">confirm</button>
         </form>
     </div>
     <!-- <script src="../inclusion/inclusion.js" type="text/javascript"></script> -->

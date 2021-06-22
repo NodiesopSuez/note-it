@@ -30,5 +30,36 @@ class Updates extends Connect
         return $bool;
     }
 
+    // ページ情報を更新 // typeA
+    public function updatePageContentsA(array $page_contents):bool {
+        $page_sql = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
+        $stmt = $this-> dbh->prepare($page_sql);
+        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_title', $page_contents['page_title'], PDO::PARAM_STR);
+        $update_page = $stmt->execute();
+
+        $contents_sql = "UPDATE page_a_contents 
+                SET meaning  = :meaning,
+                    syntax   = :syntax, 
+                    syn_memo = :syn_memo,
+                    example  = :example, 
+                    ex_memo  = :ex_memo, 
+                    memo     = :memo
+                WHERE page_id = :page_id";
+        $stmt = $this-> dbh->prepare($contents_sql);
+        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':meaning', $page_contents['meaning'], PDO::PARAM_STR);
+        $stmt->bindValue(':syntax', $page_contents['syntax'], PDO::PARAM_STR);
+        $stmt->bindValue(':syn_memo', $page_contents['syn_memo'], PDO::PARAM_STR);
+        $stmt->bindValue(':example', $page_contents['example'], PDO::PARAM_STR);
+        $stmt->bindValue(':ex_memo', $page_contents['ex_memo'], PDO::PARAM_STR);
+        $stmt->bindValue(':memo', $page_contents['memo'], PDO::PARAM_STR);
+        $update_contents = $stmt->execute();
+
+        $bool = ($update_page === true && $update_contents === true ) ? true : false;
+
+        return $bool;
+    }
+
 }
 ?>

@@ -67,18 +67,17 @@ try{
     <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
-    <div class="container">
+    <div class="container  <?= $color ?>">
         <?php include('../inclusion/mem_header.php')?>
-        
             <div class="titles">
-                <div class="note <?= $color ?>">
+                <div class="note">
                     <div class="note_base"></div>
                     <div class="note_title">
                         <p><?= $note_title ?></p>
                     </div>
                     <div class="back_cover"></div>
                 </div>
-                <div class="chapter <?= $color ?>">
+                <div class="chapter  <?= $color ?>">
                     <p><?= $chapter_title ?></p>
                 </div>
             </div>
@@ -100,8 +99,7 @@ try{
                     </button>
                 </form>
             </div>
-        
-            <div class="page_base  <?= $color ?>">
+            <div class="page_base">
                 <div class="wrapback"></div>
                 <div class="page_title"><?= $page_title ?></div>
                 <?php if(!$meaning  == '') :?><div class="meaning"><?= $meaning ?></div><?php endif ?>
