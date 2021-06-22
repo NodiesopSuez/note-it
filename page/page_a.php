@@ -77,7 +77,7 @@ try{
                     </div>
                     <div class="back_cover"></div>
                 </div>
-                <div class="chapter">
+                <div class="chapter  <?= $color ?>">
                     <p><?= $chapter_title ?></p>
                 </div>
             </div>
