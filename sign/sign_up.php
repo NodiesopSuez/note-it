@@ -57,7 +57,7 @@ function showPrevChoice($choice){
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="sign_up_check.php">
+        <form method="post" action="sign_up_check.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">
@@ -89,7 +89,7 @@ function showPrevChoice($choice){
                 <input type="password" name="pass2" class="form-controll">
             </div>
 
-            <button type="submit" class="send">confirm</button>
+            <button type="submit" class="submit">confirm</button>
         </form>
     </div>
     <!-- <script src="../inclusion/inclusion.js" type="text/javascript"></script> -->

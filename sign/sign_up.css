@@ -74,9 +74,3 @@ input[name="email"],
 input[name="name"] {
     width: 100%;
 }
-
-.send {
-    width: 142px;
-    height: 46px;
-    border-radius: 23px;
-}
