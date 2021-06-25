@@ -10,7 +10,7 @@ require_once('../class/util/Utility.php');
 
 print_r($_SESSION['data']);
 //情報をサニタイズして変数に代入
-$add_data = saftyUtil::sanitize($_SESSION['data']);
+$add_data = saftyUtil::sanitize(1,$_SESSION['data']);
 $nick_name = $add_data['nick_name'];
 $gender = $add_data['gender'];
 $email = $add_data['email'];
