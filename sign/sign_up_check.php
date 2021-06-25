@@ -84,6 +84,7 @@ if(!empty($_SESSION['error'])){
 }
 
 }catch(Exception $e){
+	echo $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
 	header('Location:../sign/sign_up.php');
 	exit;
