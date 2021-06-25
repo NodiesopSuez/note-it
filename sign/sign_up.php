@@ -12,7 +12,6 @@ $birth = '';
 $gender= '';
 $ladybug = './img/ladybug_nm.png';
 $msg = ['情報を入力してください。'];
-$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 
 //エラーあるか
 if(!empty($_SESSION['error'])){
@@ -21,6 +20,7 @@ if(!empty($_SESSION['error'])){
     $msg = $_SESSION['error'];
 }
 
+$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 
 //前回入力時の値を表示
 function showPrevContents($contents){
@@ -57,7 +57,7 @@ function showPrevChoice($choice){
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="sign_up_check.php" class="basic">
+        <form method="post" action="../sign/sign_up_check.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">

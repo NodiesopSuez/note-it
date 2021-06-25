@@ -11,12 +11,12 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Additions.php');
 
 //ログインしてなければログイン画面へ
-/* if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_data'])){
     header('Location:../sign/sign_in.php');
-} */
+}
 
 //ユーザー情報
-$user_id = 4;//$_SESSION['user_info']['user_id'];
+$user_id = $_SESSION['user_info']['user_id'];
 
 try{
     //ノート・チャプター情報

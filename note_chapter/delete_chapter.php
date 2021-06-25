@@ -11,7 +11,7 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 require_once('../class/db/Deletes.php');
 
-/* //ログインしてなければログイン画面に
+//ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
     exit;
@@ -22,7 +22,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
-} */
+}
 
 //エラーが入ってたら削除
 if(!empty($_SESSIONT['error'])){

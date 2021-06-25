@@ -11,14 +11,14 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 
 //ログインしてなければログイン画面へ
-/* if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_data'])){
     header('Location:../sign/sign_in.php');
-} */
+}
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
 //既存ノートリスト取得
-$user_id = 4;//$_SESSION['user_info']['user_id'];
+$user_id = $_SESSION['user_info']['user_id'];
 $searches = new Searches;
 $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 

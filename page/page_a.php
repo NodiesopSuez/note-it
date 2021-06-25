@@ -13,18 +13,18 @@ require_once('../class/db/Searches.php');
 //余計な情報を削除
 $_SESSION['error'] = array();
 
-/* //ログインしてなければログイン画面に
+//ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
     exit;
 }
 
 //ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
-	header('Location: ../sign/sign_in.php');
-	exit;
-} */
+if (!SaftyUtil::validToken($_SESSION['token'])) {
+    $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+    header('Location: ../sign/sign_in.php');
+    exit;
+}
 
 extract($_POST);
 

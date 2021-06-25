@@ -74,6 +74,8 @@ if(
 		$_SESSION['error'][] = 'パスワードは半角英数字8桁以上で入力してください。';
 	}
 
+print_r($_SESSION['error']);
+
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
 	header('Location:../sign/sign_up.php');

@@ -13,17 +13,17 @@ require_once('../class/db/Searches.php');
 //print_r($_POST);
 //print_r($_FILES);
 
-//ログインしてなければログイン画面へ
-/* if(empty($_SESSION['user_data'])){
+//ログインしてなければログイン画面
+if(empty($_SESSION['user_data'])){
     header('Location:../sign/sign_in.php');
-} */
+}
 
 //ワンタイムトークンチェック
-/* if(!SaftyUtil::validToken($_SESSION['token'])){
+if(!SaftyUtil::validToken($_SESSION['token'])){
     $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location:../mem/mem_top.php');
     exit;
-} */
+}
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['error'])){

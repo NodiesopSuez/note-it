@@ -11,7 +11,7 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 require_once('../class/db/Updates.php');
 
-/* //ログインしてなければログイン画面に
+//ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
     exit;
@@ -22,12 +22,12 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
-} */
+}
 
 //エラーが入ってたら削除
 $_SESSION['error'] = array();
 
-$user_id = 4; //$_SESSION['user_info']['user_id'];
+$user_id = $_SESSION['user_info']['user_id'];
 extract($_SESSION['note_chapter']); //[chapter_id, chapter_title];
 var_dump($chapter_id);
 

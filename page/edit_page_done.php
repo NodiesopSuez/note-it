@@ -11,9 +11,9 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Updates.php');
 
 //ログインしてなければログイン画面へ
-/* if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_data'])){
     header('Location:../sign/sign_in.php');
-} */
+}
 
 
 try{

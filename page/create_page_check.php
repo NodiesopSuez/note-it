@@ -14,19 +14,19 @@ require_once('../class/db/Searches.php');
 //print_r($_FILES);
 
 //ログインしてなければログイン画面へ
-/* if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_data'])){
     header('Location:../sign/sign_in.php');
-} */
+}
 
-//$user_id = $_SESSION['user_data']['user_id'];
-$user_id = 4;
+$user_id = $_SESSION['user_data']['user_id'];
+
 
 //ワンタイムトークンチェック
-/* if(!SaftyUtil::validToken($_SESSION['token'])){
+if(!SaftyUtil::validToken($_SESSION['token'])){
     $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location:../mem/mem_top.php');
     exit;
-} */
+}
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['error'])){
