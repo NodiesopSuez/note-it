@@ -115,9 +115,9 @@ try {
                     <!-- ボタンリスト -->
                     <div class="buttons row">
                         <!-- テキスト追加ボタン -->
-                        <button id="add_text" class="btn" type="button">テキストを追加する</button>
+                        <button id="add_text" class="btn" type="button">+ text</button>
                         <!-- 画像追加ボタン -->
-                        <button id="add_img" class="btn" type="button">画像を追加する</button>
+                        <button id="add_img" class="btn" type="button">+ image</button>
                         <!-- コード追加ボタン -->
                         <!-- <button id="add_code" class="btn" type="button">コードを追加する</button> -->
                         <!-- 引用追加ボタン -->
