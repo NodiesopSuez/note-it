@@ -65,10 +65,14 @@
     background: linear-gradient(-45deg,  #020126, #8595ee);
 }
 
+.back {
+    color: #766d56;
+    background: linear-gradient(-45deg,  #ccc5b1, #eeece7);
+}
+
 .basic .note_title,
 .basic .back_cover,
-.basic.chapter,
-.basic .back  {
+.basic.chapter {
     background: linear-gradient(-45deg,  var(--gra-basic), var(--gra-basic-lt));
 }
 
@@ -82,13 +86,13 @@ header.basic button,
 }
 
 
+
 /* ブルー */
 .blue .to_top,
 .blue .note_title,
 .blue .back_cover,
 .blue.chapter,
-.blue.submit,
-.blue .back {
+.blue.submit {
     background: linear-gradient(-45deg,  var(--gra-blue), var(--gra-blue-lt));
 }
 
@@ -109,13 +113,17 @@ header.blue button,
     border-color: var(--gra-blue);
 }
 
+/* .blue .back {
+    border: 1px solid var(--gra-blue);
+    color: var(--gra-blue);  
+} */
+
 /* イエロー */
 .yellow .to_top,
 .yellow .note_title,
 .yellow .back_cover,
 .yellow.chapter,
-.yellow.submit,
-.yellow .back {
+.yellow.submit {
     background: linear-gradient(-45deg,  var(--gra-yellow), var(--gra-yellow-lt));
 }
 
@@ -136,13 +144,18 @@ header.yellow button,
     border-color: var(--gra-yellow);
 }
 
+/* .yellow .back {
+    opacity: 0.7;
+    border: 1px solid var(--gra-yellow-lt);
+    color: var(--gra-yellow-lt);  
+} */
+
 /* ピンク */
 .pink .to_top,
 .pink .note_title,
 .pink .back_cover,
 .pink.chapter,
-.pink.submit,
-.pink .back  {
+.pink.submit {
     background: linear-gradient(-45deg,  var(--gra-pink), var(--gra-pink-lt));
 }
 
@@ -163,13 +176,17 @@ header.pink button,
     border-color: var(--gra-pink);
 }
 
+/* .pink .back {
+    border: 1px solid var(--gra-pink);
+    color: var(--gra-pink);  
+} */
+
 /* グリーン */
 .green .to_top,
 .green .note_title,
 .green .back_cover,
 .green.chapter,
-.green.submit,
-.green .back   {
+.green.submit {
     background: linear-gradient(-45deg,  var(--gra-green), var(--gra-green-lt));
 }
 
@@ -189,14 +206,18 @@ header.green button,
 .green .btn {
     border-color: var(--gra-green);
 }
+/* 
+.green .back {
+    border: 1px solid var(--gra-green);
+    color: var(--gra-green);  
+} */
 
 /* パープル */
 .purple .to_top,
 .purple .note_title,
 .purple .back_cover,
 .purple.chapter,
-.purple.submit,
-.purple .back {
+.purple.submit {
     background: linear-gradient(-45deg,  var(--gra-purple), var(--gra-purple-lt));
 }
 
@@ -216,3 +237,8 @@ header.purple button,
 .purple .btn {
     border-color: var(--gra-purple);
 }
+
+/* .purple .back {
+    border: 1px solid var(--gra-purple);
+    color: var(--gra-purple);  
+} */
