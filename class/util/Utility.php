@@ -27,6 +27,8 @@ class SaftyUtil{
 			}
 		}elseif($db_or_html === 3){
 			$sanitized = pg_escape_string($array);
+		}elseif($db_or_html === 4){
+			$sanitized = htmlspecialchars($array, ENT_QUOTES, 'UTF-8');
 		}
 		return $sanitized;
 	}
