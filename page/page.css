@@ -191,4 +191,7 @@ input[type="text"] {
     margin: 0;
 }
 
-
+/* edit_page */
+.delete {
+    margin: auto auto .5rem auto
+}
