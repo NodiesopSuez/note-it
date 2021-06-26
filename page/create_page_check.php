@@ -14,11 +14,11 @@ require_once('../class/db/Searches.php');
 //print_r($_FILES);
 
 //ログインしてなければログイン画面へ
-if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_info'])){
     header('Location:../sign/sign_in.php');
 }
 
-$user_id = $_SESSION['user_data']['user_id'];
+$user_id = $_SESSION['user_info']['user_id'];
 
 
 //ワンタイムトークンチェック

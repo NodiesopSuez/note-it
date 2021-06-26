@@ -11,7 +11,7 @@ require_once('../class/db/Users.php');
 require_once('../class/db/Searches.php');
 
 //ログインしてなければログイン画面へ
-if(empty($_SESSION['user_data'])){
+if(empty($_SESSION['user_info'])){
     header('Location:../sign/sign_in.php');
 }
 

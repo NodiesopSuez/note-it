@@ -25,7 +25,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 //エラーが入ってたら削除
 $_SESSION['error'] = array();
 
-$user_id   = S_SESSION['user_info']['user_id'];
+$user_id = $_SESSION['user_info']['user_id'];
 extract($_POST); //[token, chapter_id, chapter_title];
 
 try {

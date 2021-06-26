@@ -102,11 +102,11 @@ try {
                             <?php elseif($val['file_type'] === 'img') :?>
                                 <img id="thumb_contents_<?= $num ?>" src="<?= $val['data'] ?>">
                                 <input class="contents img" type="file" id="contents_<?= $num ?>" accept="image/*" style="display:none">
-                                <label class="btn btn-secondary" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
+                                <label class="btn" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
                                     change image
                                 </label>
                             <?php endif ?>
-                            <button class="delete btn btn-secondary" val="<?= $val['data'] ?>" id="delete_<?= $num ?>"  role="button">
+                            <button class="delete btn" val="<?= $val['data'] ?>" id="delete_<?= $num ?>"  role="button">
                                 delete image
                             </button>
                         </div>
