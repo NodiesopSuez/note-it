@@ -100,7 +100,7 @@ try{
                 </div>
             </div> 
             <div class="page_menu">
-                <form class="edit" method="post" action="../note/edit_note.php">
+                <form class="edit" method="post" action="../page/edit_page_b.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="set_page_id" value="<?= $page_id ?>">

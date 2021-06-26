@@ -3,8 +3,6 @@
 }
 
 .titles {
-/*     z-index: -10;
-    position: absolute; */
     margin-top: 88px;
     width: 600px;
     height: 160px;
@@ -182,13 +180,23 @@ input[type="text"] {
     text-align: start !important;
 }
 
-.buttons.row {
-    margin: auto auto 50px auto;
-    justify-content: center;
-}
-
 .buttons.row * {
     margin: 0;
 }
 
+.page_base.b .buttons {
+    margin: auto;
+    justify-content: start;
+}
 
+.page_base.b .btn {
+    margin: auto 5px;
+    border: solid 2.5px;
+    border-radius: 9px;
+    opacity: 0.7;
+}
+
+/* edit_page */
+.delete {
+    margin: auto auto .5rem auto
+}

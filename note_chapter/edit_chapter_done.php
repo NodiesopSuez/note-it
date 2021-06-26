@@ -29,7 +29,6 @@ $_SESSION['error'] = array();
 
 $user_id = $_SESSION['user_info']['user_id'];
 extract($_SESSION['note_chapter']); //[chapter_id, chapter_title];
-var_dump($chapter_id);
 
 try {
     $update = new Updates;

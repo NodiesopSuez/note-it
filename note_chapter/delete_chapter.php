@@ -29,7 +29,6 @@ if(!empty($_SESSIONT['error'])){
     $_SESSION['error'] = array();
 }
 
-//extract($_SESSION['user_info']);
 var_dump($_POST);
 $chapter_id = $_POST['chapter_id'];
 

@@ -29,7 +29,6 @@ if(!empty($_SESSIONT['error'])){
     $_SESSION['error'] = array();
 }
 
-//extract($_SESSION['user_info']);
 $note_id = $_POST['note_id'];
 
 try{
