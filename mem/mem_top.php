@@ -42,8 +42,8 @@ try {
     }
     $search = null;
 
-    $user_id   = 4; //$_SESSION['user_info']['user_id'];
-    $nick_name = 'あやか'; //$_SESSION['user_info']['nick_name'];
+    $user_id   = $_SESSION['user_info']['user_id'];
+    $nick_name = $_SESSION['user_info']['nick_name'];
 
     //現在の日本時刻を取得 >> 変数に分割
     date_default_timezone_set('Asia/Tokyo');
