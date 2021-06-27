@@ -1,10 +1,11 @@
 {
-    "require": {
-        "php": "~7.0",
-        "ext-mbstring": "*"
-      },
-
-    "compile": [
-        "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
-    ]
+  "require" : {
+    "silex/silex": "^2.0.4",
+    "monolog/monolog": "^1.22",
+    "twig/twig": "^2.0",
+    "symfony/twig-bridge": "^3"
+  },
+  "require-dev": {
+    "heroku/heroku-buildpack-php": "*"
   }
+}
