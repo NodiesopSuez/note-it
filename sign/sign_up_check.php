@@ -3,10 +3,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
-require_once('../class/config/Config.php');
-require_once('../class/util/Utility.php');
-require_once('../class/db/Connect.php');
-require_once('../class/db/Users.php');
+ require_once __DIR__ . '/class/config/Config.php');
+ require_once __DIR__ . '/class/util/Utility.php');
+ require_once __DIR__ . '/class/db/Connect.php');
+ require_once __DIR__ . '/class/db/Users.php');
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_POST['token'])){
@@ -28,7 +28,6 @@ extract($_SESSION['data']);
 
 //入力されたメールアドレスでユーザ情報検索
 $users = new Users;
-var_dump($nick_name);
 $category = 'email';
 //$user_info = $users->findUserInfo($email, $category);
 

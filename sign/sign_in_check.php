@@ -4,10 +4,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
-require_once('../class/db/Connect.php');
-require_once('../class/db/Users.php');
-require_once('../class/config/Config.php');
-require_once('../class/util/Utility.php');
+ require_once __DIR__ . '/class/db/Connect.php';
+ require_once __DIR__ . '/class/db/Users.php';
+ require_once __DIR__ . '/class/config/Config.php';
+ require_once __DIR__ . '/class/util/Utility.php';
 
 //エラ〜メッセージを空にする
 $_SESSION['error'] = array();

@@ -3,8 +3,8 @@ session_start();
 session_regenerate_id();
 
 //外部ファイル読込
-require_once('../class/config/Config.php');
-require_once('../class/util/Utility.php');
+ require_once __DIR__ . '/class/config/Config.php');
+ require_once __DIR__ . '/class/util/Utility.php');
 
 $email = '';
 $nick_name = '';

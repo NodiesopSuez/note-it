@@ -4,10 +4,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
-require_once('../class/config/Config.php');
-require_once('../class/util/Utility.php');
-require_once('../class/db/Connect.php');
-require_once('../class/db/Searches.php');
+ require_once __DIR__ . '/class/config/Config.php';
+ require_once __DIR__ . '/class/util/Utility.php';
+ require_once __DIR__ . '/class/db/Connect.php';
+ require_once __DIR__ . '/class/db/Searches.php';
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){

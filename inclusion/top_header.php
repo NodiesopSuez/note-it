@@ -1,5 +1,5 @@
 <?php
-    require_once('../class/config/Icons.php');
+     require_once __DIR__ . '/class/config/Icons.php';
 ?>
 
 

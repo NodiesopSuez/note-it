@@ -3,10 +3,10 @@ session_start();
 session_regenerate_id();
 
 //外部ファイル読込
-require_once('../class/db/Connect.php');
-require_once('../class/db/Users.php');
-require_once('../class/config/Config.php');
-require_once('../class/util/Utility.php');
+ require_once __DIR__ . '/class/db/Connect.php';
+ require_once __DIR__ . '/class/db/Users.php';
+ require_once __DIR__ . '/class/config/Config.php';
+ require_once __DIR__ . '/class/util/Utility.php';
 
 print_r($_SESSION['data']);
 //情報をサニタイズして変数に代入
