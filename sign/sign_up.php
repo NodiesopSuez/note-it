@@ -1,6 +1,8 @@
 <?php
 session_start();
 session_regenerate_id();
+ 
+var_dump($_SESSION);
 
 //外部ファイル読込
 require_once('../class/config/Config.php');
