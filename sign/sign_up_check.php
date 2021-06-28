@@ -74,7 +74,7 @@ if(
 		$_SESSION['error'][] = 'パスワードは半角英数字8桁以上で入力してください。';
 	}
 
-print_r($_SESSION['error']);
+print_r($_SESSION);
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
