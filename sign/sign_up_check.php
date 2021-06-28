@@ -78,17 +78,17 @@ print_r($_SESSION['error']);
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
-	header('Location:../sign/sign_up.php');
+	//header('Location:../sign/sign_up.php');
 	exit;
 }else{
-	header('Location:../sign/sign_up_done.php');
+	//header('Location:../sign/sign_up_done.php');
 	exit;
 }
 
 }catch(Exception $e){
 	echo $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-	header('Location:../sign/sign_up.php');
+	//header('Location:../sign/sign_up.php');
 	exit;
 }
 
