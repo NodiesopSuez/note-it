@@ -65,8 +65,7 @@ if($pass == '' || mb_ereg_match('^(\s|　)+$',$pass)){
 	$_SESSION['error'][] = 'パスワードが一致しません。';
 }
 
-if(
-	preg_match("/^[a-zA-z0-9]|[!\"#<=>&~@%+$\'\*\^\(\)\[\]\|\/\.,_-]+$/",$pass)==false
+if(preg_match("/^[a-zA-z0-9]|[!\"#<=>&~@%+$\'\*\^\(\)\[\]\|\/\.,_-]+$/",$pass)==false
 	|| preg_match("/^[a-zA-z0-9]|[!\"#<=>&~@%+$\'\*\^\(\)\[\]\|\/\.,_-]+$/",$pass2)==false
 	|| strlen($pass)<8
 	|| strlen($pass2)<8
@@ -74,8 +73,9 @@ if(
 		$_SESSION['error'][] = 'パスワードは半角英数字8桁以上で入力してください。';
 	}
 	
-echo 'エラーは<br/>';
-var_dump($_SESSION);
+echo '<br/>ここは出力できてる';
+
+
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
