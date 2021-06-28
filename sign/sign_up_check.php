@@ -20,11 +20,7 @@ if(!empty($_SESSION['error'])){
     $_SESSION = array();
 }
 
-echo "テスト<br/>";
-print_r($_POST);
-
-
-/* try{
+try{
 //受け取った情報を変数に代入
 $_SESSION['data'] = $_POST;
 print_r($_SESSION['data']);
@@ -35,8 +31,6 @@ $db = new Users;
 $category = 'email';
 $user_info = $db->findUserInfo($email, $category);
 $db = null;
-
-var_dump($user_info);
 
 //メールアドレス NG >> 空欄・半角でない・@入力ない・同一アドレス存在
 if($email == '' || mb_ereg_match('^(\s|　)+$',$email)){
@@ -98,6 +92,6 @@ if(!empty($_SESSION['error'])){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
 	//header('Location:../sign/sign_up.php');
 	exit;
-} */
+}
 
 ?>
