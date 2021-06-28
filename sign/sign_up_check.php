@@ -20,7 +20,11 @@ if(!empty($_SESSION['error'])){
     $_SESSION = array();
 }
 
-try{
+echo "テスト<br/>";
+print_r($_POST);
+
+
+/* try{
 //受け取った情報を変数に代入
 $_SESSION['data'] = $_POST;
 print_r($_SESSION['data']);
@@ -94,6 +98,6 @@ if(!empty($_SESSION['error'])){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
 	//header('Location:../sign/sign_up.php');
 	exit;
-}
+} */
 
 ?>
