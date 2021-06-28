@@ -29,7 +29,7 @@ extract($_SESSION['data']);
 //入力されたメールアドレスでユーザ情報検索
 $db = new Users;
 $category = 'email';
-$user_info = $db->findUserInfo($email, $category);
+//$user_info = $db->findUserInfo($email, $category);
 $db = null;
 
 //メールアドレス NG >> 空欄・半角でない・@入力ない・同一アドレス存在
