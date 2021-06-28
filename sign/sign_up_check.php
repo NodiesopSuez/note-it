@@ -27,11 +27,11 @@ print_r($_SESSION['data']);
 extract($_SESSION['data']);
 
 //入力されたメールアドレスでユーザ情報検索
-$db = new Users;
-echo 'kokoOK';
+$users = new Users;
+var_dump($nick_name);
 $category = 'email';
-//$user_info = $db->findUserInfo($email, $category);
-$db = null;
+//$user_info = $users->findUserInfo($email, $category);
+
 
 //メールアドレス NG >> 空欄・半角でない・@入力ない・同一アドレス存在
 if($email == '' || mb_ereg_match('^(\s|　)+$',$email)){
@@ -76,7 +76,7 @@ if(preg_match("/^[a-zA-z0-9]|[!\"#<=>&~@%+$\'\*\^\(\)\[\]\|\/\.,_-]+$/",$pass)==
 	
 echo '<br/>ここは出力できてる';
 
-
+$users = null;
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['error'])){
