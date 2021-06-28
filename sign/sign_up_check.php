@@ -32,6 +32,8 @@ $category = 'email';
 $user_info = $db->findUserInfo($email, $category);
 $db = null;
 
+var_dump($user_info);
+
 //メールアドレス NG >> 空欄・半角でない・@入力ない・同一アドレス存在
 if($email == '' || mb_ereg_match('^(\s|　)+$',$email)){
 	$_SESSION['error'][] = 'メールアドレスを入力してください。';
