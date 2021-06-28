@@ -13,19 +13,17 @@ class Connect {
 
     public function __construct(){
         $db = parse_url(getenv("DATABASE_URL"));
-        $dsn = sprintf('pgsql:host=%s;dbname=%s', $db['host'], substr($db['path'], 1));
 
-        $pdo = new PDO($dsn, $db['user'], $db['pass']);
-        var_dump($pdo->getAttribute(PDO::ATTR_SERVER_VERSION)); 
-
-        /* $pdo = new PDO("pgsql:" . sprintf(
+        $pdo = new PDO("pgsql:" . sprintf(
             "host=%s;port=%s;user=%s;password=%s;dbname=%s",
             $db["host"],
             $db["port"],
             $db["user"],
             $db["pass"],
             ltrim($db["path"], "/")
-        )); */
+        ));
+
+        $pdo->dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 }
 ?>
