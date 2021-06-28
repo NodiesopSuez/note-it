@@ -1,0 +1,4 @@
+Fatal error: Uncaught Error: Call to a member function setEncodingKey() on null in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/set_encoding_key.php:6
+Stack trace:
+#0 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/set_encoding_key.php on line 6

@@ -1,0 +1,19 @@
+001+ Fatal error: Uncaught Error: Call to a member function setEncodingKey() on null in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/set_encoding_key.php:6
+002+ Stack trace:
+003+ #0 {main}
+004+   thrown in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/set_encoding_key.php on line 6
+001- bool(true)
+002- bool(true)
+003- string(18) "set using encoding"
+004- OK
+005- bool(true)
+006- bool(false)
+007- OK
+008- bool(true)
+009- string(18) "set using encoding"
+010- OK
+011- bool(true)
+012- bool(false)
+013- bool(true)
+014- string(18) "set using encoding"
+015- OK

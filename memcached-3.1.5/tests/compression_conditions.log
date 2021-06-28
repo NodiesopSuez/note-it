@@ -1,0 +1,59 @@
+
+---- EXPECTED OUTPUT
+len=[4877] set=[zlib] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[fastlz] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[zlib] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[fastlz] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[zlib] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[fastlz] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[zlib] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[fastlz] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[zlib] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[fastlz] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[zlib] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[fastlz] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[zlib] factor=[0.3] threshold=[2000]
+bool(true)
+len=[4877] set=[fastlz] factor=[0.3] threshold=[2000]
+bool(true)
+len=[4877] set=[] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[zlib] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[fastlz] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[] factor=[0.3] threshold=[2000]
+bool(true)
+---- ACTUAL OUTPUT
+len=[4877] set=[zlib] factor=[1.3] threshold=[4]
+
+Fatal error: Uncaught Error: Call to a member function setOption() on null in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php:35
+Stack trace:
+#0 /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php(45): fetch_with_compression(NULL, 'hello01', 'Lorem ipsum dol...', 'zlib', 1.3, 4)
+#1 {main}
+  thrown in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php on line 35
+---- FAILED

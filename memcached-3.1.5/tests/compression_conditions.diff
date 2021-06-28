@@ -1,0 +1,53 @@
+002+ 
+003+ Fatal error: Uncaught Error: Call to a member function setOption() on null in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php:35
+004+ Stack trace:
+005+ #0 /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php(45): fetch_with_compression(NULL, 'hello01', 'Lorem ipsum dol...', 'zlib', 1.3, 4)
+006+ #1 {main}
+007+   thrown in /Applications/XAMPP/xamppfiles/htdocs/note-it/memcached-3.1.5/tests/compression_conditions.php on line 35
+002- bool(true)
+003- len=[4877] set=[fastlz] factor=[1.3] threshold=[4]
+004- bool(true)
+005- len=[4877] set=[] factor=[1.3] threshold=[4]
+006- bool(true)
+007- len=[7] set=[zlib] factor=[1.3] threshold=[4]
+008- bool(true)
+009- len=[7] set=[fastlz] factor=[1.3] threshold=[4]
+010- bool(true)
+011- len=[7] set=[] factor=[1.3] threshold=[4]
+012- bool(true)
+013- len=[4877] set=[zlib] factor=[0.3] threshold=[4]
+014- bool(true)
+015- len=[4877] set=[fastlz] factor=[0.3] threshold=[4]
+016- bool(true)
+017- len=[4877] set=[] factor=[0.3] threshold=[4]
+018- bool(true)
+019- len=[7] set=[zlib] factor=[0.3] threshold=[4]
+020- bool(true)
+021- len=[7] set=[fastlz] factor=[0.3] threshold=[4]
+022- bool(true)
+023- len=[7] set=[] factor=[0.3] threshold=[4]
+024- bool(true)
+025- len=[4877] set=[zlib] factor=[1.3] threshold=[2000]
+026- bool(true)
+027- len=[4877] set=[fastlz] factor=[1.3] threshold=[2000]
+028- bool(true)
+029- len=[4877] set=[] factor=[1.3] threshold=[2000]
+030- bool(true)
+031- len=[7] set=[zlib] factor=[1.3] threshold=[2000]
+032- bool(true)
+033- len=[7] set=[fastlz] factor=[1.3] threshold=[2000]
+034- bool(true)
+035- len=[7] set=[] factor=[1.3] threshold=[2000]
+036- bool(true)
+037- len=[4877] set=[zlib] factor=[0.3] threshold=[2000]
+038- bool(true)
+039- len=[4877] set=[fastlz] factor=[0.3] threshold=[2000]
+040- bool(true)
+041- len=[4877] set=[] factor=[0.3] threshold=[2000]
+042- bool(true)
+043- len=[7] set=[zlib] factor=[0.3] threshold=[2000]
+044- bool(true)
+045- len=[7] set=[fastlz] factor=[0.3] threshold=[2000]
+046- bool(true)
+047- len=[7] set=[] factor=[0.3] threshold=[2000]
+048- bool(true)

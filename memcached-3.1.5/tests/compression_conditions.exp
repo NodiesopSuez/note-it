@@ -1,0 +1,48 @@
+len=[4877] set=[zlib] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[fastlz] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[zlib] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[fastlz] factor=[1.3] threshold=[4]
+bool(true)
+len=[7] set=[] factor=[1.3] threshold=[4]
+bool(true)
+len=[4877] set=[zlib] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[fastlz] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[zlib] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[fastlz] factor=[0.3] threshold=[4]
+bool(true)
+len=[7] set=[] factor=[0.3] threshold=[4]
+bool(true)
+len=[4877] set=[zlib] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[fastlz] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[zlib] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[fastlz] factor=[1.3] threshold=[2000]
+bool(true)
+len=[7] set=[] factor=[1.3] threshold=[2000]
+bool(true)
+len=[4877] set=[zlib] factor=[0.3] threshold=[2000]
+bool(true)
+len=[4877] set=[fastlz] factor=[0.3] threshold=[2000]
+bool(true)
+len=[4877] set=[] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[zlib] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[fastlz] factor=[0.3] threshold=[2000]
+bool(true)
+len=[7] set=[] factor=[0.3] threshold=[2000]
+bool(true)
