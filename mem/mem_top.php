@@ -16,8 +16,6 @@ $_SESSION['view_page'] = array();
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
-var_dump($_SESSION['user_info']);
-
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
@@ -34,9 +32,9 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 
 try {
     //user_idからノート情報検索
-    /* extract($_SESSION['user_info']); */
+    extract($_SESSION['user_info']);
     $search = new Searches;
-    $note_list = $search->findNoteInfo('user_id', 4/* $user_id */);
+    $note_list = $search->findNoteInfo('user_id', $user_id );
 
     $utility = new SaftyUtil;
     foreach ($note_list as $key => $val) {
