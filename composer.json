@@ -1,11 +1,11 @@
 {
   "require" : {
-    "silex/silex": "^2.0.4",
     "monolog/monolog": "^1.22",
     "twig/twig": "^2.0",
     "symfony/twig-bridge": "^3",
     "php": "^7.4.0",
     "ext-mbstring": "*",
-    "ext-memcached": "*"
+    "ext-memcached": "*",
+    "symfony/flex": "^1.13"
   }
 }
