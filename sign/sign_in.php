@@ -4,8 +4,8 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once __DIR__ . '/class/config/Config.php';
- require_once __DIR__ . '/class/util/Utility.php';
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 $msg = [];
 $ladybug = './img/ladybug_nm.png';
@@ -30,7 +30,7 @@ $_SESSION['okmsg'] = array();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./sign_up.css" media="screen and (min-width:1024px)">
@@ -38,7 +38,7 @@ $_SESSION['okmsg'] = array();
 </head>
 <body>
     <div class="container">
-    <?php include('../inclusion/top_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/inclusion/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">

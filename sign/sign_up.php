@@ -3,8 +3,8 @@ session_start();
 session_regenerate_id();
 
 //外部ファイル読込
- require_once __DIR__ . '/class/config/Config.php');
- require_once __DIR__ . '/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 $email = '';
 $nick_name = '';
@@ -39,7 +39,7 @@ function showPrevChoice($choice){
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./sign_up.css" media="screen and (min-width:1024px)">
@@ -47,7 +47,7 @@ function showPrevChoice($choice){
 </head>
 <body>
     <div class="container">
-    <?php include('../inclusion/top_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/inclusion/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">

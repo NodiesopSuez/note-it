@@ -1,7 +1,7 @@
 <?php
- require_once __DIR__ . '/class/config/Config.php';
- require_once __DIR__ . '/class/db/Connect.php';
- require_once __DIR__ . '/class/db/Searches.php';
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 try {
     header('Content-Type: application/json; charset=UTF-8');

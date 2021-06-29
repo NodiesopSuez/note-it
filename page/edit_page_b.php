@@ -4,11 +4,11 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once __DIR__ . '/class/config/Config.php';
- require_once __DIR__ . '/class/config/Icons.php';
- require_once __DIR__ . '/class/db/Connect.php';
- require_once __DIR__ . '/class/db/Searches.php';
- require_once __DIR__ . '/class/util/Utility.php';
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
@@ -60,7 +60,7 @@ try {
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
@@ -68,7 +68,7 @@ try {
 </head>
 <body>
     <div class="container <?= $color ?>">
-        <?php include('../inclusion/mem_header.php')?>
+        <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
         
             <div class="titles edit_page">
                 <div class="note">

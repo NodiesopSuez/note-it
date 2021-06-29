@@ -24,7 +24,7 @@ $_SESSION['okmsg'] = array();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">

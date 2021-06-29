@@ -3,10 +3,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once __DIR__ . '/class/config/Config.php');
- require_once __DIR__ . '/class/util/Utility.php');
- require_once __DIR__ . '/class/db/Connect.php');
- require_once __DIR__ . '/class/db/Users.php');
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_POST['token'])){

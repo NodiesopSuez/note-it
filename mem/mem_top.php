@@ -4,11 +4,11 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once __DIR__ . '/class/config/Config.php';
- require_once __DIR__ . '/class/util/Utility.php';
- require_once __DIR__ . '/class/db/Connect.php';
- require_once __DIR__ . '/class/db/Users.php';
- require_once __DIR__ . '/class/db/Searches.php';
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 //余計な情報を削除
 $_SESSION['error'] = array();
@@ -79,7 +79,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./mem_top.css" media="screen and (min-width:1024px)">
@@ -87,7 +87,7 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 </head>
 <body>
     <div class="container">
-    <?php include('../inclusion/mem_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
         <!-- テントウメッセージ -->
         <section class="ladybug">
             <div class="balloon">

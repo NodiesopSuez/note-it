@@ -4,11 +4,11 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once __DIR__ . '/class/config/Config.php';
- require_once __DIR__ . '/class/util/Utility.php';
- require_once __DIR__ . '/class/db/Connect.php';
- require_once __DIR__ . '/class/db/Users.php';
- require_once __DIR__ . '/class/db/Searches.php';
+ require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 //ログインしてなければログイン画面へ
 if(empty($_SESSION['user_info'])){
@@ -41,7 +41,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('../head.php')?>
+    <?php include(dirname(__FILE__, 2).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
@@ -50,7 +50,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 </head>
 <body>
     <div class="container">
-        <?php include('../inclusion/mem_header.php')?>
+        <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
 
         <div class="ladybug">
             <div class="balloon">
