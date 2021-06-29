@@ -23,7 +23,7 @@ class Connect {
             ltrim($db["path"], "/")
         ));
 
-        $pdo->dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 }
 ?>
