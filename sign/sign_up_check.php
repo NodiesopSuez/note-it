@@ -3,10 +3,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_POST['token'])){
@@ -24,12 +24,13 @@ try{
 //受け取った情報を変数に代入
 $_SESSION['data'] = $_POST;
 print_r($_SESSION['data']);
+echo 'kokohaOK';
 extract($_SESSION['data']);
 
 //入力されたメールアドレスでユーザ情報検索
 $users = new Users;
 $category = 'email';
-//$user_info = $users->findUserInfo($email, $category);
+$user_info = $users->findUserInfo($email, $category);
 
 
 //メールアドレス NG >> 空欄・半角でない・@入力ない・同一アドレス存在
