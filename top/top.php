@@ -1,6 +1,6 @@
 <?php
-//session_start();
-//session_regenerate_id();
+session_start();
+session_regenerate_id();
 
 //外部ファイル読込
 require_once(dirname(__FILE__, 2) . '/class/config/Icons.php');
