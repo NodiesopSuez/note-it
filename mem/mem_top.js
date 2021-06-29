@@ -49,7 +49,6 @@ $(function(){
     $(document).on("click", '.exist_notes .note', function(){
         //スクロール
         $('.chapter_list').css({ 'min-height' : '400px' });
-        scrollToObject('.selected_note');
 
         //chapter_listとpage_listのボタン一旦削除
         $('.chapter_list, .page_list').children('button').remove();
@@ -69,7 +68,8 @@ $(function(){
         $(`#${selected_note_color}`).prop({ checked : true }).parent().css({ opacity : 1 });
         $('.note_modal').find('.edit_title').text(selected_note_title);
         $('.selected_note').css({ display : 'flex' });
-        
+        scrollToObject('.selected_note');
+
         //選ばれたnote_idでchapter_list取得
         $.ajax({
             url  : '../get_lists/get_chapter_list.php',
@@ -107,8 +107,7 @@ $(function(){
     $(document).on("click", '.chapter_list > .chapter', function(){
         //スクロール
         $('.page_list').css({'min-height': '400px'});
-        scrollToObject('.selected_chapter');
-
+        
         //選ばれたチャプターのpage_typeによって
         //page_listのaction属性値を変更
         let selected_page_type = $(this).find('[name="page_type"]').val();
@@ -116,26 +115,27 @@ $(function(){
             (selected_page_type == 1) ? "../page/page_a.php" 
             : (selected_page_type == 2) ? "../page/page_b.php" 
             : '';
-        $('.page_list').attr({ action : action_to });
-
-        //page_listからボタンを一旦削除
-        $('.page_list').children('button').remove();
-
-        //selectedメニューのチャプタータイトルと
-        //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
-        let selected_chapter_title = $(this).find('p').text();
-        $('.selected .chapter > p').text(selected_chapter_title);
-        $('.chapter_modal').find('.edit_title').text(selected_chapter_title);
-        
-        //選択されたchapter_idでpage_list取得
-        let selected_chapter_id = $(this).val();
-        $('.set_chapter_id').val(selected_chapter_id);
-
-        //selectedメニューにnote_id割り当て
-        $('.set_note_id').val(selected_chapter_id);
-        $('.selected_chapter').css({ display : 'flex' });
-
-        
+            $('.page_list').attr({ action : action_to });
+            
+            //page_listからボタンを一旦削除
+            $('.page_list').children('button').remove();
+            
+            //selectedメニューのチャプタータイトルと
+            //ノート編集モーダルのtextareaを、選ばれたノートタイトルに書き換え
+            let selected_chapter_title = $(this).find('p').text();
+            $('.selected .chapter > p').text(selected_chapter_title);
+            $('.chapter_modal').find('.edit_title').text(selected_chapter_title);
+            
+            //選択されたchapter_idでpage_list取得
+            let selected_chapter_id = $(this).val();
+            $('.set_chapter_id').val(selected_chapter_id);
+            
+            //selectedメニューにnote_id割り当て
+            $('.set_note_id').val(selected_chapter_id);
+            $('.selected_chapter').css({ display : 'flex' });
+            scrollToObject('.selected_chapter');
+            
+            
         $.ajax({
             url:'./get_page_list.php',
             type:'post',
