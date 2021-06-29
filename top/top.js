@@ -21,7 +21,7 @@ $(function(){
 
     //newsをクリックしたら
     $(document).on("click", '.note_nav > .blue, .nav_news', function(){
-        $('html, body').animate({ scrollTop : news_top - 20}, 500);
+        $('html, body').animate({ scrollTop : news_top }, 500);
     });
     //storyをクリックしたら
     $(document).on("click", '.note_nav > .pink, .nav_story', function(){
@@ -29,7 +29,7 @@ $(function(){
     });
     //featureをクリックしたら
     $(document).on("click", '.note_nav > .yellow, .nav_feature', function(){
-        $('html, body').animate({ scrollTop : feature_top - 40}, 500);
+        $('html, body').animate({ scrollTop : feature_top }, 500);
     });
 
     $(window).scroll(function(){
