@@ -10,11 +10,13 @@ class Connect {
         $this->dbh = new PDO($dsn,self::DB_USER,self::DB_PASS);
         $this->dbh->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     } */
+    
+    protected $dbh;
 
     public function __construct(){
         $db = parse_url(getenv("DATABASE_URL"));
 
-        $pdo = new PDO("pgsql:" . sprintf(
+        $this -> dbh = new PDO("pgsql:" . sprintf(
             "host=%s;port=%s;user=%s;password=%s;dbname=%s",
             $db["host"],
             $db["port"],
@@ -23,7 +25,7 @@ class Connect {
             ltrim($db["path"], "/")
         ));
 
-        $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
+        $this -> dbh -> setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
     }
 }
 ?>
