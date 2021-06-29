@@ -168,7 +168,7 @@ $(function(){
 
     //ノート編集のモーダル表示
     $('.selected_note .edit_btn').on("click", function(){
-        $('.modal_back').show();//.css({ display : 'flex' });
+        $('.modal_back').css({ display : 'flex' });
 
         let selected_note_top = $('.selected_note').offset().top + 100;
         $('.note_modal').css({ top: selected_note_top });
@@ -184,7 +184,7 @@ $(function(){
 
     //チャプター編集のモーダル表示
     $('.selected_chapter .edit_btn').on("click", function(){
-        $('.modal_back').show();//.css({ display : 'flex' });
+        $('.modal_back').css({ display : 'flex' });
 
         let selected_chapter_top = $('.selected_chapter').offset().top + 100;
         $('.chapter_modal').css({ top: selected_chapter_top });
