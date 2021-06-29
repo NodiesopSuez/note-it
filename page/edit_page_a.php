@@ -100,7 +100,7 @@ try {
                     <a class="back" href="../mem/mem_top.php">    
                         back
                     </a>
-                    <button role="submit" class="submit">submit</button>
+                    <button role="submit" class="submit <?= $color ?>">submit</button>
                 </div>
             </form>
     </div>
