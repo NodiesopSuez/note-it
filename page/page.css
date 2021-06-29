@@ -179,7 +179,10 @@ input[type="text"] {
     background: transparent;
     text-align: start !important;
 }
-
+.buttons.row {
+    margin: auto;
+    justify-content: center;
+}
 .buttons.row * {
     margin: 0;
 }

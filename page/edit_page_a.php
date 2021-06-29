@@ -84,7 +84,7 @@ try {
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="page_id" value="<?= $page_id ?>">
                 <input type="hidden" name="page_type" value="1">
-                <div class="page_base">
+                <div class="page_base <?= $color ?>">
                     <div class="wrapback"></div>
                     <input type="text" name="page_title" class="page_title" value="<?= $page_info['page_title'] ?>">
                     <input type="text" name="meaning" class="meaning" value="<?= $page_info['meaning'] ?>">
