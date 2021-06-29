@@ -24,7 +24,6 @@ try{
 //受け取った情報を変数に代入
 $_SESSION['data'] = $_POST;
 print_r($_SESSION['data']);
-echo 'kokohaOK';
 extract($_SESSION['data']);
 
 //入力されたメールアドレスでユーザ情報検索
