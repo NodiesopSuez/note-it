@@ -29,7 +29,7 @@ $(function(){
     });
     //featureをクリックしたら
     $(document).on("click", '.note_nav > .yellow, .nav_feature', function(){
-        $('html, body').animate({ scrollTop : feature_top - 20}, 500);
+        $('html, body').animate({ scrollTop : feature_top - 40}, 500);
     });
 
     $(window).scroll(function(){
