@@ -11,7 +11,7 @@ $(function(){
 
     //特定のオブジェクトにスクロール
     function scrollToObject(object){
-        $(object).show();
+        //$(object).show();
         let selected_obj_top = $(object).offset().top;
         $('html, body').animate({ scrollTop : selected_obj_top }, 500);
     }
@@ -68,6 +68,7 @@ $(function(){
         $('.selected .note_title > p').text(selected_note_title);
         $(`#${selected_note_color}`).prop({ checked : true }).parent().css({ opacity : 1 });
         $('.note_modal').find('.edit_title').text(selected_note_title);
+        $('.selected_note').css({ display : 'flex' });
         
         //選ばれたnote_idでchapter_list取得
         $.ajax({
@@ -132,6 +133,8 @@ $(function(){
 
         //selectedメニューにnote_id割り当て
         $('.set_note_id').val(selected_chapter_id);
+        $('.selected_chapter').css({ display : 'flex' });
+
         
         $.ajax({
             url:'./get_page_list.php',
