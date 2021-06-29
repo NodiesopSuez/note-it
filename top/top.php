@@ -5,7 +5,7 @@ session_regenerate_id();
 $_SESSION['top'] = 'topで格納';
 
 //外部ファイル読込
-require_once(__DIR__.'/class/config/Icons.php');
+//require_once(__DIR__.'/class/config/Icons.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
@@ -14,7 +14,7 @@ $news_content = [
     'detail' => 'ノートのカラーを追加！',
     'date' => '2021.03.16'];
 
-$img = __DIR__.'./img/ladybug_nm.png';
+$img = './img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
 
 
@@ -26,7 +26,7 @@ $_SESSION['okmsg'] = array();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include(__DIR__.'/head.php')?>
+    <?php include('../head.php')?>
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">
@@ -34,7 +34,7 @@ $_SESSION['okmsg'] = array();
 </head>
 <body>
     <div class="container">
-    <?php include(__DIR__.'/inclusion/top_header.php')?>
+    <?php include('../inclusion/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
