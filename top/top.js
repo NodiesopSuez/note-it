@@ -25,7 +25,7 @@ $(function(){
     });
     //storyをクリックしたら
     $(document).on("click", '.note_nav > .pink, .nav_story', function(){
-        $('html, body').animate({ scrollTop : story_top - 20}, 500);
+        $('html, body').animate({ scrollTop : story_top }, 500);
     });
     //featureをクリックしたら
     $(document).on("click", '.note_nav > .yellow, .nav_feature', function(){
