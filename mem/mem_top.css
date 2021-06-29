@@ -36,9 +36,17 @@
 .note_list,
 .chapter_list,
 .page_list,
-.selected,
 .selected_menu {
     display: flex;
+}
+.selected { 
+    display: none;
+}
+.note_list,
+.chapter_list,
+.page_list,
+.selected,
+.selected_menu {
     flex-wrap: wrap;
     justify-content: flex-start;
 }
