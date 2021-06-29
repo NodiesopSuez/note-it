@@ -5,7 +5,7 @@ session_regenerate_id();
 $_SESSION['top'] = 'topで格納';
 
 //外部ファイル読込
-require_once(dirname(__FILE__).'../class/config/Icons.php');
+require_once(dirname(__FILE__, 1).'/class/config/Icons.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
