@@ -33,7 +33,7 @@ $_SESSION['okmsg'] = array();
     <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
-    <div class="container">
+   <!--  <div class="container">
     <?php include('../inclusion/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
@@ -186,7 +186,7 @@ $_SESSION['okmsg'] = array();
             </div>
         </section>
     </div>
-
+ -->
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./top.js" type="text/javascript"></script>
 </body>
