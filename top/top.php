@@ -1,8 +1,6 @@
 <?php
-session_start();
-session_regenerate_id();
-
-$_SESSION['top'] = 'topで格納';
+//session_start();
+//session_regenerate_id();
 
 //外部ファイル読込
 require_once(dirname(__FILE__, 2) . '/class/config/Icons.php');
