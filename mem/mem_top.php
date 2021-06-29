@@ -16,6 +16,8 @@ $_SESSION['view_page'] = array();
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
+var_dump($_SESSION['user_info']);
+
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
