@@ -25,13 +25,13 @@ $_SESSION['okmsg'] = array();
 <html lang="ja">
 <head>
     <?php include('../head.php')?>
-    <!-- <link rel="stylesheet" type="text/css" href="../main/template.css">
+    <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css"> -->
+    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>
-   <!--  <div class="container">
+   <div class="container">
     <?php include(dirname(__FILE__, 2).'/inclusion/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
@@ -187,6 +187,5 @@ $_SESSION['okmsg'] = array();
 
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./top.js" type="text/javascript"></script>
-     -->
 </body>
 </html>
