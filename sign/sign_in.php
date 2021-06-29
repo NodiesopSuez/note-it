@@ -18,7 +18,7 @@ if(!empty($_SESSION['error'])){
     $ladybug = './img/ladybug_sd.png';
 	$msg = $_SESSION['error'];
 	$error_back_count = $_SESSION['error_back_count'];
-}elseif($_SESSION['okmsg']==='ok'){
+}elseif(isset($_SESSION['okmsg']) && $_SESSION['okmsg']==='ok'){
 	$msg = $_SESSION['okmsg'];
 }else{
     $msg = ['ログインしてください♪'];
