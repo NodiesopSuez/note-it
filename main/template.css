@@ -231,10 +231,16 @@ textarea {
 
 /* 編集・削除ボタン */
 .edit_btn { 
-    background: linear-gradient(-45deg, #b5dcbb 47%, #dceade);
+    background: linear-gradient(-45deg, #cae2ce 47%, #e7efe8);
+}
+.edit_btn:hover { 
+    background: linear-gradient(-45deg, #69bf77 47%, #e7efe8);
 }
 .delete_btn { 
-    background: linear-gradient(-45deg, #efa6a6 47%, #ffffff);
+    background: linear-gradient(-45deg, #efc5c5 47%, #efe6e6);
+}
+.delete_btn:hover { 
+    background: linear-gradient(-45deg, #d45555 47%, #efe6e6);
 }
 
 .edit_btn > svg,
