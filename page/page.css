@@ -41,20 +41,6 @@
     box-shadow:5px 5px 7px var(--body-shadow); 
 }
 
-.edit_btn { 
-    background: linear-gradient(-45deg, #b5dcbb 47%, #dceade);
-}
-.delete_btn { 
-    background: linear-gradient(-45deg, #efa6a6 47%, #ffffff);
-}
-
-.edit_btn > svg,
-.delete_btn > svg {
-    width: 32px;
-    fill: #ffffff;
-    opacity: 0.7;
-}
-
 .page_base {
     position: relative;
     margin: 214px auto 30px auto;
