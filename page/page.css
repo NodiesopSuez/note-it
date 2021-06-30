@@ -200,6 +200,7 @@ input[type="text"] {
 }
 
 /* edit_page */
+.edit,
 .delete {
     margin: auto auto .5rem auto
 }
