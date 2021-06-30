@@ -138,7 +138,7 @@ try {
         $imgs = $_FILES;
         
         foreach($imgs as $key => $img){
-            if($img['error'] === 0){
+            if($img['error'] == 0){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
