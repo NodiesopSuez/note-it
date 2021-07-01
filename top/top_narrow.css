@@ -38,38 +38,21 @@
     margin: auto;
 }
 .sign_nav {
+    flex-direction: column;
     width: 100%;
 }
-.sign_nav > div {
+.sign_nav > div,
+.triangle_base,
+.triangle {
     display: none;
 }
-.sign_nav > div img {
-    position: absolute;
-}
-.sign_nav > div img {
-    bottom: 0;
-    left: 0;
-    width: 100px;
-}
-.sign_nav .balloon{
-    line-height: 60px;
-    width: 120px;
-    height: 60px;
-    border-radius: 100px;
-}
-.sign_nav .balloon > .msg {
-    margin: auto auto -5px auto;
-} 
-.sign_nav .balloon > .tail {
-    margin: auto;
-} 
+
 .sign_in,
 .sign_up {
     position: relative;
-    width: 100px;
-    height: 110px;
-    filter: drop-shadow(5px 5px 5px var(--body-shadow));
-    color: var(--body-base-lt);
+    width: 10rem;
+    height: 2rem;
+    border-radius: 10px;
     transition: all 0.1s;
 }
 .sign_in:active,
