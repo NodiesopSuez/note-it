@@ -36,11 +36,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: auto;
 }
-.sign_nav {
+.sign_nav { 
     flex-direction: column;
     width: 100%;
+}
+.note_nav {
+    margin: 2rem auto auto auto;
 }
 .sign_nav > div,
 .triangle_base,
