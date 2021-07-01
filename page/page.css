@@ -28,7 +28,7 @@
 }
 
 .page_menu {
-    margin: -92px auto -206px auto;
+    margin: -92px 0 -206px auto;
     justify-content: space-between !important;
     width: 111px;
 }
@@ -37,13 +37,7 @@
     width: 50px;
     height: 50px;
     border-radius: 10px;
-    background: #ccc;
     box-shadow:5px 5px 7px var(--body-shadow); 
-}
-
-.edit_btn > svg,
-.delete_btn > svg {
-    width: 32px;
 }
 
 .page_base {
@@ -179,7 +173,10 @@ input[type="text"] {
     background: transparent;
     text-align: start !important;
 }
-
+.buttons.row {
+    margin: auto;
+    justify-content: center;
+}
 .buttons.row * {
     margin: 0;
 }
@@ -196,7 +193,7 @@ input[type="text"] {
     opacity: 0.7;
 }
 
-/* edit_page */
+.edit,
 .delete {
     margin: auto auto .5rem auto
 }

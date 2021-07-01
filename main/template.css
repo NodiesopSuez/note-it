@@ -10,6 +10,7 @@ body * {
     overflow-x: hidden;
     overflow-y: visible;
     width: 80%;
+    min-height: 700px;
     height: 100%;
     background-color: var(--body-base-lt);
     text-align: center;
@@ -226,6 +227,27 @@ textarea {
     left: 0;
     margin: auto;
     text-align: start;
+}
+
+/* 編集・削除ボタン */
+.edit_btn { 
+    background: linear-gradient(-45deg, #cae2ce 47%, #e7efe8);
+}
+.edit_btn:hover { 
+    background: linear-gradient(-45deg, #69bf77 47%, #e7efe8);
+}
+.delete_btn { 
+    background: linear-gradient(-45deg, #efc5c5 47%, #efe6e6);
+}
+.delete_btn:hover { 
+    background: linear-gradient(-45deg, #d45555 47%, #efe6e6);
+}
+
+.edit_btn > svg,
+.delete_btn > svg {
+    width: 32px;
+    fill: #ffffff;
+    opacity: 0.7;
 }
 
 /* 戻るボタン・送信ボタン */
