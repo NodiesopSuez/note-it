@@ -38,14 +38,10 @@
     margin: auto;
 }
 .sign_nav {
-    margin-bottom: 36px;
-    width: 500px;
-    height: 150px;
+    width: 100%;
 }
 .sign_nav > div {
-    position: relative;
-    width: 196px;
-    height: 90%;
+    display: none;
 }
 .sign_nav > div img {
     position: absolute;
