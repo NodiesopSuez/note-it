@@ -50,6 +50,7 @@
 .sign_in,
 .sign_up {
     position: relative;
+    margin: .5rem auto;
     width: 10rem;
     height: 2rem;
     border-radius: 10px;
@@ -75,47 +76,20 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    left: 0;
+    right: 0;
     margin: auto;
 }
-.sign_in > .triangle_base,
-.sign_up > .triangle_base {
-    right: 0;
-    left: 0;
-    width: 100%;
-    height: 100%; 
-}
-.sign_in > .triangle_base{
-    fill: url(#sign_in_gra); 
-}
-.sign_up > .triangle_base{
-    fill: url(#sign_up_gra); 
-}
-.sign_in > .triangle,
-.sign_up > .triangle { 
-    width: 25px;
-    fill: var(--body-base-lt);  
-}
-.sign_in > .triangle {
-    left: 8px;
-}
-.sign_up > .triangle {
-    right: 8px;
-}
-.sign_in > svg {
-    transform: rotate(180deg);
-}
+
 .sign_in::after,
 .sign_up::after {
     width: 60px;
-    line-height: 110px;
 }
 .sign_in::after{
     content: 'sign in';
-    right: 6px;
 }
 .sign_up::after {
     content: 'sign up';
-    left: 6px;
 }
 
 .note_nav {
