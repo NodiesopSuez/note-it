@@ -108,11 +108,6 @@
     font-size: 20px;
     font-weight: bold;
 }
-.note_nav .block_0,
-.note_nav .block_1 {
-    position: absolute;
-}
-
 /* 各セクション共通 */
 section { 
     margin-bottom: 110px;
