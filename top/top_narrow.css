@@ -35,8 +35,8 @@
     display: inline-block;
 }
 
-.sign_nav/* ,
-.note_nav */ {
+.sign_nav,
+.note_nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -100,9 +100,6 @@
 .note_nav {
     width: 100%;
     margin: 2rem auto auto auto;
-
-    position: relative;
-    height: 20rem;
 }
 .note > p {
     font-size: 20px;
