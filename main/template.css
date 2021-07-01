@@ -268,7 +268,7 @@ textarea {
 
 
 @media screen and (max-width: 1024px) {
-    .conatainer {
+    .container {
         width: 100%;
     }
 }
