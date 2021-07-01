@@ -53,6 +53,7 @@
     width: 10rem;
     height: 2rem;
     border-radius: 10px;
+    background: linear-gradient(-45deg,  #020126, #8595ee);
     transition: all 0.1s;
 }
 .sign_in:active,
