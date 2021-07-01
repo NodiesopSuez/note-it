@@ -38,7 +38,7 @@ $_SESSION['okmsg'] = array();
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
                 <svg class="logo_type" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 81.8 22.6"><?=Icons::LOGO_TYPE?></svg>
             </div>
-            <p class="p_bold">紙も時間も無駄にして困り果てた<br/>初心者プログラマーがつくったクラウドノート</p>
+            <p class="p_bold">紙も時間も無駄にして困り果てた<br/><span class="n_line">初心者プログラマーがつくった</span><span class="n_line">クラウドノート</span></p>
             
             <div class="sign_nav">
                 <a class="sign_in" href="../sign/sign_in.php"> 
