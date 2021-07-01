@@ -22,6 +22,7 @@
 }
 
 .p_bold {
+    margin: auto auto .5rem auto;
     font-size: 1rem;
     font-weight: bold !important;
 }
@@ -50,7 +51,7 @@
 .sign_in,
 .sign_up {
     position: relative;
-    margin: .5rem auto;
+    margin: .2rem auto;
     width: 10rem;
     height: 2rem;
     border-radius: 10px;
