@@ -5,7 +5,7 @@ session_regenerate_id();
 //外部ファイル読込
 require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
 
-$menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
+$menus = [['news'=>'blue','story'=>'pink'],['feature'=>'yellow', 'Q & A'=>'green']];
 
 $news_content = [
     'title' => 'New Color Lineup',
@@ -74,15 +74,19 @@ $_SESSION['okmsg'] = array();
                 </a>
             </div>
             <div class="note_nav">
-                <?php foreach($menus as $menu => $color): ?>
-                    <button class="note <?= $color ?>">
-                        <div class="note_base"></div>
-                        <div class="note_title">
-                            <p><?= $menu ?></p>
-                        </div>
-                        <div class="back_cover"></div>
-                    </button>
-                <?php endforeach?>
+                <?php foreach($menus as $index): ?>
+                    <div class="block_<?= $index ?>">
+                        <?php foreach($index as $menu => $color): ?>
+                            <button class="note <?= $color ?>">
+                                <div class="note_base"></div>
+                                <div class="note_title">
+                                    <p><?= $menu ?></p>
+                                </div>
+                                <div class="back_cover"></div>
+                            </button>
+                        <?php endforeach ?>
+                    </div>
+                <?php endforeach ?>
             </div>
         </section>
         <section class="news">
