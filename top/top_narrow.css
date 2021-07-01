@@ -150,6 +150,7 @@ section > img {
 .news_icon h1 {
     margin: -3rem auto auto 0;
     text-align: start;
+    font-size: 1.5rem;
     line-height: 1.5rem;
     color: var(--main-font-lt);
 }
