@@ -20,7 +20,6 @@ $msg = 'ようこそ♪';
 $_SESSION['okmsg'] = array();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -28,6 +27,7 @@ $_SESSION['okmsg'] = array();
     <link rel="stylesheet" type="text/css" href="../main/template.css">
     <link rel="stylesheet" type="text/css" href="../main/color_template.css">
     <link rel="stylesheet" type="text/css" href="./top_wide.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="./top_narrow.css" media="screen and (max-width:1023px)">
     <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
 </head>
 <body>

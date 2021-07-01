@@ -1,0 +1,387 @@
+/* top */
+.catch_logo {
+    position: relative;
+    width: 12rem;
+    height: 15rem;
+    margin: 5rem auto 0 auto;
+}
+.catch_logo > .logo_mark,
+.catch_logo > .logo_type {
+    position: absolute;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.catch_logo > .logo_mark {
+    top: 0;
+    width: 90%;
+}
+.catch_logo > .logo_type {
+    bottom: 0;
+    width: 100%;
+}
+
+.p_bold {
+    font-size: 18px;
+    font-weight: bold !important;
+}
+
+.sign_nav,
+.note_nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+.sign_nav {
+    margin-bottom: 36px;
+    width: 500px;
+    height: 150px;
+}
+.sign_nav > div {
+    position: relative;
+    width: 196px;
+    height: 90%;
+}
+.sign_nav > div img {
+    position: absolute;
+}
+.sign_nav > div img {
+    bottom: 0;
+    left: 0;
+    width: 100px;
+}
+.sign_nav .balloon{
+    line-height: 60px;
+    width: 120px;
+    height: 60px;
+    border-radius: 100px;
+}
+.sign_nav .balloon > .msg {
+    margin: auto auto -5px auto;
+} 
+.sign_nav .balloon > .tail {
+    margin: auto;
+} 
+.sign_in,
+.sign_up {
+    position: relative;
+    width: 100px;
+    height: 110px;
+    filter: drop-shadow(5px 5px 5px var(--body-shadow));
+    color: var(--body-base-lt);
+    transition: all 0.1s;
+}
+.sign_in:active,
+.sign_up:active {
+    transform: translate(0, 5px);
+    filter: drop-shadow(0px 0px 1px var(--body-shadow));
+    transition: all 0.1s;
+}
+
+.sign_in:link, .sign_in:visited, .sign_in:hover,
+.sign_up:link, .sign_up:visited, .sign_up:hover {
+    color: var(--body-base-lt);
+}
+
+.sign_in *,
+.sign_up *,
+.sign_in::after,
+.sign_up::after  {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.sign_in > .triangle_base,
+.sign_up > .triangle_base {
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; 
+}
+.sign_in > .triangle_base{
+    fill: url(#sign_in_gra); 
+}
+.sign_up > .triangle_base{
+    fill: url(#sign_up_gra); 
+}
+.sign_in > .triangle,
+.sign_up > .triangle { 
+    width: 25px;
+    fill: var(--body-base-lt);  
+}
+.sign_in > .triangle {
+    left: 8px;
+}
+.sign_up > .triangle {
+    right: 8px;
+}
+.sign_in > svg {
+    transform: rotate(180deg);
+}
+.sign_in::after,
+.sign_up::after {
+    width: 60px;
+    line-height: 110px;
+}
+.sign_in::after{
+    content: 'sign in';
+    right: 6px;
+}
+.sign_up::after {
+    content: 'sign up';
+    left: 6px;
+}
+
+.note_nav {
+    width: 80%;
+}
+.note > p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* 各セクション共通 */
+section { 
+    margin-bottom: 110px;
+}
+section > img {
+    display: flex;
+    width: 200px;
+}
+
+.news h1,
+.feature h1,
+.story h1 {
+    margin-left: 10px;
+    text-align: start;
+    font-size: 80px;
+    font-family: HelveticaNeue-CondensedBold, sans-serif;
+    color: var(--main-font-lt);
+}
+
+/* news */
+.news ul {
+    display: flex;
+    margin: 16px auto auto auto;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 95%;
+}
+
+.news_icon {
+    position: relative;
+    margin: 12px 28px;
+    padding: 12px;
+    width: 280px;
+    height: 280px;
+    border-radius: 5px;
+}
+.news_icon h1,
+.news_icon p {
+    width: 98%;
+}
+.news_icon h1 {
+    margin: -70px auto auto 0;
+    text-align: start;
+    line-height: 60px;
+    color: var(--main-font-lt);
+}
+.news_icon p {
+    top: auto;
+    left: auto;
+    text-align: end;
+    vertical-align: text-bottom;
+    line-height: 26px;
+}
+
+/* feature */
+.feature h1 {
+    margin: 25px auto !important;
+}
+
+.feature_contents {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.feature_contents > div {
+    margin: auto 10px;
+    padding: 16px;
+    width: 250px;
+    height: 288px;
+    border-radius: 5px;
+    background: var(--body-base-dk);
+    box-shadow: 5px 5px 7px var(--body-shadow);
+}
+
+.feature_contents img {
+    width: 196px;
+    margin-bottom: 10px;
+}
+
+.feature_contents p {
+    margin: auto auto 0 auto;
+    width: 100%;
+}
+
+.feature_contents .type {
+    padding: 8px;
+    font-size: 12px;
+}
+
+/* story部分 */
+.story_frame,
+.story_frame > div {
+    position: relative;
+    width: 789px;
+}
+.story_frame {
+    margin: auto;
+}
+
+.story_frame > div {
+    left: 0;
+    right: 0;
+}
+
+.story h1 {
+    line-height: 60px;
+}
+
+.first_contents {
+    z-index: 10;
+    margin: 16px auto auto auto;
+}
+.first_contents > .p_bold {
+    text-align: start;
+    margin-left: 10px;
+    color: var(--main-font-lt);
+}
+
+.second_contents *,
+.third_contents * ,
+.forth_contents * {
+    position: absolute;
+}
+
+.second_contents {
+    margin: auto;
+    top: -200px;
+    height: 520px;
+}
+.second_contents img {
+    z-index: 1;
+    top: 0;
+    right: -100px;
+    width: 570px;
+}
+.second_contents p {
+    right: 335px;
+    bottom: 28px;
+    text-align: start;
+    border-radius: 7px;
+    background: #cff3c2;
+    padding: 24px 72px 24px 24px;
+    color: #4c6942;
+} 
+
+.third_contents {
+    margin: auto;
+    height: 684px;
+    top: -170px;
+}
+.third_contents :first-child {
+    right: 216px;
+    padding: 110px 0px;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: #C5A5CB;
+}
+.third_contents :nth-child(2) {
+    right: 0;
+    padding: 114px 0px;
+    top: 120px;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: #C5A5CB;
+}
+.third_contents img {
+    bottom: 0;
+    left: 0;
+    width: 690px;   
+}
+
+.forth_contents {
+    margin: auto;
+    top: -155px;
+    height: 620px;
+}
+
+.forth_contents .balloon {
+    background: transparent;
+    box-shadow: none;
+}
+
+.forth_contents .balloon,
+.forth_contents .balloon > :nth-child(2) {
+    z-index: 1;
+    width: 400px;
+    height: 285px;
+}
+.forth_contents .balloon > p,
+.forth_contents .balloon > :nth-child(2) {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+}
+.forth_contents .balloon > p {
+    z-index: 2;
+    height: 110px;
+}
+.forth_contents .balloon > :nth-child(3),
+.forth_contents .balloon > :nth-child(4) {
+    width: 130px;
+}
+
+.forth_contents > :nth-child(2) {
+    left: 180px;
+    right: 0;
+    margin: auto;
+    width: 600px;
+}
+.forth_contents > :nth-child(3) {
+    right: 0;
+    bottom: 0;
+    background: #FEF2A4;
+    padding: 24px;
+}
+
+.fifth_contents {
+    margin: auto;
+    top: -100px;
+}
+
+.fifth_contents > img {
+    margin: auto auto -21px auto;
+    width: 800px;
+}
+
+.fifth_contents > h1 {
+    font-size: 55px;
+    text-align: center;
+}
+
+.lets_signin {
+    display: inline-block;
+}
