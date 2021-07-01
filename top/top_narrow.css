@@ -101,6 +101,7 @@
     width: 100%;
     margin: 2rem auto auto auto;
 }
+
 .note > p {
     font-size: 20px;
     font-weight: bold;
@@ -111,7 +112,7 @@ section {
 }
 section > img {
     display: flex;
-    width: 200px;
+    width: 40%;
 }
 
 .news h1,
@@ -138,8 +139,8 @@ section > img {
     position: relative;
     margin: 12px 28px;
     padding: 12px;
-    width: 280px;
-    height: 280px;
+    width: 20rem;
+    height: 6rem;
     border-radius: 5px;
 }
 .news_icon h1,
@@ -147,17 +148,17 @@ section > img {
     width: 98%;
 }
 .news_icon h1 {
-    margin: -70px auto auto 0;
+    margin: -3rem auto auto 0;
     text-align: start;
-    line-height: 60px;
+    line-height: 1.5rem;
     color: var(--main-font-lt);
 }
 .news_icon p {
     top: auto;
-    left: auto;
+    left: -1rem;
     text-align: end;
     vertical-align: text-bottom;
-    line-height: 26px;
+    line-height: 1.5rem;
 }
 
 /* feature */
