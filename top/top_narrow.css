@@ -41,9 +41,7 @@
     flex-direction: column;
     width: 100%;
 }
-.note_nav {
-    margin: 2rem auto auto auto;
-}
+
 .sign_nav > div,
 .triangle_base,
 .triangle {
@@ -96,7 +94,8 @@
 }
 
 .note_nav {
-    width: 80%;
+    width: 100%;
+    margin: 2rem auto auto auto;
 }
 .note > p {
     font-size: 20px;
