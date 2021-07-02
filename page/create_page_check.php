@@ -158,7 +158,7 @@ var_dump($_FILES);
                 //move_uploaded_file($img['tmp_name'], $img_path);
 
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
-
+                echo $img['name'];
                 $img_path = $upload;
                 var_dump(htmlspecialchars($upload->get('ObjectURL')));
 
