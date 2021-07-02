@@ -145,6 +145,8 @@ var_dump($_FILES);
             'region'   => 'ap-northeast-3',
         ]);
         $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+
+echo '<br/>'.$bucket;
         
         foreach($imgs as $key => $img){
             if($img['error'] == 0){
