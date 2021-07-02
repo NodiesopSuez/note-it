@@ -145,11 +145,9 @@ var_dump($_FILES);
             'region'   => 'ap-northeast-3',
         ]);
         $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
-
-echo '<br/>'.$bucket;
-        
+   
         foreach($imgs as $key => $img){
-            if($img['error'] == 0){
+            if($img['error'] === 0){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
@@ -162,7 +160,7 @@ echo '<br/>'.$bucket;
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
 
                 $img_path = $upload;
-                var_dump($img_path);
+                var_dump($upload);
 
                 //ファイルパスとfile_type=imgを格納
                 //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
