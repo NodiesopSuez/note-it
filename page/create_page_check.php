@@ -157,11 +157,20 @@ var_dump($_FILES);
                 //tmp_fileをディレクトリに格納
                 //move_uploaded_file($img['tmp_name'], $img_path);
                 echo $img['name'].'ここまではきてる<br/>';
-                
-                $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+
+                //ドキュメントでは
+                //$upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+                //記事
+                $upload = $s3->putObject([
+                    'ACL' => 'public-read',
+                    'Bucket' => $bucket,
+                    'Key' => $img['name'],
+                    'Body' => fopen($img['tmp_name'], 'rb'),
+                    'ContentType' => mime_content_type($img['tmp_name']),
+                ]);
                 echo $img['name'];
                 $img_path = $upload;
-                var_dump(htmlspecialchars($upload->get('ObjectURL')));
+                var_dump(htmlspecialchars($upload['ObjectURL']));
 
                 //ファイルパスとfile_type=imgを格納
                 //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
