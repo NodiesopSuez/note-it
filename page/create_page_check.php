@@ -197,6 +197,7 @@ var_dump($_FILES);
     }
 
 }catch(Exception $e){
+    echo  $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
     //header('Location:../page/create_page.php');
     exit;
