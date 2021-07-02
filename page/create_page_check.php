@@ -9,7 +9,7 @@ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
 require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
-require('vendor/autoload.php');
+require_once(dirname(__FILE__, 2).'vendor/autoload.php');
 
 //print_r($_POST);
 //print_r($_FILES);
