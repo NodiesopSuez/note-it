@@ -147,6 +147,7 @@ var_dump($_FILES);
         $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
    
         foreach($imgs as $key => $img){
+            echo $img['name'];
             if($img['error'] === 0){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
