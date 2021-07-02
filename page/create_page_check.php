@@ -147,7 +147,6 @@ var_dump($_FILES);
         $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
    
         foreach($imgs as $key => $img){
-            echo $img['name'];
             if($img['error'] === 0){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
@@ -157,7 +156,8 @@ var_dump($_FILES);
                 //$img_path    = 'https://noteit-202106.herokuapp.com/page/contents_img/'.$img['name'];
                 //tmp_fileをディレクトリに格納
                 //move_uploaded_file($img['tmp_name'], $img_path);
-
+                echo $img['name'].'ここまではきてる<br/>';
+                
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
                 echo $img['name'];
                 $img_path = $upload;
