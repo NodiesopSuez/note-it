@@ -4,11 +4,12 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
- require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require('vendor/autoload.php');
 
 //print_r($_POST);
 //print_r($_FILES);
@@ -136,6 +137,13 @@ try {
 
         //imgファイルを
         $imgs = $_FILES;
+
+        //AWS S3
+        $s3 = new Aws\S3\S3Client([
+            'version'  => 'latest',
+            'region'   => 'ap-northeast-3',
+        ]);
+        $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
         
         foreach($imgs as $key => $img){
             if($img['error'] == 0){
@@ -143,13 +151,19 @@ try {
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
                 //ランダムな文字列でファイル名生成
-                $img['name'] = uniqid(bin2hex(random_bytes(1))).'.'.$file_type;
-                $img_path    = 'https://noteit-202106.herokuapp.com/page/contents_img/'.$img['name'];
+                //$img['name'] = uniqid(bin2hex(random_bytes(1))).'.'.$file_type;
+                //$img_path    = 'https://noteit-202106.herokuapp.com/page/contents_img/'.$img['name'];
                 //tmp_fileをディレクトリに格納
-                move_uploaded_file($img['tmp_name'], $img_path);
+                //move_uploaded_file($img['tmp_name'], $img_path);
+
+                $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+
+                $img_path = $upload;
+                var_dump($img_path);
+
                 //ファイルパスとfile_type=imgを格納
-                $page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
-                $page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
+                //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
+                //$page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
             }
         }
 
@@ -166,14 +180,14 @@ try {
     $search = null;
 
     if(!empty($_SESSION['error'])){
-        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/create_page_done.php');
+        //header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../page/create_page.php');
+    //header('Location:../page/create_page.php');
     exit;
 }
 
