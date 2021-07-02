@@ -160,7 +160,7 @@ var_dump($_FILES);
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
 
                 $img_path = $upload;
-                var_dump($upload);
+                var_dump(htmlspecialchars($upload->get('ObjectURL')));
 
                 //ファイルパスとfile_type=imgを格納
                 //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
