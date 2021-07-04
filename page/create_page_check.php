@@ -145,8 +145,6 @@ var_dump($_FILES);
             'region'   => 'ap-northeast-3',
         ]);
         $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
-
-        echo '<br/>'.$bucket.'<br/>';
    
         foreach($imgs as $key => $img){
             if($img['error'] === 0){
@@ -158,21 +156,21 @@ var_dump($_FILES);
                 //$img_path    = 'https://noteit-202106.herokuapp.com/page/contents_img/'.$img['name'];
                 //tmp_fileをディレクトリに格納
                 //move_uploaded_file($img['tmp_name'], $img_path);
-                echo $img['name'].'ここまではきてる<br/>';
+                echo '<br/>'.$img['name'].'ここまではきてる<br/>';
 
                 //ドキュメントでは
-                //$upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+                $upload = $s3->upload($bucket, $img['name'], $img['tmp_name'], 'public-read');
                 //記事
-                $upload = $s3->putObject([
+                /* $upload = $s3->putObject([
                     'ACL' => 'public-read',
                     'Bucket' => $bucket,
                     'Key' => $img['name'],
                     'Body' => fopen($img['tmp_name'], 'rb'),
                     'ContentType' => mime_content_type($img['tmp_name']),
-                ]);
+                ]); */
                 echo $img['name'];
                 $img_path = $upload;
-                var_dump(htmlspecialchars($upload['ObjectURL']));
+                var_dump(htmlspecialchars($upload->get('ObjectURL')));
 
                 //ファイルパスとfile_type=imgを格納
                 //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
