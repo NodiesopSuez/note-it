@@ -141,14 +141,12 @@ var_dump($_FILES);
 
         //AWS S3
         $s3 = new Aws\S3\S3Client([
-            'credentials' => [
-                'key'    => getenv('AWS_ACCESS_KEY_ID'),
-                'secret' => getenv('AWS_SECRET_ACCESS_KEY'),
-            ],
             'version'  => 'latest',
             'region'   => 'ap-northeast-3',
         ]);
-        $bucket = getenv('S3_BUCKET')?: die('No "S3_BUCKET" config var in found in env!');
+        $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
+
+        echo '<br/>'.$bucket.'<br/>';
    
         foreach($imgs as $key => $img){
             if($img['error'] === 0){
