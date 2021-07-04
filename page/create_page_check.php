@@ -171,6 +171,7 @@ var_dump($_FILES);
                 echo $img['name'];
                 $img_path = $upload;
                 var_dump(htmlspecialchars($upload->get('ObjectURL')));
+                echo '<img src="'.htmlspecialchars($upload->get('ObjectURL')).'">';
                 echo '<br/><a href="'.htmlspecialchars($upload->get('ObjectURL')).'">successful</a>';
                 //ファイルパスとfile_type=imgを格納
                 //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
