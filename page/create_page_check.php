@@ -151,12 +151,9 @@ var_dump($_FILES);
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
+
                 //ランダムな文字列でファイル名生成
                 $img['name'] = uniqid(bin2hex(random_bytes(1))).'.'.$file_type;
-                //$img_path    = 'https://noteit-202106.herokuapp.com/page/contents_img/'.$img['name'];
-                //tmp_fileをディレクトリに格納
-                //move_uploaded_file($img['tmp_name'], $img_path);
-                echo '<br/>'.$img['name'].'ここまではきてる<br/>';
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
@@ -169,14 +166,11 @@ var_dump($_FILES);
                     'ContentType' => mime_content_type($img['tmp_name']),
                 ]); */
                 
-                echo $img['name'];
-                $img_path = $upload;
-                var_dump(htmlspecialchars($upload->get('ObjectURL')));
-                echo '<img src="'.htmlspecialchars($upload->get('ObjectURL')).'">';
-                echo '<br/><a href="'.htmlspecialchars($upload->get('ObjectURL')).'">successful</a>';
+                $img_path = htmlspecialchars($upload->get('ObjectURL'));
+
                 //ファイルパスとfile_type=imgを格納
-                //$page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
-                //$page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
+                $page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
+                $page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
             }
         }
 
