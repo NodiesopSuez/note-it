@@ -4,11 +4,12 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
- require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/vendor/autoload.php');
 
 //print_r($_POST);
 //print_r($_FILES);
@@ -43,8 +44,6 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    print_r($sanitized);
-    echo '<br/>このうえサニタイズ';
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
         $_SESSION['error'][] = 'ページタイトルを入力してください';
@@ -82,6 +81,13 @@ try {
         //imgファイルを
         $imgs = $_FILES;
         
+        //AWS S3
+        $s3 = new Aws\S3\S3Client([
+            'version'  => 'latest',
+            'region'   => 'ap-northeast-3',
+        ]);
+        $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
+
         foreach($imgs as $key => $img){
             if($img['error'] === 0){
                 //ファイルの拡張子を求める
@@ -92,6 +98,20 @@ try {
                 $img_path    = '../page/contents_img/'.$img['name'];
                 //tmp_fileをディレクトリに格納
                 move_uploaded_file($img['tmp_name'], $img_path);
+
+                //ドキュメントでは
+                $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+                //記事では
+                /* $upload = $s3->putObject([
+                    'ACL' => 'public-read',
+                    'Bucket' => $bucket,
+                    'Key' => $img['name'],
+                    'Body' => fopen($img['tmp_name'], 'rb'),
+                    'ContentType' => mime_content_type($img['tmp_name']),
+                ]); */
+                
+                $img_path = htmlspecialchars($upload->get('ObjectURL'));
+
                 //ファイルパスとfile_type=imgを格納
                 $page_b_contents[$key]['file_type'] = $utility->sanitize(3, 'img');
                 $page_b_contents[$key]['data']      = $utility->sanitize(3, $img_path);
@@ -109,7 +129,7 @@ try {
     }
     
     $search = null;
-    print_r($_SESSION['page']);
+    
     if(!empty($_SESSION['error'])){
         header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
     }else{
