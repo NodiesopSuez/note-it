@@ -137,7 +137,6 @@ try {
 
         //imgファイルを
         $imgs = $_FILES;
-var_dump($_FILES);
 
         //AWS S3
         $s3 = new Aws\S3\S3Client([
@@ -157,7 +156,7 @@ var_dump($_FILES);
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
-                //記事
+                //記事では
                 /* $upload = $s3->putObject([
                     'ACL' => 'public-read',
                     'Bucket' => $bucket,
@@ -181,21 +180,20 @@ var_dump($_FILES);
         }
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
-
     }
     
     $search = null;
 
     if(!empty($_SESSION['error'])){
-        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:../page/create_page_done.php');
+        header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
     echo  $e->getMessage();
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-    //header('Location:../page/create_page.php');
+    header('Location:../page/create_page.php');
     exit;
 }
 
