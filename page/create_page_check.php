@@ -159,15 +159,15 @@ var_dump($_FILES);
                 echo '<br/>'.$img['name'].'ここまではきてる<br/>';
 
                 //ドキュメントでは
-                //$upload = $s3->upload($bucket, $img['name'], $img['tmp_name'], 'public-read');
+                $upload = $s3->upload($bucket, $img['name'], $img['tmp_name'], 'public-read');
                 //記事
-                 $upload = $s3->putObject([
+                 /* $upload = $s3->putObject([
                     'ACL' => 'public-read',
                     'Bucket' => $bucket,
                     'Key' => $img['name'],
                     'Body' => fopen($img['tmp_name'], 'rb'),
                     'ContentType' => mime_content_type($img['tmp_name']),
-                ]); 
+                ]);  */
                 
                 echo $img['name'];
                 $img_path = $upload;
