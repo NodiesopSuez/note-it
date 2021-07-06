@@ -196,5 +196,6 @@ input[type="text"] {
 
 .edit,
 .delete {
-    margin: auto auto .5rem auto
+    margin: auto auto .5rem auto;
+    cursor: pointer;
 }
