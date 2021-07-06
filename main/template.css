@@ -230,7 +230,7 @@ textarea {
 }
 
 /* 編集・削除ボタン */
-.edit_btn { 
+.edit_btn, .change_img_btn { 
     background: linear-gradient(-45deg, #cae2ce 47%, #e7efe8);
 }
 .edit_btn:hover { 
