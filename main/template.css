@@ -243,8 +243,9 @@ textarea {
     background: linear-gradient(-45deg, #d45555 47%, #efe6e6);
 }
 
-.edit_btn svg,
-.delete_btn svg {
+.edit_btn > svg,
+.delete_btn > svg,
+.change_img_icon > svg {
     width: 32px;
     fill: #ffffff;
     opacity: 0.7;
