@@ -251,6 +251,11 @@ textarea {
     opacity: 0.7;
 }
 
+.change_img_icon {
+    text-align: center;
+    padding: 9px;
+}
+
 /* 戻るボタン・送信ボタン */
 .back, .submit {
     width: 100px;
