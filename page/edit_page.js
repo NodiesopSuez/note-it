@@ -37,6 +37,7 @@ $(function(){
 
     //選択する画像が切り替わったら
     $(document).on("change", '.img', function(){
+        console.log(this);
         let selected_file = $(this).prop('files')[0]; //選ばれたファイル
         
         //ファイルサイズが１MB以下か
@@ -63,6 +64,8 @@ $(function(){
                 
                 $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn);
             }
+            console.log('filereaderのなか');
+            console.log(this);
             fileReader.readAsDataURL(selected_file);
         }else{
             alert('アップロードエラー');
