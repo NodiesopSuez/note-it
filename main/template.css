@@ -244,7 +244,7 @@ textarea {
 }
 
 .delete_btn {
-    margin: auto auto 16px auto;
+    margin: auto auto auto 16px;
 }
 
 .change_img_btn {
