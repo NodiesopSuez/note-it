@@ -112,7 +112,7 @@ try {
                     <?php endforeach ?>
 
                     <!-- ボタンリスト -->
-                    <div class="buttons row">
+                    <div class="add_contents row">
                         <!-- テキスト追加ボタン -->
                         <button id="add_text" class="btn" type="button">+ text</button>
                         <!-- 画像追加ボタン -->
