@@ -51,6 +51,7 @@ $(function(){
         
         //FileReadeerに対応しているか
         if(window.FileReader){
+            $(`form_block_${set_form_num}`).children().remove();
             let fileReader = new FileReader();
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
