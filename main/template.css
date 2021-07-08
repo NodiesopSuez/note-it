@@ -233,7 +233,7 @@ textarea {
 .edit_btn, .change_img_btn { 
     background: linear-gradient(-45deg, #cae2ce 47%, #e7efe8);
 }
-.edit_btn:hover { 
+.edit_btn:hover, .change_img_btn:hover { 
     background: linear-gradient(-45deg, #69bf77 47%, #e7efe8);
 }
 .delete_btn { 
@@ -243,6 +243,15 @@ textarea {
     background: linear-gradient(-45deg, #d45555 47%, #efe6e6);
 }
 
+.delete_btn {
+    margin: auto auto 16px auto;
+}
+
+.change_img_btn {
+    text-align: center;
+    line-height: 47px;
+} 
+
 .edit_btn > svg,
 .delete_btn > svg,
 .change_img_btn > svg {
@@ -251,10 +260,6 @@ textarea {
     opacity: 0.7;
 }
 
-.change_img_btn {
-    text-align: center;
-    line-height: 47px;
-}
 
 /* 戻るボタン・送信ボタン */
 .back, .submit {
