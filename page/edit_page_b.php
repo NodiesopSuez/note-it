@@ -109,6 +109,7 @@ try {
                             <button class="delete_btn" val="<?= $val['data'] ?>" id="delete_<?= $num ?>"  role="button">
                                 <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                             </button>
+                        </div>
                     <?php endforeach ?>
 
                     <!-- ボタンリスト -->
