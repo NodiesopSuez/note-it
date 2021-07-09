@@ -137,9 +137,11 @@ try {
                 </div>
             </form>
     </div>
-    <script> let icons = `<?= $encoded_icons ?>`
-    let delete_icon_svg = $.parseJSON(icons); 
-    console.log(delete_icon_svg);</script>
+    <script>
+        let icons = `<?= $encoded_icons ?>`
+        let delete_icon_svg = $.parseJSON(icons); 
+        console.log(delete_icon_svg);
+    </script>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="../page/edit_page.js" type="text/javascript"></script>
 </body>
