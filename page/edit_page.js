@@ -13,6 +13,23 @@ $(function(){
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
         /* ¥¥$(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`}); */
     });
+
+
+    //画像の時差し込むアイコン
+    //画像変更
+    let change_img_btn = $('<label>').attr({ class : 'change_img_btn' }); //for,id属性は後付け
+    let edit_icon      = $('<svg>')
+                            .attr({ class : 'edit_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' })
+                            .html('<?= Icons::EDIT ?>');
+    change_img_btn = $(edit_icon).appendTo(change_img_btn);
+    
+    //画像削除
+    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+    let delete_icon = $('<svg>')
+                            .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' })
+                            .html('<?= Icons::DELETE ?>');
+    delete_btn = $(delete_icon).appendTo(delete_btn);
+    
     
     //add_img_btnをクリック → 画像選択ウィンドウ表示
     $(document).on("click", '#add_img', function(){
@@ -57,13 +74,9 @@ $(function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
                 //画像変更ボタン(画像選択inputのlabel)
-                let change_img_btn = $('<label>').addClass('btn btn-secondary').text('change image')
-                .attr({
-                    for : `${set_id}`,
-                    id  : `label_for_${set_form_num}`,
-                });
+                $(change_img_btn).attr({ for : `${set_id}`, id  : `label_for_${set_form_num}` });
                 
-                $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn);
+                $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn, delete_btn );
             }
             console.log('filereaderのなか');
             console.log(this);
