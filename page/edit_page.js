@@ -9,7 +9,7 @@ $(function(){
     let delete_icon_svg = JSON.parse(JSON.stringify(icons)); 
     console.log(delete_icon_svg);
 
-    $(delete_icon).html(delete_icon_svg);
+    $(delete_icon).html(delete_icon_svg.delete);
     $(delete_btn).prepend(delete_icon);
 
     $('.container').append(delete_btn);
