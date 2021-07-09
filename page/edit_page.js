@@ -12,7 +12,7 @@ $(function(){
     $(delete_icon).html(delete_icon_svg);
     $(delete_btn).prepend(delete_icon);
 
-    $(body).appned(delete_btn);
+    $('.container').appned(delete_btn);
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
