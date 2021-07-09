@@ -3,17 +3,17 @@
 $(function(){
     /* page_type_bのコンテンツ追加--------------------------------------------------- */ 
     //削除ボタン
-    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<svg>')
-                        .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' });
+    //let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+   /*  let delete_icon = $('<svg>')
+                        .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' }); */
 
-    let delete_icon_svg = JSON.parse(JSON.stringify(icons)); 
-    console.log(delete_icon_svg);
+    //let delete_icon_svg = JSON.parse(JSON.stringify(icons)); 
+    //console.log(delete_icon_svg);
 
-    $(delete_icon).html(delete_icon_svg.delete);
-    $(delete_btn).prepend(delete_icon);
+    //$(delete_icon).html(delete_icon_svg.delete);
+    //$(delete_btn).prepend(delete_icon);
 
-    $('.container').append(delete_btn);
+    //$('.container').append(delete_btn);
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
@@ -67,7 +67,7 @@ $(function(){
         
         //FileReadeerに対応しているか
         if(window.FileReader){
-            $(`#form_block_${set_form_num}`).children().remove();
+            $(`#form_block_${set_form_num}`).children('<img>').remove();
             let fileReader = new FileReader();
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
@@ -86,7 +86,7 @@ $(function(){
                 //change_img_btn = $(edit_icon).appendTo(change_img_btn);
                 $(change_img_btn).prepend(edit_icon);
                 
-                $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn, delete_btn );
+                $(`#form_block_${set_form_num}`).prepend(img_thumb);
             }
             console.log('filereaderのなか');
             console.log(this);
