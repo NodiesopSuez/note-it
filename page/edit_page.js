@@ -75,7 +75,7 @@ $(function(){
                                             version : '1.1', viewBox : '0 0 300 300',
                                             for : `${set_id}`, 
                                             id  : `label_for_${set_form_num}` })
-                                        .html('<?= Icons::EDIT ?>');
+                                        .text('<?= Icons::EDIT ?>');
                 //change_img_btn = $(edit_icon).appendTo(change_img_btn);
                 $(change_img_btn).prepend(edit_icon);
                 
