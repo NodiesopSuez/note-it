@@ -15,6 +15,10 @@ $(function(){
 
     //$('.container').append(delete_btn);
 
+    let delete_btn = $('.delete_btn').clone();
+
+    $('.container').append(delete_btn);
+
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
