@@ -73,7 +73,7 @@ $(function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
 
-                //画像変更ボタン
+/*                 //画像変更ボタン
                 let change_img_btn = $('<label>').attr({ class : 'change_img_btn' }); //for,id属性は後付け
                 let edit_icon      = $('<svg>')
                                         .attr({ 
@@ -85,11 +85,9 @@ $(function(){
                                         .text('<?= Icons::EDIT ?>');
                 //change_img_btn = $(edit_icon).appendTo(change_img_btn);
                 $(change_img_btn).prepend(edit_icon);
-                
+                 */
                 $(`#form_block_${set_form_num}`).prepend(img_thumb);
             }
-            console.log('filereaderのなか');
-            console.log(this);
             fileReader.readAsDataURL(selected_file);
         }else{
             alert('アップロードエラー');
