@@ -10,8 +10,8 @@ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
-$icons = array('Icons::EDIT', 'Icons::DELETE');
-$encoded_icons = json_encode($icons,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
+$icons = array("edit"=>"Icons::EDIT", "delete"=>"Icons::DELETE");
+$encoded_icons = json_encode($icons);
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
@@ -137,6 +137,9 @@ try {
                 </div>
             </form>
     </div>
+    <script> let icons = `<?= $encoded_icons ?>`
+    let delete_icon_svg = $.parseJSON(icons); 
+    console.log(delete_icon_svg);</script>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="../page/edit_page.js" type="text/javascript"></script>
 </body>
