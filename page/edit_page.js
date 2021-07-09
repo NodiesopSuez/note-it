@@ -45,7 +45,7 @@ $(function(){
         
         //新しいフォームブロック
         $('<div>').addClass('form_block').attr({ id : `form_block_${new_form_count}`})
-        .prepend(img_input).insertBefore('.buttons.row');
+        .prepend(img_input).insertBefore('.add_contents');
          
         //画像選択ウィンドウ表示
         $(`#contents_${new_form_count}`).trigger("click");
@@ -72,20 +72,6 @@ $(function(){
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
-
-/*                 //画像変更ボタン
-                let change_img_btn = $('<label>').attr({ class : 'change_img_btn' }); //for,id属性は後付け
-                let edit_icon      = $('<svg>')
-                                        .attr({ 
-                                            class : 'edit_icon',
-                                            xmlns : 'http://www.w3.org/2000/svg', 
-                                            version : '1.1', viewBox : '0 0 300 300',
-                                            for : `${set_id}`, 
-                                            id  : `label_for_${set_form_num}` })
-                                        .text('<?= Icons::EDIT ?>');
-                //change_img_btn = $(edit_icon).appendTo(change_img_btn);
-                $(change_img_btn).prepend(edit_icon);
-                 */
                 $(`#form_block_${set_form_num}`).prepend(img_thumb);
             }
             fileReader.readAsDataURL(selected_file);
