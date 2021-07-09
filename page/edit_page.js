@@ -2,6 +2,12 @@
 
 $(function(){
     /* page_type_bのコンテンツ追加--------------------------------------------------- */ 
+    //削除ボタン
+    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+    let delete_icon = $('<svg>')
+                        .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' })
+                        .html('<?= Icons::DELETE ?>');
+    delete_btn = $(delete_icon).appendTo(delete_btn);
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
@@ -15,21 +21,7 @@ $(function(){
     });
 
 
-    //画像の時差し込むアイコン
-    //画像変更
-    let change_img_btn = $('<label>').attr({ class : 'change_img_btn' }); //for,id属性は後付け
-    let edit_icon      = $('<svg>')
-                            .attr({ class : 'edit_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' })
-                            .html('<?= Icons::EDIT ?>');
-    change_img_btn = $(edit_icon).appendTo(change_img_btn);
-    
-    //画像削除
-    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<svg>')
-                            .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' })
-                            .html('<?= Icons::DELETE ?>');
-    delete_btn = $(delete_icon).appendTo(delete_btn);
-    
+   
     
     //add_img_btnをクリック → 画像選択ウィンドウ表示
     $(document).on("click", '#add_img', function(){
@@ -73,8 +65,19 @@ $(function(){
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
-                //画像変更ボタン(画像選択inputのlabel)
-                $(change_img_btn).attr({ for : `${set_id}`, id  : `label_for_${set_form_num}` });
+
+                //画像変更ボタン
+                let change_img_btn = $('<label>').attr({ class : 'change_img_btn' }); //for,id属性は後付け
+                let edit_icon      = $('<svg>')
+                                        .attr({ 
+                                            class : 'edit_icon',
+                                            xmlns : 'http://www.w3.org/2000/svg', 
+                                            version : '1.1', viewBox : '0 0 300 300',
+                                            for : `${set_id}`, 
+                                            id  : `label_for_${set_form_num}` })
+                                        .html('<?= Icons::EDIT ?>');
+                //change_img_btn = $(edit_icon).appendTo(change_img_btn);
+                $(change_img_btn).prepend(edit_icon);
                 
                 $(`#form_block_${set_form_num}`).append(img_thumb, change_img_btn, delete_btn );
             }
