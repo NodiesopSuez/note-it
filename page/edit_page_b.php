@@ -4,11 +4,16 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+
+$icons = array( 'edit' => 'Icons::EDIT', 'delete' => 'Icons::DELETE' );
+json_encode($icons);
+
+
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
@@ -23,8 +28,6 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 }
 $page_id = $_POST['set_page_id'];
-$icons = json_encode(array( 'edit' => 'Icons::EDIT', 'delete' => 'Icons::DELETE' ));
-
 
 try {
     $search  = new Searches;
