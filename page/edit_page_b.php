@@ -13,6 +13,8 @@ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 $icons = ['Icons::EDIT', 'Icons::DELETE'];
 $encoded_icons = json_encode($icons);
 
+var_dump ($icons);
+
 
 
 //ログインしてなければログイン画面に
