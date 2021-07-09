@@ -11,7 +11,7 @@ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 $icons = array("edit"=>Icons::EDIT, "delete"=>Icons::DELETE);
-$encoded_icons = json_encode($icons, JSON_PRETTY_PRINT);
+$encoded_icons = json_encode($icons);
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
@@ -138,7 +138,7 @@ try {
             </form>
     </div>
     <script>
-        let icons = '<?= $encoded_icons ?>';
+        let icons = <?= $encoded_icons ?>;
     </script>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="../page/edit_page.js" type="text/javascript"></script>
