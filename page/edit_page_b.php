@@ -11,11 +11,7 @@ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 $icons = ['Icons::EDIT', 'Icons::DELETE'];
-$encoded_icons = json_encode($icons);
-
-var_dump ($icons);
-
-
+$encoded_icons = json_encode($icons,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
