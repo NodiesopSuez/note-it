@@ -20,7 +20,7 @@ $(function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
         
         //1個目のフォームブロックを複製して後ろに挿入
-        let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.buttons.row'); 
+        let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
@@ -45,7 +45,7 @@ $(function(){
         
         //新しいフォームブロック
         $('<div>').addClass('form_block').attr({ id : `form_block_${new_form_count}`})
-        .prepend(img_input).insertBefore('.add_contents');
+        .prepend(img_input).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
         $(`#contents_${new_form_count}`).trigger("click");
