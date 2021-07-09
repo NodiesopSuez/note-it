@@ -23,6 +23,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 }
 $page_id = $_POST['set_page_id'];
+$icons = array( 'edit' => Icons::EDIT, 'delete' => Icons::DELETE );
 
 try {
     $search  = new Searches;
