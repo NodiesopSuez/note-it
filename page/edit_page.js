@@ -5,7 +5,7 @@ $(function(){
     //削除ボタン
     let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
     let delete_icon = $('<svg>').attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' });
-    let delete_icon_svg = JSON.parse('<?php echo $icons; ?>'); 
+    let delete_icon_svg = JSON.parse('<?php echo $encoded_icons; ?>'); 
     console.log(delete_icon_svg);
     //$(delete_icon).prepend(delete_icon_svg);
     //$(delete_btn).prepend(delete_icon);
