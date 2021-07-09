@@ -12,7 +12,6 @@ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 $icons = array('Icons::EDIT', 'Icons::DELETE');
 $encoded_icons = json_encode($icons,JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES);
-print $encoded_icons;
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){

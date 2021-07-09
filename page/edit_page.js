@@ -7,7 +7,7 @@ $(function(){
     let delete_icon = $('<svg>').attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' });
    
     let icons = `<?= $encoded_icons ?>`
-    let delete_icon_svg = JSON.parse(icons); 
+    let delete_icon_svg = $.parseJSON(icons); 
     console.log(delete_icon_svg);
 
 
