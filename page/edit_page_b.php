@@ -23,7 +23,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 }
 $page_id = $_POST['set_page_id'];
-$icons = array( 'edit' => 'Icons::EDIT', 'delete' => 'Icons::DELETE' );
+$icons = json_encode(array( 'edit' => 'Icons::EDIT', 'delete' => 'Icons::DELETE' ));
 
 
 try {
