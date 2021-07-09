@@ -15,7 +15,9 @@ $(function(){
 
     //$('.container').append(delete_btn);
     
-    $(document).find('.delete_btn').clone().prependTo('.container');
+    let delete_btn = $(document).find('.delete_btn');
+
+    $('.container').prepend(delete_btn);
 
 
     //add_text_btnをクリック → textフォーム追加
