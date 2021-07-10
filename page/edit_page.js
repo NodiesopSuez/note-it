@@ -15,7 +15,7 @@ $(function(){
 
     //$('.container').append(delete_btn);
     
-    let delete_btn = $(document).find('.delete_btn');
+    let delete_btn = $(document).find('.delete_btn').clone();
 
     $('.container').prepend(delete_btn);
 
