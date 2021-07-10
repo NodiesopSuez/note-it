@@ -252,9 +252,8 @@ textarea {
     line-height: 47px;
 } 
 
-.edit_btn > svg,
-.delete_btn > svg,
-.change_img_btn > svg {
+.edit_icon,
+.delete_icon {
     width: 32px;
     fill: #ffffff;
     opacity: 0.7;
