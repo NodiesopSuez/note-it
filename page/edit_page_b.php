@@ -93,7 +93,7 @@ try {
                     <input class="page_title" type="text" name="page_title_b" value="<?= $page_info['page_title']?>">
 
                     <?php foreach($page_contents as $i=>$val) :?>
-                        <div class="form_block" id="form_block_<?= $i+1 ?>">
+                        <div class="form_block" id="<?= $i+1 ?>_form_block">
                             <?php $num = $i+1; ?>
                             <?php if($val['file_type'] === 'text') :?>
                                 <textarea class="contents text" id="contents_<?= $num ?>" name="contents_<?= $num ?>">
@@ -106,7 +106,7 @@ try {
                                     <img class="edit_icon" src="../page/img/edit_btn.svg">
                                 </label>
                                 <?php endif ?>
-                            <button class="delete_btn" val="<?= $val['data'] ?>" id="delete_<?= $num ?>"  role="button">
+                            <button class="delete_btn" val="<?= $val['data'] ?>" role="button">
                                 <img class="delete_icon" src="../page/img/delete_btn.svg">
                             </button>
                         </div>
