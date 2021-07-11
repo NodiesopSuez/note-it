@@ -15,11 +15,14 @@ $(function(){
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
         //let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
-        let new_form_count = $('.page_base.b').children().eq(-1);
+        let new_form_count = $('.page_base.b').children().eq(-2);
         console.log(new_form_count);
 
         //1個目のフォームブロックを複製して後ろに挿入
-        let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
+        //let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
+        let new_form_block = $('.text').parent();
+        console.log(new_form_block);
+        //let new_form_block = $('.text').parent().clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
