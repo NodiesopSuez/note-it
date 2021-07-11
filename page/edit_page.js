@@ -82,7 +82,6 @@ $(function(){
 /* contents_sectionの高さを自動調整------------------------------------ */ 
     //page_base a の場合
     $('textarea').each(function(index, element){
-        console.log(element);
         let line_height = parseInt($(element).css('line-height'));
         let lines = ($(element).val() + '\n').match(/\n/g).length;
         $(element).css({ height : `${line_height * lines}px`});
