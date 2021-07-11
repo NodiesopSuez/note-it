@@ -255,6 +255,7 @@ textarea {
 .edit_icon,
 .delete_icon {
     width: 32px;
+    fill: #fff;
     opacity: 0.7;
 }
 

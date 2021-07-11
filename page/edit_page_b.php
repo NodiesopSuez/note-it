@@ -106,12 +106,11 @@ try {
                                 <img id="thumb_contents_<?= $num ?>" src="<?= $val['data'] ?>">
                                 <input class="contents img" type="file" id="contents_<?= $num ?>" accept="image/*" style="display:none">
                                 <label class="change_img_btn" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
-                                    <!-- <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg> -->
                                     <img class="edit_icon" src="../page/img/edit_btn.svg">
                                 </label>
                                 <?php endif ?>
                             <button class="delete_btn" val="<?= $val['data'] ?>" id="delete_<?= $num ?>"  role="button">
-                                <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
+                                <img class="delete_icon" src="../page/img/delete_btn.svg">
                             </button>
                         </div>
                     <?php endforeach ?>
