@@ -134,9 +134,6 @@ try {
                 </div>
             </form>
     </div>
-    <script>
-        let icons = <?= $encoded_icons ?>
-    </script>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="../page/edit_page.js" type="text/javascript"></script>
 </body>
