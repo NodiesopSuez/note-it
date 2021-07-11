@@ -14,8 +14,10 @@ $(function(){
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
-        let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
-        
+        //let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
+        let new_form_count = $('.page_base.b').eq(-1);
+        console.log(new_form_count);
+
         //1個目のフォームブロックを複製して後ろに挿入
         let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
         
@@ -25,9 +27,6 @@ $(function(){
         /* ¥¥$(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`}); */
     });
 
-
-   
-    
     //add_img_btnをクリック → 画像選択ウィンドウ表示
     $(document).on("click", '#add_img', function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
@@ -78,6 +77,11 @@ $(function(){
         }
     }); 
 
+    //削除ボタンがクリックされたら
+    $(document).on("click", '.delete_btn', function(){
+        
+    })
+
 /* contents_sectionの高さを自動調整------------------------------------ */ 
     //page_base a の場合
     $('textarea').each(function(index, element){
@@ -87,7 +91,7 @@ $(function(){
         $(element).css({ height : `${line_height * lines}px`});
     })
 
-    $(document).on("keyup", '.page_base textarea', function(element){
+    $(document).on("keyup", '.page_base.a textarea', function(element){
         let line_height = parseInt($(element.target).css('line-height'));
         let lines = ($(element.target).val() + '\n').match(/\n/g).length;
         $(element.target).css({ height : `${line_height * lines}px`});
