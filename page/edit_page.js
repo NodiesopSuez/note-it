@@ -2,23 +2,15 @@
 
 $(function(){
     /* page_type_bのコンテンツ追加--------------------------------------------------- */ 
-    //削除ボタン
-    //let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-   /*  let delete_icon = $('<svg>')
-                        .attr({ class : 'delete_icon', xmlns : 'http://www.w3.org/2000/svg', version : '1.1', viewBox : '0 0 300 300' }); */
-
-    //let delete_icon_svg = JSON.parse(JSON.stringify(icons)); 
-    //console.log(delete_icon_svg);
-
-    //$(delete_icon).html(delete_icon_svg.delete);
-    //$(delete_btn).prepend(delete_icon);
-
-    //$('.container').append(delete_btn);
+    //編集ボタン
+    let edit_btn  = $('<label>').attr({ class : 'change_img_btn'}); //val,id属性は後付け
+    let edit_icon = $('<img>').attr({ class : 'edit_icon', src : '../page/img/edit_btn.svg'});
+    $(edit_btn).prepend(edit_icon);
     
-    let delete_btn = $(document).find('.delete_btn').clone();
-
-    $('.container').prepend(delete_btn);
-
+    //削除ボタン
+    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '../page/img/delete_btn.svg'});
+    $(delete_btn).prepend(delete_icon);
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
@@ -29,6 +21,7 @@ $(function(){
         
         //フォームブロック内の要素のidとテキストを書き換え
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
+        $(new_form_block).append(delete_btn);
         /* ¥¥$(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`}); */
     });
 
@@ -58,7 +51,6 @@ $(function(){
 
     //選択する画像が切り替わったら
     $(document).on("change", '.img', function(){
-        console.log(this);
         let selected_file = $(this).prop('files')[0]; //選ばれたファイル
         
         //ファイルサイズが１MB以下か
@@ -77,7 +69,7 @@ $(function(){
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_id}`, src : fileReader.result });
-                $(`#form_block_${set_form_num}`).prepend(img_thumb);
+                $(`#form_block_${set_form_num}`).prepend(img_thumb, edit_btn, delete_btn);
             }
             fileReader.readAsDataURL(selected_file);
         }else{
