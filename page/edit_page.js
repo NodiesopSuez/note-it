@@ -17,9 +17,7 @@ $(function(){
         let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
 
         //1個目のtextフォームブロックを複製して後ろに挿入
-        //let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
         let first_text_block = $('.text').parent()[0];
-        console.log(first_text_block);
         let new_form_block = $(first_text_block).clone().attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
@@ -28,7 +26,7 @@ $(function(){
 
     //add_img_btnをクリック → 画像選択ウィンドウ表示
     $(document).on("click", '#add_img', function(){
-        let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
+        let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
         
         //画像選択input
         let img_input = $('<input>').addClass('contents img').attr({
@@ -40,8 +38,7 @@ $(function(){
         });
         
         //新しいフォームブロック
-        $('<div>').addClass('form_block').attr({ id : `form_block_${new_form_count}`})
-        .prepend(img_input).insertBefore('.add_contents.row');
+        $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
         $(`#contents_${new_form_count}`).trigger("click");
@@ -90,7 +87,7 @@ $(function(){
         $(element).css({ height : `${line_height * lines}px`});
     })
 
-    $(document).on("keyup", '.page_base.a textarea', function(element){
+    $(document).on("keyup", '.page_base textarea', function(element){
         let line_height = parseInt($(element.target).css('line-height'));
         let lines = ($(element.target).val() + '\n').match(/\n/g).length;
         $(element.target).css({ height : `${line_height * lines}px`});
