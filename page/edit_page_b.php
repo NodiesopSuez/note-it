@@ -10,9 +10,6 @@ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
-$icons = array("edit"=>Icons::EDIT, "delete"=>Icons::DELETE);
-$encoded_icons = json_encode($icons);
-
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
     header('Location: ../sign/sign_in.php');
