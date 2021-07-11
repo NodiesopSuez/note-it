@@ -41,7 +41,7 @@ $(function(){
         $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
-        //$(`#contents_${new_form_count}`).trigger("click");
+        $(`#contents_${new_form_count}`).trigger("click");
     });
 
     //選択する画像が切り替わったら
@@ -59,7 +59,7 @@ $(function(){
         let set_form_num = $(this).attr('id').replace('contents_', '');
         
         //FileReadeerに対応しているか
-        if(window.FileReader){
+        /* if(window.FileReader){
             $(`#${set_form_num}_form_block`).children().remove();
             let fileReader = new FileReader();
             fileReader.onload = function(){
@@ -71,7 +71,7 @@ $(function(){
         }else{
             alert('アップロードエラー');
             return false;
-        }
+        } */
     }); 
 
     //削除ボタンがクリックされたら
