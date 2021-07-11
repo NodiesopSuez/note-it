@@ -18,9 +18,9 @@ $(function(){
 
         //1個目のtextフォームブロックを複製して後ろに挿入
         //let new_form_block = $('#form_block_1').clone().attr({ id : `form_block_${new_form_count}` }).insertBefore('.add_contents.row'); 
-/*         let new_form_block = $('.text').parent()[0];
-        console.log(new_form_block); */
-        let new_form_block = $('.text').parent()[0].clone().attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row'); 
+        let first_text_block = $('.text').parent()[0];
+        console.log(first_text_block);
+        let new_form_block = $(first_text_block).clone().attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
