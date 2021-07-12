@@ -1,6 +1,8 @@
 'use strict';
 
 $(function(){
+    console.log('ここはcreate_page');
+
     localStorage.clear();
 
     let defer = new $.Deferred;
