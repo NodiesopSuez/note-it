@@ -37,7 +37,7 @@ $(function(){
         });
         
         //新しいフォームブロック
-        $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input).insertBefore('.add_contents.row');
+        $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input, edit_btn, delete_btn).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
         $(`input[name="contents_${new_form_count}"]`).trigger("click");
