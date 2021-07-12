@@ -15,6 +15,9 @@ $(function(){
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
         let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
+        let form_count = $('.page_base.b').children().eq(-2);
+        console.log(form_count);
+        console.log(new_form_count);
 
         //1個目のtextフォームブロックを複製して後ろに挿入
         let first_text_block = $('.text').parent()[0];
