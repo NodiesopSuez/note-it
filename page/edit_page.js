@@ -57,12 +57,12 @@ $(function(){
         
         //FileReadeerに対応しているか
         if(window.FileReader){
-            $(`#${set_form_num}_form_block`).children().remove();
+            $(`#${set_form_num}_form_block`).children('img').remove();
             let fileReader = new FileReader();
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_form_num}`, src : fileReader.result });
-                $(`#${set_form_num}_form_block`).prepend(img_thumb, edit_btn, delete_btn);
+                $(`#${set_form_num}_form_block`).prepend(img_thumb);
             }
             fileReader.readAsDataURL(selected_file);
         }else{
