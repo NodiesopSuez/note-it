@@ -2,8 +2,6 @@
 
 $(function(){
     /* page_type_bのコンテンツ追加--------------------------------------------------- */ 
-
-    console.log('ここはedit_page');
     //編集ボタン
     let edit_btn  = $('<label>').attr({ class : 'change_img_btn'}); //val,id属性は後付け
     let edit_icon = $('<img>').attr({ class : 'edit_icon', src : '../page/img/edit_btn.svg'});
