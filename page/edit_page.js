@@ -45,7 +45,6 @@ $(function(){
 
     //選択する画像が切り替わったら
     $(document).on("change", '.img', function(){
-        console.log($(this));
         let selected_file = $(this).prop('files')[0]; //選ばれたファイル
         
         //ファイルサイズが１MB以下か
@@ -54,9 +53,9 @@ $(function(){
             return;
         }
         
-        let set_id       = $(this).attr('id');
-        let set_form_num = $(this).attr('id').replace('contents_', '');
+        let set_form_num = $(this).attr('name').replace('contents_', '');
         
+        console.log(set_form_num);
         //FileReadeerに対応しているか
         /* if(window.FileReader){
             $(`#${set_form_num}_form_block`).children().remove();
