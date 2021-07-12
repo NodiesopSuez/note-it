@@ -384,7 +384,7 @@ $(function(){
         
         //page_typeにより表示するフォームを分岐
         let page_type = localStorage.getItem(selected_chapter);
-        console.log(page_type);
+
         if(page_type == 1) {
             $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
