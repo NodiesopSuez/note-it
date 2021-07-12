@@ -72,9 +72,9 @@ $(function(){
     }); 
 
     //削除ボタンがクリックされたら
-    /* $(document).on("click", '.delete_btn', function(){
-        
-    }) */
+    $(document).on("click", '.delete_btn', function(){
+        $(this).parent().remove();
+    });
 
 /* contents_sectionの高さを自動調整------------------------------------ */ 
     //page_base a の場合
