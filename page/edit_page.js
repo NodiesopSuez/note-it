@@ -32,7 +32,6 @@ $(function(){
         let img_input = $('<input>').addClass('contents img').attr({
             name  : `contents_${new_form_count}`,
             type  : "file",
-            id    : `contents_${new_form_count}`,
             accept: "image/*",
             style : 'display:none',   
         });
