@@ -2,7 +2,8 @@ body {
     background: linear-gradient(-45deg, var(--body-base-lt), var(--body-base-dk));
 }
 
-body * { 
+body *,
+a:hover { 
     color: var(--main-font);
 }
 
