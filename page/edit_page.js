@@ -40,7 +40,7 @@ $(function(){
         $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
-        $(`#contents_${new_form_count}`).trigger("click");
+        $(`input[name="contents_${new_form_count}"]`).trigger("click");
     });
 
     //選択する画像が切り替わったら
