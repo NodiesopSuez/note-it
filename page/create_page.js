@@ -64,7 +64,7 @@ $(function(){
     //typeB
     const page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
     /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
-    const contents         = $('<textarea>').addClass('contents text').attr({ id : '1_contents', name : 'contents_1'});
+    const contents         = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
     const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents/* , hid_content */);
 

@@ -15,7 +15,6 @@ $(function(){
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
         let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
-        let form_count = $('.page_base.b').children().eq(-2);
         console.log(form_count);
         console.log(new_form_count);
 
@@ -24,7 +23,7 @@ $(function(){
         let new_form_block = $(first_text_block).clone().attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row'); 
         
         //フォームブロック内の要素のidとテキストを書き換え
-        $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('');
+        $(new_form_block).children('textarea').attr({ name : `contents_${new_form_count}`}).text('');
     });
 
     //add_img_btnをクリック → 画像選択ウィンドウ表示
