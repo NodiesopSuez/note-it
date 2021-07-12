@@ -72,7 +72,7 @@ $(function(){
     const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
     //const add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
     //const add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
-    const buttons_row      = $('<div>').addClass('buttons row')
+    const buttons_row      = $('<div>').addClass('add_contents row')
                                     .prepend(add_text_btn, add_img_btn, /* add_code_btn, add_quote_btn */);
     const page_b_form = $('<div>').attr({ class : 'page_base b' })
                                 .prepend(page_b_title, form_block, buttons_row);
