@@ -37,7 +37,7 @@ $(function(){
         });
         
         //新しいフォームブロック
-        $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input, $(edit_btn).clone(), $(delete_btn).clone()).insertBefore('.add_contents.row');
+        $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block`}).prepend(img_input).insertBefore('.add_contents.row');
          
         //画像選択ウィンドウ表示
         $(`input[name="contents_${new_form_count}"]`).trigger("click");
@@ -57,12 +57,12 @@ $(function(){
         
         //FileReadeerに対応しているか
         if(window.FileReader){
-            $(`#${set_form_num}_form_block`).children('img').remove();
+            $(`#${set_form_num}_form_block`).children().remove();
             let fileReader = new FileReader();
             fileReader.onload = function(){
                 //表示サムネイル,表示画像を選択した画像に切替
                 let img_thumb = $('<img>').attr({ id : `thumb_${set_form_num}`, src : fileReader.result });
-                $(`#${set_form_num}_form_block`).prepend(img_thumb);
+                $(`#${set_form_num}_form_block`).prepend(img_thumb, $(edit_btn).clone(), $(delete_btn).clone());
             }
             fileReader.readAsDataURL(selected_file);
         }else{
