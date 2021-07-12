@@ -54,7 +54,8 @@ $(function(){
             return;
         }
         
-        let set_form_num = $(this).attr('name').replace('contents_', '');
+        let set_form_num = $(this).attr('name')//.replace('contents_', '');
+        cosnoel.log(set_form_num);
         
         //FileReadeerに対応しているか
         if(window.FileReader){
