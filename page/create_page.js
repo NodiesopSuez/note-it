@@ -64,9 +64,9 @@ $(function(){
     //typeB
     const page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
     /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
-    const contents         = $('<textarea>').addClass('contents text').attr({ id : 'contents_1', name : 'contents_1'});
+    const contents         = $('<textarea>').addClass('contents text').attr({ id : '1_contents', name : 'contents_1'});
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
-    const form_block       = $('<div>').addClass('form_block').attr({ id : 'form_block_1'}).prepend(contents/* , hid_content */);
+    const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents/* , hid_content */);
 
     const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
     const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
@@ -429,7 +429,7 @@ $(function(){
     
     /* page_type_bのコンテンツ追加--------------------------------------------------- */ 
     //add_text_btnをクリック → textフォーム追加
-    $(document).on("click", '#add_text', function(){
+    /* $(document).on("click", '#add_text', function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
         
         //1個目のフォームブロックを複製して後ろに挿入
@@ -438,10 +438,10 @@ $(function(){
         //フォームブロック内の要素のidとテキストを書き換え
         $(new_form_block).children('#contents_1').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}`}).text('').val('');
         /* ¥¥$(new_form_block).children('#hid_contents_1').attr({ name : `contents_${new_form_count}`, id : `hid_contents_${new_form_count}`}); */
-    });
+    //}); */
     
     //add_img_btnをクリック → 画像選択ウィンドウ表示
-    $(document).on("click", '#add_img', function(){
+    /* $(document).on("click", '#add_img', function(){
         let new_form_count = $('.form_block').length + 1; //新フォームブロックは何個目か
         
         //画像選択input
@@ -459,10 +459,10 @@ $(function(){
          
         //画像選択ウィンドウ表示
         $(`#contents_${new_form_count}`).trigger("click");
-    });
+    }); */
 
     //選択する画像が切り替わったら
-    $(document).on("change", '.img', function(){
+    /* $(document).on("change", '.img', function(){
         let selected_file = $(this).prop('files')[0]; //選ばれたファイル
         
         //ファイルサイズが１MB以下か
@@ -493,8 +493,8 @@ $(function(){
         }else{
             alert('アップロードエラー');
             return false;
-        }
-    }); 
+        } */
+    //}); 
     
     //page_base　b contenteditableの入力内容をinputに代入
     /* $(document).on("keyup", '.text', function(){
@@ -507,10 +507,10 @@ $(function(){
 
 /* contents_sectionの高さを自動調整------------------------------------ */ 
     //page_base a の場合
-    $(document).on("keyup", '.page_base textarea', function(element){
+    /* $(document).on("keyup", '.page_base textarea', function(element){
         let line_height = parseInt($(element.target).css('line-height'));
         let lines = ($(element.target).val() + '\n').match(/\n/g).length;
         $(element.target).css({ height : `${line_height * lines}px`});
-    });
+    }); */
     
 });

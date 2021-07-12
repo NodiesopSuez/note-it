@@ -167,5 +167,6 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
     <script src="../inclusion/inclusion.js" type="text/javascript"></script>
     <script src="./create_page.js" type="text/javascript"></script>
+    <script src="./edit_page.js" type="text/javascript"></script>
 </body>
 </html>
