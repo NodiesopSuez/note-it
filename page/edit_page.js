@@ -54,8 +54,7 @@ $(function(){
             return;
         }
         
-        let set_form_num = $(this).attr('name')//.replace('contents_', '');
-        console.log(set_form_num);
+        let set_form_num = $(this).attr('name').replace('contents_', '');
         
         //FileReadeerに対応しているか
         if(window.FileReader){
