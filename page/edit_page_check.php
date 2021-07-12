@@ -93,11 +93,9 @@ try {
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
+                
                 //ランダムな文字列でファイル名生成
                 $img['name'] = uniqid(bin2hex(random_bytes(1))).'.'.$file_type;
-                $img_path    = '../page/contents_img/'.$img['name'];
-                //tmp_fileをディレクトリに格納
-                move_uploaded_file($img['tmp_name'], $img_path);
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
