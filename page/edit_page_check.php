@@ -129,14 +129,14 @@ try {
     $search = null;
     
     if(!empty($_SESSION['error'])){
-        header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
+        //header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/edit_page_done.php');
+        //header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
     $_SESSION['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../mem/mem_top.php');
+    //header('Location:../mem/mem_top.php');
     exit;
 }
 ?>
