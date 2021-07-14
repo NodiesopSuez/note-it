@@ -42,8 +42,8 @@ try {
     $utility = new SaftyUtil;
 
     $sanitized = $utility->sanitize(1, $_POST);
-    
-    print_r($sanitized);
+
+    print_r($_POST);
     echo '<br/>';
     print_r($_FILES);
 
