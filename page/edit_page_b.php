@@ -101,7 +101,9 @@ try {
                                 </textarea>
                             <?php elseif($val['file_type'] === 'img') :?>
                                 <img id="thumb_<?= $num ?>" src="<?= $val['data'] ?>">
-                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>" accept="image/*" style="display:none">
+                                <input type="hidden" name="contents_<?= $num ?>[]" value="hidden1">
+                                <input type="hidden" name="contents_<?= $num ?>[]" value="hidden2">
+                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>[]" accept="image/*" style="display:none">
                                 <label class="change_img_btn" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
                                     <img class="edit_icon" src="../page/img/edit_btn.svg">
                                 </label>
