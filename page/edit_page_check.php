@@ -42,6 +42,11 @@ try {
     $utility = new SaftyUtil;
 
     $sanitized = $utility->sanitize(1, $_POST);
+    
+    print_r($sanitized);
+    echo '<br/>';
+    print_r($_FILES);
+
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
     //page_titleが入力されているか
