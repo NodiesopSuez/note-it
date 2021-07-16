@@ -19,7 +19,7 @@ $(function(){
         //textフォームブロックを後ろに挿入
         let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}` })
         let new_form_block = $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row');
-        $(new_textarea).insertTo(new_form_block);
+        $(new_textarea).prependTo(new_form_block);
         
     });
 
