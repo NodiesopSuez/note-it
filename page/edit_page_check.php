@@ -43,7 +43,7 @@ try {
 
     $sanitized = $utility->sanitize(1, $_POST);
 
-    print_r($_POST); 
+    print_r($sanitized); 
     echo '<br/>';
     print_r($_FILES);
 
