@@ -83,7 +83,7 @@ try {
                 </div>
             </div>
 
-            <form class="edit" method="post" action="../page/edit_page_check.php">
+            <form class="edit" method="post" action="../page/edit_page_check.php" enctype="multipart/form-data">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="page_id" value="<?= $page_id ?>">
