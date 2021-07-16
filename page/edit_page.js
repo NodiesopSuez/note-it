@@ -73,7 +73,7 @@ $(function(){
 
     //削除ボタンがクリックされたら
     $(document).on("click", '.delete_btn', function(){
-        $(this).parent().remove();
+        $(this).parent().children().remove();
     });
 
 /* contents_sectionの高さを自動調整------------------------------------ */ 
