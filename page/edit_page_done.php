@@ -31,7 +31,7 @@ try{
        
     }
 }catch(Exception $e){
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }

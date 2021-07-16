@@ -23,13 +23,13 @@ $searches = new Searches;
 $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 
 //エラーの有無によってテントウの表示を分岐
-if(!empty($_SESSION['error'])){
+if(!empty($_SESSION['msg']['error'])){
     $ladybug_img = './img/ladybug_sd.png';
-	$msg = $_SESSION['error'];
-}elseif(!empty($_SESSION['okmsg'])){
+	$msg = $_SESSION['msg']['error'];
+}elseif(!empty($_SESSION['msg']['okmsg'])){
     $ladybug_img = './img/ladybug_nm.png';
-    $msg = $_SESSION['okmsg'];
-    $_SESSION['okmsg'] = array();
+    $msg = $_SESSION['msg']['okmsg'];
+    $_SESSION['msg']['okmsg'] = array();
 }else{
     $ladybug_img = './img/ladybug_nm.png';
     $msg =  ['どのノートに追加しますか？'];

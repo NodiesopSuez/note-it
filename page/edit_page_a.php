@@ -18,7 +18,7 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
@@ -45,7 +45,7 @@ try {
     $search = null;
 
 }catch(Exception $e){
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }

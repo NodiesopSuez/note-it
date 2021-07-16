@@ -28,13 +28,13 @@ try{
 	$register->registerUserData($nick_name,$gender,$email,$birth,$pass,$registration_dt);
 	
 	if($register==true){
-		$_SESSION['error'] = array();
+		$_SESSION['msg']['error'] = array();
 		$_SESSION['data'] = array();
-		$_SESSION['okmsg'] = '登録を完了しました!!<br/>ログインしてください'; 
+		$_SESSION['msg']['okmsg'] = '登録を完了しました!!<br/>ログインしてください'; 
 		header('Location:../sign/sign_in.php');
 	}
 }catch(Exception $e){
-	$_SESSION['error'][] = Config::MSG_EXCEPTION;
+	$_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
 	header('Location:../sign/sign_up.php');
 }
 ?>

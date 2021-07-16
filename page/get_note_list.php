@@ -17,7 +17,7 @@ try {
         $search = null;
     }
 }catch(Exception $e){
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
 	header('Location:../mem/sign_in.php');
 }
 ?>

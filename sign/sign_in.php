@@ -14,17 +14,17 @@ $ladybug = './img/ladybug_nm.png';
 //会員登録後ならサンクスメッセージを代入
 //それ以外は通常メッセージ
 $error_back_count;
-if(!empty($_SESSION['error'])){
+if(!empty($_SESSION['msg']['error'])){
     $ladybug = './img/ladybug_sd.png';
-	$msg = $_SESSION['error'];
+	$msg = $_SESSION['msg']['error'];
 	$error_back_count = $_SESSION['error_back_count'];
-}elseif(isset($_SESSION['okmsg']) && $_SESSION['okmsg']==='ok'){
-	$msg = $_SESSION['okmsg'];
+}elseif(isset($_SESSION['msg']['okmsg']) && $_SESSION['msg']['okmsg']==='ok'){
+	$msg = $_SESSION['msg']['okmsg'];
 }else{
     $msg = ['ログインしてください♪'];
 }
 $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
-$_SESSION['okmsg'] = array();
+$_SESSION['msg']['okmsg'] = array();
 ?>
 
 <!DOCTYPE html>

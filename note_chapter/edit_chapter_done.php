@@ -19,13 +19,13 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
 //エラーが入ってたら削除
-$_SESSION['error'] = array();
+$_SESSION['msg']['error'] = array();
 
 $user_id = $_SESSION['user_info']['user_id'];
 extract($_SESSION['note_chapter']); //[chapter_id, chapter_title];
@@ -35,11 +35,11 @@ try {
     $update_bool = $update->updateChapter($chapter_id, $chapter_title);
 
     if($update_bool === false){
-        $_SESSION['error'][] = Config::MSG_EXCEPTION;
+        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
         header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
         exit;
     }else{
-        $_SESSION['okmsg'][] = 'チャプターの更新ができました！';
+        $_SESSION['msg']['okmsg'][] = 'チャプターの更新ができました！';
         $_SESSION['note_chapter'] = array();
         header('Location:../mem/mem_top.php'); 
         exit;
@@ -49,7 +49,7 @@ try {
 
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }

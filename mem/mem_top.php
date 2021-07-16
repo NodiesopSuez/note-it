@@ -11,7 +11,7 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 //余計な情報を削除
-$_SESSION['error'] = array();
+$_SESSION['msg']['error'] = array();
 $_SESSION['view_page'] = array();
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
@@ -24,7 +24,7 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 } 
@@ -50,7 +50,7 @@ try {
     $now_dt = getDate();
     extract($now_dt);
 
-    if (empty($_SESSION['error']) && empty($_SESSION['okmsg'])) {
+    if (empty($_SESSION['msg']['error']) && empty($_SESSION['msg']['okmsg'])) {
         $ladybug_img = './img/ladybug_nm.png';
         if ($hours>=5 && $hours<12) {
             $msg = array('おはようございます!　'.$nick_name.'さん!');
@@ -59,20 +59,20 @@ try {
         } elseif (($hours>=17 && $hours<=23) || ($hours>=0 && $hours<5)) {
             $msg = array('ヤァこんばんは!　'.$nick_name.'さん!');
         }
-    } elseif (!empty($_SESSION['error'])) {
+    } elseif (!empty($_SESSION['msg']['error'])) {
         $ladybug_img = './img/ladybug_sd.png';
-        $msg = $_SESSION['error'];
-    } elseif (!empty($_SESSION['okmsg'])) {
+        $msg = $_SESSION['msg']['error'];
+    } elseif (!empty($_SESSION['msg']['okmsg'])) {
         $ladybug_img = './img/ladybug_nm.png';
-        $msg = $_SESSION['okmsg'];
-        $_SESSION['okmsg'] = array();
+        $msg = $_SESSION['msg']['okmsg'];
+        $_SESSION['msg']['okmsg'] = array();
     }
     $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 }catch(Exception $e){
     echo $e->getMessage();
 }
 
-$_SESSION['okmsg'] = array();
+$_SESSION['msg']['okmsg'] = array();
 $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 ?>
 

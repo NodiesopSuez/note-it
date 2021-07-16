@@ -19,14 +19,14 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
 //エラーが入ってたら削除
 if(!empty($_SESSIONT['error'])){
-    $_SESSION['error'] = array();
+    $_SESSION['msg']['error'] = array();
 }
 
 var_dump($_POST);
@@ -47,21 +47,21 @@ try{
     }
 
     //チャプターを削除
-    $delete_bool['chatper'] = $delete->deleteChapter('chapter', $chapter_id);
+    $delete_bool['chapter'] = $delete->deleteChapter('chapter', $chapter_id);
 
     if(in_array(0, $delete_bool)){
-        $_SESSION['error'][] = Config::MSG_EXCEPTION;
+        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
         header('Location:../mem/mem_top.php');
         exit;
     }else{
-        $_SESSION['okmsg'][] = 'チャプターを削除できました！';
+        $_SESSION['msg']['okmsg'][] = 'チャプターを削除できました！';
         header('Location:../mem/mem_top.php');
         exit;
     }
 
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }

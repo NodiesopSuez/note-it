@@ -17,7 +17,7 @@ $msg = 'ようこそ♪';
 
 
 //sign_in用
-$_SESSION['okmsg'] = array();
+$_SESSION['msg'] = array();
 
 ?>
 <!DOCTYPE html>

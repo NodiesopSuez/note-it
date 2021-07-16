@@ -17,13 +17,13 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
 //エラーが入ってたら削除
-$_SESSION['error'] = array();
+$_SESSION['msg']['error'] = array();
 
 $user_id   = $_SESSION['user_info']['user_id'];
 extract($_POST); //[token, note_id, color, note_title];
@@ -43,14 +43,14 @@ try {
 
     foreach($the_other_note as $key => $val){
         if($note_title ===  $val['note_title'] && $color === $val['color']){
-            $_SESSION['error'][] = '既に同じタイトル・カラーのノートがあります';
+            $_SESSION['msg']['error'][] = '既に同じタイトル・カラーのノートがあります';
         }
     }
 
     $search = null;
 
-    if(!empty($_SESSION['error'])){
-        var_dump($_SESSION['error']);
+    if(!empty($_SESSION['msg']['error'])){
+        var_dump($_SESSION['msg']['error']);
         header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
         exit;
     }else{
@@ -60,7 +60,7 @@ try {
     }
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }

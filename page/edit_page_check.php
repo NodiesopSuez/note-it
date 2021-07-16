@@ -21,14 +21,14 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location:../mem/mem_top.php');
     exit;
 }
 
 //エラー・前回の入力残ってたら削除
-if(!empty($_SESSION['error'])){
-    $_SESSION['error'] = array();
+if(!empty($_SESSION['msg']['error'])){
+    $_SESSION['msg']['error'] = array();
 }
 
 $_SESSION['page']  = array();
@@ -54,7 +54,7 @@ try {
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
-        $_SESSION['error'][] = 'ページタイトルを入力してください';
+        $_SESSION['msg']['error'][] = 'ページタイトルを入力してください';
     }
 
     //page type B のコンテンツを一旦格納する配列を宣言
@@ -127,7 +127,7 @@ try {
         if(!empty($page_b_contents)){
             ksort($page_b_contents); //コンテンツを昇順に並べ替え
         }else{
-            $_SESSION['error'][] = '本文を入力してください';
+            $_SESSION['msg']['error'][] = '本文を入力してください';
         }
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['update_contents'] = $page_b_contents;
@@ -136,14 +136,14 @@ try {
     
     $search = null;
     
-    if(!empty($_SESSION['error'])){
+    if(!empty($_SESSION['msg']['error'])){
         //header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
     }else{
         //header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     //header('Location:../mem/mem_top.php');
     exit;
 }

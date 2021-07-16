@@ -10,17 +10,17 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 //エラ〜メッセージを空にする
-$_SESSION['error'] = array();
+$_SESSION['msg']['error'] = array();
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location:../sign/sign_in.php');
 	exit;
 }
 //3回以上エラーしてたらログイン不可
 if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
-	$_SESSION['error'][] = Config::MSG_USER_LOGIN_TRYTIMES_OVER;
+	$_SESSION['msg']['error'][] = Config::MSG_USER_LOGIN_TRYTIMES_OVER;
 	header('Location:../sign/sign_in.php');
 	exit;
 }
@@ -41,14 +41,14 @@ try{
     if($email=='' || $pass=='' || 
         empty($user_info) || $email!==$user_info['email'] ||
         password_verify($pass, $user_info['pass'])==false){
-            $_SESSION['error'][] = 'メールアドレス もしくは パスワードに誤りがあります。';
+            $_SESSION['msg']['error'][] = 'メールアドレス もしくは パスワードに誤りがあります。';
             $_SESSION['error_back_count'] ++;
             header('Location: ../sign/sign_in.php');
             exit;
     }
     if($email==$user_info['email'] && password_verify($pass, $user_info['pass'])==true){
             $_SESSION['user_info'] = array('nick_name'=>$user_info['nick_name'], 'user_id'=>$user_info['user_id']);
-            $_SESSION['error'] = array();
+            $_SESSION['msg']['error'] = array();
             $_SESSION['error_back_count'] = 0;
             echo '<input type="hidden" name="token" value="'. SaftyUtil::generateToken() .'">';
             header('Location: ../mem/mem_top.php');
@@ -56,7 +56,7 @@ try{
         }
 
 }catch(Exception $e){
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
 	$_SESSION['error_back_count'] ++;
 	header('Location:../sign/sign_in.php');
 }

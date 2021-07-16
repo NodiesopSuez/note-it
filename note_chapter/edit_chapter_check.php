@@ -17,13 +17,13 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
 //エラーが入ってたら削除
-$_SESSION['error'] = array();
+$_SESSION['msg']['error'] = array();
 
 $user_id = $_SESSION['user_info']['user_id'];
 extract($_POST); //[token, chapter_id, chapter_title];
@@ -32,7 +32,7 @@ try {
     $search = new Searches;
     
     if ((!$chapter_title) || (ctype_space($chapter_title))) {
-        $_SESSION['error'][] = 'チャプタータイトルを入力してください';
+        $_SESSION['msg']['error'][] = 'チャプタータイトルを入力してください';
     }
 
     //該当チャプター
@@ -43,13 +43,13 @@ try {
     //既に同じタイトルチャプターがないか検索
     foreach($the_other_chapter as $key => $val){
         if($chapter_title ===  $val['chapter_title']){
-            $_SESSION['error'][] = '既に同じタイトルのチャプターがあります';
+            $_SESSION['msg']['error'][] = '既に同じタイトルのチャプターがあります';
         }
     } 
 
     $search = null;
 
-    if(!empty($_SESSION['error'])){
+    if(!empty($_SESSION['msg']['error'])){
         header('Location:../mem/mem_top.php'); 
         exit;
     }else{
@@ -59,7 +59,7 @@ try {
     }
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }
