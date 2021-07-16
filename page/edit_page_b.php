@@ -22,7 +22,16 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
-$page_id = $_POST['set_page_id'];
+
+if(is_int($_POST['set_page_id'])){
+    $page_id = $_POST['set_page_id'];
+}else{
+    $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
+	header('Location: ../sign/sign_in.php');
+	exit;
+}
+
+print_r($_SESSION);
 
 try {
     $search  = new Searches;
