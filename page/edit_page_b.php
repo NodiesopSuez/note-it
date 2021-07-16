@@ -96,14 +96,13 @@ try {
                         <div class="form_block" id="<?= $i+1 ?>_form_block">
                             <?php $num = $i+1; ?>
                             <?php if($val['file_type'] === 'text') :?>
-                                <textarea class="contents text" id="contents_<?= $num ?>" name="contents_<?= $num ?>">
+                                <textarea class="contents text" id="contents_<?= $num ?>[text]" name="contents_<?= $num ?>">
                                     <?= $val['data'] ?>
                                 </textarea>
                             <?php elseif($val['file_type'] === 'img') :?>
                                 <img id="thumb_<?= $num ?>" src="<?= $val['data'] ?>">
-                                <input type="hidden" name="contents_<?= $num ?>[hide][hid]" value="hidden1">
-                                <input type="hidden" name="contents_<?= $num ?>[hide][hi]" value="hidden2">
-                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>[]" accept="image/*" style="display:none">
+                                <input type="hidden" name="contents_<?= $num ?>[img]" value="<?= $val['data'] ?>">
+                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>[img]" value="<?= $val['data'] ?>" accept="image/*" style="display:none">
                                 <label class="change_img_btn" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
                                     <img class="edit_icon" src="../page/img/edit_btn.svg">
                                 </label>
