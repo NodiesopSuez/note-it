@@ -92,23 +92,23 @@ try {
 
             <form class="edit" method="post" action="../page/edit_page_check.php" enctype="multipart/form-data">
                 <!--ワンタイムトークン発生-->
-                <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                <input type="hidden" name="page_id" value="<?= $page_id ?>">
-                <input type="hidden" name="page_type" value="2">
+                <input type="hidden" name="[page]token" value="<?= SaftyUtil::generateToken() ?>">
+                <input type="hidden" name="[page]page_id" value="<?= $page_id ?>">
+                <input type="hidden" name="[page]page_type" value="2">
                 <div class="page_base b">
 
-                    <input class="page_title" type="text" name="page_title_b" value="<?= $page_info['page_title']?>">
+                    <input class="page_title" type="text" name="[page]page_title_b" value="<?= $page_info['page_title']?>">
 
                     <?php foreach($page_contents as $i=>$val) :?>
                         <div class="form_block" id="<?= $i+1 ?>_form_block">
                             <?php $num = $i+1; ?>
                             <?php if($val['file_type'] === 'text') :?>
-                                <textarea class="contents text" id="contents_<?= $num ?>" name="contents_<?= $num ?>">
+                                <textarea class="contents text" id="contents_<?= $num ?>" name="[page]contents_<?= $num ?>">
                                     <?= $val['data'] ?>
                                 </textarea>
                             <?php elseif($val['file_type'] === 'img') :?>
                                 <img id="thumb_<?= $num ?>" src="<?= $val['data'] ?>">
-                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>" accept="image/*" style="display:none">
+                                <input class="contents img" type="file" id="contents_<?= $num ?>" name="[page]contents_<?= $num ?>" accept="image/*" style="display:none">
                                 <label class="change_img_btn" for="contents_<?= $num ?>" id="label_for_<?= $num ?>" >
                                     <img class="edit_icon" src="../page/img/edit_btn.svg">
                                 </label>

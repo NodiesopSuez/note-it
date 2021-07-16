@@ -17,7 +17,7 @@ $(function(){
         let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
 
         //textフォームブロックを後ろに挿入
-        let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}` });
+        let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `[page]contents_${new_form_count}` });
         $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block` })
                                     .prepend(new_textarea, $(delete_btn).clone())
                                     .insertBefore('.add_contents.row');
