@@ -199,3 +199,7 @@ input[type="text"] {
     margin: auto auto .5rem auto;
     cursor: pointer;
 }
+
+.hide_img { 
+    display: none;
+}
