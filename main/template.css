@@ -252,6 +252,7 @@ textarea {
 .change_img_btn {
     text-align: center;
     line-height: 47px;
+    padding: 8px;
 } 
 
 .edit_icon,
