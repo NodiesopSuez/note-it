@@ -45,7 +45,7 @@ try {
 
     print_r($sanitized); 
     echo '<br/>';
-    print_r($_FILES);
+    var_dump($_FILES);
 
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
