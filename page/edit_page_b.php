@@ -27,11 +27,9 @@ if(is_numeric($_POST['set_page_id'])){
     $page_id = $_POST['set_page_id'];
 }else{
     $_SESSION['error'][] = Config::MSG_INVALID_PROCESS;
-	header('Location: ../sign/sign_in.php');
-	exit;
+    header('Location: ../sign/sign_in.php');
+    exit;
 }
-
-print_r($_SESSION);
 
 try {
     $search  = new Searches;
