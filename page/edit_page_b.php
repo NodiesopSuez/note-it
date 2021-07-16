@@ -105,7 +105,7 @@ try {
                         <div class="form_block" id="<?= $i+1 ?>_form_block">
                             <?php $num = $i+1; ?>
                             <?php if($val['file_type'] === 'text') :?>
-                                <textarea class="contents text" id="contents_<?= $num ?>[text]" name="contents_<?= $num ?>">
+                                <textarea class="contents text" id="contents_<?= $num ?>" name="contents_<?= $num ?>">
                                     <?= $val['data'] ?>
                                 </textarea>
                             <?php elseif($val['file_type'] === 'img') :?>
@@ -127,10 +127,6 @@ try {
                         <button id="add_text" class="btn" type="button">+ text</button>
                         <!-- 画像追加ボタン -->
                         <button id="add_img" class="btn" type="button">+ image</button>
-                        <!-- コード追加ボタン -->
-                        <!-- <button id="add_code" class="btn" type="button">コードを追加する</button> -->
-                        <!-- 引用追加ボタン -->
-                        <!-- <button id="add_quote" class="btn" type="button">引用を追加する</button> -->
                     </div>
                 </div> 
 

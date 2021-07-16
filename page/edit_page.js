@@ -16,12 +16,11 @@ $(function(){
     $(document).on("click", '#add_text', function(){
         let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
 
-        //1個目のtextフォームブロックを複製して後ろに挿入
-        let first_text_block = $('.text').parent()[0];
-        let new_form_block = $(first_text_block).clone().attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row'); 
+        //textフォームブロックを後ろに挿入
+        let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}` })
+        let new_form_block = $('<div>').addClass('form_block').attr({ id : `${new_form_count}_form_block` }).insertBefore('.add_contents.row');
+        $(new_textarea).insertTo(new_form_block);
         
-        //フォームブロック内の要素のidとテキストを書き換え
-        $(new_form_block).children('textarea').attr({ name : `contents_${new_form_count}`}).text('');
     });
 
     //add_img_btnをクリック → 画像選択ウィンドウ表示
