@@ -43,6 +43,9 @@ try {
 
     $sanitized = $utility->sanitize(1, $_POST);
 
+
+    print_r($_SESSION); 
+    echo '<br/>';
     print_r($sanitized); 
     echo '<br/>';
     var_dump($_FILES);
