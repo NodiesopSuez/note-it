@@ -46,7 +46,7 @@ try {
 
     print_r($_SESSION); 
     echo '<br/>';
-    print_r($sanitized); 
+    var_dump($sanitized); 
     echo '<br/>';
     var_dump($_FILES);
 

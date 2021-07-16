@@ -42,6 +42,8 @@ try {
         $page_contents[] = $utility->sanitize(2, $contents);
     }
 
+    $_SESSION['contents'] = $page_contents;
+
     //チャプター情報
     $chapter_id   = $page_info['chapter_id'];
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
