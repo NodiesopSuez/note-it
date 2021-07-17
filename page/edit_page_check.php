@@ -31,8 +31,6 @@ if(!empty($_SESSION['msg']['error'])){
     $_SESSION['msg']['error'] = array();
 }
 
-$_SESSION['page']  = array();
-
 try {
     //存在を宣言しておく変数
     $chapter_existence = null;
