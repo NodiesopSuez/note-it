@@ -38,7 +38,8 @@ try {
     //ページとコンテンツ情報
     $get_page_info = $search->findPageContentsB($page_id);
     $page_info     = $utility->sanitize(2, $get_page_info['page']);
-    //foreach($get_page_info['contents'] as $contents){
+    $_SESSION['page']['page_id'] = $page_info['page_id'];
+
     for($i=0 ; $i<count($get_page_info['contents']) ; $i++ ){
         $page_contents[] = $utility->sanitize(2, $get_page_info['contents'][$i]);
         $index = $i + 1; //input[name="contents_"]と合わせるため
