@@ -41,7 +41,7 @@ try {
     //foreach($get_page_info['contents'] as $contents){
     for($i=0 ; $i<count($get_page_info['contents']) ; $i++ ){
         $page_contents[] = $utility->sanitize(2, $get_page_info['contents'][$i]);
-        $_SESSION['contents']['contents_'.$i+1] = ['file_type' => $page_contents[$i]['file_type'], 'data' => $page_contents[$i]['data']];
+        $_SESSION['contents']['contents_'.$i+1][] = ['file_type' => $page_contents[$i]['file_type'], 'data' => $page_contents[$i]['data']];
     }
 
 
