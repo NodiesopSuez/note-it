@@ -128,6 +128,9 @@ try {
         
     }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
+        print_r($_POST);
+        echo '<br/>';
+        
         foreach($_POST as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
