@@ -44,7 +44,7 @@ try {
 
     print_r($_SESSION); 
     echo '<br/>';
-    var_dump($sanitized); 
+    var_dump($_POST); 
     echo '<br/>';
     var_dump($_FILES);
 
