@@ -128,9 +128,6 @@ try {
         
     }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
-        print_r($_POST);
-        echo '<br/>';
-        
         foreach($_POST as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
@@ -159,14 +156,6 @@ try {
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
-                //記事では
-                /* $upload = $s3->putObject([
-                    'ACL' => 'public-read',
-                    'Bucket' => $bucket,
-                    'Key' => $img['name'],
-                    'Body' => fopen($img['tmp_name'], 'rb'),
-                    'ContentType' => mime_content_type($img['tmp_name']),
-                ]); */
                 
                 $img_path = htmlspecialchars($upload->get('ObjectURL'));
 
@@ -182,7 +171,6 @@ try {
             $_SESSION['msg']['error'][] = '本文を入力してください';
         }
 
-        print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
@@ -190,15 +178,15 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg']['error'])){
-        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:../page/create_page_done.php');
+        header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
     echo  $e->getMessage();
     $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-    //header('Location:../page/create_page.php');
+    header('Location:../page/create_page.php');
     exit;
 }
 
