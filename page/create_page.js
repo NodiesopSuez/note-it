@@ -66,7 +66,13 @@ $(function(){
     /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
     const contents         = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
     /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
-    const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents/* , hid_content */);
+
+    //削除ボタン
+    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '../page/img/delete_btn.svg'});
+    $(delete_btn).prepend(delete_icon);
+
+    const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn/* , hid_content */);
 
     const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
     const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
