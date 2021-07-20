@@ -178,22 +178,24 @@ try {
         }else{
             $_SESSION['msg']['error'][] = '本文を入力してください';
         }
+
+        print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
     
     $search = null;
 
-    if(!empty($_SESSION['error'])){
-        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+    if(!empty($_SESSION['msg']['error'])){
+        //header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/create_page_done.php');
+        //header('Location:../page/create_page_done.php');
     }
 
 }catch(Exception $e){
     echo  $e->getMessage();
     $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../page/create_page.php');
+    //header('Location:../page/create_page.php');
     exit;
 }
 
