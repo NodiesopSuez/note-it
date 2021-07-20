@@ -45,8 +45,7 @@ try{
             $contents[$i]['data'] = nl2br($contents[$i]['data']);
         }
     }
-    print_r($contents);
-
+    
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
     $chapter_info = $utility->sanitize(2, $chapter_info[$chapter_id]);
     extract($chapter_info);
