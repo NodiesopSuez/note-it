@@ -108,7 +108,7 @@ try {
                         <div class="form_block" id="<?= $i+1 ?>_form_block">
                             <?php $num = $i+1; ?>
                             <?php if($val['file_type'] === 'text') :?>
-                                <textarea class="contents text" id="contents_<?= $num ?>" name="[page]contents_<?= $num ?>"><?= $val['data'] ?></textarea>
+                                <textarea class="contents text" id="contents_<?= $num ?>" name="[page][contents_<?= $num ?>]"><?= $val['data'] ?></textarea>
                             <?php elseif($val['file_type'] === 'img') :?>
                                 <img id="thumb_<?= $num ?>" src="<?= $val['data'] ?>">
                                 <input class="contents img" type="file" id="contents_<?= $num ?>" name="contents_<?= $num ?>" accept="image/*" style="display:none">
