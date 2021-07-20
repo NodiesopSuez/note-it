@@ -81,13 +81,13 @@ $(function(){
     $('textarea').each(function(index, element){
         let line_height = parseInt($(element).css('line-height'));
         let lines = ($(element).val() + '\n').match(/\n/g).length;
-        $(element).css({ height : `${line_height * lines}px`});
+        $(element).css({ height : `${(line_height * lines)+16 }px`});
     })
 
     $(document).on("keyup", '.page_base textarea', function(element){
         let line_height = parseInt($(element.target).css('line-height'));
         let lines = ($(element.target).val() + '\n').match(/\n/g).length;
-        $(element.target).css({ height : `${line_height * lines}px`});
+        $(element.target).css({ height : `${(line_height * lines)+16 }px`});
     });
     
 });
