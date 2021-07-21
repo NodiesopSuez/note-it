@@ -10,21 +10,16 @@ require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
-//ログインしてなければログイン画面に
-if(empty($_SESSION['user_info'])){
-    header('Location: ../sign/sign_in.php');
-    exit;
-}
 
-//ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
+//ログインしてなければ or ワンタイムトークンチェックエラー　→　ログイン画面に
+if(empty($_SESSION['user_info']) || !SaftyUtil::validToken($_SESSION['token'])){
 	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
-if(is_numeric($_POST['set_page_id'])){
-    $page_id = $_POST['set_page_id'];
+if(!empty($_SESSION['page'])){
+    extract($_SESSION['page']);
 }else{
     $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
     header('Location: ../sign/sign_in.php');
@@ -37,8 +32,6 @@ try {
 
     //ページとコンテンツ情報
     $get_page_info = $search->findPageContentsB($page_id);
-    $page_info     = $utility->sanitize(2, $get_page_info['page']);
-    $_SESSION['page'] = ['page_id' => $page_info['page_id']];
 
     for($i=0 ; $i<count($get_page_info['contents']) ; $i++ ){
         $page_contents[] = $utility->sanitize(2, $get_page_info['contents'][$i]);
