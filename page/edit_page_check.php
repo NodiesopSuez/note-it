@@ -38,9 +38,9 @@ try {
 
     $search = new Searches;
     $utility = new SaftyUtil;
-
+    
     $sanitized = $utility->sanitize(1, $_POST);
-
+    extract($sanitized);  //POSTで受け取った配列を変数にする
 
     print_r($_SESSION['contents']); 
     echo '<br/>';
@@ -48,15 +48,11 @@ try {
     echo '<br/>';
     var_dump($_FILES);
 
-    extract($sanitized);  //POSTで受け取った配列を変数にする
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力してください';
     }
-
-    //page type B のコンテンツを一旦格納する配列を宣言
-    $page_b_contents = array();
 
     if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
@@ -73,14 +69,25 @@ try {
         ];
         
     }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
-        $page_b_contents = ['page_type' => 2,
-                            'page_id'   => $page_id,
-                            'page_title'=> $page_title];
+        //page type B のコンテンツを一旦格納する配列を宣言
+        $page_b_info = array();
+        $page_b_contents = array();
+
+        //ページ情報
+        $page_b_info = ['page_type' => 2,
+                        'page_id'   => $page_id,
+                        'page_title'=> $page_title];
+
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
-        foreach($_POST as $key => $val){
+        //$_SESSION['contents']から該当キー削除
+        foreach($sanitized as $key => $val){
+            echo '<br/>$sanitizedのループ<br/>';
+            print_r($key);
+
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
                 $page_b_contents[$key]['data']      = $val;
+
             }
         }
 
