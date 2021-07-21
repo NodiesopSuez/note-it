@@ -42,7 +42,7 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
 
 
-    print_r($_SESSION); 
+    print_r($_SESSION['contents']); 
     echo '<br/>';
     var_dump($_POST); 
     echo '<br/>';
