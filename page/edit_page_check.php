@@ -47,10 +47,10 @@ try {
     echo '$_POST<br/>';
     echo '<br/>';
     var_dump($_POST);
-    echo '$_FILES<br/>'; 
+    echo '<br/>$_FILES<br/>'; 
     echo '<br/>';
     var_dump($_FILES);
-    echo '$sanitized<br/>'; 
+    echo '<br/>$sanitized<br/>'; 
     echo '<br/>';
     var_dump($sanitized);
 
