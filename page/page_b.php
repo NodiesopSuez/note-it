@@ -36,6 +36,7 @@ try{
 
     $get_page_contents['page'] = $utility->sanitize(2, $get_page_contents['page']);
     extract($get_page_contents['page']);
+    print_r($get_page_contents['page']);
     
     $contents = $get_page_contents['contents'];
     for ($i=0; $i<count($contents); $i++) {
