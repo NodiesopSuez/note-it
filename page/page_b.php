@@ -36,7 +36,7 @@ try{
 
     $get_page_contents['page'] = $utility->sanitize(2, $get_page_contents['page']);
     extract($get_page_contents['page']);
-    print_r($get_page_contents['page']);
+    $_SESSION['page'] = [ 'page_id'=>$page_id, 'page_type'=>2, 'page_title'=>$page_title ];
     
     $contents = $get_page_contents['contents'];
     for ($i=0; $i<count($contents); $i++) {
@@ -104,7 +104,6 @@ try{
                 <form class="edit" method="post" action="../page/edit_page_b.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
                     <button class="edit_btn">
                         <svg class="edit_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                     </button>
@@ -112,7 +111,6 @@ try{
                 <form class="delete" method="post" action="../note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                    <input type="hidden" name="set_page_id" value="<?= $page_id ?>">
                     <button class="delete_btn">
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::DELETE ?></svg>
                     </button>
