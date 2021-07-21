@@ -84,6 +84,8 @@ try {
                         'page_id'   => $page_id,
                         'page_title'=> $page_title];
 
+        echo '<br/>ここまで通ってる<br/>';
+        
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         //$_SESSION['contents']から該当キー削除
         foreach($sanitized as $key => $val){
