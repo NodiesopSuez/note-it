@@ -50,6 +50,9 @@ try {
     echo '$_FILES<br/>'; 
     echo '<br/>';
     var_dump($_FILES);
+    echo '$sanitized<br/>'; 
+    echo '<br/>';
+    var_dump($sanitized);
 
 
     //page_titleが入力されているか
