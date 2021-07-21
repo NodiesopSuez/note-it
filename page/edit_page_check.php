@@ -88,7 +88,7 @@ try {
         //$_SESSION['contents']から該当キー削除
         foreach($sanitized as $key => $val){
             echo '<br/>$sanitizedのループ<br/>';
-            print_r($key);
+            var_dump($key);
 
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
