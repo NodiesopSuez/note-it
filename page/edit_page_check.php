@@ -42,9 +42,12 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
+    echo '$_SESSION[contetns]<br/>';
     print_r($_SESSION['contents']); 
+    echo '$_POST<br/>';
     echo '<br/>';
-    var_dump($_POST); 
+    var_dump($_POST);
+    echo '$_FILES<br/>'; 
     echo '<br/>';
     var_dump($_FILES);
 
