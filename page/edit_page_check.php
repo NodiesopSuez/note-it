@@ -96,7 +96,7 @@ try {
             if (array_key_exists($contents, $imgs) && $val['file_type']==='img') {
                 echo $contents;
                 echo '<br/>あるよ！<br/>';
-                if(!$imgs[$contents]['tmp_file']==""){
+                if(!$imgs[$contents]['tmp_name']===""){
                     echo $val['data'];
                     echo '<br/>これは消す！<br/>';
                     $remove_objects[] = $val['data'];
