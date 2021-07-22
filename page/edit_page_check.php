@@ -75,8 +75,9 @@ try {
         
     }elseif(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 2){  //page_type Bの場合、
         //page type B のコンテンツを一旦格納する配列を宣言
-        $page_b_info = array();
+        $page_b_info     = array();
         $page_b_contents = array();
+        $remove_objects  = array();
 
         //ページ情報
         $page_b_info = [ 'page_title'=> $page_title ];
@@ -84,23 +85,36 @@ try {
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         //$_SESSION['contents']から該当キー削除
         foreach($sanitized as $key => $val){
-            echo '<br/>$sanitizedのループ<br/>';
-            var_dump($key);
-
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
                 $page_b_contents[$key]['data']      = $val;
                 unset($_SESSION['contents'][$key]);
             }
-
-            echo '<br/><br/>';
-            print_r($_SESSION['contents']);
         }
 
-        //imgファイルを
+        //img
         $imgs = $_FILES;
+
+        foreach($_SESSION['contents'] as $contents => $val){
+            //$_FILESに存在しているかどうか
+            if (array_key_exists($contents, $imgs) && $val['file_type']==='img') {
+                echo $contents;
+                echo '<br/>あるよ！<br/>';
+                if(!$imgs[$contents]['tmp_file']===""){
+                    echo $val['data'];
+                    echo '<br/>これは消す！<br/>';
+                    $remove_objects[] = $val['data'];
+                }
+            }
+            
+        }
+
+        print_r($remove_objects);
+
+
+
         
-        //AWS S3
+        //新しい画像ファイルをAWS S3へ格納
         $s3 = new Aws\S3\S3Client([
             'version'  => 'latest',
             'region'   => 'ap-northeast-3',
@@ -118,14 +132,6 @@ try {
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
-                //記事では
-                /* $upload = $s3->putObject([
-                    'ACL' => 'public-read',
-                    'Bucket' => $bucket,
-                    'Key' => $img['name'],
-                    'Body' => fopen($img['tmp_name'], 'rb'),
-                    'ContentType' => mime_content_type($img['tmp_name']),
-                ]); */
                 
                 $img_path = htmlspecialchars($upload->get('ObjectURL'));
 
