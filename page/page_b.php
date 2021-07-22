@@ -49,7 +49,7 @@ try{
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
     $chapter_info = $utility->sanitize(2, $chapter_info[$chapter_id]);
     extract($chapter_info);
-    $note_info    = $search->findNoteInfo('note_id', $note_id);
+    $note_info    = $search->findNoteInfo('note_id', (int)$note_id);
     $note_info    = $utility->sanitize(2, $note_info[$note_id]);
     extract($note_info);
 
