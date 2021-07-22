@@ -93,17 +93,14 @@ try {
 
         foreach($_SESSION['contents'] as $contents => $val){
             //$_FILESに存在しているかどうか
-            if (array_key_exists($contents, $imgs) && $val['file_type']==='img') {
-                echo $contents;
-                echo '<br/>あるよ！<br/>';
+            if (array_key_exists($contents, $imgs) && $val['file_type'] === 'img') {
                 if(!empty($imgs[$contents]['tmp_name'])){
-                    echo $val['data'];
-                    echo '<br/>これは消す！<br/>';
                     $remove_objects[] = $val['data'];
+                }else{
+                    $page_b_contents[$contents]['file_type'] = $utility->sanitize(3, 'img');
+                    $page_b_contents[$contents]['data']      = $utility->sanitize(3, $val['data']);
                 }
-            }elseif(!array_key_exists($contents, $imgs) && $val['file_type']==='img'){
-                echo $val['data'];
-                echo '<br/>これは消すnoだ！<br/>';
+            }elseif(!array_key_exists($contents, $imgs) && $val['file_type'] === 'img'){
                 $remove_objects[] = $val['data'];
             }
             
@@ -111,18 +108,27 @@ try {
 
         print_r($remove_objects);
 
-
-
-        
-        //新しい画像ファイルをAWS S3へ格納
+        //AWS S3処理
         $s3 = new Aws\S3\S3Client([
             'version'  => 'latest',
             'region'   => 'ap-northeast-3',
         ]);
         $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
 
+        foreach($remove_objects as $object){
+            $s3->deleteObjects([
+                'Bucket' => $bucket,
+                'Delete' => [
+                    'Objects' => [
+                        'Key' => $object
+                    ]
+                ]
+            ]);
+        }
+
+
         foreach($imgs as $key => $img){
-            if($img['error'] === 0){
+            if($img['error'] === 0 && !empty($img['tmp_name'])){
                 //ファイルの拡張子を求める
                 $type      = strstr($img['type'], '/');
                 $file_type = str_replace('/', '', $type);
@@ -146,8 +152,10 @@ try {
         }else{
             $_SESSION['msg']['error'][] = '本文を入力してください';
         }
+
+        print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
-        $_SESSION['page']['update_contents'] = $page_b_contents;
+        $_SESSION['contents'] = $page_b_contents;
 
     }
     
