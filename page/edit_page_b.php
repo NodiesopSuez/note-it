@@ -12,7 +12,7 @@ require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 
 //ログインしてなければ or ワンタイムトークンチェックエラー　→　ログイン画面に
-if(empty($_SESSION['user_info']) || !SaftyUtil::validToken($_SESSION['token'])){
+if((empty($_SESSION['user_info'])) || (!SaftyUtil::validToken($_SESSION['token']))){
 	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
 	header('Location: ../sign/sign_in.php');
 	exit;
