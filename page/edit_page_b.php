@@ -11,11 +11,16 @@ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
 
 
-//ログインしてなければ or ワンタイムトークンチェックエラー　→　ログイン画面に
-if((empty($_SESSION['user_info'])) || (!SaftyUtil::validToken($_SESSION['token']))){
-	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
-	header('Location: ../sign/sign_in.php');
-	exit;
+//ログインしてなければログイン画面
+if(empty($_SESSION['user_info'])){
+    header('Location:../sign/sign_in.php');
+}
+
+//ワンタイムトークンチェック
+if(!SaftyUtil::validToken($_SESSION['token'])){
+    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    header('Location:../mem/mem_top.php');
+    exit;
 }
 
 if(!empty($_SESSION['page'])){
