@@ -80,8 +80,6 @@ try {
 
         //ページ情報
         $page_b_info = [ 'page_title'=> $page_title ];
-
-        echo '<br/>ここまで通ってる<br/>';
         
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         //$_SESSION['contents']から該当キー削除
@@ -92,8 +90,11 @@ try {
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
                 $page_b_contents[$key]['data']      = $val;
-                //unset($_SESSION['contents'][$key]);
+                unset($_SESSION['contents'][$key]);
             }
+
+            echo '<br/><br/>';
+            print_r($_SESSION['contents']);
         }
 
         //imgファイルを
