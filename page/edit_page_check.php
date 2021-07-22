@@ -42,17 +42,13 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    echo '$_SESSION<br/>';
-    print_r($_SESSION); 
     echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['contents']); 
-    echo '<br/>$_POST<br/>';
-    var_dump($_POST);
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
-
+    echo '<br/><br/>'; 
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
@@ -107,8 +103,8 @@ try {
                 }
             }elseif(!array_key_exists($contents, $imgs) && $val['file_type']==='img'){
                 echo $val['data'];
-                    echo '<br/>これは消すnoだ！<br/>';
-                    $remove_objects[] = $val['data'];
+                echo '<br/>これは消すnoだ！<br/>';
+                $remove_objects[] = $val['data'];
             }
             
         }
