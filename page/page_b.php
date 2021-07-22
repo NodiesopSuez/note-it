@@ -36,7 +36,7 @@ try{
 
     $get_page_contents['page'] = $utility->sanitize(2, $get_page_contents['page']);
     extract($get_page_contents['page']);
-    $_SESSION['page'] = [ 'page_id'=>$page_id, 'page_type'=>2, 'page_title'=>$page_title ];
+    $_SESSION['page'] = [ 'page_id'=>$page_id, 'page_type'=>2, 'page_title'=>$page_title, 'chapter_id'=>$chapter_id ];
     
     $contents = $get_page_contents['contents'];
     for ($i=0; $i<count($contents); $i++) {

@@ -46,7 +46,7 @@ try {
 
 
     //チャプター情報
-    $chapter_id   = $page_info['chapter_id'];
+    $chapter_id   = $_SESSION['page']['chapter_id'];
     $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
     //ノート情報
     $note_id   = $chapter_info[$chapter_id]['note_id'];
