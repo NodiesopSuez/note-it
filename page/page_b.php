@@ -42,7 +42,6 @@ try{
     for ($i=0; $i<count($contents); $i++) {
         $contents[$i] = $utility->sanitize(2, $contents[$i]);
         if($contents[$i]['file_type'] === 'text'){
-            //$contents[$i]['data'] = str_replace('<div>', '', $contents[$i]['data']);
             $contents[$i]['data'] = nl2br($contents[$i]['data']);
         }
     }
@@ -53,16 +52,6 @@ try{
     $note_info    = $search->findNoteInfo('note_id', $note_id);
     $note_info    = $utility->sanitize(2, $note_info[$note_id]);
     extract($note_info);
-    
-    /*foreach($get_page_contents[0] as $key => $val){
-        $page_contents[$key] = nl2br($val);
-    }
-    extract($page_contents);
-    $chapter_id = $get_page_contents[0]['chapter_id'];
-    $chapter_info = $search->findChapterInfo('chapter_id', $chapter_id);
-    extract($chapter_info[$chapter_id]);
-    $note_info    = $search->findNoteInfo('note_id', $note_id);
-    extract($note_info[$note_id]); */
 
 }catch(Exception $e){
     echo $e->getMessage();
