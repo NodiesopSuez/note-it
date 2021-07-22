@@ -39,7 +39,7 @@ try {
     $search = new Searches;
     $utility = new SaftyUtil;
     
-    $sanitized = $utility->sanitize(1, $_POST);
+    $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
     echo '$_SESSION<br/>';
@@ -94,7 +94,7 @@ try {
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
                 $page_b_contents[$key]['data']      = $val;
-
+                //unset($_SESSION['contents'][$key]);
             }
         }
 
