@@ -73,15 +73,13 @@ try {
             'memo'      => $memo, 
         ];
         
-    }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
+    }elseif(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 2){  //page_type Bの場合、
         //page type B のコンテンツを一旦格納する配列を宣言
         $page_b_info = array();
         $page_b_contents = array();
 
         //ページ情報
-        $page_b_info = ['page_type' => 2,
-                        'page_id'   => $page_id,
-                        'page_title'=> $page_title];
+        $page_b_info = [ 'page_title'=> $page_title ];
 
         echo '<br/>ここまで通ってる<br/>';
         
