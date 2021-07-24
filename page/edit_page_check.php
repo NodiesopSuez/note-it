@@ -117,6 +117,7 @@ try {
 
         foreach($remove_objects as $object){
             $key_name = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
+            echo $key_name;
             $s3->deleteObjects([
                 'Bucket' => $bucket,
                 'Delete' => [
