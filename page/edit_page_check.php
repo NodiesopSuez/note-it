@@ -116,12 +116,12 @@ try {
         $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
 
         foreach($remove_objects as $object){
-            $key_name = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '');
+            $key_name = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
             $s3->deleteObjects([
                 'Bucket' => $bucket,
                 'Delete' => [
                     'Objects' => [
-                        'Key' => $object
+                        'Key' => $key_name
                     ]
                 ]
             ]);
