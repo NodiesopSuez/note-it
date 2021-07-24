@@ -121,21 +121,24 @@ try {
 
         var_dump($keys); */
 
-        foreach($remove_objects as $object){
+        foreach ($remove_objects as $object) {
             $object_key = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
             echo '<br/>object_key<br/>';
-            echo $object_key;
-            /* $s3->deleteObjects([
-                'Bucket' => $bucket,
-                'Delete' => [
-                    'Objects' => [
-                        array_map(function ($key) {
-                            return array('Key' => $key);
-                        }, $keys)
-                    ]
-                ]
-            ]); */
         }
+
+        echo '<br/>';
+        print_r($remove_objects);
+
+        /* $s3->deleteObjects([
+            'Bucket' => $bucket,
+            'Delete' => [
+                'Objects' => [
+                    array_map(function ($key) {
+                        return array('Key' => $key);
+                    }, $remove_objects)
+                ]                
+            ]
+        ]);  */
 
 
         foreach($imgs as $key => $img){
@@ -164,7 +167,7 @@ try {
             $_SESSION['msg']['error'][] = '本文を入力してください';
         }
 
-        print_r($page_b_contents);
+        //print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
         $_SESSION['contents'] = $page_b_contents;
 
