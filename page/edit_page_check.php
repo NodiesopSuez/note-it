@@ -122,11 +122,11 @@ try {
         var_dump($keys); */
 
         foreach ($remove_objects as $object) {
-            $object = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
+            $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
         }
 
         echo '<br/>';
-        print_r($remove_objects);
+        print_r($remove_keys);
 
         /* $s3->deleteObjects([
             'Bucket' => $bucket,
