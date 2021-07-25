@@ -125,7 +125,7 @@ try {
             $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
         }
 
-        echo '<br/>';
+        echo '<br/>ここ<br/>';
         print_r($remove_keys);
 
         /* $s3->deleteObjects([
