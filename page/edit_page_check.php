@@ -128,16 +128,16 @@ try {
         echo '<br/>ここ<br/>';
         print_r($remove_keys);
 
-        /* $s3->deleteObjects([
+        $s3->deleteObjects([
             'Bucket' => $bucket,
             'Delete' => [
                 'Objects' => [
                     array_map(function ($key) {
                         return array('Key' => $key);
-                    }, $remove_objects)
+                    }, $remove_keys)
                 ]                
             ]
-        ]);  */
+        ]);
 
 
         foreach($imgs as $key => $img){
