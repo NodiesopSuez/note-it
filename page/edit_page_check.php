@@ -122,7 +122,7 @@ try {
         var_dump($keys); */
 
         foreach ($remove_objects as $object) {
-            $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", '', $object);
+            $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", "s3://noteit-contentsimg/", $object);
         }
 
         echo '<br/>ここ<br/>';
