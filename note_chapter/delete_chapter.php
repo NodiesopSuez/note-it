@@ -25,7 +25,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 }
 
 //エラーが入ってたら削除
-if(!empty($_SESSIONT['error'])){
+if(!empty($_SESSION['msg']['error'])){
     $_SESSION['msg']['error'] = array();
 }
 
