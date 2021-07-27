@@ -50,6 +50,8 @@ try {
     $now_dt = getDate();
     extract($now_dt);
 
+    print_r($_SESSION['msg']);
+ 
     if (empty($_SESSION['msg']['error']) && empty($_SESSION['msg']['okmsg'])) {
         $ladybug_img = './img/ladybug_nm.png';
         if ($hours>=5 && $hours<12) {
