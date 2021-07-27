@@ -42,13 +42,13 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    echo '<br/>$_SESSION[contetns]<br/>';
+    /* echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['contents']); 
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
-    echo '<br/><br/>'; 
+    echo '<br/><br/>';  */
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
@@ -106,8 +106,6 @@ try {
             
         }
 
-        print_r($remove_objects);
-
         //AWS S3処理
         $s3 = new Aws\S3\S3Client([
             'version'  => 'latest',
@@ -119,15 +117,9 @@ try {
             'Bucket' => $bucket
         ]); 
 
-        echo '<br/>listObject<br/>';
-        print_r($keys);
-
         foreach ($remove_objects as $object) {
             $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", "", $object);
         }
-
-        echo '<br/>ここ<br/>';
-        print_r($remove_keys);
 
         foreach($remove_keys as $key) {
             $s3->deleteObjects([
@@ -176,14 +168,14 @@ try {
     $search = null;
     
     if(!empty($_SESSION['msg']['error'])){
-        //header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
+        header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:../page/edit_page_done.php');
+        header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
     $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-    //header('Location:../mem/mem_top.php');
+    header('Location:../mem/mem_top.php');
     exit;
 }
 ?>
