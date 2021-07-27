@@ -167,9 +167,9 @@ try {
     
     if(!empty($_SESSION['msg']['error'])){
         $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-        //header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
+        header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:../page/edit_page_done.php');
+        header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
