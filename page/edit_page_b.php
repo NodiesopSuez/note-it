@@ -52,9 +52,10 @@ try {
     $note_id   = $chapter_info[$chapter_id]['note_id'];
     $note_info = $search->findNoteInfo('note_id', $note_id);
 
-    $note_title = $utility->sanitize(4, $note_info[$note_id]['note_title']);
-    $color      = $utility->sanitize(4, $note_info[$note_id]['color']);
+    $color         = $utility->sanitize(4, $note_info[$note_id]['color']);
+    $note_title    = $utility->sanitize(4, $note_info[$note_id]['note_title']);
     $chapter_title = $utility->sanitize(4, $chapter_info[$chapter_id]['chapter_title']);
+    $page_title    = $utility->sanitize(4, $get_page_info['page']['page_title']);
 
     $search = null; 
 
@@ -100,7 +101,7 @@ try {
                 <input type="hidden" name="[page]page_type" value="2">
                 <div class="page_base b">
 
-                    <input class="page_title" type="text" name="[page]page_title_b" value="<?= $page_info['page_title']?>">
+                    <input class="page_title" type="text" name="[page]page_title_b" value="<?= $page_title ?>">
 
                     <?php foreach($page_contents as $i=>$val) :?>
                         <div class="form_block" id="<?= $i+1 ?>_form_block">
