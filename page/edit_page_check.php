@@ -55,12 +55,10 @@ try {
         $_SESSION['msg']['error'][] = 'ページタイトルを入力してください';
     }
 
-    if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
+    if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['update_contents'] = [
-            'page_id'   => $page_id,
             'page_title'=> $page_title,
-            'page_type' => 1,
             'meaning'   => $meaning,
             'syntax'    => $syntax, 
             'syn_memo'  => $syn_memo,
@@ -161,7 +159,7 @@ try {
 
         //print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
-        $_SESSION['contents'] = $page_b_contents;
+        $_SESSION['page']['update_contents'] = $page_b_contents;
 
     }
     

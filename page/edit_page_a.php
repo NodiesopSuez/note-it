@@ -22,7 +22,14 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
-$page_id = $_POST['set_page_id'];
+
+if(!empty($_SESSION['page'])){
+    extract($_SESSION['page']);
+}else{
+    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    header('Location: ../sign/sign_in.php');
+    exit;
+}
 
 try {
     $search  = new Searches;
@@ -82,8 +89,6 @@ try {
             <form class="edit" method="post" action="../page/edit_page_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
-                <input type="hidden" name="page_id" value="<?= $page_id ?>">
-                <input type="hidden" name="page_type" value="1">
                 <div class="page_base <?= $color ?>">
                     <div class="wrapback"></div>
                     <input type="text" name="page_title" class="page_title" value="<?= $page_info['page_title'] ?>">

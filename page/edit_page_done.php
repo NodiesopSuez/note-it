@@ -24,12 +24,21 @@ try{
 
     $update = new Updates;
 
-    if($update_contents['page_type'] === 1){
+    if($_SESSION['page']['page_type'] === 1){
         $update_contents_done = $update->updatePageContentsA($update_contents);
         echo $update_contents_done;
+        exit;
+    }elseif($_SESSION['page']['page_type'] === 2){
+        print_r($update_contents);
+        /* $update_contents_done = $update->updatePageContentsB($update_contents);
+        echo $update_contents_done; */
+        exit;
     }else{
-       
+        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+        header('Location:../mem/mem_top.php');
+        exit;
     }
+    
 }catch(Exception $e){
     $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
