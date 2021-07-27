@@ -35,13 +35,13 @@ try{
         exit;
     }else{
         $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-        header('Location:../mem/mem_top.php');
+        //header('Location:../mem/mem_top.php');
         exit;
     }
     
 }catch(Exception $e){
     $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-    header('Location:../mem/mem_top.php');
+    //header('Location:../mem/mem_top.php');
     exit;
 }
 
