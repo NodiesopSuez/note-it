@@ -101,7 +101,7 @@ try {
                 <input type="hidden" name="[page]page_type" value="2">
                 <div class="page_base b">
 
-                    <input class="page_title" type="text" name="[page]page_title_b" value="<?= $page_title ?>">
+                    <input class="page_title" type="text" name="page_title" value="<?= $page_title ?>">
 
                     <?php foreach($page_contents as $i=>$val) :?>
                         <div class="form_block" id="<?= $i+1 ?>_form_block">

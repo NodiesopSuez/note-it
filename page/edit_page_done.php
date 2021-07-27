@@ -19,6 +19,7 @@ if(empty($_SESSION['user_info'])){
 try{
     //ページの内容
     $update_contents = $_SESSION['page']['update_contents'];
+    $update_contents['page_id'] = $_SESSION['page']['page_id'];
 
     var_dump($update_contents);
 
