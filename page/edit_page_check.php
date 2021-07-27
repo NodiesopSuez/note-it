@@ -123,22 +123,22 @@ try {
         print_r($keys);
 
         foreach ($remove_objects as $object) {
-            $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", "s3://noteit-contentsimg/", $object);
+            $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", "", $object);
         }
 
         echo '<br/>ここ<br/>';
         print_r($remove_keys);
 
-        $s3->deleteObjects([
-            'Bucket' => $bucket,
-            'Delete' => [
-                'Objects' => [
-                    array_map(function ($key) {
-                        return array('Key' => $key);
-                    }, $remove_keys)
-                ]                
-            ]
-        ]);
+        foreach($remove_keys as $key) {
+            $s3->deleteObjects([
+                'Bucket' => $bucket,
+                'Delete' => [
+                    'Objects' => [
+                        ['Key' => $key]
+                    ]                
+                ]
+            ]);
+        }
 
 
         foreach($imgs as $key => $img){
