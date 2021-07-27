@@ -115,11 +115,12 @@ try {
         ]);
         $bucket = getenv('S3_BUCKET_NAME')?: die('No "S3_BUCKET" config var in found in env!');
 
-/*         $keys = $s3->listObjects([
+        $keys = $s3->listObjects([
             'Bucket' => $bucket
         ]); 
 
-        var_dump($keys); */
+        echo '<br/>listObject<br/>';
+        var_dump($keys);
 
         foreach ($remove_objects as $object) {
             $remove_keys[] = str_replace("https://noteit-contentsimg.s3.ap-northeast-3.amazonaws.com/", "s3://noteit-contentsimg/", $object);
