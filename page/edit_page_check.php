@@ -42,13 +42,13 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    /* echo '<br/>$_SESSION[contetns]<br/>';
+    echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['contents']); 
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
-    echo '<br/><br/>';  */
+    echo '<br/><br/>';
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
@@ -159,6 +159,7 @@ try {
 
         //print_r($page_b_contents);
         //入力内容を$_SESSIONに格納
+        unset($_SSESSION['contents']);
         $_SESSION['page']['update_contents'] = $page_b_contents;
 
     }
@@ -167,9 +168,9 @@ try {
     
     if(!empty($_SESSION['msg']['error'])){
         $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
-        header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
+       //header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/edit_page_done.php');
+        //header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
