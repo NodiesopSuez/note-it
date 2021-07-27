@@ -10,10 +10,6 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/class/db/Users.php');
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
-//余計な情報を削除
-$_SESSION['msg']['error'] = array();
-$_SESSION['view_page'] = array();
-
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
 //ログインしてなければログイン画面に

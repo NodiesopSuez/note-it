@@ -75,7 +75,7 @@ try{
         header('Location:../mem/mem_top.php');
         exit;
     }else{
-        $_SESSION['msg']['okmsg'] = 'ノートを削除できました！';
+        $_SESSION['msg']['okmsg'][] = 'ノートを削除できました！';
         header('Location:../mem/mem_top.php');
         exit;
         
@@ -83,7 +83,7 @@ try{
 
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['msg']['error'] = Config::MSG_EXCEPTION;
+    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
     header('Location:../mem/mem_top.php');
     exit;
 }
