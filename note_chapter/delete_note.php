@@ -26,7 +26,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 
 //エラーが入ってたら削除
 if(!empty($_SESSIONT['msg']['error'])){
-    $_SESSION['msg']['error'] = array();
+    $_SESSION['msg'] = array();
 }
 
 $note_id = $_POST['note_id'];
