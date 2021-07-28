@@ -57,7 +57,7 @@ try {
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
-        $_SESSION['page'] = [/* 'page_id' => $page_id,  */
+        $_SESSION['page'] = ['page_id' => $_SESSION['page']['page_id'],
                              'page_title' => $page_title,
                              'update_contents' => [ 'meaning'   => $meaning,
                                                     'syntax'    => $syntax, 
@@ -72,7 +72,7 @@ try {
         $remove_objects  = array();
 
         //ページ情報
-        $_SESSION['page'] = [ 'page_title' => $page_title ];
+        $_SESSION['page'] = [ 'page_id' => $_SESSION['page']['page_id'], 'page_title' => $page_title ];
         
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         //$_SESSION['contents']から該当キー削除
