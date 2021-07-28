@@ -1,5 +1,5 @@
 <?php
- require_once(dirname(__FILE__, 2).'/class/db/Additions.php');
+ require_once(dirname(__FILE__, 3).'/class/db/Additions.php');
 
 
 class Updates extends Connect
