@@ -22,7 +22,8 @@ try{
                         'page_id'    => $_SESSION['page']['page_id'], 
                         'page_titie' => $_SESSION['page']['page_title']];
     print_r($update_contents);
-    echo '<br/>';
+    echo '<br/><br/>';
+    print_r($_SESSION['page']);
 
     $update = new Updates;
 
