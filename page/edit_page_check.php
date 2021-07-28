@@ -57,31 +57,27 @@ try {
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
-        $_SESSION['page']['update_contents'] = [
-            'page_title'=> $page_title,
-            'meaning'   => $meaning,
-            'syntax'    => $syntax, 
-            'syn_memo'  => $syn_memo,
-            'example'   => $example, 
-            'ex_memo'   => $ex_memo, 
-            'memo'      => $memo, 
-        ];
+        $_SESSION['page'] = ['page_title' => $page_title,
+                             'update_contents' => [ 'meaning'   => $meaning,
+                                                    'syntax'    => $syntax, 
+                                                    'syn_memo'  => $syn_memo,
+                                                    'example'   => $example, 
+                                                    'ex_memo'   => $ex_memo, 
+                                                    'memo'      => $memo        ]];
         
     }elseif(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 2){  //page_type Bの場合、
         //page type B のコンテンツを一旦格納する配列を宣言
-        $page_b_info     = array();
         $page_b_contents = array();
         $remove_objects  = array();
 
         //ページ情報
-        $page_b_info = [ 'page_title' => $page_title ];
+        $_SESSION['page'] = [ 'page_title' => $page_title ];
         
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
         //$_SESSION['contents']から該当キー削除
         foreach($sanitized as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
-                $page_b_contents[$key]['file_type'] = 'text';
-                $page_b_contents[$key]['data']      = $val;
+                $page_b_contents[$key] = [ 'file_type' => 'text', 'data' => $val ];
                 unset($_SESSION['contents'][$key]);
             }
         }

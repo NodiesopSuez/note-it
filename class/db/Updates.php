@@ -34,12 +34,14 @@ class Updates extends Connect
     }
 
     // ページ情報を更新 // typeA
-    public function updatePageContentsA(array $page_contents):bool {
+    public function updatePageContentsA(array $update_page):bool {
         $page_sql = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
         $stmt = $this-> dbh->prepare($page_sql);
-        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_STR);
-        $stmt->bindValue(':page_title', $page_contents['page_title'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
         $update_page = $stmt->execute();
+
+        $contents = $update_page['contents'];
         
         $contents_sql = "UPDATE page_a_contents 
                 SET meaning  = :meaning,
@@ -50,13 +52,13 @@ class Updates extends Connect
                     memo     = :memo
                 WHERE page_id = :page_id";
         $stmt = $this-> dbh->prepare($contents_sql);
-        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_INT);
-        $stmt->bindValue(':meaning', $page_contents['meaning'], PDO::PARAM_STR);
-        $stmt->bindValue(':syntax', $page_contents['syntax'], PDO::PARAM_STR);
-        $stmt->bindValue(':syn_memo', $page_contents['syn_memo'], PDO::PARAM_STR);
-        $stmt->bindValue(':example', $page_contents['example'], PDO::PARAM_STR);
-        $stmt->bindValue(':ex_memo', $page_contents['ex_memo'], PDO::PARAM_STR);
-        $stmt->bindValue(':memo', $page_contents['memo'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_id', $contents['page_id'], PDO::PARAM_INT);
+        $stmt->bindValue(':meaning', $contents['meaning'], PDO::PARAM_STR);
+        $stmt->bindValue(':syntax', $contents['syntax'], PDO::PARAM_STR);
+        $stmt->bindValue(':syn_memo', $contents['syn_memo'], PDO::PARAM_STR);
+        $stmt->bindValue(':example', $contents['example'], PDO::PARAM_STR);
+        $stmt->bindValue(':ex_memo', $contents['ex_memo'], PDO::PARAM_STR);
+        $stmt->bindValue(':memo', $contents['memo'], PDO::PARAM_STR);
         $update_contents = $stmt->execute();
         
         $bool = ($update_page === true && $update_contents === true ) ? true : false;
@@ -65,25 +67,22 @@ class Updates extends Connect
     }
     
     // ページ情報を更新 // typeB
-    public function updatePageContentsB(array $page_contents):bool{
-        $update_title = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
-        $stmt = $this->dbh->prepare($update_title);
-        $stmt->bindValue(':page_title', $page_contents['page_title'], PDO::PARAM_STR);
-        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_INT);
-        $execute_bool[] = $stmt->execute();
+    public function updatePageContentsB(array $update_page):bool{
+        $update_title_sql = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
+        $stmt = $this->dbh->prepare($update_title_sql);
+        $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_INT);
+        $update_title = $stmt->execute();
 
-        $delete_contents = "DELETE FROM page_b_contents WHERE page_id = :page_id";
-        $stmt = $this->dbh->prepare($delete_contents);
-        $stmt->bindValue(':page_id', $page_contents['page_id'], PDO::PARAM_STR);
-        $execute_bool[] = $stmt->execute();
+        $delete_contents_sql = "DELETE FROM page_b_contents WHERE page_id = :page_id";
+        $stmt = $this->dbh->prepare($delete_contents_sql);
+        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_STR);
+        $delete_contents = $stmt->execute();
 
         $add_contents = new Addition;
-        //$add_contents->registerContentsB()
-
-
-
+        $add_contents->registerContentsB($update_page['page_id'], $update_page['contents']);
         
-        $bool = ($update_title === true && $delete_contents === true ) ? true : false;
+        $bool = ($update_title === true && $delete_contents === true && $add_contents === true) ? true : false;
 
         return $bool;
     }

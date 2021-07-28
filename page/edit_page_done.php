@@ -18,10 +18,9 @@ if(empty($_SESSION['user_info'])){
 
 try{
     //ページの内容
-    $update_contents = $_SESSION['page']['update_contents'];
-    $update_contents['page_id'] = $_SESSION['page']['page_id'];
-
-    var_dump($update_contents);
+    $update_contents = ['contents'   => $_SESSION['page']['update_contents'], 
+                        'page_id'    => $_SESSION['page']['page_id'], 
+                        'page_titie' => $_SESSION['page']['page_title']];
 
     $update = new Updates;
 
@@ -31,9 +30,10 @@ try{
         exit;
     }elseif($_SESSION['page']['page_type'] === 2){
         print_r($update_contents);
-        /* $update_contents_done = $update->updatePageContentsB($update_contents);
-        echo $update_contents_done; */
+        $update_contents_done = $update->updatePageContentsB($update_contents);
+        echo $update_contents_done; 
         $_SESSION['msg'] = ['error' => ['ページを更新できました!']];
+        //header('Location:../mem/mem_top.php');
         exit;
     }else{
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
