@@ -58,7 +58,7 @@ try {
     $page_title    = $utility->sanitize(4, $get_page_info['page']['page_title']);
 
     $search = null; 
-
+    print_r($_SESSION['page']);
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
