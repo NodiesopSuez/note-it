@@ -50,14 +50,13 @@ try{
 
     if(in_array(0, $delete_bool)){
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../mem/mem_top.php');
-        exit;
     }else{
         $_SESSION['msg'] = ['okmsg' => ['チャプターを削除できました！']];
-        header('Location:../mem/mem_top.php');
-        exit;
     }
-
+    
+    header('Location:../mem/mem_top.php');
+    exit;
+    
 }catch(Exception $e){
     echo $e->getMessage();
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];

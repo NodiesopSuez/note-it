@@ -36,17 +36,16 @@ try {
 
     if($update_bool === false){
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../mem/mem_top.php'); //エラーがあったら入力ページに戻る
-        exit;
     }else{
         $_SESSION['msg'] = ['okmsg' => ['チャプター名を変更しました！']];
         unset($_SESSION['note_chapter']);
-        header('Location:../mem/mem_top.php'); 
-        exit;
     }
-
+    
     $update = null;
-
+    
+    header('Location:../mem/mem_top.php'); 
+    exit;
+    
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
