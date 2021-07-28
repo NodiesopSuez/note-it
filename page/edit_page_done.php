@@ -20,7 +20,7 @@ try{
     //ページの内容
     $update_contents = ['contents'   => $_SESSION['page']['update_contents'], 
                         'page_id'    => $_SESSION['page']['page_id'], 
-                        'page_titie' => $_SESSION['page']['page_title']];
+                        'page_title' => $_SESSION['page']['page_title']];
     print_r($update_contents);
     echo '<br/><br/>';
     print_r($_SESSION['page']);
