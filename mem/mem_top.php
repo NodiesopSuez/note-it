@@ -25,6 +25,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 } 
 
+print_r($_SESSION['bool']);
 
 try {
     //user_idからノート情報検索

@@ -35,8 +35,10 @@ try{
     }
 
     if($update_contents_done === false){
+        $_SESSION['bool'] = 'false';
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     }elseif($update_contents_done === true){
+        $_SESSION['bool'] = 'ok';
         $_SESSION['msg'] = ['okmsg' => ['ページを更新できました!']];
     }
 
