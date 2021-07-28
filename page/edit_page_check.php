@@ -42,13 +42,13 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
- /*    echo '<br/>$_SESSION[contetns]<br/>';
+    echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['contents']); 
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
-    echo '<br/><br/>'; */
+    echo '<br/><br/>'; 
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
@@ -57,7 +57,8 @@ try {
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
-        $_SESSION['page'] = ['page_title' => $page_title,
+        $_SESSION['page'] = [/* 'page_id' => $page_id,  */
+                             'page_title' => $page_title,
                              'update_contents' => [ 'meaning'   => $meaning,
                                                     'syntax'    => $syntax, 
                                                     'syn_memo'  => $syn_memo,
@@ -160,7 +161,8 @@ try {
 
     }
     
-    $search = null;
+    $search  = null;
+    $utility = null;
     
     if(!empty($_SESSION['msg']['error'])){
         header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
