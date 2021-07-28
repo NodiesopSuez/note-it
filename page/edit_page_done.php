@@ -35,17 +35,17 @@ try{
         $update_contents_done = $update->updatePageContentsB($update_contents);
         echo $update_contents_done; 
         $_SESSION['msg'] = ['error' => ['ページを更新できました!']];
-        //header('Location:../mem/mem_top.php');
+        header('Location:../mem/mem_top.php');
         exit;
     }else{
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        //header('Location:../mem/mem_top.php');
+        header('Location:../mem/mem_top.php');
         exit;
     }
     
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    //header('Location:../mem/mem_top.php');
+    header('Location:../mem/mem_top.php');
     exit;
 }
 
