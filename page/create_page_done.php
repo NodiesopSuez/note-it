@@ -57,7 +57,7 @@ try{
         header('Location:../page/create_page.php');
         exit;
     }elseif($register_contents_done === true){
-        $_SESSION['msg'] = ['error' => ['新しいページを追加できました!']];
+        $_SESSION['msg'] = ['okmsg' => ['新しいページを追加できました!']];
         header('Location:../mem/mem_top.php');
         exit;
     }
