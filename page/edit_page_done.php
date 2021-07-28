@@ -17,6 +17,8 @@ if(empty($_SESSION['user_info'])){
 
 
 try{
+    print_r($update_contents);
+    echo '<br/>';
     //ページの内容
     $update_contents = ['contents'   => $_SESSION['page']['update_contents'], 
                         'page_id'    => $_SESSION['page']['page_id'], 
