@@ -43,7 +43,7 @@ try {
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
     echo '<br/>$_SESSION[contetns]<br/>';
-    print_r($_SESSION['contents']); 
+    print_r($_SESSION['page']); 
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
