@@ -11,7 +11,7 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 //余計な情報を削除
-$_SESSION['msg']['error'] = array();
+$_SESSION['msg'] = array();
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
@@ -21,7 +21,7 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if (!SaftyUtil::validToken($_SESSION['token'])) {
-    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
     header('Location: ../sign/sign_in.php');
     exit;
 }
@@ -50,7 +50,7 @@ try{
     extract($note_info);
 
 }catch(Exception $e){
-    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
     exit;
 }

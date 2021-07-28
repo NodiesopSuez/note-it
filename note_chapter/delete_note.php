@@ -19,13 +19,13 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
 	header('Location: ../sign/sign_in.php');
 	exit;
 }
 
 //エラーが入ってたら削除
-if(!empty($_SESSIONT['msg']['error'])){
+if(!empty($_SESSION['msg'])){
     $_SESSION['msg'] = array();
 }
 
@@ -71,11 +71,11 @@ try{
     $delete_bool['note'] = $delete->deleteNote($note_id);
 
     if(in_array(0, $delete_bool)){
-        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+        $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
         header('Location:../mem/mem_top.php');
         exit;
     }else{
-        $_SESSION['msg']['okmsg'][] = 'ノートを削除できました！';
+        $_SESSION['msg'] = ['okmsg' => ['ノートを削除できました']];
         header('Location:../mem/mem_top.php');
         exit;
         
@@ -83,7 +83,7 @@ try{
 
 }catch(Exception $e){
     echo $e->getMessage();
-    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
     exit;
 }

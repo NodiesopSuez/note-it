@@ -20,7 +20,7 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+	$_SESSION['msg'] = ['error' => [ Config::MSG_INVALID_PROCESS]];
 	header('Location: ../sign/sign_in.php');
 	exit;
 } 
@@ -46,7 +46,7 @@ try {
     $now_dt = getDate();
     extract($now_dt);
  
-    if (empty($_SESSION['msg']['error']) && empty($_SESSION['msg']['okmsg'])) {
+    if (empty($_SESSION['msg'])) {
         $ladybug_img = './img/ladybug_nm.png';
         if ($hours>=5 && $hours<12) {
             $msg = array('おはようございます!　'.$nick_name.'さん!');
@@ -61,14 +61,13 @@ try {
     } elseif (!empty($_SESSION['msg']['okmsg'])) {
         $ladybug_img = './img/ladybug_nm.png';
         $msg = $_SESSION['msg']['okmsg'];
-        $_SESSION['msg']['okmsg'] = array();
     }
     $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 }catch(Exception $e){
     echo $e->getMessage();
 }
 
-$_SESSION['msg']['okmsg'] = array();
+$_SESSION['msg'] = array();
 $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 ?>
 

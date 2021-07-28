@@ -21,14 +21,14 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
     header('Location:../mem/mem_top.php');
     exit;
 }
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['msg']['error'])){
-    $_SESSION['msg']['error'] = array();
+    $_SESSION['msg'] = array();
 }
 
 try {
@@ -52,7 +52,7 @@ try {
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
-        $_SESSION['msg']['error'][] = 'ページタイトルを入力してください';
+        $_SESSION['msg'] = ['error' => ['ページタイトルを入力してください。']];
     }
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
@@ -154,7 +154,7 @@ try {
         if(!empty($page_b_contents)){
             ksort($page_b_contents); //コンテンツを昇順に並べ替え
         }else{
-            $_SESSION['msg']['error'][] = '本文を入力してください';
+            $_SESSION['msg'] = ['error' => ['本文を入力してください。']];
         }
 
         //print_r($page_b_contents);
@@ -167,14 +167,13 @@ try {
     $search = null;
     
     if(!empty($_SESSION['msg']['error'])){
-        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
         header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
     }else{
         header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
-    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
     exit;
 }

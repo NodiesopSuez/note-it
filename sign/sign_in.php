@@ -24,7 +24,7 @@ if(!empty($_SESSION['msg']['error'])){
     $msg = ['ログインしてください♪'];
 }
 $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
-$_SESSION['msg']['okmsg'] = array();
+$_SESSION['msg']= array();
 ?>
 
 <!DOCTYPE html>

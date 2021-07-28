@@ -18,7 +18,7 @@ if(empty($_SESSION['user_info'])){
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
     header('Location:../mem/mem_top.php');
     exit;
 }
@@ -26,7 +26,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 if(!empty($_SESSION['page'])){
     extract($_SESSION['page']);
 }else{
-    $_SESSION['msg']['error'][] = Config::MSG_INVALID_PROCESS;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location: ../sign/sign_in.php');
     exit;
 }
@@ -60,7 +60,7 @@ try {
     $search = null; 
 
 }catch(Exception $e){
-    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../mem/mem_top.php');
     exit;
 }

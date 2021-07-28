@@ -25,17 +25,18 @@ $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 //エラーの有無によってテントウの表示を分岐
 if(!empty($_SESSION['msg']['error'])){
     $ladybug_img = './img/ladybug_sd.png';
-	$msg = $_SESSION['msg']['error'];
+	$msg = ['error'];
 }elseif(!empty($_SESSION['msg']['okmsg'])){
     $ladybug_img = './img/ladybug_nm.png';
     $msg = $_SESSION['msg']['okmsg'];
-    $_SESSION['msg']['okmsg'] = array();
 }else{
     $ladybug_img = './img/ladybug_nm.png';
     $msg =  ['どのノートに追加しますか？'];
 }
 $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
 $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
+
+$_SESSION['msg'] = array();
 ?>
 
 <!DOCTYPE html>

@@ -53,18 +53,17 @@ try{
     } 
     
     if($register_contents_done === false){
-        $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+        $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
         header('Location:../page/create_page.php');
         exit;
     }elseif($register_contents_done === true){
-        $_SESSION['msg']['okmsg'][] = '新しいページを追加できました！';
+        $_SESSION['msg'] = ['error' => ['新しいページを追加できました!']];
         header('Location:../mem/mem_top.php');
         exit;
     }
 
 }catch(Exception $e){
-    echo $e->getMessage();
-    $_SESSION['msg']['error'][] = Config::MSG_EXCEPTION;
+    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     header('Location:../page/create_page.php');    
     exit;
 }
