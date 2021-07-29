@@ -67,7 +67,7 @@ class Updates extends Connect
     }
     
     // ページ情報を更新 // typeB
-    public function updatePageContentsB(array $update_page):bool{
+    public function updatePageContentsB(array $update_page){
         $update_title_sql = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
         $stmt = $this->dbh->prepare($update_title_sql);
         $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
@@ -82,8 +82,10 @@ class Updates extends Connect
         $add_contents = new Addition;
         $add_contents->registerContentsB($update_page['page_id'], $update_page['contents']);
         
-        $bool = ($update_title === true && $delete_contents === true && $add_contents === true) ? true : false;
+        //$bool = ($update_title === true && $delete_contents === true && $add_contents === true) ? true : false;
 
+        $bool = ['update_title' => $update_title, 'delete_contents' => $delete_contents, 'add_contents' => $add_contents];
+        
         return $bool;
     }
 }
