@@ -28,6 +28,8 @@ try{
     $delete   = new Deletes;
     $addition = new Addition;
 
+    print_r($update_contents);
+
     if($_SESSION['page']['page_type'] === 1){
         $update_bool = $update->updatePageContentsA($update_contents);
     }elseif($_SESSION['page']['page_type'] === 2){
