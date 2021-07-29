@@ -25,7 +25,7 @@ $note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
 //エラーの有無によってテントウの表示を分岐
 if(!empty($_SESSION['msg']['error'])){
     $ladybug_img = './img/ladybug_sd.png';
-	$msg = ['error'];
+	$msg = $_SESSION['msg']['error'];
 }elseif(!empty($_SESSION['msg']['okmsg'])){
     $ladybug_img = './img/ladybug_nm.png';
     $msg = $_SESSION['msg']['okmsg'];
