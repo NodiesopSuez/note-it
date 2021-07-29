@@ -34,7 +34,7 @@ try{
         exit;
     }
 
-    var_dump($update_contents_done);
+    print_r($update_contents_done);
 
     if($update_contents_done === false){
         $_SESSION['bool'] = 'false';
