@@ -30,15 +30,17 @@ class Deletes extends Connect
 
 
     //page_infoとpage_contentsから削除
-    public function deletePageContents(string $designation, int $page_type, $id_list){
+    public function deletePageContents(string $designation, int $page_type, $id_list, string $forwhat='delete'){ 
         //ノート・チャプターから削除orページから削除 / どちらのページタイプで削除するか
         if ($designation === 'page') {
-            if ($page_type === 1) {
+            if ($page_type === 1){
                 $sql_contents = "DELETE FROM page_a_contents WHERE page_id = ". $id_list ;
-            } elseif ($page_type === 2) {
+            } elseif ($page_type === 2){
                 $sql_contents = "DELETE FROM page_b_contents WHERE page_id = ". $id_list;
             }
-            $sql_page = "DELETE FROM page_info WHERE page_id = ". $id_list;
+            if ($forwhat === 'delete'){
+                $sql_page = "DELETE FROM page_info WHERE page_id = ". $id_list;
+            }
         } elseif ($designation === 'note_chapter'){
             if ($page_type === 1){
                 $sql_contents = "DELETE FROM page_a_contents USING page_info 
@@ -56,10 +58,13 @@ class Deletes extends Connect
         $stmt_contents = $this->dbh->prepare($sql_contents);
         $bool_contents = $stmt_contents->execute();
 
-        $stmt_page = $this->dbh->prepare($sql_page);
-        $bool_page = $stmt_page->execute();
-
-        $bool = ($bool_contents === true) && ($bool_page === true) ? true : false ;
+        if ($forwhat === 'delete') {
+            $stmt_page = $this->dbh->prepare($sql_page);
+            $bool_page = $stmt_page->execute();
+            $bool = ($bool_contents === true) && ($bool_page === true) ? true : false ;
+        }else{
+            $bool = ($bool_contents === true) ? true : false ;
+        }
 
         return $bool;
     }

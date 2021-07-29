@@ -73,6 +73,7 @@ class Updates extends Connect
         $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
         $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_INT);
         $bool = $stmt->execute();
+
         return $bool;
     }
 }

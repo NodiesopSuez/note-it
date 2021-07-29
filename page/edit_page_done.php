@@ -32,7 +32,7 @@ try{
         $update_bool = $update->updatePageContentsA($update_contents);
     }elseif($_SESSION['page']['page_type'] === 2){
         $update_done[] = $update->updatePageContentsB($update_contents);
-        $update_done[] = $delete->deletePageContents('page', 2, $update_contents['page_id']);
+        $update_done[] = $delete->deletePageContents('page', 2, $update_contents['page_id'], 'update');
         $update_done[] = $addition->registerContentsB($update_contents['page_id'], $update_contents['contents']);
         $update_bool = in_array(0, $update_done, true) ? false : true ;
     }else{
