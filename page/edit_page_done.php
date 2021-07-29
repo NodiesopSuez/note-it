@@ -29,6 +29,8 @@ try{
     $addition = new Addition;
 
     if($_SESSION['page']['page_type'] === 1){
+
+        print_r($update_contents);
         $update_bool = $update->updatePageContentsA($update_contents);
     }elseif($_SESSION['page']['page_type'] === 2){
         $update_done[] = $update->updatePageContentsB($update_contents);
