@@ -56,11 +56,11 @@ try {
     }
 
     //ページ情報
-    $_SESSION['page'] = [ 'page_title' => $page_title ];
+    $_SESSION['page'][] = [ 'page_title' => $page_title ];
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
-        $_SESSION['page'] = ['update_contents' => [ 'meaning'   => $meaning,
+        $_SESSION['page'][] = ['update_contents' => [ 'meaning'   => $meaning,
                                                     'syntax'    => $syntax, 
                                                     'syn_memo'  => $syn_memo,
                                                     'example'   => $example, 
