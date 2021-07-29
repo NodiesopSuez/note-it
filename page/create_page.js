@@ -102,26 +102,7 @@ $(function(){
         }
         let selected_obj_top = $(object).offset().top - 110;
         $('html, body').animate({ scrollTop: selected_obj_top }, 500);
-        //return defer.promise();
     }
-
-    //note_listを非表示にする
-    function hideNotes(){
-        $('.note_section .note_base').width('0px').hide();
-        $('.note_section .back_cover').height('0px').hide();
-        $('.note_section .note_title').css('display', 'none');
-        return defer.promise();
-    }
-
-    //note_listをアニメーション表示する
-    function showNotes(){
-        $('.note_section .back_cover').show().animate({ height: '161px' }, 500, 'swing', function(){
-            $('.note_section .note_base').show().delay(100).animate({ width: '140px' }, 500, 'swing', function(){
-                $('.note_section .note_title').delay(100).css({ display: 'flex' });
-            })
-        });
-        return defer.promise();
-    };
 
     //新規ノート選択ボタンと既存ノートリストを表示
     function createExistNoteList(){
