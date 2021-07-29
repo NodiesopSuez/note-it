@@ -66,6 +66,8 @@ try {
                                                       'example'   => $example, 
                                                       'ex_memo'   => $ex_memo, 
                                                       'memo'      => $memo        ]];
+
+        print_r($_SESSION['page']['update_contents']);
         
     }elseif(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 2){  //page_type Bの場合、
         //page type B のコンテンツを一旦格納する配列を宣言
