@@ -9,6 +9,8 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Users.php');
  require_once(dirname(__FILE__, 2).'/class/db/Updates.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Deletes.php');
+ require_once(dirname(__FILE__, 2).'/class/db/Additions.php');
 
 //ログインしてなければログイン画面へ
 if(empty($_SESSION['user_info'])){
