@@ -56,7 +56,7 @@ try {
     }
 
     //ページ情報
-    $_SESSION['page'][] = [ 'page_title' => $page_title ];
+    $_SESSION['page'] = [ 'page_title' => $page_title ];
 
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
