@@ -39,12 +39,12 @@ try{
         exit;
     }
 
-    print_r($update_contents_done);
+    var_dump($update_bool);
 
-    if($update_contents_done === false){
+    if($update_bool === false){
         $_SESSION['bool'] = 'false';
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    }elseif($update_contents_done === true){
+    }elseif($update_bool === true){
         $_SESSION['bool'] = 'ok';
         $_SESSION['msg'] = ['okmsg' => ['ページを更新できました!']];
     }
