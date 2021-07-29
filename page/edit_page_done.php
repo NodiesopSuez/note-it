@@ -28,8 +28,6 @@ try{
     $delete   = new Deletes;
     $addition = new Addition;
 
-    print_r($update_contents);
-
     if($_SESSION['page']['page_type'] === 1){
         $update_bool = $update->updatePageContentsA($update_contents);
     }elseif($_SESSION['page']['page_type'] === 2){
@@ -42,9 +40,7 @@ try{
         header('Location:../mem/mem_top.php');
         exit;
     }
-
-    var_dump($update_bool);
-
+    
     if($update_bool === false){
         $_SESSION['bool'] = 'false';
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
@@ -57,12 +53,12 @@ try{
     $delete   = null;
     $addition = null;
 
-    //header('Location:../mem/mem_top.php');
+    header('Location:../mem/mem_top.php');
     exit;
     
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    //header('Location:../mem/mem_top.php');
+    header('Location:../mem/mem_top.php');
     exit;
 }
 

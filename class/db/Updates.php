@@ -73,19 +73,6 @@ class Updates extends Connect
         $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
         $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_INT);
         $bool = $stmt->execute();
-
-       /*  $delete_contents_sql = "DELETE FROM page_b_contents WHERE page_id = :page_id";
-        $stmt = $this->dbh->prepare($delete_contents_sql);
-        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_STR);
-        $delete_contents = $stmt->execute();
- */
-        /* $add_contents = new Addition;
-        $add_contents->registerContentsB($update_page['page_id'], $update_page['contents']); */
-        
-        //$bool = ($update_title === true && $delete_contents === true && $add_contents === true) ? true : false;
-
-        //$bool = ['update_title' => $update_title, 'delete_contents' => $delete_contents, 'add_contents' => $add_contents];
-        
         return $bool;
     }
 }
