@@ -18,6 +18,7 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	header('Location:../sign/sign_in.php');
 	exit;
 }
+
 //3回以上エラーしてたらログイン不可
 if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
 	$_SESSION['msg'] = ['error' => [Config::MSG_USER_LOGIN_TRYTIMES_OVER]];

@@ -1,9 +1,9 @@
 <?php
 class SaftyUtil{
 	//ワンタイムトークン発生
-	public static function generateToken(string $token_name='token'):string{
+	public static function generateToken():string{
 		$token = bin2hex(openssl_random_pseudo_bytes(32));
-		$_SESSION[$token_name] = $token;
+		$_SESSION['token'] = $token;
 		return $token;
 	}
 	
