@@ -42,13 +42,13 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    echo '<br/>$_SESSION[contetns]<br/>';
+    /* echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['page']); 
     echo '<br/>$_FILES<br/>'; 
     var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
-    echo '<br/><br/>'; 
+    echo '<br/><br/>';  */
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
@@ -61,15 +61,11 @@ try {
     if(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page'] = ['update_contents' => [ 'meaning'   => $meaning,
-                                                      'syntax'    => $syntax, 
-                                                      'syn_memo'  => $syn_memo,
-                                                      'example'   => $example, 
-                                                      'ex_memo'   => $ex_memo, 
-                                                      'memo'      => $memo        ]];
-
-
-        echo 'ここは通ってる<br/>';
-       var_dump($_SESSION['page']['update_contents']);
+                                                    'syntax'    => $syntax, 
+                                                    'syn_memo'  => $syn_memo,
+                                                    'example'   => $example, 
+                                                    'ex_memo'   => $ex_memo, 
+                                                    'memo'      => $memo        ]];
         
     }elseif(!empty($_SESSION['page']['page_type']) && $_SESSION['page']['page_type'] === 2){  //page_type Bの場合、
         //page type B のコンテンツを一旦格納する配列を宣言
@@ -167,14 +163,14 @@ try {
     $utility = null;
     
     if(!empty($_SESSION['msg']['error'])){
-        //header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
+        header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:../page/edit_page_done.php');
+        header('Location:../page/edit_page_done.php');
     }
 
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    //header('Location:../mem/mem_top.php');
+    header('Location:../mem/mem_top.php');
     exit;
 }
 ?>
