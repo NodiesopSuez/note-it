@@ -34,6 +34,8 @@ try{
         exit;
     }
 
+    var_dump($update_contents_done);
+
     if($update_contents_done === false){
         $_SESSION['bool'] = 'false';
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
@@ -44,12 +46,12 @@ try{
 
     $update = null;
 
-    header('Location:../mem/mem_top.php');
+    //header('Location:../mem/mem_top.php');
     exit;
     
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/mem_top.php');
+    //header('Location:../mem/mem_top.php');
     exit;
 }
 
