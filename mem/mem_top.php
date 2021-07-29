@@ -4,11 +4,11 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
- require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
@@ -24,8 +24,6 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	header('Location: ../sign/sign_in.php');
 	exit;
 } 
-
-print_r($_SESSION['bool']);
 
 try {
     //user_idからノート情報検索
