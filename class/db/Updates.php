@@ -37,7 +37,7 @@ class Updates extends Connect
     public function updatePageContentsA(array $update_page):bool {
         $page_sql = "UPDATE page_info SET page_title = :page_title WHERE page_id = :page_id";
         $stmt = $this-> dbh->prepare($page_sql);
-        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_STR);
+        $stmt->bindValue(':page_id', $update_page['page_id'], PDO::PARAM_INT);
         $stmt->bindValue(':page_title', $update_page['page_title'], PDO::PARAM_STR);
         $update_page = $stmt->execute();
 
