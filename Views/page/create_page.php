@@ -1,26 +1,22 @@
 <?php
 
-include(dirname(__FILE__, 2).'/Controller/show_create_page.php');
+include(dirname(__FILE__, 2).'/Controller/page/show_create_page.php');
 
-$color = 'basic'; //ヘッダーメニューのカラークラス
-$msg = $_SESSION['msg'];
-$_SESSION['msg'] = array();
-$color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../main/template.css">
-    <link rel="stylesheet" type="text/css" href="../main/color_template.css">
-    <link rel="stylesheet" type="text/css" href="./page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="./create_page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/page.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../public/css/create_page.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
 </head>
 <body>
     <div class="container">
-        <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
+        <?php include(dirname(__FILE__, 2).'/Views/mem_header.php')?>
 
         <div class="ladybug">
             <div class="balloon">
@@ -32,7 +28,7 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
             <img src="<?= $ladybug_img ?>">
         </div>
 
-        <form method="post" action="./create_page_check.php" enctype="multipart/form-data">
+        <form method="post" action="../Controller/page/create_page_check.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">       
             
@@ -135,8 +131,8 @@ $color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
     </div>
     <!-- jQurery -->
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
-    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
-    <script src="./create_page.js" type="text/javascript"></script>
-    <script src="./edit_page.js" type="text/javascript"></script>
+    <script src="../public/js/inclusion.js" type="text/javascript"></script>
+    <script src="../public/js/create_page.js" type="text/javascript"></script>
+    <script src="../public/js/edit_page.js" type="text/javascript"></script>
 </body>
 </html>
