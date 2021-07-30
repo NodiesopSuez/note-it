@@ -12,19 +12,6 @@ require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
 
-//ログインしてなければログイン画面に
-if(empty($_SESSION['user_info'])){
-    header('Location: ../sign/sign_in.php');
-    exit;
-}
-
-//ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['msg'] = ['error' => [ Config::MSG_INVALID_PROCESS]];
-	header('Location: ../sign/sign_in.php');
-	exit;
-} 
-
 try {
     //user_idからノート情報検索
     extract($_SESSION['user_info']);

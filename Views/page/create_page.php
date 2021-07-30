@@ -1,42 +1,11 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
 
-//必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/class/config/Config.php');
-require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
-require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
-require_once(dirname(__FILE__, 2).'/class/db/Users.php');
-require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
-
-//ログインしてなければログイン画面へ
-if(empty($_SESSION['user_info'])){
-    header('Location:../sign/sign_in.php');
-}
+include(dirname(__FILE__, 2).'/Controller/show_create_page.php');
 
 $color = 'basic'; //ヘッダーメニューのカラークラス
-
-//既存ノートリスト取得
-$user_id = $_SESSION['user_info']['user_id'];
-$searches = new Searches;
-$note_list = $searches->findNoteInfo('user_id', 4/* $user_id */);
-
-//エラーの有無によってテントウの表示を分岐
-if(!empty($_SESSION['msg']['error'])){
-    $ladybug_img = './img/ladybug_sd.png';
-	$msg = $_SESSION['msg']['error'];
-}elseif(!empty($_SESSION['msg']['okmsg'])){
-    $ladybug_img = './img/ladybug_nm.png';
-    $msg = $_SESSION['msg']['okmsg'];
-}else{
-    $ladybug_img = './img/ladybug_nm.png';
-    $msg =  ['どのノートに追加しますか？'];
-}
-$show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
-$color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
-
+$msg = $_SESSION['msg'];
 $_SESSION['msg'] = array();
+$color_list = ['blue', 'pink', 'yellow', 'green', 'purple'];
 ?>
 
 <!DOCTYPE html>

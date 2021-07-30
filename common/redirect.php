@@ -4,11 +4,8 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/class/config/Config.php');
-require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
-require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
-require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
-require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/config/Config.php');
+require_once(dirname(__FILE__, 2).'/util/Utility.php');
 
 //ログインしてなければログイン画面に
 if(empty($_SESSION['user_info'])){
