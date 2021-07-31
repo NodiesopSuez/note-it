@@ -4,10 +4,10 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/Model/Connect.php');
+ require_once(dirname(__FILE__, 2).'/Model/Users.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/util/Utility.php');
 
 //エラ〜メッセージを空にする
 $_SESSION['msg'] = array();
@@ -15,14 +15,14 @@ $_SESSION['msg'] = array();
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_SESSION['token'])){
     $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-	header('Location:../sign/sign_in.php');
+	header('Location:../Controller/user/sign_in.php');
 	exit;
 }
 
 //3回以上エラーしてたらログイン不可
 if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
 	$_SESSION['msg'] = ['error' => [Config::MSG_USER_LOGIN_TRYTIMES_OVER]];
-	header('Location:../sign/sign_in.php');
+	header('Location:../Controller/user/sign_in.php');
 	exit;
 }
 
@@ -44,7 +44,7 @@ try{
         password_verify($pass, $user_info['pass'])==false){
             $_SESSION['msg'] = ['error' => ['メールアドレス もしくは パスワードに誤りがあります。']];
             $_SESSION['error_back_count'] ++;
-            header('Location: ../sign/sign_in.php');
+            header('Location: ../Views/user/sign_in.php');
             exit;
     }
     if($email==$user_info['email'] && password_verify($pass, $user_info['pass'])==true){
@@ -52,14 +52,14 @@ try{
             $_SESSION['msg'] = array();
             $_SESSION['error_back_count'] = 0;
             echo '<input type="hidden" name="token" value="'. SaftyUtil::generateToken() .'">';
-            header('Location: ../mem/mem_top.php');
+            header('Location: ../Views/user/mem_top.php');
             exit;
         }
 
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
 	$_SESSION['error_back_count'] ++;
-	header('Location:../sign/sign_in.php');
+	header('Location:../Views/user/sign_in.php');
 }
 
 ?>
