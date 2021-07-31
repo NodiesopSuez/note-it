@@ -1,7 +1,7 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 2).'/common/redirect.php');
+
 
 //必要ファイル呼び出し
 require_once(dirname(__FILE__, 2).'/class/config/Config.php');
@@ -11,23 +11,9 @@ require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 require_once(dirname(__FILE__, 2).'/vendor/autoload.php');
 
-//print_r($_POST);
-//print_r($_FILES);
 
-//ログインしてなければログイン画面へ
-if(empty($_SESSION['user_info'])){
-    header('Location:../sign/sign_in.php');
-}
 
 $user_id = $_SESSION['user_info']['user_id'];
-
-
-//ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-    header('Location:../mem/mem_top.php');
-    exit;
-}
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['msg']['error'])){
