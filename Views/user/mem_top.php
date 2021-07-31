@@ -61,10 +61,10 @@ $note_colors = ['blue', 'pink', 'purple', 'yellow', 'green'];
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../main/template.css">
-    <link rel="stylesheet" type="text/css" href="../main/color_template.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
     <link rel="stylesheet" type="text/css" href="./mem_top.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../inclusion/top_header.css">
+    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
 </head>
 <body>
     <div class="container">
