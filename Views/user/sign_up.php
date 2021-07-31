@@ -15,7 +15,7 @@ include(dirname(__FILE__, 2).'/Controller/page/show_sign_up.php');
 </head>
 <body>
     <div class="container">
-    <?php include(dirname(__FILE__, 2).'/inclusion/top_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/Views/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">
@@ -25,7 +25,7 @@ include(dirname(__FILE__, 2).'/Controller/page/show_sign_up.php');
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="../sign/sign_up_check.php" class="basic">
+        <form method="post" action="../Controller/user/sign_up_check.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">
