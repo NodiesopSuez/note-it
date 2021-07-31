@@ -20,7 +20,10 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 	exit;
 }
 
-
-
+function catchException(){
+	$_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
+    header('Location:../Views/user/mem_top.php');
+    exit;
+}
 
 ?>
