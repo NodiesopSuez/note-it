@@ -3,15 +3,15 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/class/config/Config.php');
-require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
-require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
-require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 2).'/config/Config.php');
+require_once(dirname(__FILE__, 2).'/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/Model/Connect.php');
+require_once(dirname(__FILE__, 2).'/Model/Users.php');
 
 //ワンタイムトークンチェック
 if(!SaftyUtil::validToken($_POST['token'])){
     $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-    header('Location:./sign_up.php');
+    header('Location:../Views/user/sign_up.php');
     exit;
 }
 
@@ -76,16 +76,16 @@ $users = null;
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['msg']['error'])){
-	header('Location:../sign/sign_up.php');
+	header('Location:../View/user/sign_up.php');
 	exit;
 }else{
-	header('Location:../sign/sign_up_done.php');
+	header('Location:../Controller/user/sign_up_done.php');
 	exit;
 }
 
 }catch(Exception $e){
 	$_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-	header('Location:../sign/sign_up.php');
+	header('Location:../View/user/sign_up.php');
 	exit;
 }
 
