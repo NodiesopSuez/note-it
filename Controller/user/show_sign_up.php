@@ -11,12 +11,12 @@ $email = '';
 $nick_name = '';
 $birth = '';
 $gender= '';
-$ladybug = './img/ladybug_nm.png';
+$ladybug = '../public/img/ladybug_nm.png';
 $msg = ['情報を入力してください。'];
 
 //エラーあるか
 if(!empty($_SESSION['msg']['error'])){
-    $ladybug = './img/ladybug_sd.png';
+    $ladybug = '../public/img/ladybug_sd.png';
     extract($_SESSION['data']);
     $msg = $_SESSION['msg']['error'];
 }
