@@ -1,6 +1,6 @@
 <?php 
 
-include(dirname(__FILE__, 2).'/controllers/show_user_top.php');
+include(dirname(__FILE__, 3).'/controllers/show_user_top.php');
 
 ?>
 
