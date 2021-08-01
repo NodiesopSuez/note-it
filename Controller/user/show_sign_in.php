@@ -1,12 +1,6 @@
 <?php
 
-//セッションスタート
-session_start();
-session_regenerate_id();
-
-//必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/config/Config.php');
-require_once(dirname(__FILE__, 2).'/util/Utility.php');
+include(dirname(__FILE__, 2).'/common/redirect.php');
 
 $msg = [];
 $ladybug = '../public/img/ladybug_nm.png';
