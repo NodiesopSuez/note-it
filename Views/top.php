@@ -11,8 +11,7 @@ $news_content = [
 
 $img = '/public/img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
-
-
+ 
 //sign_in用
 $_SESSION['msg'] = array();
 
