@@ -1,9 +1,6 @@
 <?php
-session_start();
-session_regenerate_id();
 
-//外部ファイル読込
-require_once(dirname(__FILE__, 2).'/config/Icons.php');
+include(dirname(__FILE__, 2).'/common/redirect.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
