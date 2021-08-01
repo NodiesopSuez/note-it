@@ -1,23 +1,16 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 2).'/common/redirect.php');
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/Model/Connect.php');
- require_once(dirname(__FILE__, 2).'/Model/Users.php');
- require_once(dirname(__FILE__, 2).'/config/Config.php');
- require_once(dirname(__FILE__, 2).'/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/Model/Connect.php');
+require_once(dirname(__FILE__, 2).'/Model/Users.php');
 
 //エラ〜メッセージを空にする
 $_SESSION['msg'] = array();
 
 //ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-	header('Location:../Controller/user/sign_in.php');
-	exit;
-}
+validToken();
 
 //3回以上エラーしてたらログイン不可
 if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
@@ -57,9 +50,8 @@ try{
         }
 
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
 	$_SESSION['error_back_count'] ++;
-	header('Location:../Views/user/sign_in.php');
+	catchException();
 }
 
 ?>
