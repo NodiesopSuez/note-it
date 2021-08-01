@@ -24,7 +24,7 @@ $_SESSION['msg'] = array();
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href=".<?= basename('.../public/css/template.css') ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= basename(dirname(__FILE__, 2).'/public/css/template.css') ?>">
     <link rel="stylesheet" type="text/css" href=".<?= basename('../public/css/color_template.css') ?>">
     <link rel="stylesheet" type="text/css" href=".<?= basename('../public/css/top_wide.css') ?>" media="screen and (min-width:1024px)">
     <link rel="stylesheet" type="text/css" href=".<?= basename('../public/css/top_narrow.css') ?>" media="screen and (max-width:1023px)">
