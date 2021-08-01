@@ -1,9 +1,9 @@
 <?php
 
-include(dirname(__FILE__, 2).'/common/redirect.php');
+include(dirname(__FILE__, 3).'/common/redirect.php');
 
-require_once(dirname(__FILE__, 2).'/Model/Connect.php');
-require_once(dirname(__FILE__, 2).'/Model/Users.php');
+require_once(dirname(__FILE__, 3).'/Model/Connect.php');
+require_once(dirname(__FILE__, 3).'/Model/Users.php');
 
 //ワンタイムトークンチェック
 validToken();
@@ -69,10 +69,10 @@ $users = null;
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['msg']['error'])){
-	header('Location:../View/user/sign_up.php');
+	header('Location:/View/user/sign_up.php');
 	exit;
 }else{
-	header('Location:../Controller/user/sign_up_done.php');
+	header('Location:/Controller/user/sign_up_done.php');
 	exit;
 }
 
