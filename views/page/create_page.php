@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 2).'/Controller/page/show_create_page.php');
+include(dirname(__FILE__, 3).'/controllers/page/show_create_page.php');
 
 ?>
 
@@ -8,15 +8,15 @@ include(dirname(__FILE__, 2).'/Controller/page/show_create_page.php');
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/create_page.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/page.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="/public/css/create_page.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="/public/css/top_header.css">
 </head>
 <body>
     <div class="container">
-        <?php include(dirname(__FILE__, 2).'/Views/mem_header.php')?>
+        <?php include(dirname(__FILE__, 3).'/views/mem_header.php')?>
 
         <div class="ladybug">
             <div class="balloon">
@@ -28,7 +28,7 @@ include(dirname(__FILE__, 2).'/Controller/page/show_create_page.php');
             <img src="<?= $ladybug_img ?>">
         </div>
 
-        <form method="post" action="../Controller/page/create_page_check.php" enctype="multipart/form-data">
+        <form method="post" action="/controllers/page/create_page_check.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">       
             
@@ -131,8 +131,8 @@ include(dirname(__FILE__, 2).'/Controller/page/show_create_page.php');
     </div>
     <!-- jQurery -->
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
-    <script src="../public/js/inclusion.js" type="text/javascript"></script>
-    <script src="../public/js/create_page.js" type="text/javascript"></script>
-    <script src="../public/js/edit_page.js" type="text/javascript"></script>
+    <script src="/public/js/inclusion.js" type="text/javascript"></script>
+    <script src="/public/js/create_page.js" type="text/javascript"></script>
+    <script src="/public/js/edit_page.js" type="text/javascript"></script>
 </body>
 </html>
