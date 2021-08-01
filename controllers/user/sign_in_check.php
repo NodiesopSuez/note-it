@@ -5,8 +5,8 @@ include(dirname(__FILE__, 3).'/common/redirect.php');
 //ワンタイムトークンチェック
 validToken();
 
-//必要ファイル呼び出し
-require_once(dirname(__FILE__, 3).'/models/Connect.php');
+//外部ファイル読込
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
 require_once(dirname(__FILE__, 3).'/models/Users.php');
 
 //エラ〜メッセージを空にする
