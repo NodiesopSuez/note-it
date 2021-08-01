@@ -1,11 +1,6 @@
 <?php
 
-session_start();
-session_regenerate_id();
-
-//外部ファイル読込
-require_once(dirname(__FILE__, 2).'/config/Config.php');
-require_once(dirname(__FILE__, 2).'/util/Utility.php');
+include(dirname(__FILE__, 2).'/common/redirect.php');
 
 $email = '';
 $nick_name = '';
