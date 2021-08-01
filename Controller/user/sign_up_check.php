@@ -5,6 +5,7 @@ include(dirname(__FILE__, 3).'/common/redirect.php');
 //ワンタイムトークンチェック
 validToken();
 
+require_once(dirname(__FILE__, 3).'/config/Config.php');
 require_once(dirname(__FILE__, 3).'/Model/Users.php');
 
 
