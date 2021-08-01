@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 2).'/Controller/page/show_sign_up.php');
+include(dirname(__FILE__, 3).'/Controller/page/show_sign_up.php');
 
 ?>
 
