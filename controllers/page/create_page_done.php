@@ -4,8 +4,8 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/util/Utility.php');
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Users.php');
  require_once(dirname(__FILE__, 2).'/class/db/Additions.php');
@@ -58,7 +58,7 @@ try{
         exit;
     }elseif($register_contents_done === true){
         $_SESSION['msg'] = ['okmsg' => ['新しいページを追加できました!']];
-        header('Location:../mem/mem_top.php');
+        header('Location:../mem/user_top.php');
         exit;
     }
 

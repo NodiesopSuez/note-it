@@ -1,6 +1,6 @@
 <?php
 
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 

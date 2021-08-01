@@ -15,13 +15,13 @@ $note_list = $searches->findNoteInfo('user_id', $user_id);
 
 //エラーの有無によってテントウの表示を分岐
 if(!empty($_SESSION['msg']['error'])){
-    $_SESSION['ladybug_img'] = '../public/img/ladybug_sd.png';
+    $_SESSION['ladybug_img'] = '../public/public/img/ladybug_sd.png';
     $msg = $_SESSION['msg']['error'];
 }elseif(!empty($_SESSION['msg']['okmsg'])){
-    $_SESSION['ladybug_img'] = '../public/img/ladybug_nm.png';
+    $_SESSION['ladybug_img'] = '../public/public/img/ladybug_nm.png';
     $msg = $_SESSION['msg']['okmsg'];
 }else{
-    $_SESSION['ladybug_img'] = '../public/img/ladybug_nm.png';
+    $_SESSION['ladybug_img'] = '../public/public/img/ladybug_nm.png';
     $msg = ['どのノートに追加しますか？'];
 }
 $msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];

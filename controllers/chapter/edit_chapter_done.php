@@ -4,8 +4,8 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/util/Utility.php');
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Users.php');
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
@@ -28,27 +28,27 @@ if(!SaftyUtil::validToken($_SESSION['token'])){
 $_SESSION['msg'] = array();
 
 $user_id = $_SESSION['user_info']['user_id'];
-extract($_SESSION['note_chapter']); //[note_id, color, note_title];
+extract($_SESSION['note_chapter']); //[chapter_id, chapter_title];
 
 try {
     $update = new Updates;
-    $update_bool = $update->updateNote($note_id, $color, $note_title);
+    $update_bool = $update->updateChapter($chapter_id, $chapter_title);
 
     if($update_bool === false){
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     }else{
-        $_SESSION['msg'] = ['okmsg' => ['ノートの更新ができました!']];
+        $_SESSION['msg'] = ['okmsg' => ['チャプター名を変更しました！']];
         unset($_SESSION['note_chapter']);
     }
     
     $update = null;
     
-    header('Location:../mem/mem_top.php'); 
+    header('Location:../mem/user_top.php'); 
     exit;
     
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/mem_top.php');
+    header('Location:../mem/user_top.php');
     exit;
 }
 ?>

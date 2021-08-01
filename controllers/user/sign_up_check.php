@@ -70,7 +70,7 @@ $users = null;
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['msg']['error'])){
-	header('Location:/View/user/sign_up.php');
+	header('Location:/Views/user/sign_up.php');
 	exit;
 }else{
 	header('Location:/Controller/user/sign_up_done.php');

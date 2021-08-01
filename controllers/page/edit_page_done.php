@@ -4,8 +4,8 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/util/Utility.php');
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Users.php');
  require_once(dirname(__FILE__, 2).'/class/db/Updates.php');
@@ -39,7 +39,7 @@ try{
         $update_bool = in_array(0, $update_done, true) ? false : true ;
     }else{
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../mem/mem_top.php');
+        header('Location:../mem/user_top.php');
         exit;
     }
     
@@ -55,12 +55,12 @@ try{
     $delete   = null;
     $addition = null;
 
-    header('Location:../mem/mem_top.php');
+    header('Location:../mem/user_top.php');
     exit;
     
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/mem_top.php');
+    header('Location:../mem/user_top.php');
     exit;
 }
 

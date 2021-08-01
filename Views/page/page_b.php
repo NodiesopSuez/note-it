@@ -4,9 +4,9 @@ session_start();
 session_regenerate_id();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
+ require_once(dirname(__FILE__, 2).'/config/Config.php');
  require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+ require_once(dirname(__FILE__, 2).'/util/Utility.php');
  require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
  require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
 
@@ -55,7 +55,7 @@ try{
 
 }catch(Exception $e){
     $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/mem_top.php');
+    header('Location:../mem/user_top.php');
     exit;
 }
 
@@ -115,7 +115,7 @@ try{
                     <?php endif ?>
                 <?php endfor ?>
             </div>
-            <a class="back" href="../mem/mem_top.php">    
+            <a class="back" href="../mem/user_top.php">    
                 back
             </a>
     </div>
