@@ -2,7 +2,6 @@
 
 include(dirname(__FILE__, 3).'/common/redirect.php');
 
-require_once(dirname(__FILE__, 3).'/Model/Connect.php');
 require_once(dirname(__FILE__, 3).'/Model/Users.php');
 
 //ワンタイムトークンチェック
