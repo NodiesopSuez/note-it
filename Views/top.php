@@ -24,12 +24,12 @@ $_SESSION['msg'] = array();
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/template.css' ?>">
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/color_template.css' ?>">
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_wide.css' ?>" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_narrow.css' ?>" media="screen and (max-width:1023px)">
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/template.css' ?>">
-    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_header.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/color_template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/top_wide.css' ?>" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/top_narrow.css' ?>" media="screen and (max-width:1023px)">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 3).'/public/css/top_header.css' ?>">
 </head>
 <body>
    <div class="container">
