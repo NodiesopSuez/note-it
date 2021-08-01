@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 2).'/Controller/page/show_sign_in.php');
+include(dirname(__FILE__, 3).'/controllers/user/show_sign_in.php');
 
 ?>
 
@@ -8,14 +8,14 @@ include(dirname(__FILE__, 2).'/Controller/page/show_sign_in.php');
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 3).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/sign_up.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/sign_up.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="/public/css/top_header.css">
 </head>
 <body>
     <div class="container">
-    <?php include(dirname(__FILE__, 2).'/Views/top_header.php')?>
+    <?php include(dirname(__FILE__, 3).'/views/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">
@@ -25,7 +25,7 @@ include(dirname(__FILE__, 2).'/Controller/page/show_sign_in.php');
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="../Controller/user/sign_in_check.php" class="basic">
+        <form method="post" action="/controllers/user/sign_in_check.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">
