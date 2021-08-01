@@ -6,7 +6,7 @@ include(dirname(__FILE__, 3).'/common/redirect.php');
 validToken();
 
 require_once(dirname(__FILE__, 3).'/config/Connect.php');
-require_once(dirname(__FILE__, 3).'/model/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
 
 
 //エラー削除
@@ -70,10 +70,10 @@ $users = null;
 
 //$_SESSIONにエラーメッセージが含まれていたら、登録画面に戻る
 if(!empty($_SESSION['msg']['error'])){
-	header('Location:/Views/user/sign_up.php');
+	header('Location:/views/user/sign_up.php');
 	exit;
 }else{
-	header('Location:/Controller/user/sign_up_done.php');
+	header('Location:/controllers/user/sign_up_done.php');
 	exit;
 }
 

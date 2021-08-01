@@ -3,8 +3,8 @@
 include(dirname(__FILE__, 3).'/common/redirect.php');
 
 //外部ファイル読込
-require_once(dirname(__FILE__, 3).'/Model/Connect.php');
-require_once(dirname(__FILE__, 3).'/Model/Users.php');
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
 
 //情報をサニタイズして変数に代入
 $add_data = saftyUtil::sanitize(1,$_SESSION['data']);
