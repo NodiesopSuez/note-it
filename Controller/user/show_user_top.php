@@ -4,6 +4,9 @@ include(dirname(__FILE__, 2).'/common/redirect.php');
 
 require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
+
+
 
 cannnotAuthenticate();
 
