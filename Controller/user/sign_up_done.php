@@ -1,10 +1,10 @@
 <?php
 
-include(dirname(__FILE__, 2).'/common/redirect.php');
+include(dirname(__FILE__, 3).'/common/redirect.php');
 
 //外部ファイル読込
-require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
-require_once(dirname(__FILE__, 2).'/class/db/Users.php');
+require_once(dirname(__FILE__, 3).'/Model/Connect.php');
+require_once(dirname(__FILE__, 3).'/Model/Users.php');
 
 //情報をサニタイズして変数に代入
 $add_data = saftyUtil::sanitize(1,$_SESSION['data']);
@@ -28,7 +28,7 @@ try{
 		$_SESSION['msg'] = array();
 		$_SESSION['data'] = array();
 		$_SESSION['msg']['okmsg'] = '登録を完了しました!!<br/>ログインしてください'; 
-		header('Location:../sign/sign_in.php');
+		header('Location:/Views/user/sign_in.php');
 	}
 }catch(Exception $e){
 	catchException();
