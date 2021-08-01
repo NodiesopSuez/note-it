@@ -1,14 +1,12 @@
 <?php
 
-include(dirname(__FILE__, 2).'/common/redirect.php');
-
-require_once(dirname(__FILE__, 2).'/class/db/Users.php');
-require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
-require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
-
-
+include(dirname(__FILE__, 3).'/common/redirect.php');
 
 cannnotAuthenticate();
+
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Searches.php');
+require_once(dirname(__FILE__, 3).'/config/Icons.php');
 
 try {
     //user_idからノート情報検索
@@ -31,7 +29,7 @@ try {
     extract($now_dt);
  
     if (empty($_SESSION['msg'])) {
-        $ladybug_img = '../public/img/ladybug_nm.png';
+        $ladybug_img = '/public/img/ladybug_nm.png';
         if ($hours>=5 && $hours<12) {
             $msg = array('おはようございます!　'.$nick_name.'さん!');
         } elseif ($hours>=12 && $hours<17) {
@@ -40,10 +38,10 @@ try {
             $msg = array('ヤァこんばんは!　'.$nick_name.'さん!');
         }
     } elseif (!empty($_SESSION['msg']['error'])) {
-        $ladybug_img = '../public/img/ladybug_sd.png';
+        $ladybug_img = '/public/img/ladybug_sd.png';
         $msg = $_SESSION['msg']['error'];
     } elseif (!empty($_SESSION['msg']['okmsg'])) {
-        $ladybug_img = '../public/img/ladybug_nm.png';
+        $ladybug_img = '/public/img/ladybug_nm.png';
         $msg = $_SESSION['msg']['okmsg'];
     }
     $show_msg = count($msg)>=2 ? implode("<br/>", $msg) : $msg[0];
