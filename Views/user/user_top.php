@@ -7,10 +7,10 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include(dirname(__FILE__, 2).'/head.php')?>
+    <?php include(dirname(__FILE__, 3).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="../public/css/template.css">
     <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
-    <link rel="stylesheet" type="text/css" href="./mem_top.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="../public/css/mem_top.css" media="screen and (min-width:1024px)">
     <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
 </head>
 <body>
