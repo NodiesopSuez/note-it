@@ -2,10 +2,11 @@
 
 include(dirname(__FILE__, 3).'/common/redirect.php');
 
-require_once(dirname(__FILE__, 3).'/Model/Users.php');
-
 //ワンタイムトークンチェック
 validToken();
+
+require_once(dirname(__FILE__, 3).'/Model/Users.php');
+
 
 //エラー削除
 if(!empty($_SESSION['msg']['error'])){
