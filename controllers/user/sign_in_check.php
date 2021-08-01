@@ -1,21 +1,22 @@
 <?php
 
-include(dirname(__FILE__, 2).'/common/redirect.php');
-
-//必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/Model/Connect.php');
-require_once(dirname(__FILE__, 2).'/Model/Users.php');
-
-//エラ〜メッセージを空にする
-$_SESSION['msg'] = array();
+include(dirname(__FILE__, 3).'/common/redirect.php');
 
 //ワンタイムトークンチェック
 validToken();
 
+//必要ファイル呼び出し
+require_once(dirname(__FILE__, 3).'/models/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+
+//エラ〜メッセージを空にする
+$_SESSION['msg'] = array();
+
+
 //3回以上エラーしてたらログイン不可
 if(isset($_SESSION['error_back_count'])&& $_SESSION['error_back_count']>=3){
 	$_SESSION['msg'] = ['error' => [Config::MSG_USER_LOGIN_TRYTIMES_OVER]];
-	header('Location:../Controller/user/sign_in.php');
+	header('Location:/views/user/sign_in.php');
 	exit;
 }
 
@@ -37,7 +38,7 @@ try{
         password_verify($pass, $user_info['pass'])==false){
             $_SESSION['msg'] = ['error' => ['メールアドレス もしくは パスワードに誤りがあります。']];
             $_SESSION['error_back_count'] ++;
-            header('Location: ../Views/user/sign_in.php');
+            header('Location:/views/user/sign_in.php');
             exit;
     }
     if($email==$user_info['email'] && password_verify($pass, $user_info['pass'])==true){
@@ -45,7 +46,7 @@ try{
             $_SESSION['msg'] = array();
             $_SESSION['error_back_count'] = 0;
             echo '<input type="hidden" name="token" value="'. SaftyUtil::generateToken() .'">';
-            header('Location: ../Views/user/user_top.php');
+            header('Location: /views/user/user_top.php');
             exit;
         }
 
