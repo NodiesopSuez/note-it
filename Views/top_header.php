@@ -1,8 +1,3 @@
-<?php
-    require_once(dirname(__FILE__, 1).'/config/Icons.php');
-?>
-
-
 <header class="basic">
     <nav>
         <button class="nav_q_a">Q&A</button>

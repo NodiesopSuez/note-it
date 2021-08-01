@@ -3,7 +3,7 @@ session_start();
 session_regenerate_id();
 
 //外部ファイル読込
-require_once(dirname(__FILE__, 1).'/config/Icons.php');
+require_once(dirname(__FILE__, 2).'/config/Icons.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
