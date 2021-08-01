@@ -32,7 +32,7 @@ $_SESSION['msg'] = array();
 </head>
 <body>
    <div class="container">
-    <?php include(dirname(__FILE__, 1).'/Views/top_header.php')?>
+    <?php include(dirname(__FILE__, 1).'/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
