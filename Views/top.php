@@ -12,7 +12,7 @@ $news_content = [
     'detail' => 'ノートのカラーを追加！',
     'date' => '2021.03.16'];
 
-$img = '../public/img/ladybug_nm.png';
+$img = dirname(__FILE__, 2).'/public/img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
 
 
@@ -24,11 +24,12 @@ $_SESSION['msg'] = array();
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 2).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_wide.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_narrow.css" media="screen and (max-width:1023px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/color_template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_wide.css' ?>" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_narrow.css' ?>" media="screen and (max-width:1023px)">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/template.css' ?>">
+    <link rel="stylesheet" type="text/css" href=".<?= dirname(__FILE__, 2).'/public/css/top_header.css' ?>">
 </head>
 <body>
    <div class="container">
@@ -41,7 +42,7 @@ $_SESSION['msg'] = array();
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/><span class="n_line">初心者プログラマーがつくった</span><span class="n_line">クラウドノート</span></p>
             
             <div class="sign_nav">
-                <a class="sign_in" href="../Views/user/sign_in.php"> 
+                <a class="sign_in" href="<?= dirname(__FILE__, 2).'/Views/user/sign_in.php' ?>"> 
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90">
                         <defs>
                             <linearGradient id="sign_in_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
@@ -68,7 +69,7 @@ $_SESSION['msg'] = array();
                     </div>
                     <img src="<?= $img ?>">
                 </div>            
-                <a class="sign_up" href="../Views/user/sign_up.php">
+                <a class="sign_up" href="<?= dirname(__FILE__, 2).'/Views/user/sign_up.php' ?>">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
@@ -86,7 +87,7 @@ $_SESSION['msg'] = array();
             </div>
         </section>
         <section class="news">
-            <img src="../public/img/header_news.png">
+            <img src="<?= dirname(__FILE__, 2).'/public/img/header_news.png' ?>">
             <form action="./news.php">
                 <ul>
                     <?php for($i=0; $i<=5; $i++): ?>
@@ -103,26 +104,26 @@ $_SESSION['msg'] = array();
             </form>
         </section>
         <section class="feature">
-            <img src="../public/img/header_feature.png">
+            <img src="<?= dirname(__FILE__, 2).'/public/img/header_feature.png' ?>">
             <h1>3 FEATURES OF 'note IT'</h1>
             <div class="feature_contents">
                 <div>
-                    <img src="../public/img/feature_sepalete.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/feature_sepalete.png' ?>">
                     <p>ノートからさらに<br/>チャプターへ分けて<br/>ページを保存できます。</p>
                 </div>
                 <div>
-                    <img src="../public/img/feature_color.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/feature_color.png' ?>">
                     <p>ラインナップから<br/>好きなカラーを選んで<br/>保存できます。</p>
                 </div>
                 <div>
-                    <img src="../public/img/feature_type.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/feature_type.png' ?>">
                     <p>チャプターごとに<br/>ページのタイプを選べます。</p>
                     <p class="type">Type A:単語帳タイプ<br/>Type B:フリータイプ</p>
                 </div>
             </div>
         </section>
         <section class="story">
-            <img src="../public/img/header_story.png">
+            <img src="<?= dirname(__FILE__, 2).'/public/img/header_story.png' ?>">
             <div class="story_frame">
                 <div class="first_contents">
                     <h1>DEVELOPER'S DESIRE</h1>
@@ -132,7 +133,7 @@ $_SESSION['msg'] = array();
                         そんな私の挑戦心がnote ITのはじまり。</p>
                 </div>  
                 <div class="second_contents">
-                    <img src="../public/img/story_1.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/story_1.png' ?>">
                     <p>プログラマーとして活躍するべく、学習を始めた私。<br/>
                         学習した内容を忘れないためにも、<br/>
                         都度その内容をノートに書き留めていました。</p>
@@ -144,7 +145,7 @@ $_SESSION['msg'] = array();
                     <p>一文字でも失敗したと感じたら<br/>
                         新しいページへ書き直すを繰り返して…<br/>
                         紙も時間も無駄にしていました。</p>
-                    <img src="../public/img/story_2.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/story_2.png' ?>">
                 </div> 
                 <div class="forth_contents">
                     <div class="balloon">
@@ -153,16 +154,14 @@ $_SESSION['msg'] = array();
                             ほんの少しでも<br/>
                             同じような悩みを抱える人の<br/>
                             手助けになるかもしれない…</p>
-                        <img src="../public/img/bubble_lg.png">
-                        <img src="../public/img/bubble_md.png">
-                        <img src="../public/img/bubble_sm.png"> 
+                        <img src="<?= dirname(__FILE__, 2).'/public/img/bubble_lg.png' ?>">
                     </div>
-                    <img src="../public/img/story_3.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/story_3.png' ?>">
                     <p>この「ある日の思いつき」が<br/>
                         note ITは生まれました。</p>
                 </div>
                 <div class="fifth_contents">
-                    <img src="../public/img/story_4.png">
+                    <img src="<?= dirname(__FILE__, 2).'/public/img/story_4.png' ?>">
                     <h1>IMPROVING OF DEVELOPER'S SKILL<br/>
                         ADD MORE FEATURES OF 'note IT'</h1>
                     <p class="p_bold">私がプログラマーとして成長し続ける限り、note ITも成長し続けます。</p>
@@ -172,7 +171,7 @@ $_SESSION['msg'] = array();
                         ご利用される方におきましてはご不便をかけるかもしれませんが、<br/>
                         暖かく見守りながら使っていただけると幸いです。</p> 
                 </div>
-                <a class="note blue lets_signin" href="../Views/user/sign_up.php">
+                <a class="note blue lets_signin" href="<?= dirname(__FILE__, 2).'/Views/user/sign_up.php' ?>">
                     <div class="note_base"></div>
                     <div class="note_title">
                         <p>Let's<br/>
@@ -185,7 +184,7 @@ $_SESSION['msg'] = array();
         </section>
     </div>
 
-    <script src="../public/js/inclusion.js" type="text/javascript"></script>
-    <script src="../public/js/top.js" type="text/javascript"></script>
+    <script src="<?= dirname(__FILE__, 2).'/public/js/inclusion.js' ?>" type="text/javascript"></script>
+    <script src="<?= dirname(__FILE__, 2).'/public/js/top.js' ?>" type="text/javascript"></script>
 </body>
 </html>
