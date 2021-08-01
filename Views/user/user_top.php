@@ -1,6 +1,6 @@
 <?php 
 
-include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
+include(dirname(__FILE__, 2).'/controllers/show_user_top.php');
 
 ?>
 
@@ -8,14 +8,14 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
 <html lang="ja">
 <head>
     <?php include(dirname(__FILE__, 3).'/head.php')?>
-    <link rel="stylesheet" type="text/css" href="../public/css/template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
-    <link rel="stylesheet" type="text/css" href="../public/css/mem_top.css" media="screen and (min-width:1024px)">
-    <link rel="stylesheet" type="text/css" href="../public/css/top_header.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
+    <link rel="stylesheet" type="text/css" href="/public/css/mem_top.css" media="screen and (min-width:1024px)">
+    <link rel="stylesheet" type="text/css" href="/public/css/top_header.css">
 </head>
 <body>
     <div class="container">
-    <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/mem_header.php')?>
         <!-- テントウメッセージ -->
         <section class="ladybug">
             <div class="balloon">
@@ -27,7 +27,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
             <div>
             <img src="<?= $ladybug_img ?>">
             <!-- ページ追加ボタン -->
-            <form class="add_page basic" method="post" action="../page/create_page.php">
+            <form class="add_page basic" method="post" action="/views/page/create_page.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <button class="submit">ADD PAGE</button>
@@ -61,7 +61,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- ノート削除ボタン -->
-                <form class="delete" method="post" action="../note_chapter/delete_note.php">
+                <form class="delete" method="post" action="/controllers/note/delete_note.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -96,7 +96,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
                     <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- チャプター削除ボタン -->
-                <form class="delete" method="post" action="../note_chapter/delete_chapter.php">
+                <form class="delete" method="post" action="/controllers/chapter/delete_chapter.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
@@ -123,7 +123,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
         <!-- note編集モーダル -->
         <div class="note_modal card">
             <button class="close_icon close_note_modal">×</button>
-            <form method="post" action="../note_chapter/edit_note_check.php">
+            <form method="post" action="/controllers/note/edit_note_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -149,7 +149,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
         </div>
         <div class ="chapter_modal card">
             <button class="close_icon close_chapter_modal">×</button>
-            <form method="post" action="../note_chapter/edit_chapter_check.php">
+            <form method="post" action="/controllers/chapter/edit_chapter_check.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
@@ -161,7 +161,7 @@ include(dirname(__FILE__, 2).'/Controller/show_user_top.php');
     </section>
 
     <!-- jQurery -->
-    <script src="../inclusion/inclusion.js" type="text/javascript"></script>
-    <script src="./mem_top.js" type="text/javascript"></script>
+    <script src="/public/js/inclusion.js" type="text/javascript"></script>
+    <script src="/public/js/mem_top.js" type="text/javascript"></script>
 </body>
 </html>

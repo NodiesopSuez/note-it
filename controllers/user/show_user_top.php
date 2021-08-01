@@ -6,7 +6,6 @@ cannnotAuthenticate();
 
 require_once(dirname(__FILE__, 3).'/models/Users.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
-require_once(dirname(__FILE__, 3).'/config/Icons.php');
 
 try {
     //user_idからノート情報検索
