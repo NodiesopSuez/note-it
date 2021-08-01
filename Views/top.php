@@ -12,7 +12,7 @@ $news_content = [
     'detail' => 'ノートのカラーを追加！',
     'date' => '2021.03.16'];
 
-$img = dirname(__FILE__, 2).'/public/img/ladybug_nm.png';
+$img = '/public/img/ladybug_nm.png';
 $msg = 'ようこそ♪'; 
 
 
@@ -104,7 +104,7 @@ $_SESSION['msg'] = array();
             </form>
         </section>
         <section class="feature">
-            <img src="public/img/header_feature.png">
+            <img src="/public/img/header_feature.png">
             <h1>3 FEATURES OF 'note IT'</h1>
             <div class="feature_contents">
                 <div>
