@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 3).'/common/redirect.php');
+include('/common/redirect.php');
 
 $email = '';
 $nick_name = '';
