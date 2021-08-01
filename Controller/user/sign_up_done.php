@@ -1,14 +1,11 @@
 <?php
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 2).'/common/redirect.php');
 
 //外部ファイル読込
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Users.php');
- require_once(dirname(__FILE__, 2).'/class/config/Config.php');
- require_once(dirname(__FILE__, 2).'/class/util/Utility.php');
+require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
+require_once(dirname(__FILE__, 2).'/class/db/Users.php');
 
-print_r($_SESSION['data']);
 //情報をサニタイズして変数に代入
 $add_data = saftyUtil::sanitize(1,$_SESSION['data']);
 $nick_name = $add_data['nick_name'];
@@ -34,7 +31,6 @@ try{
 		header('Location:../sign/sign_in.php');
 	}
 }catch(Exception $e){
-	$_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-	header('Location:../sign/sign_up.php');
+	catchException();
 }
 ?>
