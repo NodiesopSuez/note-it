@@ -5,8 +5,8 @@ include(dirname(__FILE__, 3).'/common/redirect.php');
 //ワンタイムトークンチェック
 validToken();
 
-require_once('/config/Connect.php');
-require_once('/model/Users.php');
+require_once(dirname(__FILE__, 4).'/config/Connect.php');
+require_once(dirname(__FILE__, 4).'/model/Users.php');
 
 
 //エラー削除
