@@ -1,19 +1,12 @@
 <?php
-session_start();
-session_regenerate_id();
 
-//必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/config/Config.php');
-require_once(dirname(__FILE__, 2).'/util/Utility.php');
+include(dirname(__FILE__, 2).'/common/redirect.php');
+
 require_once(dirname(__FILE__, 2).'/Model/Connect.php');
 require_once(dirname(__FILE__, 2).'/Model/Users.php');
 
 //ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_POST['token'])){
-    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-    header('Location:../Views/user/sign_up.php');
-    exit;
-}
+validToken();
 
 //エラー削除
 if(!empty($_SESSION['msg']['error'])){
@@ -84,9 +77,7 @@ if(!empty($_SESSION['msg']['error'])){
 }
 
 }catch(Exception $e){
-	$_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-	header('Location:../View/user/sign_up.php');
-	exit;
+	catchException();
 }
 
 ?>
