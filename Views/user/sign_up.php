@@ -1,13 +1,13 @@
 <?php
 
-include(dirname(__FILE__, 3).'/Controller/page/show_sign_up.php');
+include(dirname(__FILE__, 2).'/Controller/page/show_sign_up.php');
 
 ?>
 
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include(dirname(__FILE__, 3).'/head.php')?>  
+    <?php include(dirname(__FILE__, 2).'/head.php')?>  
     <link rel="stylesheet" type="text/css" href="../public/css/template.css">
     <link rel="stylesheet" type="text/css" href="../public/css/color_template.css">
     <link rel="stylesheet" type="text/css" href="../public/css/sign_up.css" media="screen and (min-width:1024px)">
@@ -15,7 +15,7 @@ include(dirname(__FILE__, 3).'/Controller/page/show_sign_up.php');
 </head>
 <body>
     <div class="container">
-    <?php include(dirname(__FILE__, 3).'/Views/top_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/Views/top_header.php')?>
         <div class="ladybug">
             <div class="balloon">
                 <div class="msg">
