@@ -45,7 +45,7 @@ try{
             $_SESSION['msg'] = array();
             $_SESSION['error_back_count'] = 0;
             echo '<input type="hidden" name="token" value="'. SaftyUtil::generateToken() .'">';
-            header('Location: ../Views/user/mem_top.php');
+            header('Location: ../Views/user/user_top.php');
             exit;
         }
 

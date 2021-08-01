@@ -31,7 +31,7 @@ class Redirect {
     //例外キャッチしたら
     public function catchException(){
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../Views/user/mem_top.php');
+        header('Location:../Views/user/user_top.php');
         exit;
     }
 
