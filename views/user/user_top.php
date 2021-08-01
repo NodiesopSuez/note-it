@@ -162,6 +162,6 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
 
     <!-- jQurery -->
     <script src="/public/js/inclusion.js" type="text/javascript"></script>
-    <script src="/public/js/mem_top.js" type="text/javascript"></script>
+    <script src="/public/js/user_top.js" type="text/javascript"></script>
 </body>
 </html>
