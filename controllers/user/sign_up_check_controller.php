@@ -73,7 +73,7 @@ if(!empty($_SESSION['msg']['error'])){
 	header('Location:/views/user/sign_up.php');
 	exit;
 }else{
-	header('Location:/controllers/user/sign_up_done.php');
+	header('Location:/controllers/user/sign_up_done_controller.php');
 	exit;
 }
 
