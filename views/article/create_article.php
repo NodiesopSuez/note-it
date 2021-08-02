@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 3).'/controllers/page/show_create_page.php');
+include(dirname(__FILE__, 3).'/controllers/article/show_create_article.php');
 
 ?>
 
@@ -28,7 +28,7 @@ include(dirname(__FILE__, 3).'/controllers/page/show_create_page.php');
             <img src="<?= $ladybug_img ?>">
         </div>
 
-        <form method="post" action="/controllers/page/create_page_check.php" enctype="multipart/form-data">
+        <form method="post" action="/controllers/article/create_article_check_controller.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">       
             

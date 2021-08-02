@@ -1,30 +1,15 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 3).'/common/redirect.php');
+
+authenticateError();
+validToken();
 
 //必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/config/Config.php');
-require_once(dirname(__FILE__, 2).'/util/Utility.php');
-require_once(dirname(__FILE__, 2).'/config/Connect.php');
-require_once(dirname(__FILE__, 2).'/models/Users.php');
-require_once(dirname(__FILE__, 2).'/models/Searches.php');
-require_once(dirname(__FILE__, 2).'/vendor/autoload.php');
-
-//print_r($_POST);
-//print_r($_FILES);
-
-//ログインしてなければログイン画面
-if(empty($_SESSION['user_info'])){
-    header('Location:../sign/sign_in.php');
-}
-
-//ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-    $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-    header('Location:../mem/user_top.php');
-    exit;
-}
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Searches.php');
+require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
 //エラー・前回の入力残ってたら削除
 if(!empty($_SESSION['msg']['error'])){
@@ -42,9 +27,9 @@ try {
     $sanitized = $utility->sanitize(1, $_POST); //$_POSTにはtextのデータ
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    echo '<br/>$_SESSION[contetns]<br/>';
+   /*  echo '<br/>$_SESSION[contetns]<br/>';
     print_r($_SESSION['page']); 
-    echo '<br/>$_FILES<br/>'; 
+    echo '<br/>$_FILES<br/>';  */
     /*var_dump($_FILES);
     echo '<br/>$sanitized<br/>'; 
     var_dump($sanitized);
@@ -162,18 +147,14 @@ try {
     
     $search  = null;
     $utility = null;
-
-    print_r($_SESSION['page']);
     
     if(!empty($_SESSION['msg']['error'])){
-        header('Location:../page/edit_page_b.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/edit_article_b.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/edit_page_done.php');
+        header('Location:/controllers/article/edit_article_done_controller.php');
     }
 
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/user_top.php');
-    exit;
+    catchException();
 }
 ?>

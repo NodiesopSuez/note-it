@@ -2,16 +2,15 @@
 
 include(dirname(__FILE__, 3).'/common/redirect.php');
 
+authenticateError();
+validToken();
+
 
 //必要ファイル呼び出し
-require_once(dirname(__FILE__, 2).'/config/Config.php');
-require_once(dirname(__FILE__, 2).'/util/Utility.php');
-require_once(dirname(__FILE__, 2).'/config/Connect.php');
-require_once(dirname(__FILE__, 2).'/models/Users.php');
-require_once(dirname(__FILE__, 2).'/models/Searches.php');
-require_once(dirname(__FILE__, 2).'/vendor/autoload.php');
-
-
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Searches.php');
+require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
 $user_id = $_SESSION['user_info']['user_id'];
 
@@ -164,15 +163,13 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        header('Location:../page/create_page.php'); //エラーがあったら入力ページに戻る
+        header('Location:/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:../page/create_page_done.php');
+        header('Location:/article/create_article_done_controller.php');
     }
 
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../page/create_page.php');
-    exit;
+    catchException();
 }
 
 ?>

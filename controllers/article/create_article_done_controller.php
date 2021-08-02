@@ -1,19 +1,13 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 3).'/common/redirect.php');
+
+authenticateError();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/config/Config.php');
- require_once(dirname(__FILE__, 2).'/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/config/Connect.php');
- require_once(dirname(__FILE__, 2).'/models/Users.php');
- require_once(dirname(__FILE__, 2).'/models/Additions.php');
-
-//ログインしてなければログイン画面へ
-if(empty($_SESSION['user_info'])){
-    header('Location:../sign/sign_in.php');
-}
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Additions.php');
 
 //ユーザー情報
 $user_id = $_SESSION['user_info']['user_id'];
@@ -53,19 +47,15 @@ try{
     } 
     
     if($register_contents_done === false){
-        $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../page/create_page.php');
-        exit;
+        catchException();
     }elseif($register_contents_done === true){
         $_SESSION['msg'] = ['okmsg' => ['新しいページを追加できました!']];
-        header('Location:../mem/user_top.php');
+        header('Location:/views/user/user_top.php');
         exit;
     }
 
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../page/create_page.php');    
-    exit;
+    catchException();
 }
 
 ?>

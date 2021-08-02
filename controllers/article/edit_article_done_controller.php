@@ -1,22 +1,15 @@
 <?php 
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 3).'/common/redirect.php');
+
+authenticateError();
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/config/Config.php');
- require_once(dirname(__FILE__, 2).'/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/config/Connect.php');
- require_once(dirname(__FILE__, 2).'/models/Users.php');
- require_once(dirname(__FILE__, 2).'/models/Updates.php');
- require_once(dirname(__FILE__, 2).'/models/Deletes.php');
- require_once(dirname(__FILE__, 2).'/models/Additions.php');
-
-//ログインしてなければログイン画面へ
-if(empty($_SESSION['user_info'])){
-    header('Location:../sign/sign_in.php');
-}
-
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Updates.php');
+require_once(dirname(__FILE__, 3).'/models/Deletes.php');
+require_once(dirname(__FILE__, 3).'/models/Additions.php');
 
 try{
     //ページの内容
@@ -38,9 +31,7 @@ try{
         $update_done[] = $addition->registerContentsB($update_contents['page_id'], $update_contents['contents']);
         $update_bool = in_array(0, $update_done, true) ? false : true ;
     }else{
-        $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-        header('Location:../mem/user_top.php');
-        exit;
+        catchException();
     }
     
     if($update_bool === false){
@@ -55,13 +46,11 @@ try{
     $delete   = null;
     $addition = null;
 
-    header('Location:../mem/user_top.php');
+    header('Location:/views/user/user_top.php');
     exit;
     
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/user_top.php');
-    exit;
+    catchException();
 }
 
 ?>
