@@ -7,8 +7,8 @@ session_regenerate_id();
  require_once(dirname(__FILE__, 2).'/config/Config.php');
  require_once(dirname(__FILE__, 2).'/class/config/Icons.php');
  require_once(dirname(__FILE__, 2).'/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/class/db/Connect.php');
- require_once(dirname(__FILE__, 2).'/class/db/Searches.php');
+ require_once(dirname(__FILE__, 2).'/config/Connect.php');
+ require_once(dirname(__FILE__, 2).'/models/Searches.php');
 
 //余計な情報を削除
 $_SESSION['msg'] = array();

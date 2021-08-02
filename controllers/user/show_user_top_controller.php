@@ -2,7 +2,7 @@
 
 include(dirname(__FILE__, 3).'/common/redirect.php');
 
-cannnotAuthenticate();
+authenticateError();
 
 require_once(dirname(__FILE__, 3).'/config/Connect.php');
 require_once(dirname(__FILE__, 3).'/models/Users.php');
