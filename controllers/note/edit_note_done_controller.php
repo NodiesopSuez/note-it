@@ -1,28 +1,16 @@
 <?php
-//セッションスタート
-session_start();
-session_regenerate_id();
+
+include(dirname(__FILE__, 3).'/common/redirect.php');
+
+authenticateError();
+validToken();
+
 
 //必要ファイル呼び出し
- require_once(dirname(__FILE__, 2).'/config/Config.php');
- require_once(dirname(__FILE__, 2).'/util/Utility.php');
- require_once(dirname(__FILE__, 2).'/config/Connect.php');
- require_once(dirname(__FILE__, 2).'/models/Users.php');
- require_once(dirname(__FILE__, 2).'/models/Searches.php');
- require_once(dirname(__FILE__, 2).'/models/Updates.php');
-
-//ログインしてなければログイン画面に
-if(empty($_SESSION['user_info'])){
-    header('Location: ../sign/sign_in.php');
-    exit;
-}
-
-//ワンタイムトークンチェック
-if(!SaftyUtil::validToken($_SESSION['token'])){
-	$_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
-	header('Location: ../sign/sign_in.php');
-	exit;
-}
+require_once(dirname(__FILE__, 3).'/config/Connect.php');
+require_once(dirname(__FILE__, 3).'/models/Users.php');
+require_once(dirname(__FILE__, 3).'/models/Searches.php');
+require_once(dirname(__FILE__, 3).'/models/Updates.php');
 
 //エラーが入ってたら削除
 $_SESSION['msg'] = array();
@@ -43,12 +31,10 @@ try {
     
     $update = null;
     
-    header('Location:../mem/user_top.php'); 
+    header('Location:/views/user/user_top.php'); 
     exit;
     
 }catch(Exception $e){
-    $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
-    header('Location:../mem/user_top.php');
-    exit;
+   catchException();
 }
 ?>
