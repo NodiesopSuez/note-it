@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 3).'/controllers/user/show_sign_in.php');
+include(dirname(__FILE__, 3).'/controllers/user/show_sign_in_controller.php');
 
 ?>
 
@@ -25,7 +25,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_sign_in.php');
             </div>
             <img src="<?= $ladybug ?>">
         </div>
-        <form method="post" action="/controllers/user/sign_in_check.php" class="basic">
+        <form method="post" action="/controllers/user/sign_in_check_controller.php" class="basic">
             <!-- ワンタイムトークン発生 -->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken()?>">
             <div class="form-group text">

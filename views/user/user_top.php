@@ -1,6 +1,6 @@
 <?php 
 
-include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
+include(dirname(__FILE__, 3).'/controllers/user/show_user_top_controller.php');
 
 ?>
 
@@ -61,7 +61,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
                         <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- ノート削除ボタン -->
-                <form class="delete" method="post" action="/controllers/note/delete_note.php">
+                <form class="delete" method="post" action="/controllers/note/delete_note_controller.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -96,7 +96,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
                     <svg class="delete_icon" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 300 300"><?=Icons::EDIT ?></svg>
                 </button>
                 <!-- チャプター削除ボタン -->
-                <form class="delete" method="post" action="/controllers/chapter/delete_chapter.php">
+                <form class="delete" method="post" action="/controllers/chapter/delete_chapter_controller.php">
                     <!--ワンタイムトークン発生-->
                     <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                     <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
@@ -123,7 +123,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
         <!-- note編集モーダル -->
         <div class="note_modal card">
             <button class="close_icon close_note_modal">×</button>
-            <form method="post" action="/controllers/note/edit_note_check.php">
+            <form method="post" action="/controllers/note/edit_note_check_controller.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="note_id" class="set_note_id" value="">
@@ -149,7 +149,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top.php');
         </div>
         <div class ="chapter_modal card">
             <button class="close_icon close_chapter_modal">×</button>
-            <form method="post" action="/controllers/chapter/edit_chapter_check.php">
+            <form method="post" action="/controllers/chapter/edit_chapter_check_controller.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <input type="hidden" name="chapter_id" class="set_chapter_id" value="">
