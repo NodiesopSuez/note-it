@@ -1,4 +1,7 @@
 <?php
+
+include(dirname(__FILE__, 3).'/common/redirect.php');
+
 require_once(dirname(__FILE__, 3).'/config/Config.php');
 require_once(dirname(__FILE__, 3).'/config/Connect.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
