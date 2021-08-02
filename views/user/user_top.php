@@ -27,7 +27,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top_controller.php');
             <div>
             <img src="<?= $ladybug_img ?>">
             <!-- ページ追加ボタン -->
-            <form class="add_page basic" method="post" action="/views/page/create_page.php">
+            <form class="add_page basic" method="post" action="/views/article/create_article.php">
                 <!--ワンタイムトークン発生-->
                 <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">
                 <button class="submit">ADD PAGE</button>
