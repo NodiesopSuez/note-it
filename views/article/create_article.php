@@ -16,7 +16,7 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article.php');
 </head>
 <body>
     <div class="container">
-        <?php include(dirname(__FILE__, 3).'/views/mem_header.php')?>
+        <?php include(dirname(__FILE__, 3).'/views/user_header.php')?>
 
         <div class="ladybug">
             <div class="balloon">
