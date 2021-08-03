@@ -7,7 +7,7 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article.php');
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include(dirname(__FILE__, 2).'/head.php')?>
+    <?php include(dirname(__FILE__, 3).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="/public/css/template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/page.css" media="screen and (min-width:1024px)">
