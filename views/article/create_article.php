@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 3).'/controllers/article/show_create_article.php');
+include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controller.php');
 
 ?>
 
