@@ -32,7 +32,7 @@ try {
     print_r($sanitized);
     echo '<br/>';
 
-/*     //新規ノート作成の場合
+    //新規ノート作成の場合
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
@@ -58,7 +58,7 @@ try {
     }
     
     //新規チャプター作成の場合
-    if($chapter_existence === 'new'){   
+    /* if($chapter_existence === 'new'){   
         if (!isset($page_type) || ($page_type != 1 && $page_type != 2)) {
             $_SESSION['msg']['error'][] = 'ページのタイプを選択して下さい。';
         }
@@ -78,7 +78,7 @@ try {
     //page_titleが入力されているか
     if((!isset($page_title)) || ( $page_title == "") || (ctype_space($page_title))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
-    } */
+    }  */
 
     //$_SESSONにノート・チャプター情報を代入
     /* $_SESSION['page']['register_info'] = array(
@@ -164,9 +164,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:/controllers/article/create_article_check_controller.php');
+        header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
