@@ -156,7 +156,7 @@ try {
     } */
 
     print_r($_POST);
-    echo '<br/>'.$page_title. '<br/>';
+    //echo '<br/>'.$page_title. '<br/>';
     print_r($_SESSION);
     
     $search = null;
