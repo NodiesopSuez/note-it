@@ -14,7 +14,7 @@ require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
 $user_id = $_SESSION['user_info']['user_id'];
 
-$_SESSION['msg'] = array();
+unset($_SESSION['msg']);
 $_SESSION['page']  = array();
 
 try {
