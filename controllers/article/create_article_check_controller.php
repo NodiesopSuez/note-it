@@ -67,9 +67,7 @@ try {
     }
 
     //既存チャプターに作成する場合
-    if((!isset($chapter_existence))
-        ||($chapter_existence === 'exist' 
-            && (!isset($chapter_id) || $chapter_id === ''))){
+    if((!isset($chapter_existence))||($chapter_existence === 'exist' && (!isset($chapter_id) || $chapter_id === ''))){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
     }
 
@@ -163,9 +161,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:/controllers/article/create_article_check_controller.php');
+        //header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
