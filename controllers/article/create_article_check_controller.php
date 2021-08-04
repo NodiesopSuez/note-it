@@ -33,6 +33,7 @@ try {
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
     print_r($_POST);
+    echo '<br/>'.$page_title. '<br/>';
 
     //新規ノート作成の場合
     if($note_existence === 'new'){
