@@ -34,6 +34,7 @@ try {
 
     print_r($_POST);
     echo '<br/>'.$page_title. '<br/>';
+    print_r($_SESSION['msg']);
 
     //新規ノート作成の場合
     if($note_existence === 'new'){
