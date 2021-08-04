@@ -67,12 +67,12 @@ try {
     }
 
     //既存チャプターに作成する場合
-    if($chapter_existence === 'exist' && (!isset($chapter_id) || $chapter_id === '')){
+    if(($chapter_existence === 'exist') && (!isset($chapter_id) || $chapter_id === '')){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
     }
 
     //page_titleが入力されているか
-    if(!isset($page_title) || $page_title == "" || ctype_space($page_title)){
+    if((!isset($page_title)) || ($page_title == "") || (ctype_space($page_title))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
     }
 
