@@ -78,9 +78,9 @@ try {
         }
 
     //page_titleが入力されているか
-    /* if(empty($page_title) || ctype_space($page_title)){
+    if(empty($page_title) || ctype_space($page_title)){
         $_SESSION['msg']['error'][] = ['ページタイトルを入力して下さい。'];
-    } */
+    }
 
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
