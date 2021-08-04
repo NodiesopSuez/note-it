@@ -17,6 +17,8 @@ class SaftyUtil{
 
 	//サニタイズする $db_or_html 1=>データベース格納時 2=>html出力時
 	public static function sanitize(int $db_or_html, $array){
+		$sanitized = array();
+		
 		if($db_or_html === 1){
 			foreach ($array as $key => $val) {
 				$sanitized[$key] = pg_escape_string($val);
