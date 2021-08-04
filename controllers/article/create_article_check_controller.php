@@ -80,7 +80,7 @@ try {
     } */
 
     //$_SESSONにノート・チャプター情報を代入
-    $_SESSION['page']['register_info'] = array(
+    /* $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
         'note_title'        => $note_existence === 'new' ? $new_note_title : null,
         'note_color'        => $note_existence === 'new' ? $note_color : null,
@@ -90,12 +90,12 @@ try {
         'page_type'         => $page_type,
         'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
         'page_title'        => $page_title,
-    );
+    ); */
 
     //page type B のコンテンツを一旦格納する配列を宣言
-    $page_b_contents = array();
+    /* $page_b_contents = array(); */
 
-    if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
+    /* if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
             'meaning'  => $meaning,
@@ -153,7 +153,7 @@ try {
 
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
-    }
+    } */
 
     print_r($_POST);
     echo '<br/>'.$page_title. '<br/>';
