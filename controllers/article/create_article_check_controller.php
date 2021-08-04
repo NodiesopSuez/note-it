@@ -32,7 +32,7 @@ try {
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
-        if (empty($new_note_title) || ctype_space($new_note_title)) {
+        if (!isset($new_note_title) || $new_note_title == "" || ctype_space($new_note_title)) {
             $_SESSION['msg']['error'][] = 'ノートのタイトルを入力して下さい。';
         }
         if (in_array($new_note_title, $note_list)) {
@@ -58,7 +58,7 @@ try {
         if (!isset($page_type) || ($page_type != 1 && $page_type != 2)) {
             $_SESSION['msg']['error'][] = 'ページのタイプを選択して下さい。';
         }
-        if (empty($new_chapter_title) || ctype_space($new_chapter_title)) {
+        if (!isset($new_chapter_title) || $new_chapter_title == "" || ctype_space($new_chapter_title)) {
             $_SESSION['msg']['error'][] = 'チャプターのタイトルを入力して下さい。';
         }
         if ($note_existence === 'exist' &&in_array($new_chapter_title, $chapter_list)){
@@ -67,12 +67,12 @@ try {
     }
 
     //既存チャプターに作成する場合
-    if((!isset($chapter_existence))||($chapter_existence === 'exist' && (!isset($chapter_id) || $chapter_id === ''))){
+    if($chapter_existence === 'exist' && (!isset($chapter_id) || $chapter_id === '')){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
     }
 
     //page_titleが入力されているか
-    if(empty($page_title) || ctype_space($page_title)){
+    if(!isset($page_title) || $page_title == "" || ctype_space($page_title)){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
     }
 
