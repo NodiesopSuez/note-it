@@ -4,12 +4,12 @@ $(function(){
     /* page_type_b--------------------------------------------------- */ 
     //編集ボタン
     let edit_btn  = $('<label>').attr({ class : 'change_img_btn'}); //val,id属性は後付け
-    let edit_icon = $('<img>').attr({ class : 'edit_icon', src : '../page/img/edit_btn.svg'});
+    let edit_icon = $('<img>').attr({ class : 'edit_icon', src : '/public/img/edit_btn.svg'});
     $(edit_btn).prepend(edit_icon);
     
     //削除ボタン
     let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/svg/delete_btn.svg'});
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/delete_btn.svg'});
     $(delete_btn).prepend(delete_icon);
 
     //add_text_btnをクリック → textフォーム追加
