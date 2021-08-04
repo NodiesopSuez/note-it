@@ -28,6 +28,7 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
+    echo '$sanitized<br/>';
     print_r($sanitized);
     echo '<br/>';
 
@@ -157,6 +158,7 @@ try {
 
     print_r($_POST);
     //echo '<br/>'.$page_title. '<br/>';
+    echo '<br/>';
     print_r($_SESSION);
     
     $search = null;
