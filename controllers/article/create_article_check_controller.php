@@ -32,6 +32,8 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
+    print_r($_POST);
+
     //新規ノート作成の場合
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
@@ -163,9 +165,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:/controllers/article/create_article_check_controller.php');
+        //header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
