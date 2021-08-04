@@ -70,7 +70,7 @@ $(function(){
 
     //削除ボタン
     let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/svg/delete_btn.svg'});
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '../public/img/svg/delete_btn.svg'});
     $(delete_btn).prepend(delete_icon);
 
     const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn);
@@ -116,7 +116,7 @@ $(function(){
 
         //ユーザーIDからノート一覧取得
         $.ajax({
-            url : './get_note_list.php',
+            url : '/controllers/note/get_note_list_controller.php',
             type: 'post',
             data: { 'user_id': user_id },
             dataType: 'json',
@@ -271,7 +271,7 @@ $(function(){
         //ノートIDからチャプター一覧取得
         let selected_note_id = $(this).attr('for').replace("note_", "");
         $.ajax({
-            url : '../get_lists/get_chapter_list.php',
+            url : '/controllers/chapter/get_chapter_list_controller.php',
             type: 'post',
             data: { 'selected_note_id': selected_note_id },
             dataType: 'json',
