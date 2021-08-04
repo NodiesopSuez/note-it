@@ -15,7 +15,7 @@ include(dirname(__FILE__, 3).'/controllers/user/show_user_top_controller.php');
 </head>
 <body>
     <div class="container">
-    <?php include(dirname(__FILE__, 2).'/mem_header.php')?>
+    <?php include(dirname(__FILE__, 2).'/user_header.php')?>
         <!-- テントウメッセージ -->
         <section class="ladybug">
             <div class="balloon">

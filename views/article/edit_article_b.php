@@ -79,7 +79,7 @@ try {
 </head>
 <body>
     <div class="container <?= $color ?>">
-        <?php include(dirname(__FILE__, 2).'/inclusion/mem_header.php')?>
+        <?php include(dirname(__FILE__, 2).'/views/user_header.php')?>
         
             <div class="titles edit_page">
                 <div class="note">
