@@ -69,7 +69,7 @@ $(function(){
 
     //削除ボタン
     let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '../page/img/delete_btn.svg'});
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/svg/delete_btn.svg'});
     $(delete_btn).prepend(delete_icon);
 
     const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn/* , hid_content */);

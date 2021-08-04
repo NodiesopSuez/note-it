@@ -116,7 +116,7 @@ try {
                                 </label>
                                 <?php endif ?>
                             <button class="delete_btn" val="<?= $val['data'] ?>" role="button">
-                                <img class="delete_icon" src="../page/img/delete_btn.svg">
+                                <img class="delete_icon" src="/public/img/svg/delete_btn.svg">
                             </button>
                         </div>
                     <?php endforeach ?>
