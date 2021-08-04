@@ -46,7 +46,7 @@ $(function(){
             let page_type_text = $('<p>').text(val.text);
             let page_type = $('<div>').addClass('page').prepend(page_wrapback.clone(), page_type_text).wrapAll('<label>').parent().attr({ for : val.attribute_for});
 
-            $('.page_type').prepend(page_type);
+            $('.page_type').append(page_type);
         })
     }
 
@@ -180,8 +180,8 @@ $(function(){
                 let color_icon = createNoteIcon(class_name, title_p);　//class_name:配色クラス title_p:表示カラー名
                 color_icon = $(color_icon).wrapAll('<label>').parent().addClass('color_label').attr({ for : `new_${class_name}` });
                 $('.note_section').prepend(color_icon);
-                $('.note_section').append(createNoteButton('EXIST NOTE', 'exist_note'));
             });
+            $('.note_section').append(createNoteButton('EXIST NOTE', 'exist_note'));
             return defer.promise();
         }
         createColorList();
