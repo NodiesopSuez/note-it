@@ -28,6 +28,9 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
+    print_r($sanitized);
+    echo '<br/>';
+
 /*     //新規ノート作成の場合
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
