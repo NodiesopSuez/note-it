@@ -28,7 +28,7 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    //新規ノート作成の場合
+/*     //新規ノート作成の場合
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
@@ -72,9 +72,9 @@ try {
     }
 
     //page_titleが入力されているか
-    if(/* (!isset($page_title)) || ( */$page_title == ""/* ) || (ctype_space($page_title)) */){
+    if((!isset($page_title)) || ( $page_title == "") || (ctype_space($page_title))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
-    }
+    } */
 
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
@@ -82,12 +82,10 @@ try {
         'note_title'        => $note_existence === 'new' ? $new_note_title : null,
         'note_color'        => $note_existence === 'new' ? $note_color : null,
         'note_id'           => $note_existence === 'exist' ? $note_id : null,
-        
         'chapter_existence' => $chapter_existence,
         'chapter_title'     => $chapter_existence === 'new' ? $new_chapter_title : null ,
         'page_type'         => $page_type,
         'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
-
         'page_title'        => $page_title,
     );
 
