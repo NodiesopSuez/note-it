@@ -82,10 +82,6 @@ try {
         $_SESSION['msg'] = ['error' => ['ページタイトルを入力して下さい。']];
     }
 
-    print_r($_POST);
-    echo '<br/>'.$page_title. '<br/>';
-    print_r($_SESSION['msg']);
-
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
@@ -163,6 +159,10 @@ try {
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
+
+    print_r($_POST);
+    echo '<br/>'.$page_title. '<br/>';
+    print_r($_SESSION);
     
     $search = null;
 
