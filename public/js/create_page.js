@@ -332,7 +332,7 @@ $(function(){
         let chapter_title_form = $('<input>').attr({name: "new_chapter_title", type: "text", placeholder: "enter the chapter title"});
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
         
-        $('.note_cassette').after(chapter_icon, createPageTypeButton());
+        $('.page_type').children('.note').after(chapter_icon, createPageTypeButton());
         $('.page_type').find('.page').attr({ class : `page ${selected_color}` });
 
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
