@@ -181,8 +181,6 @@ $(function(){
                 color_icon = $(color_icon).wrapAll('<label>').parent().addClass('color_label').attr({ for : `new_${class_name}` });
                 $('.note_section').prepend(color_icon);
             });
-            $('.note_section').append(createNoteButton('EXIST NOTE', 'exist_note'));
-            return defer.promise();
         }
         createColorList();
         $('.balloon').children('.msg').text('ノートカラーはどれにしますか?');
