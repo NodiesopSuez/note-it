@@ -32,9 +32,9 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
     extract($sanitized);  //POSTで受け取った配列を変数にする
 
-    print_r($_POST);
+ /*    print_r($_POST);
     echo '<br/>'.$page_title. '<br/>';
-    print_r($_SESSION['msg']);
+    print_r($_SESSION['msg']); */
 
     //新規ノート作成の場合
     if($note_existence === 'new'){
@@ -167,9 +167,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:/controllers/article/create_article_check_controller.php');
+        header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
