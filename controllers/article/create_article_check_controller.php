@@ -14,11 +14,7 @@ require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
 $user_id = $_SESSION['user_info']['user_id'];
 
-//エラー・前回の入力残ってたら削除
-if(!empty($_SESSION['msg']['error'])){
-    $_SESSION['msg'] = array();
-}
-
+$_SESSION['msg'] = array();
 $_SESSION['page']  = array();
 
 try {
@@ -37,13 +33,13 @@ try {
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
         if (empty($new_note_title) || ctype_space($new_note_title)) {
-            $_SESSION['msg']['error'][] = ['ノートのタイトルを入力して下さい。'];
+            $_SESSION['msg'] = ['error' => ['ノートのタイトルを入力して下さい。']];
         }
         if (in_array($new_note_title, $note_list)) {
-            $_SESSION['msg']['error'][] = ['既に同じノートが作成されています。'];
+            $_SESSION['msg'] = ['error' => ['既に同じノートが作成されています。']];
         }
         if (!isset($note_color) || empty($note_color)){
-            $_SESSION['msg']['error'][] = ['ノートのカラーを選択してください。'];
+            $_SESSION['msg'] = ['error' => ['ノートのカラーを選択してください。']];
         }
     }
 
@@ -53,20 +49,20 @@ try {
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo('note_id', $note_id);
         }elseif(!isset($note_id) || $note_id = ''){
-            $_SESSION['msg']['error'][] = ['ノートのタイトルを選択して下さい。']; 
+            $_SESSION['msg'] = ['error' => ['ノートのタイトルを選択して下さい。']]; 
         }
     }
     
     //新規チャプター作成の場合
     if($chapter_existence === 'new'){   
         if (!isset($page_type) || ($page_type != 1 && $page_type != 2)) {
-            $_SESSION['msg']['error'][] = ['ページのタイプを選択して下さい。'];
+            $_SESSION['msg'] = ['error' => ['ページのタイプを選択して下さい。']];
         }
         if (empty($new_chapter_title) || ctype_space($new_chapter_title)) {
-            $_SESSION['msg']['error'][] = ['チャプターのタイトルを入力して下さい'];
+            $_SESSION['msg'] = ['error' => ['チャプターのタイトルを入力して下さい。']];
         }
         if ($note_existence === 'exist' &&in_array($new_chapter_title, $chapter_list)){
-            $_SESSION['msg']['error'][] = ['既にそのチャプターは作成されています'];
+            $_SESSION['msg'] = ['error' => ['既にそのチャプターは作成されています。']];
         }
     }
 
@@ -74,12 +70,12 @@ try {
     if((!isset($chapter_existence))
         ||($chapter_existence === 'exist' 
             && (!isset($chapter_id) || $chapter_id === ''))){
-            $_SESSION['msg']['error'][] = ['チャプターを選択して下さい。'];    
-        }
+            $_SESSION['msg'] = ['error' => ['チャプターを選択して下さい。']];
+    }
 
     //page_titleが入力されているか
     if(empty($page_title) || ctype_space($page_title)){
-        $_SESSION['msg']['error'][] = ['ページタイトルを入力して下さい。'];
+        $_SESSION['msg'] = ['error' => ['ページタイトルを入力して下さい。']];
     }
 
     //$_SESSONにノート・チャプター情報を代入
