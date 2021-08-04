@@ -156,6 +156,7 @@ try {
         $_SESSION['page']['register_contents'] = $page_b_contents;
     } */
 
+    echo '$_POST<br/>';
     print_r($_POST);
     //echo '<br/>'.$page_title. '<br/>';
     echo '<br/>';
@@ -164,9 +165,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:/controllers/article/create_article_check_controller.php');
+        //header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
