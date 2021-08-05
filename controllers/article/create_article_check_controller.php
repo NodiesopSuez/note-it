@@ -153,13 +153,12 @@ try {
  */
     echo '$_sanitized<br/>';
     print_r($sanitized);
-    //echo '<br/>'.$page_title. '<br/>';
     echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
     
     $search = null;
 
-    if(!empty($_SESSION['msg'])){
+    if(!empty($_SESSION['msg']['error'])){
         header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
         //header('Location:/controllers/article/create_article_check_controller.php');
