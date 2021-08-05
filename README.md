@@ -6,7 +6,7 @@
 ## FEATURES
 ### ログイン機能
 ユーザー認証することで利用できます。  
-###　ノート機能
+### ノート機能
 留めておきたい学習内容をノート・チャプターごとに分けて記録できます。
 <img width="1022" alt="note_it_features" src="https://user-images.githubusercontent.com/76401237/128287745-3fdbb270-ca2f-4106-8d79-88c28cdcee00.png">
 
