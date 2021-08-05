@@ -22,7 +22,7 @@ try {
     $search = new Searches;
     $utility = new SaftyUtil;
 
-    $sanitized = $utility->sanitize(1, $_POST);
+    $sanitized = $utility->sanitize(2, $_POST);
     
     $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
