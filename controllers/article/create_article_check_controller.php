@@ -28,8 +28,10 @@ try {
     $chapter_existence = $sanitized['chapter_existence'];
 
     //新規ノート作成の場合
-/*     if($note_existence === 'new'){
+    if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
+
+        echo 'note_existence==new<br/>';
 
         if (empty($sanitized['new_note_title']) || ctype_space($sanitized['new_note_title'])) {
             $_SESSION['msg']['error'][] = 'ノートのタイトルを入力して下さい。';
@@ -40,17 +42,19 @@ try {
         if (empty($sanitized['note_color'])){
             $_SESSION['msg']['error'][] = 'ノートのカラーを選択してください。';
         }
-    } */
+    }
 
     //既存ノートに作成する場合
-/*     if($note_existence === 'exist'){
+    if($note_existence === 'exist'){
+        echo 'note_existence==exist<br/>';
+        
         if(isset($sanitized['note_id'])){
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo('note_id', $note_id);
         }elseif(!isset($sanitized['note_id']) || $sanitized['note_id'] === ''){
             $_SESSION['msg']['error'][] = 'ノートのタイトルを選択して下さい。'; 
         }
-    } */
+    }
     
     //新規チャプター作成の場合
 /*     if($chapter_existence === 'new'){   
