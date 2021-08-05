@@ -47,10 +47,10 @@ try {
     //既存ノートに作成する場合
     if($note_existence === 'exist'){
         echo 'note_existence==exist<br/>';
-        
+
         if(isset($sanitized['note_id'])){
             //チャプターリストを取得しておく
-            $chapter_list = $search->findChapterInfo('note_id', $note_id);
+            $chapter_list = $search->findChapterInfo('note_id', $sanitized['note_id']);
         }elseif(!isset($sanitized['note_id']) || $sanitized['note_id'] === ''){
             $_SESSION['msg']['error'][] = 'ノートのタイトルを選択して下さい。'; 
         }
