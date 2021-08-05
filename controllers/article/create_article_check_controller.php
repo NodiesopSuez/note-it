@@ -12,8 +12,6 @@ require_once(dirname(__FILE__, 3).'/models/Users.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
 require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
-
-
 unset($_SESSION['msg']);
 unset($_SESSION['page']);
 
@@ -25,12 +23,15 @@ try {
     $utility = new SaftyUtil;
 
     $sanitized = $utility->sanitize(1, $_POST);
+    
+    $note_existence = $sanitized['note_existence'];
+    $chapter_existence = $sanitized['chapter_existence'];
 
     //新規ノート作成の場合
-    if($sanitized['note_existence'] === 'new'){
+    if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
-        if (!isset($sanitized['new_note_title']) || $sanitized['new_note_title'] == "" || ctype_space($sanitized['new_note_title'])) {
+        if (empty($sanitized['new_note_title']) || ctype_space($sanitized['new_note_title'])) {
             $_SESSION['msg']['error'][] = 'ノートのタイトルを入力して下さい。';
         }
         if (in_array($sanitized['new_note_title'], $note_list)) {
@@ -42,68 +43,68 @@ try {
     }
 
     //既存ノートに作成する場合
-    if($sanitized['note_existence'] === 'exist'){
-        if(isset($note_id)){
+    if($note_existence === 'exist'){
+        if(isset($sanitized['note_id'])){
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo('note_id', $note_id);
-        }elseif(!isset($note_id) || $note_id = ''){
+        }elseif(!isset($sanitized['note_id']) || $sanitized['note_id'] === ''){
             $_SESSION['msg']['error'][] = 'ノートのタイトルを選択して下さい。'; 
         }
     }
     
     //新規チャプター作成の場合
-    /* if($chapter_existence === 'new'){   
-        if (!isset($page_type) || ($page_type != 1 && $page_type != 2)) {
+    if($chapter_existence === 'new'){   
+        if (!isset($sanitized['page_type']) || ($sanitized['page_type'] != 1 && $sanitized['page_type'] != 2)) {
             $_SESSION['msg']['error'][] = 'ページのタイプを選択して下さい。';
         }
-        if (!isset($new_chapter_title) || $new_chapter_title == "" || ctype_space($new_chapter_title)) {
+        if (!isset($sanitized['new_chapter_title']) || $sanitized['new_chapter_title'] == "" || ctype_space($sanitized['new_chapter_title'])) {
             $_SESSION['msg']['error'][] = 'チャプターのタイトルを入力して下さい。';
         }
-        if ($note_existence === 'exist' &&in_array($new_chapter_title, $chapter_list)){
+        if ($note_existence === 'exist' && in_array($sanitized['new_chapter_title'], $chapter_list)){
             $_SESSION['msg']['error'][] = '既にそのチャプターは作成されています。';
         }
     }
 
     //既存チャプターに作成する場合
-    if(($chapter_existence === 'exist') && (!isset($chapter_id) || $chapter_id === '')){
+    if(($chapter_existence === 'exist') && (!isset($sanitized['chapter_id']) || $sanitized['chapter_id'] === '')){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
     }
 
     //page_titleが入力されているか
-    if((!isset($page_title)) || ( $page_title == "") || (ctype_space($page_title))){
+    if((!isset($sanitized['page_title'])) || ($sanitized['page_title'] == "") || (ctype_space($sanitized['page_title']))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
-    }  */
+    } 
 
     //$_SESSONにノート・チャプター情報を代入
-    /* $_SESSION['page']['register_info'] = array(
+    $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
-        'note_title'        => $note_existence === 'new' ? $new_note_title : null,
-        'note_color'        => $note_existence === 'new' ? $note_color : null,
-        'note_id'           => $note_existence === 'exist' ? $note_id : null,
+        'note_title'        => $note_existence === 'new' ? $sanitized['new_note_title'] : null,
+        'note_color'        => $note_existence === 'new' ? $sanitized['note_color'] : null,
+        'note_id'           => $note_existence === 'exist' ? $sanitized['note_id'] : null,
         'chapter_existence' => $chapter_existence,
-        'chapter_title'     => $chapter_existence === 'new' ? $new_chapter_title : null ,
-        'page_type'         => $page_type,
-        'chapter_id'        => $chapter_existence === 'exist' ? $chapter_id : null,
-        'page_title'        => $page_title,
-    ); */
+        'chapter_title'     => $chapter_existence === 'new' ? $sanitized['new_chapter_title'] : null ,
+        'page_type'         => $sanitized['page_type'],
+        'chapter_id'        => $chapter_existence === 'exist' ? $sanitized['chapter_id'] : null,
+        'page_title'        => $sanitized['page_title'],
+    );
 
     //page type B のコンテンツを一旦格納する配列を宣言
-    /* $page_b_contents = array(); */
+    $page_b_contents = array();
 
-    /* if(isset($page_type) && $page_type == 1){  //page_type Aの場合、
+    if(isset($sanitized['page_type']) && $sanitized['page_type'] == 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
-            'meaning'  => $meaning,
-            'syntax'   => $syntax, 
-            'syn_memo' => $syn_memo,
-            'example'  => $example, 
-            'ex_memo'  => $ex_memo, 
-            'memo'     => $memo, 
+            'meaning'  => $sanitized['meaning'],
+            'syntax'   => $sanitized['syntax'], 
+            'syn_memo' => $sanitized['syn_memo'],
+            'example'  => $sanitized['example'], 
+            'ex_memo'  => $sanitized['ex_memo'], 
+            'memo'     => $sanitized['memo'], 
         ];
         
-    }elseif(isset($page_type) && $page_type == 2){  //page_type Bの場合、
+    }elseif(isset($sanitized['page_type']) && $sanitized['page_type'] == 2){  //page_type Bの場合、
         //キー名が'contents_'で始まるtextの内容とfile_type=textを格納
-        foreach($_POST as $key => $val){
+        foreach($sanitized as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key]['file_type'] = 'text';
                 $page_b_contents[$key]['data']      = $val;
@@ -148,10 +149,10 @@ try {
 
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
-    } */
+    }
 
     echo '$_POST<br/>';
-    print_r($_POST);
+    print_r($_sanitized);
     //echo '<br/>'.$page_title. '<br/>';
     echo '<br/>';
     print_r($_SESSION);
@@ -159,9 +160,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:/controllers/article/create_article_check_controller.php');
+        header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
