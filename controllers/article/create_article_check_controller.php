@@ -12,43 +12,37 @@ require_once(dirname(__FILE__, 3).'/models/Users.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
 require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
-$user_id = $_SESSION['user_info']['user_id'];
+
 
 unset($_SESSION['msg']);
 unset($_SESSION['page']);
 
 try {
     //存在を宣言しておく変数
-    $chapter_existence = null;
-    $note_id = null;
+    $user_id = $_SESSION['user_info']['user_id'];
 
     $search = new Searches;
     $utility = new SaftyUtil;
 
     $sanitized = $utility->sanitize(1, $_POST);
-    extract($sanitized);  //POSTで受け取った配列を変数にする
-
-    echo '$sanitized<br/>';
-    print_r($sanitized);
-    echo '<br/>';
 
     //新規ノート作成の場合
-    if($note_existence === 'new'){
+    if($sanitized['note_existence'] === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
-        if (!isset($new_note_title) || $new_note_title == "" || ctype_space($new_note_title)) {
+        if (!isset($sanitized['new_note_title']) || $sanitized['new_note_title'] == "" || ctype_space($sanitized['new_note_title'])) {
             $_SESSION['msg']['error'][] = 'ノートのタイトルを入力して下さい。';
         }
-        if (in_array($new_note_title, $note_list)) {
+        if (in_array($sanitized['new_note_title'], $note_list)) {
             $_SESSION['msg']['error'][] = '既に同じノートが作成されています。';
         }
-        if (!isset($note_color) || empty($note_color)){
+        if (empty($sanitized['note_color'])){
             $_SESSION['msg']['error'][] = 'ノートのカラーを選択してください。';
         }
     }
 
     //既存ノートに作成する場合
-    if($note_existence === 'exist'){
+    if($sanitized['note_existence'] === 'exist'){
         if(isset($note_id)){
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo('note_id', $note_id);
