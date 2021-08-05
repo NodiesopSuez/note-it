@@ -71,9 +71,9 @@ try {
     }
 
     //page_titleが入力されているか
-    if((!isset($sanitized['page_title'])) || ($sanitized['page_title'] == "") || (ctype_space($sanitized['page_title']))){
+    /* if((!isset($sanitized['page_title'])) || ($sanitized['page_title'] == "") || (ctype_space($sanitized['page_title']))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
-    } 
+    }  */
 
     //$_SESSONにノート・チャプター情報を代入
     $_SESSION['page']['register_info'] = array(
@@ -160,9 +160,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg'])){
-        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:/controllers/article/create_article_check_controller.php');
+        header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
