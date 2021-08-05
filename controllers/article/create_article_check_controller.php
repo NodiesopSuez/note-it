@@ -31,8 +31,6 @@ try {
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
-        echo 'note_existence==new<br/>';
-
         if (empty($sanitized['new_note_title']) || ctype_space($sanitized['new_note_title'])) {
             $_SESSION['msg']['error'][] = 'ノートのタイトルを入力して下さい。';
         }
@@ -46,8 +44,6 @@ try {
 
     //既存ノートに作成する場合
     if($note_existence === 'exist'){
-        echo 'note_existence==exist<br/>';
-
         if(isset($sanitized['note_id'])){
             //チャプターリストを取得しておく
             $chapter_list = $search->findChapterInfo('note_id', $sanitized['note_id']);
@@ -57,7 +53,7 @@ try {
     }
     
     //新規チャプター作成の場合
-/*     if($chapter_existence === 'new'){   
+    if($chapter_existence === 'new'){   
         if (!isset($sanitized['page_type']) || ($sanitized['page_type'] != 1 && $sanitized['page_type'] != 2)) {
             $_SESSION['msg']['error'][] = 'ページのタイプを選択して下さい。';
         }
@@ -67,12 +63,12 @@ try {
         if ($note_existence === 'exist' && in_array($sanitized['new_chapter_title'], $chapter_list)){
             $_SESSION['msg']['error'][] = '既にそのチャプターは作成されています。';
         }
-    } */
+    }
 
     //既存チャプターに作成する場合
-/*     if(($chapter_existence === 'exist') && (!isset($sanitized['chapter_id']) || $sanitized['chapter_id'] === '')){
+    if(($chapter_existence === 'exist') && (!isset($sanitized['chapter_id']) || $sanitized['chapter_id'] === '')){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
-    } */
+    }
 
     //page_titleが入力されているか
     /* if((!isset($sanitized['page_title'])) || ($sanitized['page_title'] == "") || (ctype_space($sanitized['page_title']))){
