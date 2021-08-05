@@ -17,6 +17,11 @@ memcached 3.1.5
 aws-sdk-php 3.185
 
 ## INSTALLATION
+homebrewインストール  
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
+brew install memcached  
 composer install  
+composer require aws/aws-sdk-php  
+
 
 
