@@ -27,7 +27,7 @@ try{
 	if($register==true){
 		unset($_SESSION['msg']);
 		unset($_SESSION['data']);
-		$_SESSION['msg']['okmsg'] = '登録を完了しました!!<br/>ログインしてください'; 
+		$_SESSION['msg']['okmsg'] = ['登録を完了しました!!', 'ログインしてください']; 
 		header('Location:/views/user/sign_in.php');
 	}
 }catch(Exception $e){
