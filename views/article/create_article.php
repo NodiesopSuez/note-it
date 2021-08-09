@@ -69,41 +69,41 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
             <section class="chapter_section">
 
                 <!-- ノートカセット -->
-                <div class="note cassette">
+                <!-- <div class="note cassette">
                     <div class="note_base"></div>
                     <div class="note_title">
                         <p></p>
                     </div>
                     <div class="back_cover"></div>
-                </div>
+                </div> -->
                 
                 <div>
                     <!-- 新規チャプター選択ボタン -->
-                    <label for="new_chapter">
+                    <!-- <label for="new_chapter">
                         <div class="chapter">
                             <p>NEW</p>
                         </div>
-                    </label>
+                    </label> -->
                     
                     <!-- 新規チャプタータイトル -->
-                    <div class="chapter　new_chapter_title">
+                    <!-- <div class="chapter　new_chapter_title">
                         <input name="new_chapter_title" type="text">NEW
-                    </div>
+                    </div> -->
                     
                     <!-- 既存チャプターリスト -->
-                    <label for="">
+                    <!-- <label for="">
                         <input name="chapter_id" value="" type="radio" id="">
                         <div class="chapter">
                             <p></p>
                         </div>
-                    </label>
+                    </label> -->
 
                     <!-- 既存チャプター選択ボタン -->
-                    <label for="exist_chapter">
+                    <!-- <label for="exist_chapter">
                         <div class="chapter">
                             <p>EXIST</p>
                         </div>
-                    </label> 
+                    </label>  -->
                 </div>
             </section>
 
@@ -124,15 +124,15 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
                 <!-- TypeA -->
 
                 <!-- TypeB -->
-
+            <button class="submit pink" role="submit">submit</button>
             </section>
             <!-- 送信ボタン -->
         </form>
     </div>
     <!-- jQurery -->
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
-    <script src="/public/js/inclusion.js" type="text/javascript"></script>
-    <script src="/public/js/create_page.js" type="text/javascript"></script>
-    <script src="/public/js/edit_page.js" type="text/javascript"></script>
+    <!-- <script src="/public/js/inclusion.js" type="text/javascript"></script> -->
+    <!-- <script src="/public/js/create_page.js" type="text/javascript"></script> -->
+    <!-- <script src="/public/js/edit_page.js" type="text/javascript"></script> -->
 </body>
 </html>
