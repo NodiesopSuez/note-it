@@ -131,8 +131,8 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
     </div>
     <!-- jQurery -->
     <script>let php = { user_id : "<?php echo $user_id; ?>"}; </script>
-    <!-- <script src="/public/js/inclusion.js" type="text/javascript"></script> -->
-    <!-- <script src="/public/js/create_page.js" type="text/javascript"></script> -->
-    <!-- <script src="/public/js/edit_page.js" type="text/javascript"></script> -->
+    <script src="/public/js/inclusion.js" type="text/javascript"></script>
+    <script src="/public/js/create_page.js" type="text/javascript"></script>
+    <script src="/public/js/edit_page.js" type="text/javascript"></script>
 </body>
 </html>
