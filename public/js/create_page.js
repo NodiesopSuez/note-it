@@ -108,7 +108,7 @@ $(function(){
         let user_id = php.user_id;
 
         //note_existence=exist をcheckedにする
-        $('#exist_note').prop('checked', true);
+        $('#exist_note').prop({ checked : true });
 
         //各セクションの全子要素削除して　note_sectionに新規ノート選択ボタンを挿入
         $('.note_section, .chapter_section, .page_type, .contents_section').children().remove();
@@ -192,7 +192,7 @@ $(function(){
     $(document).on("click", '.color_label', function(){
         //選ばれたnote_colorをcheckedにする
         let selected_id = $(this).attr('for');
-        $(`#${selected_id}`).prop('checked', true);
+        $(`#${selected_id}`).prop({ checked : true });
         
         //選択されたカラー名を取得
         selected_color = $(this).attr('for').replace("new_", "");
@@ -233,7 +233,7 @@ $(function(){
         }
 
         //chapter_existence="new"と page_type="1(a)"のcheckedをtrueにしておく
-        $('#new_chapter, #page_a').prop('checked', true);
+        $('#new_chapter, #page_a').prop({ checked : true });
 
         $('.balloon').children('.msg').html('ノートとチャプターのタイトルを<br/>入力してください');
         scrollToObject($('.page_type'));
@@ -247,7 +247,7 @@ $(function(){
     //既存ノート選択ボタンがクリックされたら
     $(document).on("click", '[for="exist_note"]', function(){
         //note_existence = exist をcheckedにする
-        $('#exist_note').prop('checked', true);
+        $('#exist_note').prop({ checked : true });
         //新規ノート選択ボタンと既存ノートリストを表示
          
         createExistNoteList();
@@ -337,7 +337,7 @@ $(function(){
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
         $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
-        $('#page_a').prop('checked', true);
+        $('#page_a').prop({ checked : true });
         
         $('.balloon').children('.msg').text('チャプタータイトルを入力してください');
         scrollToObject($('.page_type'));
@@ -351,7 +351,7 @@ $(function(){
     //既存チャプターリストのアイコンがクリックされたら
     $(document).on("click", '.exist_chapter_list', function(){
         //chapter_existence=exist をcheckedにする
-        $('#exist_chapter').prop('checked', true);
+        $('#exist_chapter').prop({ checked : true });
 
         //選択したボタンだけ非表示
         $('.chapter_section').children().show();
@@ -371,11 +371,11 @@ $(function(){
         if(page_type == 1) {
             $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
-            $('#page_a').prop('checked', true);
+            $('#page_a').prop({ checked : true });
         }else{
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
-            $('#page_b').prop('checked', true);
+            $('#page_b').prop({ checked : true });
         }
         $('.balloon').children('.msg').text('ページの内容を入力しましょう！');
         scrollToObject($('.page_type'));
@@ -386,7 +386,7 @@ $(function(){
     //page_type aを選択したら
     $(document).on("click", '[for="page_a"]', function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
-        $('#page_a').prop('checked', true);
+        $('#page_a').prop({ checked : true });
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
@@ -399,7 +399,7 @@ $(function(){
     //page_type bを選択したら
     $(document).on("click", '[for="page_b"]', function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
-        $('#page_b').prop('checked', true);
+        $('#page_b').prop({ checked : true });
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_b_form);
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
