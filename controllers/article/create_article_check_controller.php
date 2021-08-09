@@ -69,7 +69,7 @@ try {
     }
 
     //page_titleが入力されているか
-    if((!isset($sanitized['page_title'])) || ($sanitized['page_title'] == "") || (ctype_space($sanitized['page_title']))){
+    if((empty($sanitized['page_title'])) || (ctype_space($sanitized['page_title']))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
     }
 
