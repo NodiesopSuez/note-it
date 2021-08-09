@@ -21,11 +21,12 @@ try {
     $search = new Searches;
     $utility = new SaftyUtil;
 
-    $sanitized = $utility->sanitize(1, $_POST);
-
     echo '$POST<br/>';
     var_dump($_POST);
     echo '<br/>';
+    
+    $sanitized = $utility->sanitize(1, $_POST);
+
     echo '$_sanitized1<br/>';
     var_dump($sanitized);
     echo '<br/>';
