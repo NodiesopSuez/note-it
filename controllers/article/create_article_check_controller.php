@@ -24,7 +24,7 @@ try {
     $sanitized = $utility->sanitize(1, $_POST);
 
     echo '$_sanitized1<br/>';
-    print_r($sanitized);
+    var_dump($sanitized);
     echo '<br/>';
     
     $note_existence = $sanitized['note_existence'];
