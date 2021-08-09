@@ -23,6 +23,9 @@ try {
 
     $sanitized = $utility->sanitize(1, $_POST);
 
+    echo '$POST<br/>';
+    var_dump($_POST);
+    echo '<br/>';
     echo '$_sanitized1<br/>';
     var_dump($sanitized);
     echo '<br/>';
