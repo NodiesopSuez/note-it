@@ -22,9 +22,15 @@ try {
     $utility = new SaftyUtil;
 
     $sanitized = $utility->sanitize(1, $_POST);
+
+    echo '$_sanitized1<br/>';
+    print_r($sanitized);
+    echo '<br/>';
     
     $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
+
+
 
     //新規ノート作成の場合
     if($note_existence === 'new'){
@@ -157,9 +163,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg']['error'])){
-        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:/controllers/article/create_article_check_controller.php');
+        //header('Location:/controllers/article/create_article_check_controller.php');
     }
 
 }catch(Exception $e){
