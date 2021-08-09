@@ -218,7 +218,7 @@ $(function(){
 
         //contents_sectionに一旦page_a_formを挿入
         $(page_a_form).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
-        $(submit_btn).insertAfter('.page_base').attr({ class : `submit ${selected_color}`}); 
+        $(submit_btn).insertAfter('.contents_section').attr({ class : `submit ${selected_color}`}); 
         
 
         //note_sectionにカラー変更ボタン、既存ノート選択ボタンを挿入
@@ -336,7 +336,7 @@ $(function(){
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
-        $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
+        $(submit_btn).addClass(selected_color).insertAfter('.contents_section'); 
         $('#page_a').prop({ checked : true });
         
         $('.balloon').children('.msg').text('チャプタータイトルを入力してください');
@@ -370,11 +370,11 @@ $(function(){
 
         if(page_type == 1) {
             $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
-            $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
+            $(submit_btn).addClass(selected_color).insertAfter('.contents_section'); 
             $('#page_a').prop({ checked : true });
         }else{
             $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
-            $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
+            $(submit_btn).addClass(selected_color).insertAfter('.contents_section'); 
             $('#page_b').prop({ checked : true });
         }
         $('.balloon').children('.msg').text('ページの内容を入力しましょう！');
@@ -390,7 +390,7 @@ $(function(){
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
-        $(submit_btn).insertAfter('.page_base').addClass(selected_color);
+        $(submit_btn).insertAfter('.contents_section').addClass(selected_color);
 
         $('.balloon').children('.msg').text('こちらはAタイプ');
         scrollToObject($('.page_type'));
@@ -403,7 +403,7 @@ $(function(){
         $('.contents_section').children().remove();
         $('.contents_section').prepend(page_b_form);
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
-        $(submit_btn).insertAfter('.page_base').addClass(selected_color);
+        $(submit_btn).insertAfter('.contents_section').addClass(selected_color);
         
         $('.balloon').children('.msg').text('こちらはBタイプ');
         scrollToObject($('.page_type'));
