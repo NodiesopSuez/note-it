@@ -28,7 +28,7 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
             <img src="<?= $ladybug_img ?>">
         </div>
 
-        <form method="post" action="create_article_check_controller.php" enctype="multipart/form-data">
+        <form method="post" action="/controllers/article/create_article_check_controller.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">   
             
