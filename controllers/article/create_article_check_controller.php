@@ -17,7 +17,6 @@ if(!empty($_SESSION['msg']['error'])){
 if(!empty($_SESSION['page'])){
     $_SESSION['page'] = array();
 }
-error_reporting( E_ALL );
 
 try {
     //存在を宣言しておく変数
