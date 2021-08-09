@@ -11,8 +11,12 @@ require_once(dirname(__FILE__, 3).'/models/Users.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
 require_once(dirname(__FILE__, 3).'/vendor/autoload.php');
 
-unset($_SESSION['msg']);
-unset($_SESSION['page']);
+if(!empty($_SESSION['msg']['error'])){
+    $_SESSION['msg'] = array();
+}
+if(!empty($_SESSION['page'])){
+    $_SESSION['page'] = array();
+}
 
 try {
     //存在を宣言しておく変数
