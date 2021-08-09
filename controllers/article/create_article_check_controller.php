@@ -26,7 +26,7 @@ try {
     $utility = new SaftyUtil;
 
     echo '$POST<br/>';
-    var_dump($_POST);
+    print_r($_POST);
     echo '<br/>';
     
     $sanitized = $utility->sanitize(1, $_POST);
