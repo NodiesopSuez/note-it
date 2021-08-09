@@ -37,7 +37,7 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
                 <!-- 既存ノートリストと既存チャプターリストはjsで生成 -->
                 <!-- ノート：新規/既存 -->
                 <input name="note_existence" value="new"   type="radio" id="new_note">
-                <input name="note_existence" value="exist" type="radio" id="exist_note" checked>
+                <input name="note_existence" value="exist" type="radio" id="exist_note">
                 <!-- ノート：カラー -->
                 <?php foreach($color_list as $color): ?>
                     <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
