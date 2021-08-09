@@ -31,7 +31,6 @@ try {
     $chapter_existence = $sanitized['chapter_existence'];
 
 
-
     //新規ノート作成の場合
     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);

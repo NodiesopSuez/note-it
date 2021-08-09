@@ -108,7 +108,7 @@ $(function(){
         let user_id = php.user_id;
 
         //note_existence=exist をcheckedにする
-        $('#exist_note').prop({ checked: true });
+        $('#exist_note').prop('checked', true);
 
         //各セクションの全子要素削除して　note_sectionに新規ノート選択ボタンを挿入
         $('.note_section, .chapter_section, .page_type, .contents_section').children().remove();
@@ -155,7 +155,7 @@ $(function(){
     //新規ノート選択ボタン・カラー変更ボタンをクリックしたら
     $(document).on("click", 'label[for="new_note"], .change_color',function(){ 
         //note_exsistence=new をcheckedにする
-        $('#new_note').prop({ checked : true });
+        $('#new_note').prop('checked', true );
         
         //カラーリスト
         let color_list = {
@@ -192,7 +192,7 @@ $(function(){
     $(document).on("click", '.color_label', function(){
         //選ばれたnote_colorをcheckedにする
         let selected_id = $(this).attr('for');
-        $(`#${selected_id}`).prop({ checked : true });
+        $(`#${selected_id}`).prop('checked', true);
         
         //選択されたカラー名を取得
         selected_color = $(this).attr('for').replace("new_", "");
