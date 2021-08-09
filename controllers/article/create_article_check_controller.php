@@ -155,8 +155,7 @@ try {
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
  */
-    echo '$_sanitized<br/>';
-    print_r($sanitized);
+
     echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
     
