@@ -30,7 +30,25 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
 
         <form method="post" action="/controllers/article/create_article_check_controller.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
-            <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">       
+            <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">   
+            
+            <!-- radioボタン集約 -->
+            <section class="radio_section">
+                <!-- 既存ノートリストと既存チャプターリストはjsで生成 -->
+                <!-- ノート：新規/既存 -->
+                <input name="note_existence" value="new"   type="radio" id="new_note">
+                <input name="note_existence" value="exist" type="radio" id="exist_note" checked>
+                <!-- ノート：カラー -->
+                <?php foreach($color_list as $color): ?>
+                    <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
+                <?php endforeach ?>
+                <!-- チャプター：新規/既存 -->
+                <input name="chapter_existence" value="new"   type="radio" id="new_chapter">
+                <input name="chapter_existence" value="exist" type="radio" id="exist_chapter">
+                <!-- ページタイプ -->
+                <input name="page_type" value="1" type="radio" id="page_a">
+                <input name="page_type" value="2" type="radio" id="page_b">
+            </section>
             
             <!-- ノート -->
             <section class="note_section">
@@ -98,24 +116,6 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
 
                 <!-- ページタイプ -->
 
-            </section>
-            
-            <!-- radioボタン集約 -->
-            <section class="radio_section">
-                <!-- 既存ノートリストと既存チャプターリストはjsで生成 -->
-                <!-- ノート：新規/既存 -->
-                <input name="note_existence" value="new"   type="radio" id="new_note">
-                <input name="note_existence" value="exist" type="radio" id="exist_note" checked>
-                <!-- ノート：カラー -->
-                <?php foreach($color_list as $color): ?>
-                    <input name="note_color" value="<?= $color ?>" type="radio" id="new_<?= $color ?>">
-                <?php endforeach ?>
-                <!-- チャプター：新規/既存 -->
-                <input name="chapter_existence" value="new"   type="radio" id="new_chapter">
-                <input name="chapter_existence" value="exist" type="radio" id="exist_chapter">
-                <!-- ページタイプ -->
-                <input name="page_type" value="1" type="radio" id="page_a">
-                <input name="page_type" value="2" type="radio" id="page_b">
             </section>
 
             <!-- コンテンツ入力フォーム -->
