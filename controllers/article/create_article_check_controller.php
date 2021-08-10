@@ -165,8 +165,8 @@ try {
 
     echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
-    echo '<br/>$_SESSION[msg][error]<br/>';
-    print_r($_SESSION['msg']['error']);
+    echo '<br/>$_SESSION[msg]<br/>';
+    print_r($_SESSION['msg']);
     
     $search = null;
 
