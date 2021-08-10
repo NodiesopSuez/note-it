@@ -53,11 +53,10 @@ $(function(){
     
     //ページコンテンツ入力フォーム
     function createContentsForm(page_type){
-        //let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+        let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
 
         if(page_type==1){
             //typeA
-            let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
             let a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
             let a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
             let a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
