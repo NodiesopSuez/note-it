@@ -204,7 +204,7 @@ $(function(){
         $(`#${selected_id}`).prop({ checked : true });
         
         //選択されたカラー名を取得
-        selected_color = $(this).attr('for').replace("new_", "");
+        let selected_color = $(this).attr('for').replace("new_", "");
 
         //カラー変更ボタン作成
         let change_color = createNoteIcon('change_color', 'CHANGE COLOR').addClass('basic');
