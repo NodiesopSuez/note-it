@@ -97,7 +97,7 @@ $(function(){
     //ページトップに自動スクロール
     function scrollToTop(){
         $('html,body').animate({scrollTop: 0}, {queue: false}); 
-        return defer.promise();
+        //return defer.promise();
     };
 
     //特定のオブジェクトにスクロール
