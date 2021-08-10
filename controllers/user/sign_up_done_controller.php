@@ -25,8 +25,8 @@ try{
 	$register->registerUserData($nick_name,$gender,$email,$birth,$pass,$registration_dt);
 	
 	if($register==true){
-		unset($_SESSION['msg']);
-		unset($_SESSION['data']);
+		$_SESSION['msg'] = array();
+		$_SESSION['data'] = array();
 		$_SESSION['msg']['okmsg'] = ['登録を完了しました!!', 'ログインしてください']; 
 		header('Location:/views/user/sign_in.php');
 	}

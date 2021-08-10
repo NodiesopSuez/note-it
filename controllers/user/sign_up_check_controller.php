@@ -8,7 +8,7 @@ validToken();
 require_once(dirname(__FILE__, 3).'/config/Connect.php');
 require_once(dirname(__FILE__, 3).'/models/Users.php');
 
-unset($_SESSION['msg']);
+$_SESSION['msg'] = array();
 
 try{
 //受け取った情報を変数に代入

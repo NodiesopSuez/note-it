@@ -63,7 +63,7 @@ try {
         foreach($sanitized as $key => $val){
             if(preg_match('/contents\_/',$key) === 1 && !empty($val)){
                 $page_b_contents[$key] = [ 'file_type' => 'text', 'data' => $val ];
-                unset($_SESSION['contents'][$key]);
+                $_SESSION['contents'][$key] = array();
             }
         }
 

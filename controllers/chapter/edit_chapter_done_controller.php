@@ -24,7 +24,7 @@ try {
         $_SESSION['msg'] = ['error' => [Config::MSG_EXCEPTION]];
     }else{
         $_SESSION['msg'] = ['okmsg' => ['チャプター名を変更しました！']];
-        unset($_SESSION['note_chapter']);
+        $_SESSION['note_chapter'] = array();
     }
     
     $update = null;
