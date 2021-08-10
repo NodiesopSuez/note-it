@@ -53,7 +53,7 @@ $(function(){
     
     //ページコンテンツ入力フォーム
     function createContentsForm(page_type){
-        let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+        let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'article_title', placeholder : 'ページタイトル'});
 
         if(page_type==1){
             //typeA
