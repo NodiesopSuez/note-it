@@ -82,7 +82,7 @@ try {
     }
 
     //page_titleが入力されているか
-    if((empty($sanitized['article_title'])) || (ctype_space($sanitized['article_title']))){
+    if((empty($sanitized['page_title'])) || (ctype_space($sanitized['page_title']))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
     }
 
@@ -96,12 +96,12 @@ try {
         'chapter_title'     => $chapter_existence === 'new' ? $sanitized['new_chapter_title'] : null ,
         'page_type'         => $sanitized['page_type'],
         'chapter_id'        => $chapter_existence === 'exist' ? $sanitized['chapter_id'] : null,
-        'page_title'        => $sanitized['article_title']
+        'page_title'        => $sanitized['page_title']
     );
 
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents = array();
-
+/* 
     if(isset($sanitized['page_type']) && $sanitized['page_type'] == 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
@@ -161,6 +161,7 @@ try {
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
+ */
 
     echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
