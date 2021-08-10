@@ -3,8 +3,7 @@
 $(function(){
     localStorage.clear();
 
-    let defer = new $.Deferred;
-    let selected_color, title, attribute_for;
+ /*    let defer = new $.Deferred; */
     
     //noteアイコンを作る
     function createNoteIcon(class_name, title_p){
@@ -53,34 +52,44 @@ $(function(){
     const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
     
     //ページコンテンツ入力フォーム
-    //typeA
-    const page_a_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
-    const a_meaning        = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
-    const a_syntax         = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
-    const a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
-    const a_ex             = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
-    const a_ex_memo        = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
-    const a_example        = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
-    const a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
-    const page_a_form = $('<div>').attr({ class : 'page_base a' })
-                                .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
-    //typeB
-    const page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
-    const contents         = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
+    function createContentsForm(page_type){
+        let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
 
-    //削除ボタン
-    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/delete_btn.svg'});
-    $(delete_btn).prepend(delete_icon);
+        if(page_type==1){
+            //typeA
+            let a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
+            let a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
+            let a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
+            let a_ex       = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
+            let a_ex_memo  = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
+            let a_example  = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
+            let a_memo     = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
+            let page_a_form = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
 
-    const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn);
+            return page_a_form;
 
-    const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
-    const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
-    const buttons_row      = $('<div>').addClass('add_contents row')
-                                    .prepend(add_text_btn, add_img_btn, /* add_code_btn, add_quote_btn */);
-    const page_b_form = $('<div>').attr({ class : 'page_base b' })
-                                .prepend(page_b_title, form_block, buttons_row);
+        }else{
+            //typeB
+            //テキストエリア
+            let contents = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
+        
+            //削除ボタン
+            let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+            let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/delete_btn.svg'});
+            $(delete_btn).prepend(delete_icon);
+        
+            let form_block = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn);
+        
+            let add_text_btn = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
+            let add_img_btn  = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
+            let buttons_row  = $('<div>').addClass('add_contents row')
+                                            .prepend(add_text_btn, add_img_btn);
+            let page_b_form = $('<div>').attr({ class : 'page_base b' }).prepend(page_title, form_block, buttons_row);
+
+            return page_b_form;
+            
+        }
+    }
 
                                 
     /* メソッド ----------------------------------------------------------------------- */ 
@@ -217,7 +226,7 @@ $(function(){
         $('.page_type').find('.page').attr({ class : `page ${selected_color}`});
 
         //contents_sectionに一旦page_a_formを挿入
-        $(page_a_form).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
+        $(createContentsForm(1)).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').attr({ class : `submit ${selected_color}`}); 
         
 
@@ -334,7 +343,7 @@ $(function(){
         $('.page_type').find('.page').attr({ class : `page ${selected_color}` });
 
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
-        $('.contents_section').prepend(page_a_form);
+        $('.contents_section').prepend(createContentsForm(1));
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
         $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
         $('#page_a').prop({ checked : true });
@@ -369,11 +378,11 @@ $(function(){
         let page_type = localStorage.getItem(selected_chapter);
 
         if(page_type == 1) {
-            $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
+            $('.contents_section').prepend(createContentsForm(1)).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_a').prop({ checked : true });
         }else{
-            $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
+            $('.contents_section').prepend(createContentsForm(2)).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_b').prop({ checked : true });
         }
@@ -388,7 +397,7 @@ $(function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
         $('#page_a').prop({ checked : true });
         $('.contents_section').children().remove();
-        $('.contents_section').prepend(page_a_form);
+        $('.contents_section').prepend(createContentsForm(1));
         $('.page_base').attr({ class : `page_base a ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').addClass(selected_color);
 
@@ -401,7 +410,7 @@ $(function(){
         selected_color = $('.page_type').find('.note.cassette').attr('class').replace('note cassette', '');
         $('#page_b').prop({ checked : true });
         $('.contents_section').children().remove();
-        $('.contents_section').prepend(page_b_form);
+        $('.contents_section').prepend(createContentsForm(2));
         $('.page_base').attr({ class : `page_base b ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').addClass(selected_color);
         
