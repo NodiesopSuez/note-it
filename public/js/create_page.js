@@ -45,51 +45,47 @@ $(function(){
 
             $('.page_type').append(page_type);
         })
-    }
-
-    const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
+    }   
     
     //ページコンテンツ入力フォーム
     function createContentsForm(page_type){
-        let page_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
-
+        const page_title = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+        let page_form;
+        
         if(page_type==1){
             //typeA
-            let a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
-            let a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
-            let a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
-            let a_ex       = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
-            let a_ex_memo  = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
-            let a_example  = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
-            let a_memo     = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
-            let page_a_form = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
-
-            return page_a_form;
-
+            const a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
+            const a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
+            const a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
+            const a_ex       = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
+            const a_ex_memo  = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
+            const a_example  = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
+            const a_memo     = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
+            page_form    = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo, submit_btn);
+            
         }else{
             //typeB
             //テキストエリア
-            let contents = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
-        
-            //削除ボタン
-            let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
-            let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/delete_btn.svg'});
-            $(delete_btn).prepend(delete_icon);
-        
-            let form_block = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn);
-        
-            let add_text_btn = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
-            let add_img_btn  = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
-            let buttons_row  = $('<div>').addClass('add_contents row')
-                                            .prepend(add_text_btn, add_img_btn);
-            let page_b_form = $('<div>').attr({ class : 'page_base b' }).prepend(page_title, form_block, buttons_row);
-
-            return page_b_form;
+            const contents = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
             
+            //削除ボタン
+            const delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+            const delete_icon = $('<img>').attr({ class : 'delete_icon', src : '/public/img/delete_btn.svg'});
+            $(delete_btn).prepend(delete_icon);
+            
+            const form_block = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn);
+            
+            const add_text_btn = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
+            const add_img_btn  = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
+            const buttons_row  = $('<div>').addClass('add_contents row').prepend(add_text_btn, add_img_btn);
+            page_form = $('<div>').attr({ class : 'page_base b' }).prepend(page_title, form_block, buttons_row, submit_btn);
         }
+        
+        return page_form;
     }
-
-                                
+    
+    const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
+    
     /* メソッド ----------------------------------------------------------------------- */ 
 
     //ページトップに自動スクロール

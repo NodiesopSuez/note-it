@@ -89,18 +89,7 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
 
         <form method="post" action="/controllers/article/create_article_check_controller.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
-            <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">   
-
-            <!-- ページタイプ -->
-            <section class="page_type">
-
-                <!-- ノートカセット -->
-
-                <!-- チャプターカセット -->
-
-                <!-- ページタイプ -->
-
-            </section>
+            <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>"> 
             
             <!-- radioボタン集約 -->
             <section class="radio_section">
@@ -118,6 +107,17 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
                 <!-- ページタイプ -->
                 <input name="page_type" value="1" type="radio" id="page_a">
                 <input name="page_type" value="2" type="radio" id="page_b">
+            </section>
+
+            <!-- ページタイプ -->
+            <section class="page_type">
+
+                <!-- ノートカセット -->
+
+                <!-- チャプターカセット -->
+
+                <!-- ページタイプ -->
+
             </section>
 
             <!-- コンテンツ入力フォーム -->
