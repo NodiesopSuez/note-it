@@ -28,6 +28,76 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
             <img src="<?= $ladybug_img ?>">
         </div>
 
+
+            
+        <!-- ノート -->
+        <section class="note_section">
+
+            <!-- 新規ノート選択ボタン -->
+
+            <!-- 新規ノートカラーリスト -->
+                    
+            <!-- 新規ノートタイトル入力フォーム -->
+                    
+            <!-- 既存ノートリスト -->
+                        
+            <!-- 既存ノート選択ボタン -->
+
+        </section>
+                    
+        <!--チャプター -->
+        <section class="chapter_section">
+
+            <!-- ノートカセット -->
+            <!-- <div class="note cassette">
+                <div class="note_base"></div>
+                <div class="note_title">
+                    <p></p>
+                </div>
+                <div class="back_cover"></div>
+            </div> -->
+                
+            <!-- <div> -->
+                <!-- 新規チャプター選択ボタン -->
+                <!-- <label for="new_chapter">
+                    <div class="chapter">
+                        <p>NEW</p>
+                    </div>
+                </label> -->
+                    
+                <!-- 新規チャプタータイトル -->
+                <!-- <div class="chapter　new_chapter_title">
+                    <input name="new_chapter_title" type="text">NEW
+                </div> -->
+                    
+                <!-- 既存チャプターリスト -->
+                <!-- <label for="">
+                    <input name="chapter_id" value="" type="radio" id="">
+                    <div class="chapter">
+                        <p></p>
+                    </div>
+                </label> -->
+
+                <!-- 既存チャプター選択ボタン -->
+                <!-- <label for="exist_chapter">
+                    <div class="chapter">
+                        <p>EXIST</p>
+                    </div>
+                </label>  -->
+            <!-- </div> -->
+        </section>
+
+        <!-- ページタイプ -->
+        <section class="page_type">
+
+            <!-- ノートカセット -->
+
+            <!-- チャプターカセット -->
+
+            <!-- ページタイプ -->
+
+        </section>
+
         <form method="post" action="/controllers/article/create_article_check_controller.php" enctype="multipart/form-data">
             <!--ワンタイムトークン発生-->
             <input type="hidden" name="token" value="<?= SaftyUtil::generateToken() ?>">   
@@ -49,74 +119,6 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
                 <input name="page_type" value="1" type="radio" id="page_a">
                 <input name="page_type" value="2" type="radio" id="page_b">
             </section>
-            
-            <!-- ノート -->
-            <section class="note_section">
-
-                <!-- 新規ノート選択ボタン -->
-
-                <!-- 新規ノートカラーリスト -->
-                    
-                <!-- 新規ノートタイトル入力フォーム -->
-                    
-                <!-- 既存ノートリスト -->
-                        
-                <!-- 既存ノート選択ボタン -->
-
-            </section>
-                    
-            <!--チャプター -->
-            <section class="chapter_section">
-
-                <!-- ノートカセット -->
-                <!-- <div class="note cassette">
-                    <div class="note_base"></div>
-                    <div class="note_title">
-                        <p></p>
-                    </div>
-                    <div class="back_cover"></div>
-                </div> -->
-                
-                <div>
-                    <!-- 新規チャプター選択ボタン -->
-                    <!-- <label for="new_chapter">
-                        <div class="chapter">
-                            <p>NEW</p>
-                        </div>
-                    </label> -->
-                    
-                    <!-- 新規チャプタータイトル -->
-                    <!-- <div class="chapter　new_chapter_title">
-                        <input name="new_chapter_title" type="text">NEW
-                    </div> -->
-                    
-                    <!-- 既存チャプターリスト -->
-                    <!-- <label for="">
-                        <input name="chapter_id" value="" type="radio" id="">
-                        <div class="chapter">
-                            <p></p>
-                        </div>
-                    </label> -->
-
-                    <!-- 既存チャプター選択ボタン -->
-                    <!-- <label for="exist_chapter">
-                        <div class="chapter">
-                            <p>EXIST</p>
-                        </div>
-                    </label>  -->
-                </div>
-            </section>
-
-            <!-- ページタイプ -->
-            <section class="page_type">
-
-                <!-- ノートカセット -->
-
-                <!-- チャプターカセット -->
-
-                <!-- ページタイプ -->
-
-            </section>
 
             <!-- コンテンツ入力フォーム -->
             <section class="contents_section">
@@ -124,7 +126,6 @@ include(dirname(__FILE__, 3).'/controllers/article/show_create_article_controlle
                 <!-- TypeA -->
 
                 <!-- TypeB -->
-            <button class="submit pink" role="submit">submit</button>
             </section>
             <!-- 送信ボタン -->
         </form>
