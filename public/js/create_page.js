@@ -62,7 +62,7 @@ $(function(){
             let a_ex_memo  = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
             let a_example  = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
             let a_memo     = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
-            let page_a_form = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
+            let page_a_form = $('<div>').attr({ class : 'page_base a' }).prepend(/* page_title, */ a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
 
             return page_a_form;
 
@@ -82,7 +82,7 @@ $(function(){
             let add_img_btn  = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
             let buttons_row  = $('<div>').addClass('add_contents row')
                                             .prepend(add_text_btn, add_img_btn);
-            let page_b_form = $('<div>').attr({ class : 'page_base b' }).prepend(page_title, form_block, buttons_row);
+            let page_b_form = $('<div>').attr({ class : 'page_base b' }).prepend(/* page_title,  */form_block, buttons_row);
 
             return page_b_form;
             
