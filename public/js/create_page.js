@@ -31,7 +31,7 @@ $(function(){
         return note_button;
     }
 
-    //ページタイプ選択ボタン
+/*     //ページタイプ選択ボタン
     function createPageTypeButton(){
         //アイコン
         let page_wrapback = $('<div>').addClass('wrapback');
@@ -85,6 +85,58 @@ $(function(){
     }
     
     const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
+
+
+ */
+
+
+        //ページタイプ選択ボタン
+    //アイコン
+    let page_wrapback = $('<div>').addClass('wrapback');
+    //typeA
+    let page_type_text_a = $('<p>').text('Type A');
+    let page_type_a = $('<div>').addClass('page').prepend(page_wrapback.clone(), page_type_text_a).wrapAll('<label>').parent().attr({ for : 'page_a'});
+    //typeB
+    let page_type_text_b = $('<p>').text('Type B');
+    let page_type_b = $('<div>').addClass('page').prepend(page_wrapback.clone(), page_type_text_b).wrapAll('<label>').parent().attr({ for : 'page_b'});
+
+    const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
+    
+    //ページコンテンツ入力フォーム
+    //typeA
+    const page_a_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+    const a_meaning        = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
+    const a_syntax         = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
+    const a_syn_memo       = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
+    const a_ex             = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
+    const a_ex_memo        = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
+    const a_example        = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
+    const a_memo           = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
+    const page_a_form = $('<div>').attr({ class : 'page_base a' })
+                                .prepend(page_a_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo);
+    //typeB
+    const page_b_title     = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
+    /* let contents         = $('<div>').addClass('contents text').attr({ id : 'contents_1', contentEditable : true }); */
+    const contents         = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
+    /* let hid_content      = $('<input>').attr({ id : 'hid_contents_1', type : 'hidden', name : 'contents_1', value : ''}); */
+
+    //削除ボタン
+    let delete_btn  = $('<button>').attr({ class : 'delete_btn', role : 'button' }); //val,id属性は後付け
+    let delete_icon = $('<img>').attr({ class : 'delete_icon', src : '../page/img/delete_btn.svg'});
+    $(delete_btn).prepend(delete_icon);
+
+    const form_block       = $('<div>').addClass('form_block').attr({ id : '1_form_block'}).prepend(contents, delete_btn/* , hid_content */);
+
+    const add_text_btn     = $('<button>').addClass('btn').attr({ id : 'add_text', type : 'button'}).text('+ text');
+    const add_img_btn      = $('<button>').addClass('btn').attr({ id : 'add_img', type : 'button'}).text('+ image');
+    //const add_code_btn     = $('<button>').addClass('btn').attr({ id : 'add_code', type : 'button'}).text('コードを追加する');
+    //const add_quote_btn    = $('<button>').addClass('btn').attr({ id : 'add_quote', type : 'button'}).text('引用を追加する');
+    const buttons_row      = $('<div>').addClass('add_contents row')
+                                    .prepend(add_text_btn, add_img_btn, /* add_code_btn, add_quote_btn */);
+    const page_b_form = $('<div>').attr({ class : 'page_base b' })
+                                .prepend(page_b_title, form_block, buttons_row);
+
+     
     
     /* メソッド ----------------------------------------------------------------------- */ 
 
@@ -214,12 +266,12 @@ $(function(){
 
         //page_typeにノートタイトル・チャプタータイトルの入力フォームを挿入
         $('.page_type').children().remove();
-        $('.page_type').prepend(note_title_form_icon, chapter_icon, createPageTypeButton());
+        $('.page_type').prepend(note_title_form_icon, chapter_icon, page_type_a, page_type_b);
         $('.page_type').find('.note_title > p').replaceWith(note_title_form); //挿入したノートアイコンのpをtextareaに差し替え
         $('.page_type').find('.page').attr({ class : `page ${selected_color}`});
 
         //contents_sectionに一旦page_a_formを挿入
-        $(createContentsForm(1)).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
+        $(page_a_form).prependTo('.contents_section').attr({ class : `page_base a ${selected_color}`});
         $(submit_btn).insertAfter('.page_base').attr({ class : `submit ${selected_color}`}); 
         
 
@@ -332,11 +384,11 @@ $(function(){
         let chapter_title_form = $('<input>').attr({name: "new_chapter_title", type: "text", placeholder: "enter the chapter title"});
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
         
-        $('.page_type').children('.note').after(chapter_icon, createPageTypeButton());
+        $('.page_type').children('.note').after(chapter_icon, page_type_a, page_type_b/* , createPageTypeButton() */);
         $('.page_type').find('.page').attr({ class : `page ${selected_color}` });
 
         //contents_sectionに一旦page_a_formを挿入してradioの選択もtypeAにpropしておく
-        $('.contents_section').prepend(createContentsForm(1));
+        $('.contents_section').prepend(page_a_form);
         $('.page_base').attr({ class : `page_base a ${selected_color}` });
         $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
         $('#page_a').prop({ checked : true });
@@ -371,11 +423,11 @@ $(function(){
         let page_type = localStorage.getItem(selected_chapter);
 
         if(page_type == 1) {
-            $('.contents_section').prepend(createContentsForm(1)).children('.page_base').addClass(selected_color);
+            $('.contents_section').prepend(page_a_form).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_a').prop({ checked : true });
         }else{
-            $('.contents_section').prepend(createContentsForm(2)).children('.page_base').addClass(selected_color);
+            $('.contents_section').prepend(page_b_form).children('.page_base').addClass(selected_color);
             $(submit_btn).addClass(selected_color).insertAfter('.page_base'); 
             $('#page_b').prop({ checked : true });
         }
