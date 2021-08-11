@@ -10,8 +10,6 @@ require_once(dirname(__FILE__, 3).'/config/Connect.php');
 require_once(dirname(__FILE__, 3).'/models/Users.php');
 require_once(dirname(__FILE__, 3).'/models/Searches.php');
 
-print_r($_SESSION);
-
 //既存ノートリスト取得
 $user_id = $_SESSION['user_info']['user_id'];
 $searches = new Searches;
