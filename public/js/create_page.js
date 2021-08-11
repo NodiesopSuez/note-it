@@ -56,12 +56,12 @@ $(function(){
             //typeA
             const a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
             const a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
-            const a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
+            //const a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
             const a_ex       = $('<textarea>').addClass('ex').attr({ name : 'example', placeholder : '例文'});
             const a_ex_memo  = $('<textarea>').addClass('ex_memo').attr({ name : 'ex_memo', placeholder : '例文メモ'});
             const a_example  = $('<div>').addClass('example').prepend(a_ex, a_ex_memo); //exとex_,ex_memoの塊
             const a_memo     = $('<textarea>').addClass('memo').attr({ name : 'memo', placeholder : 'メモ' });
-            page_form    = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, a_syn_memo, a_example, a_memo, submit_btn);
+            page_form    = $('<div>').attr({ class : 'page_base a' }).prepend(page_title, a_meaning, a_syntax, /* a_syn_memo, */ a_example, a_memo, submit_btn);
             
         }else{
             //typeB
