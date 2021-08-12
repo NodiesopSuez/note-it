@@ -17,6 +17,7 @@ memcached 3.1.5
 aws-sdk-php 3.185
 
 ## INSTALLATION
+npm install bootstrap@next
 npm install jquery@3.6.0
 homebrewインストール  
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"  
