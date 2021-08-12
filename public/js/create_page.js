@@ -1,7 +1,6 @@
 'use strict';
 
 $(function(){
-    localStorage.clear();
     
     //noteアイコンを作る
     function createNoteIcon(class_name, title_p){
@@ -25,7 +24,7 @@ $(function(){
         return chapter;
     }
 
-    //新規ノートもしくは既存ノートの選択ボタン
+    //ノートの新規or既存選択ボタン
     function createNoteButton(title, attribute_for){
         let note_button = createNoteIcon('basic', title).wrapAll('<label>').parent().attr({ for : attribute_for });
         return note_button;
@@ -49,11 +48,11 @@ $(function(){
     
     //ページコンテンツ入力フォーム
     function createContentsForm(page_type){
-        const page_title = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
         let page_form;
         
         if(page_type==1){
             //typeA
+            let page_title = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
             const a_meaning  = $('<input>').addClass('meaning').attr({ type : 'text', name : 'meaning', placeholder : '意味'});
             const a_syntax   = $('<input>').addClass('syntax').attr({ type : 'text', name : 'syntax', placeholder : '構文'});
             const a_syn_memo = $('<textarea>').addClass('syn_memo').attr({ name : 'syn_memo', placeholder : '構文メモ'});
@@ -65,6 +64,7 @@ $(function(){
             
         }else{
             //typeB
+            let page_title = $('<input>').addClass('page_title').attr({ type : 'text', name : 'page_title', placeholder : 'ページタイトル'});
             //テキストエリア
             const contents = $('<textarea>').addClass('contents text').attr({ name : 'contents_1'});
             
@@ -86,8 +86,6 @@ $(function(){
     
     const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
      
-    
-    /* メソッド ----------------------------------------------------------------------- */ 
 
     //ページトップに自動スクロール
     function scrollToTop(){
@@ -148,7 +146,7 @@ $(function(){
 /* ページに入ったら----------------------------------------------------------------- */    
     
     //新規ノート選択ボタンと既存ノートリストを表示
-     
+    localStorage.clear();
     createExistNoteList();
     scrollToTop();
 
