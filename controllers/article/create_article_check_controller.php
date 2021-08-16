@@ -173,7 +173,7 @@ try {
     if(!empty($_SESSION['msg']['error'])){
         //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        header('Location:/controllers/article/create_article_check_controller.php');
+        //header('Location:/controllers/article/create_article_done_controller.php');
     }
 
 }catch(Exception $e){
