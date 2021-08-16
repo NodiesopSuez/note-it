@@ -56,6 +56,7 @@ section {
     align-items: flex-start;
 }
 section:not(.page_type, .radio_section){
+    margin-top: 20px;
     margin-bottom: 48px;
 }
 .chapter_section {
