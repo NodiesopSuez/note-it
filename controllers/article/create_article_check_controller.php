@@ -100,7 +100,7 @@ try {
 
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents = array();
-/* 
+
     if(isset($sanitized['page_type']) && $sanitized['page_type'] == 1){  //page_type Aの場合、
         //入力内容をサニタイズして$_SESSIONに格納
         $_SESSION['page']['register_contents'] = [
@@ -160,7 +160,7 @@ try {
         //入力内容を$_SESSIONに格納
         $_SESSION['page']['register_contents'] = $page_b_contents;
     }
- */
+
 
     echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
@@ -170,9 +170,9 @@ try {
     $search = null;
 
     if(!empty($_SESSION['msg']['error'])){
-        //header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
+        header('Location:/views/article/create_article.php'); //エラーがあったら入力ページに戻る
     }else{
-        //header('Location:/controllers/article/create_article_done_controller.php');
+        header('Location:/controllers/article/create_article_done_controller.php');
     }
 
 }catch(Exception $e){
