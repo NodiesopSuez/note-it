@@ -35,12 +35,12 @@ try {
     var_dump($sanitized);
     echo '<br/>';
     
-    $note_existence = $sanitized['note_existence'];
+    /* $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
-
+ */
 
     //新規ノート作成の場合
-    if($note_existence === 'new'){
+/*     if($note_existence === 'new'){
         $note_list = $search->findNoteInfo('user_id', $user_id);
 
         if (empty($sanitized['new_note_title']) || ctype_space($sanitized['new_note_title'])) {
@@ -52,19 +52,19 @@ try {
         if (empty($sanitized['note_color'])){
             $_SESSION['msg']['error'][] = 'ノートのカラーを選択してください。';
         }
-    }
+    } */
 
     //既存ノートに作成する場合
-    if($note_existence === 'exist'){
+/*     if($note_existence === 'exist'){
         if(!empty($sanitized['note_id'])){
             $chapter_list = $search->findChapterInfo('note_id', $sanitized['note_id']);
         }else{
             $_SESSION['msg']['error'][] = 'ノートのタイトルを選択して下さい。'; 
         }
     }
-    
+     */
     //新規チャプター作成の場合
-    if($chapter_existence === 'new'){   
+/*     if($chapter_existence === 'new'){   
         if (empty($sanitized['page_type']) || ($sanitized['page_type'] != 1 && $sanitized['page_type'] != 2)) {
             $_SESSION['msg']['error'][] = 'ページのタイプを選択して下さい。';
         }
@@ -74,20 +74,20 @@ try {
         if ($note_existence === 'exist' && in_array($sanitized['new_chapter_title'], array_column($chapter_list, 'chapter_title'))){
             $_SESSION['msg']['error'][] = '既にそのチャプターは作成されています。';
         }
-    }
+    } */
 
     //既存チャプターに作成する場合
-    if(($chapter_existence === 'exist') && (!isset($sanitized['chapter_id']) || $sanitized['chapter_id'] === '')){
+/*     if(($chapter_existence === 'exist') && (!isset($sanitized['chapter_id']) || $sanitized['chapter_id'] === '')){
             $_SESSION['msg']['error'][] = 'チャプターを選択して下さい。';
-    }
+    } */
 
     //page_titleが入力されているか
-    if((empty($sanitized['page_title'])) || (ctype_space($sanitized['page_title']))){
+/*     if((empty($sanitized['page_title'])) || (ctype_space($sanitized['page_title']))){
         $_SESSION['msg']['error'][] = 'ページタイトルを入力して下さい。';
-    }
+    } */
 
     //$_SESSONにノート・チャプター情報を代入
-    $_SESSION['page']['register_info'] = array(
+/*     $_SESSION['page']['register_info'] = array(
         'note_existence'    => $note_existence,
         'note_title'        => $note_existence === 'new' ? $sanitized['new_note_title'] : null,
         'note_color'        => $note_existence === 'new' ? $sanitized['note_color'] : null,
@@ -97,7 +97,7 @@ try {
         'page_type'         => $sanitized['page_type'],
         'chapter_id'        => $chapter_existence === 'exist' ? $sanitized['chapter_id'] : null,
         'page_title'        => $sanitized['page_title']
-    );
+    ); */
 
     //page type B のコンテンツを一旦格納する配列を宣言
     $page_b_contents = array();
