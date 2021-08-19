@@ -164,10 +164,10 @@ try {
     }
 
 
-    /* echo '<br/>$_SESSION<br/>';
+    echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
     echo '<br/>$_SESSION[msg]<br/>';
-    print_r($_SESSION['msg']); */
+    print_r($_SESSION['msg']); 
     
     $search = null;
 
