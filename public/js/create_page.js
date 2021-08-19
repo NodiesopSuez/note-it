@@ -257,8 +257,10 @@ $(function(){
     //既存ノートリストのアイコンが選択されたら
     $('.note_section').on ("click", '.exist_note_list', function(){
         //選択されたノートのradioをcheckedにする
-        var selected_note_id = $(this).attr('for');
-        $(`#${selected_note_id}`).prop({ checked : true });
+        var selected_note = $(this).attr('for');
+
+        console.log(selected_note);
+        $(`#${selected_note}`).prop({ checked : true });
         //クリックしたノートだけhideする
         $('.note_section').children().show();
         $(this).hide();
