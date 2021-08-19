@@ -132,7 +132,8 @@ $(function(){
                                             type  : "radio",
                                             id    : `note_${key}`,
                                         });
-                $('.note_section').append(ex_note_label, ex_note_radio);
+                $('.note_section').append(ex_note_label);
+                $('.radio_section').append(ex_note_radio);
             })
         }).fail(function(XMLHttpRequest, textStatus, errorThrown){
             console.log(XMLHttpRequest);
@@ -296,7 +297,8 @@ $(function(){
                                                         type  : "radio",
                                                         id    : `chapter_${key}`,
                                                     });
-                $('.chapter_section').append(ex_chapter_label, ex_chapter_radio);
+                $('.chapter_section').append(ex_chapter_label);
+                $('.radio_section').append(ex_chapter_radio);
                 //ローカルストレージに各チャプターidとpage_tyepを格納
                 localStorage.setItem(`chapter_${key}`, val.page_type);
             })
