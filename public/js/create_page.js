@@ -3,7 +3,7 @@
 $(function(){
     var selected_color;
     
-    //noteアイコンを作る
+    //noteアイコン
     function createNoteIcon(class_name, title_p){
         var note = $('<div>').addClass(`note ${class_name}`);
         var note_base = $('<div>').addClass('note_base');
@@ -16,7 +16,7 @@ $(function(){
         return note;
     }
 
-    //chapterアイコンを作る
+    //chapterアイコン
     function createChapterIcon(class_name, chapter_title){
         var chapter = $('<div>').addClass(`chapter ${class_name}`);
         var chapter_p = $('<p>').text(chapter_title);
@@ -50,6 +50,9 @@ $(function(){
     //ページコンテンツ入力フォーム
     function createContentsForm(page_type){
         var page_form;
+
+        //送信ボタン
+        const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit');
         
         if(page_type==1){
             //typeA
@@ -84,11 +87,8 @@ $(function(){
         
         return page_form;
     }
-    
-    const submit_btn = $('<button>').addClass('submit').attr({ role : 'submit'}).text('submit'); //送信ボタン
-     
 
-    //ページトップに自動スクロール
+    //トップに自動スクロール
     function scrollToTop(){
         $('html,body').animate({scrollTop: 0}, {queue: false}); 
     };
@@ -249,7 +249,6 @@ $(function(){
         //note_existence = exist をcheckedにする
         $('#exist_note').prop({ checked : true });
         //新規ノート選択ボタンと既存ノートリストを表示
-         
         createExistNoteList();
         $('.balloon').children('.msg').text('どのノートに追加しますか?');
         scrollToTop();
@@ -257,6 +256,9 @@ $(function(){
 
     //既存ノートリストのアイコンが選択されたら
     $('.note_section').on ("click", '.exist_note_list', function(){
+        //選択されたノートのradioをcheckedにする
+        var selected_note_id = $(this).attr('for');
+        $(`#${selected_note_id}`).prop({ checked : true });
         //クリックしたノートだけhideする
         $('.note_section').children().show();
         $(this).hide();
