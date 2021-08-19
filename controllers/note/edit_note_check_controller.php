@@ -6,8 +6,8 @@ authenticateError();
 validToken();
 
 //必要ファイル呼び出し
-require_once(dirname(__FILE__, 2). '/config/Connect.php');
-require_once(dirname(__FILE__, 2). '/models/Searches.php');
+require_once(dirname(__FILE__, 3). '/config/Connect.php');
+require_once(dirname(__FILE__, 3). '/models/Searches.php');
 
 //エラーが入ってたら削除
 $_SESSION['msg'] = array();
