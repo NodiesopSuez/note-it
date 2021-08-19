@@ -70,7 +70,7 @@ $(function(){
 
         //選ばれたnote_idでchapter_list取得
         $.ajax({
-            url  : '/controllers/chapter/get_chapter_list.php',
+            url  : '/controllers/chapter/get_chapter_list_controller.php',
             type : 'post',
             data : { 'selected_note_id' : selected_note_id },
             dataType : 'json',
@@ -110,8 +110,8 @@ $(function(){
         //page_listのaction属性値を変更
         let selected_page_type = $(this).find('[name="page_type"]').val();
         let action_to = 
-            (selected_page_type == 1) ? "/views/page/page_a.php" 
-            : (selected_page_type == 2) ? "/views/page/page_b.php" 
+            (selected_page_type == 1) ? "/views/article/article_a.php" 
+            : (selected_page_type == 2) ? "/views/article/article_b.php" 
             : '';
             $('.page_list').attr({ action : action_to });
             
@@ -135,7 +135,7 @@ $(function(){
             
             
         $.ajax({
-            url:'/controllers/page/get_page_list.php',
+            url:'/controllers/article/get_article_list_controller.php',
             type:'post',
             data:{ 'selected_chapter_id': selected_chapter_id },
             dataType:'json'
