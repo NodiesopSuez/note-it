@@ -1,6 +1,6 @@
 <?php
 
-include('/common/redirect.php');
+include(dirname(__FILE__).'/common/redirect.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
@@ -19,7 +19,7 @@ $_SESSION['msg'] = array();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include('/head.php')?>
+    <?php include(dirname(__FILE__).'/head.php')?>
     <link rel="stylesheet" type="text/css" href="/public/css/template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/top_wide.css" media="screen and (min-width:1024px)">
@@ -29,7 +29,7 @@ $_SESSION['msg'] = array();
 </head>
 <body>
    <div class="container">
-    <?php include('/views/top_header.php')?>
+    <?php include(dirname(__FILE__).'/views/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
