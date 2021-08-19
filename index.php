@@ -1,6 +1,6 @@
 <?php
 
-include(dirname(__FILE__, 2).'/common/redirect.php');
+include('/common/redirect.php');
 
 $menus = ['news'=>'blue','story'=>'pink','feature'=>'yellow', 'Q & A'=>'green'];
 
@@ -19,7 +19,7 @@ $_SESSION['msg'] = array();
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <?php include(dirname(__FILE__, 2).'/head.php')?>
+    <?php include('/head.php')?>
     <link rel="stylesheet" type="text/css" href="/public/css/template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/color_template.css">
     <link rel="stylesheet" type="text/css" href="/public/css/top_wide.css" media="screen and (min-width:1024px)">
@@ -29,7 +29,7 @@ $_SESSION['msg'] = array();
 </head>
 <body>
    <div class="container">
-    <?php include(dirname(__FILE__).'/top_header.php')?>
+    <?php include('/views/top_header.php')?>
         <section class="top">
             <div class="catch_logo">
                 <svg class="logo_mark" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 66.9 66.62"><?=Icons::LOGO_MARK?></svg>
@@ -38,7 +38,7 @@ $_SESSION['msg'] = array();
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/><span class="n_line">初心者プログラマーがつくった</span><span class="n_line">クラウドノート</span></p>
             
             <div class="sign_nav">
-                <a class="sign_in" href="user/sign_in.php"> 
+                <a class="sign_in" href="/user/sign_in.php"> 
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90">
                         <defs>
                             <linearGradient id="sign_in_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
@@ -65,7 +65,7 @@ $_SESSION['msg'] = array();
                     </div>
                     <img src="<?= $img ?>">
                 </div>            
-                <a class="sign_up" href="user/sign_up.php">
+                <a class="sign_up" href="/user/sign_up.php">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
