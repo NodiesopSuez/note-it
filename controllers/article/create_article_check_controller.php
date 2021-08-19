@@ -142,6 +142,8 @@ try {
 
                 //ドキュメントでは
                 $upload = $s3->upload($bucket, $img['name'], fopen($img['tmp_name'], 'rb'), 'public-read');
+
+                echo "ここはOK";
                 
                 $img_path = htmlspecialchars($upload->get('ObjectURL'));
 
