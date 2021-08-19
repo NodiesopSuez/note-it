@@ -38,7 +38,7 @@ $_SESSION['msg'] = array();
             <p class="p_bold">紙も時間も無駄にして困り果てた<br/><span class="n_line">初心者プログラマーがつくった</span><span class="n_line">クラウドノート</span></p>
             
             <div class="sign_nav">
-                <a class="sign_in" href="/user/sign_in.php"> 
+                <a class="sign_in" href="<?= dirname(__FILE__)."/user/sign_in.php"?>"> 
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90">
                         <defs>
                             <linearGradient id="sign_in_gra" gradientUnits="userSpaceOnUse" x1="70%" y1="100%" x2="0%" y2="0%">
@@ -65,7 +65,7 @@ $_SESSION['msg'] = array();
                     </div>
                     <img src="<?= $img ?>">
                 </div>            
-                <a class="sign_up" href="/user/sign_up.php">
+                <a class="sign_up" href="<?= dirname(__FILE__)."/user/sign_up.php"?>">
                     <svg class="triangle_base" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                     <svg class="triangle" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 80 90"><?=Icons::TRIANGLE?></svg>
                 </a>
