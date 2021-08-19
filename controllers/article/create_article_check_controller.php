@@ -25,15 +25,15 @@ try {
     $search = new Searches;
     $utility = new SaftyUtil;
 
-    echo '$POST<br/>';
+/*     echo '$POST<br/>';
     print_r($_POST);
-    echo '<br/>';
+    echo '<br/>'; */
     
     $sanitized = $utility->sanitize(1, $_POST);
 
-    echo '$_sanitized1<br/>';
+/*     echo '$_sanitized1<br/>';
     var_dump($sanitized);
-    echo '<br/>';
+    echo '<br/>'; */
     
     $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
@@ -162,10 +162,10 @@ try {
     }
 
 
-    echo '<br/>$_SESSION<br/>';
+    /* echo '<br/>$_SESSION<br/>';
     print_r($_SESSION);
     echo '<br/>$_SESSION[msg]<br/>';
-    print_r($_SESSION['msg']);
+    print_r($_SESSION['msg']); */
     
     $search = null;
 
