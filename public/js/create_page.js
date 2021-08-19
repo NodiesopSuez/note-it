@@ -1,6 +1,7 @@
 'use strict';
 
 $(function(){
+    var selected_color;
     
     //noteアイコンを作る
     function createNoteIcon(class_name, title_p){
@@ -159,7 +160,7 @@ $(function(){
         $('#new_note').prop('checked', true );
         
         //カラーリスト
-        var color_list = {
+        const color_list = {
             'purple' : 'パープル',
             'green'  : 'グリーン',
             'yellow' : 'イエロー',
@@ -196,7 +197,7 @@ $(function(){
         $(`#${selected_id}`).prop({ checked : true });
         
         //選択されたカラー名を取得
-        var selected_color = $(this).attr('for').replace("new_", "");
+        selected_color = $(this).attr('for').replace("new_", "");
 
         //カラー変更ボタン作成
         var change_color = createNoteIcon('change_color', 'CHANGE COLOR').addClass('basic');
@@ -318,8 +319,8 @@ $(function(){
         //page_typeに選択済みノートアイコン・チャプタータイトルの入力フォームを挿入
         $('.page_type, .contents_section').children().remove();
         $('.chapter_section').find('.note.cassette').clone(false).prependTo('.page_type');
-
         selected_color = $(this).children().attr('class').replace("chapter", "");
+
         var chapter_icon = createChapterIcon(`new_chapter_title chapter_cassette ${selected_color}`, '');
         var chapter_title_form = $('<input>').attr({name: "new_chapter_title", type: "text", placeholder: "enter the chapter title"});
         $(chapter_icon).find('p').replaceWith(chapter_title_form);
