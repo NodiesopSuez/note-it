@@ -253,12 +253,13 @@ $(function(){
         scrollToTop();
     });
 
-    //既存ノートリストのアイコンが選択されたら
+    //既存ノートが選択されたら
     $('.note_section').on ("click", '.exist_note_list', function(){
         //選択されたノートのradioをcheckedにする
         var selected_note = $(this).attr('for');
 
         console.log(selected_note);
+        console.log($(`#${selected_note}`));
         $(`#${selected_note}`).prop({ checked : true });
         //クリックしたノートだけhideする
         $('.note_section').children().show();
@@ -270,7 +271,7 @@ $(function(){
         var note_cassette = createNoteIcon(`cassette ${selected_note_color}`, selected_note_title);
 
         //ノートIDからチャプター一覧取得
-        var selected_note_id = $(this).attr('for').replace("note_", "");
+        var selected_note_id = selected_note.replace("note_", "");
         $.ajax({
             url : '/controllers/chapter/get_chapter_list_controller.php',
             type: 'post',
