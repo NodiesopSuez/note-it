@@ -31,9 +31,9 @@ try {
     
     $sanitized = $utility->sanitize(1, $_POST);
 
-/*     echo '$_sanitized1<br/>';
+    echo '$_sanitized1<br/>';
     var_dump($sanitized);
-    echo '<br/>'; */
+    echo '<br/>'; 
     
     $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
