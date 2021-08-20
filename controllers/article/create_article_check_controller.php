@@ -25,15 +25,18 @@ try {
     $search = new Searches;
     $utility = new SaftyUtil;
 
-/*     echo '$POST<br/>';
+    echo '$POST<br/>';
     print_r($_POST);
-    echo '<br/>'; */
+    echo '<br/>'; 
+    echo '$FILE<br/>';
+    print_r($_FILE);
+    echo '<br/>'; 
     
     $sanitized = $utility->sanitize(1, $_POST);
 
-    echo '$_sanitized1<br/>';
+    /* echo '$_sanitized1<br/>';
     var_dump($sanitized);
-    echo '<br/>'; 
+    echo '<br/>'; */ 
     
     $note_existence = $sanitized['note_existence'];
     $chapter_existence = $sanitized['chapter_existence'];
