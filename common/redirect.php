@@ -18,7 +18,7 @@ function authenticateError(){
 
 //ワンタイムトークンチェック
 function validToken(){
-    if(empty($_SESSSION['token']) || !SaftyUtil::validToken($_SESSION['token'])){
+    if(!SaftyUtil::validToken($_SESSION['token'])){
         $_SESSION['msg'] = ['error' => [Config::MSG_INVALID_PROCESS]];
         header('Location:/views/user/sign_in.php');
         exit;
