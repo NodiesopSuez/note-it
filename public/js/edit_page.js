@@ -14,7 +14,8 @@ $(function(){
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
-        let new_form_count = parseFloat($('.page_base.b').children('.form_block').eq(-2).attr('id')) + 1; //新フォームブロックの番号
+        let new_form_count = parseFloat($('.page_base.b').children().eq(-3).attr('id')) + 1; //新フォームブロックの番号
+        console.log(new_form_count);
 
         //textフォームブロックを後ろに挿入
         let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}` });
@@ -25,7 +26,8 @@ $(function(){
 
     //add_img_btnをクリック → 画像選択ウィンドウ表示
     $(document).on("click", '#add_img', function(){
-        let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
+        let new_form_count = parseFloat($('.page_base.b').children().eq(-3).attr('id')) + 1; //新フォームブロックの番号
+        console.log(new_form_count);
         
         //画像選択input
         let img_input = $('<input>').addClass('contents img').attr({
