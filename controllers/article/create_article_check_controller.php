@@ -29,7 +29,7 @@ try {
     print_r($_POST);
     echo '<br/>'; 
     echo '$FILE<br/>';
-    print_r($_FILE);
+    print_r($_FILES);
     echo '<br/>'; 
     
     $sanitized = $utility->sanitize(1, $_POST);
