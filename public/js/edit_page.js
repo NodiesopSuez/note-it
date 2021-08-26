@@ -14,7 +14,7 @@ $(function(){
 
     //add_text_btnをクリック → textフォーム追加
     $(document).on("click", '#add_text', function(){
-        let new_form_count = parseFloat($('.page_base.b').children().eq(-2).attr('id')) + 1; //新フォームブロックの番号
+        let new_form_count = parseFloat($('.page_base.b').children('.form_block').eq(-2).attr('id')) + 1; //新フォームブロックの番号
 
         //textフォームブロックを後ろに挿入
         let new_textarea   = $('<textarea>').addClass('contents text').attr({ id : `contents_${new_form_count}`, name : `contents_${new_form_count}` });
@@ -77,7 +77,6 @@ $(function(){
     });
 
 /* contents_sectionの高さを自動調整------------------------------------ */ 
-    //page_base a の場合
     $('textarea').each(function(index, element){
         let line_height = parseInt($(element).css('line-height'));
         let lines = ($(element).val() + '\n').match(/\n/g).length;
