@@ -258,9 +258,7 @@ $(function(){
     $('.note_section').on ("click", '.exist_note_list', function(){
         //選択されたノートのradioをcheckedにする
         let selected_note = $(this).attr('for');
-
-        console.log(selected_note);
-        console.log($(`#${selected_note}`));
+        
         $(`#${selected_note}`).prop({ checked : true });
         //クリックしたノートだけhideする
         $('.note_section').children().show();
